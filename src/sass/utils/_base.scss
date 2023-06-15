@@ -1,0 +1,42 @@
+@import './variables';
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+p,
+li,
+h1,
+h2,
+h3{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $blue;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
