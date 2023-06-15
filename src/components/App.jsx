@@ -1,18 +1,21 @@
 import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Header from './Header/Header';
-import ModalRegister from './ModalRegister/ModalRegister';
-import ModalLogin from './ModalLogin/ModalLogin';
+// import Header from './Header/Header';
+// import ModalRegister from './ModalRegister/ModalRegister';
+// import ModalLogin from './ModalLogin/ModalLogin';
 
 import Loader from './Loader/Loader';
 
+// eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 const App = () => {
+  const isLoading = false;
+
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {isLoading ? (
         <Loader />
       ) : (
@@ -40,7 +43,7 @@ const App = () => {
           </Routes>
         </Suspense>
       )}
-      <ToastContainer
+      {/* <ToastContainer
         position="center"
         autoClose={3000}
         hideProgressBar={false}
@@ -57,7 +60,7 @@ const App = () => {
           fontSize: '24px',
           lineHeight: '36px',
         }}
-      />
+      /> */}
     </>
   );
 };
