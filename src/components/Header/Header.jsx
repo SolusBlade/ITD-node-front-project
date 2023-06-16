@@ -20,6 +20,7 @@ export const Header = () => {
         if(selectValue === 'white') {
             document.querySelector('header').style.setProperty('--primary-background', '#ffffff')
             document.querySelector('p').style.setProperty('--primary-text-color', '#121212')
+            
             console.log(document.querySelector('p'))
             console.log('white')
             selectValue = 'white';
@@ -29,6 +30,7 @@ export const Header = () => {
         if(selectValue === 'dark') {
             document.querySelector('header').style.setProperty('--primary-background', '#121212')
             document.querySelector('p').style.setProperty('--primary-text-color', '#ffffff')
+            
             console.log('dark')
             console.log(document.querySelector('.text'))
             selectValue = 'dark';
