@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-// import Header from './Header/Header';
+import Header from './Header/Header';
 // import ModalRegister from './ModalRegister/ModalRegister';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
