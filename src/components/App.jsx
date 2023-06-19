@@ -21,10 +21,11 @@ const App = () => {
       ) : (
         <Suspense fallback={<Loader />}>
           <Routes>
-            {/* <Route
+            <Route
               path="/welcome"
-              element={<PublicRoute restricted component={<WelcomePage />} />}
-            /> */}
+              element={<h1>Welcome</h1>}
+              // element={<PublicRoute restricted component={<WelcomePage />} />}
+            />
             {/* <Route
               path="/auth"
               element={<PublicRoute component={<AuthPage />} />}
