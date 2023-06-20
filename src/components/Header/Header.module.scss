@@ -1,0 +1,21 @@
+.header{
+    height: 68px;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    background-color: var(--header-background);
+    color: var(--primary-text-color);
+
+    // @include tablet-max{
+    //     height: 70px
+    // }
+}
+
+.container{
+    height: 32px;
+    width: 161px;
+
+    display: flex;
+}
