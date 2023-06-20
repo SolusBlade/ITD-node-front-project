@@ -25,6 +25,7 @@ const App = () => {
               path="/welcome"
               element={<PublicRoute restricted component={<WelcomePage />} />}
             /> */}
+
             {/* <Route
               path="/auth"
               element={<PublicRoute component={<AuthPage />} />}
