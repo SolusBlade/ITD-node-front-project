@@ -1,11 +1,21 @@
 .header{
-    border: 2px solid red;
-    background-color: var(--primary-background);
+    height: 68px;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    background-color: var(--header-background);
+    color: var(--primary-text-color);
+
+    // @include tablet-max{
+    //     height: 70px
+    // }
 }
 
-.testDiv{
-    border: 2px solid green;
-    background-color: var(--primary-background);
-    width: 100px;
-    height: 100px;
+.container{
+    height: 32px;
+    width: 161px;
+
+    display: flex;
 }

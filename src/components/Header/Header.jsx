@@ -1,62 +1,79 @@
 import css from './Header.module.scss';
-import { SelectTheme } from "./components/SelectTheme";
-import { Profile } from "./components/Profile";
+import { SelectTheme } from "./SelectTheme/SelectTheme";
+import { Profile } from "./Profile/Profile";
 import { useEffect, useState } from 'react';
 
 export const Header = () => {
-    let [theme, setTheme] = useState('white');
+    let [theme, setTheme] = useState('dark');
     let selectValue;
-    // console.log(value);
-    useEffect(()=> {
-        console.log('useEffect')
-        console.log(theme)
+    
+    let themes = {
+        dark: {
+            primaryBackground: '#121212',
+            secondaryBackground: '#1F1F1F',
+            headerBackground: '#161616',
+            primaryTextColor: '#FFFFFF',
+            secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
+            boardHeaders: '#FFFFFF',
+            btnBg: '#BEDBB0',
+            btnTextColor: '#121212'
+        },
+        light: {
+            primaryBackground: '#FFFFFF',
+            secondaryBackground: '#F6F6F7',
+            headerBackground: '#FCFCFC',
+            primaryTextColor: '#161616',
+            secondaryTextColor: 'rgba(22, 22, 22, 0.5)',
+            boardHeaders: '#161616B2',
+            btnBg: '#BEDBB0',
+            btnTextColor: '#161616'
+        },
+        violet: {
+            primaryBackground: '#5255BC',
+            secondaryBackground: '#ECEDFD',
+            headerBackground: '#FFFFFF',
+            primaryTextColor: '#161616',
+            secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
+            boardHeaders: '#161616',
+            btnBg: '#5255BC',
+            btnTextColor: '#FFFFFF'
+        }
+    }
 
-    }, [theme]); 
+    // console.log(value);
+    // useEffect(()=> {
+    //     console.log('useEffect')
+    //     console.log(theme)
+
+    // }, [theme]); 
 
     const selectHandler = () => {
+        // const {dark, white, violet} = themes;
+        const root = document.querySelector(':root');
         const select = document.querySelector('#select-theme');
         let selectValue = select.options[select.selectedIndex].value;
-        console.log('selectHandler');
-        if(selectValue === 'white') {
-            document.querySelector('header').style.setProperty('--primary-background', '#ffffff')
-            document.querySelector('p').style.setProperty('--primary-text-color', '#121212')
-            
-            console.log(document.querySelector('p'))
-            console.log('white')
-            selectValue = 'white';
 
-            setTheme(theme = 'white');
-        }
-        if(selectValue === 'dark') {
-            document.querySelector('header').style.setProperty('--primary-background', '#121212')
-            document.querySelector('p').style.setProperty('--primary-text-color', '#ffffff')
-            
-            console.log('dark')
-            console.log(document.querySelector('.text'))
-            selectValue = 'dark';
+        root.style.setProperty('--primary-background', themes[selectValue].primaryBackground);
+        root.style.setProperty('--secondary-background', themes[selectValue].secondaryBackground );
+        root.style.setProperty('--header-background', themes[selectValue].headerBackground);
+        root.style.setProperty('--primary-text-color', themes[selectValue].primaryTextColor);
+        root.style.setProperty('--secondary-text-color', themes[selectValue].secondaryTextColor);
+        root.style.setProperty('--board-headers', themes[selectValue].boardHeaders);
+        root.style.setProperty('--btn-bg', themes[selectValue].btnBg);
+        root.style.setProperty('--btn-text-color', themes[selectValue].btnTextColor);
 
-            setTheme( theme = 'dark')
-        }
-        if(selectValue === 'violet') {
-            document.querySelector('header').style.setProperty('--primary-background', '#5255BC')
-            console.log('violet')
-            selectValue = 'violet';
-
-            setTheme(theme = 'violet')
-        }
-        console.log(document.querySelector('header'))
-        console.log()
+        // console.log('selectHandler', selectValue);
+        // console.log('selectHandler', themes[selectValue]);
+        
+        // console.log()
     }
 
     return (
-        <>
         <header className={css.header}>
-            <SelectTheme selectHandler={selectHandler}></SelectTheme>
-            <Profile></Profile>
-        <div className={css.testDiv}>pook</div>
-
+            <div className={css.container}>
+                <SelectTheme selectHandler={selectHandler}></SelectTheme>
+                <Profile></Profile>
+            </div>
         </header>
-        </>
-        
     )
 }

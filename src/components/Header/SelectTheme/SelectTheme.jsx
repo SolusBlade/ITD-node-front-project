@@ -1,13 +1,14 @@
+import css from './SelectTheme.module.scss'
 import { useEffect } from "react";
 
 export const SelectTheme = ({selectHandler}) => {
     
     return (
-        <div>
-            <label for="select-theme">Theme</label>
+        <div className={css.container}>
+            <label htmlFor="select-theme" className={css.label}>Theme</label>
             <select name="theme" id="select-theme" onChange={selectHandler}>
-                <option value="white">White</option>
                 <option value="dark">Dark</option>
+                <option value="light">White</option>
                 <option value="violet">Violet</option>
             </select>
         </div>
