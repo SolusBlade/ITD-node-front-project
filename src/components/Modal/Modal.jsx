@@ -33,8 +33,8 @@ const Modal = ({ closeModal, children, title }) => {
     <>
       <div className={s.backdrop} onClick={closeModalOnBackdrop}>
         <div className={s.modalContainer}>
-          <p>{title}</p>
-          <button onClick={closeModal} type="button">
+          <p className={s.title}>{title}</p>
+          <button className={s.close} onClick={closeModal} type="button">
             <Icon name="icon-close" width={18} height={18} />
           </button>
           {children}

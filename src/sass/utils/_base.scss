@@ -1,31 +1,34 @@
 @import './variables';
 
-ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
 p,
 li,
 h1,
 h2,
-h3{
-    margin: 0;
-    padding: 0;
+h3 {
+  margin: 0;
+  padding: 0;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button {
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
