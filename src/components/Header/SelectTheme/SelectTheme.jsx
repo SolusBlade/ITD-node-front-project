@@ -1,4 +1,5 @@
 import css from './SelectTheme.module.scss'
+// eslint-disable-next-line
 import { useEffect } from "react";
 
 export const SelectTheme = ({selectHandler}) => {
