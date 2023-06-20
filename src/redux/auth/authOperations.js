@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import {
-  addUserBalanceApi,
   getCurrentUserInfoApi,
   logOutApi,
   loginApi,
@@ -24,9 +23,9 @@ export const registerUser = createAsyncThunk(
     const { name, email, password } = newUser;
     try {
       await registerApi({ name, email, password });
-      const userToken = await loginApi({ email, password });
+      const { accessToken: userToken } = await loginApi({ email, password });
       token.set(userToken);
-      return { newUser, ...userToken };
+      return { newUser, userToken };
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
@@ -38,7 +37,7 @@ export const loginUser = createAsyncThunk(
   async (newUser, thunkApi) => {
     const { email, password } = newUser;
     try {
-      const userToken = await loginApi({ email, password });
+      const { accessToken: userToken } = await loginApi({ email, password });
       token.set(userToken);
       return userToken;
     } catch (error) {
@@ -78,18 +77,6 @@ export const logOutUser = createAsyncThunk(
       const user = await logOutApi();
       token.unset();
       return user;
-    } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const addUserBalance = createAsyncThunk(
-  'auth/addBalance',
-  async (balance, thunkApi) => {
-    try {
-      const newBalance = await addUserBalanceApi(balance);
-      return newBalance;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

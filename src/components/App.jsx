@@ -1,11 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import {Header} from './Header/Header';
 // import ModalRegister from './ModalRegister/ModalRegister';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
 import Loader from './Loader/Loader';
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import { PrivateRoute, PublicRoute } from 'services/routes';
 
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -15,7 +16,6 @@ const App = () => {
 
   return (
     <>
-      <Header />
       {isLoading ? (
         <Loader />
       ) : (
@@ -23,8 +23,7 @@ const App = () => {
           <Routes>
             <Route
               path="/welcome"
-              element={<h1>Welcome</h1>}
-              // element={<PublicRoute restricted component={<WelcomePage />} />}
+              element={<PublicRoute restricted component={<WelcomePage />} />}
             />
             {/* <Route
               path="/auth"
@@ -33,12 +32,13 @@ const App = () => {
               <Route path="login" exact element={<Login />} />
               <Route path="register" exact element={<Register />} />
             </Route> */}
-            {/* <Route
+            <Route
               path="/home"
+              // element={<HomePage />}
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route path=":boardName" element={<></>} />
-            </Route> */}
+              <Route path=":boardName" element={<div></div>} />
+            </Route>
 
             <Route path="*" element={<Navigate to="/welcome" />} />
           </Routes>
