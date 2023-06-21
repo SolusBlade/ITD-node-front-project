@@ -1,0 +1,17 @@
+.Mui-selected{
+    color: var(--btn-bg);
+    color: green;
+}
+
+.MuiButton-textPrimary{
+    color: red;
+}
+.MuiButtonBase-root{
+    color: red;
+}
+.MuiButton-root{
+    color: red;
+}
+.active{
+    background-color: red;
+}

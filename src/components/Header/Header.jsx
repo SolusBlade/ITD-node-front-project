@@ -2,11 +2,14 @@ import css from './Header.module.scss';
 import { SelectTheme } from "./SelectTheme/SelectTheme";
 import { Profile } from "./Profile/Profile";
 import { useEffect, useState } from 'react';
+import './Header.css';
+
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button'
 
 export const Header = () => {
-    let [theme, setTheme] = useState('dark');
-    let selectValue;
-    
+    let [selectedTheme, setTheme] = useState('dark');
+    // let selectValue;
     let themes = {
         dark: {
             primaryBackground: '#121212',
@@ -16,7 +19,11 @@ export const Header = () => {
             secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
             boardHeaders: '#FFFFFF',
             btnBg: '#BEDBB0',
-            btnTextColor: '#121212'
+            btnTextColor: '#121212',
+            selectHeader: 'rgba(255, 255, 255, 0.8)',
+            selectOption: 'rgba(255, 255, 255, 0.5)',
+            selectListBg: '#151515',
+            selectListBorder: '#BEDBB0'
         },
         light: {
             primaryBackground: '#FFFFFF',
@@ -26,7 +33,11 @@ export const Header = () => {
             secondaryTextColor: 'rgba(22, 22, 22, 0.5)',
             boardHeaders: '#161616B2',
             btnBg: '#BEDBB0',
-            btnTextColor: '#161616'
+            btnTextColor: '#161616',
+            selectHeader: 'rgba(160, 160, 160, 0.8)',
+            selectOption: '#161616',
+            selectListBg: '#FCFCFC',
+            selectListBorder: '#BEDBB0'
         },
         violet: {
             primaryBackground: '#5255BC',
@@ -36,44 +47,52 @@ export const Header = () => {
             secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
             boardHeaders: '#161616',
             btnBg: '#5255BC',
-            btnTextColor: '#FFFFFF'
+            btnTextColor: '#FFFFFF',
+            selectHeader: 'rgba(160, 160, 160, 0.8)',
+            selectOption: '#161616',
+            selectListBg: '#FCFCFC',
+            selectListBorder: '#ECEDFD'
         }
     }
 
-    // console.log(value);
-    // useEffect(()=> {
-    //     console.log('useEffect')
-    //     console.log(theme)
+    useEffect(()=> {
+        // console.log('useEffect')
+        // console.log(selectedTheme)
 
-    // }, [theme]); 
+    }, [selectedTheme]); 
 
-    const selectHandler = () => {
-        // const {dark, white, violet} = themes;
+    const selectHandler = (theme) => {
         const root = document.querySelector(':root');
-        const select = document.querySelector('#select-theme');
-        let selectValue = select.options[select.selectedIndex].value;
+        // const selectValue = event.target.value;
 
-        root.style.setProperty('--primary-background', themes[selectValue].primaryBackground);
-        root.style.setProperty('--secondary-background', themes[selectValue].secondaryBackground );
-        root.style.setProperty('--header-background', themes[selectValue].headerBackground);
-        root.style.setProperty('--primary-text-color', themes[selectValue].primaryTextColor);
-        root.style.setProperty('--secondary-text-color', themes[selectValue].secondaryTextColor);
-        root.style.setProperty('--board-headers', themes[selectValue].boardHeaders);
-        root.style.setProperty('--btn-bg', themes[selectValue].btnBg);
-        root.style.setProperty('--btn-text-color', themes[selectValue].btnTextColor);
+        root.style.setProperty('--primary-background', themes[theme].primaryBackground);
+        root.style.setProperty('--secondary-background', themes[theme].secondaryBackground );
+        root.style.setProperty('--header-background', themes[theme].headerBackground);
+        root.style.setProperty('--primary-text-color', themes[theme].primaryTextColor);
+        root.style.setProperty('--secondary-text-color', themes[theme].secondaryTextColor);
+        root.style.setProperty('--board-headers', themes[theme].boardHeaders);
+        root.style.setProperty('--btn-bg', themes[theme].btnBg);
+        root.style.setProperty('--btn-text-color', themes[theme].btnTextColor);
+        root.style.setProperty('--select-header', themes[theme].selectHeader);
+        root.style.setProperty('--select-option', themes[theme].selectOption);
+        root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
+        root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
 
+        setTheme(theme);
         // console.log('selectHandler', selectValue);
         // console.log('selectHandler', themes[selectValue]);
         
         // console.log()
     }
 
+
     return (
         <header className={css.header}>
             <div className={css.container}>
-                <SelectTheme selectHandler={selectHandler}></SelectTheme>
+                <SelectTheme selectHandler={selectHandler} selectedTheme={selectedTheme}></SelectTheme>
                 <Profile></Profile>
             </div>
+            {/* <Button>Test button</Button> */}
         </header>
     )
 }

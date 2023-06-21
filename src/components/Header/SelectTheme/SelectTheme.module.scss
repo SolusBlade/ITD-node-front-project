@@ -1,7 +1,140 @@
-.container{
+// .container{
+//     // width: 68px;
+// }
+
+// .label{
+//     color: greenyellow;
+// }
+
+// .paper{
+//     color: brown;
+// }
+
+// .list{
+//     color: var(--primary-text-color);
+//     background-color: var(--secondary-background);
+
+// }
+// .test{
+//     // color: rgb(19, 240, 19);
+// }
+// .selected{
+//     background-color: green;
+// }
+// .MuiSelect-select{
+//     color: aqua;
+// }
+// .MuiButton-text{
+//     color: red;
+// }
+.select{
+    width: 70px;
+    // border: 1px solid red;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+.selectContainer{
     width: 68px;
+    // border: 1px solid orange;
+    background-color: var(--header-background);
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+}
+.header{
+    margin-right: 4px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: var(--select-header);
+    /* identical to box height */
+    
+    letter-spacing: -0.02em;
+}
+.icon{
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 2px solid green;
+    border-bottom: 2px solid red;
+
+    &.rotate{
+        transform: rotate(180deg);
+    }
+}
+.svg{
+    margin: 0;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // color: orange;
+    // stroke: orange;
+    // fill: red;
+
+    &:first-child{
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        // fill: orange;
+        stroke: var(--select-header);
+        // color: inherit;
+    }
+}
+.list{
+    // height: 22.6px;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    color: var(--select-option);
+    background-color: var(--select-list-bg);
+
+    border-radius: 8px;
+    transform: translateY(-20px);
+    z-index: -1;
+
+    // font-size: 5px;
+    &.active{
+        padding: 18px 0px 18px 0px;
+        // color: green;
+        width: 100px;
+        
+        // display: absolute;
+
+        border: 1px solid var(--select-list-border);
+
+        transform: translateY(0px);
+    }
+
+    
 }
 
-.label{
+.listItem{
+    position: absolute;
     
+    &:hover{
+        background-color: var(--secondary-background);
+    }
+
+    &.active{
+        padding-left: 18px;
+
+        // color: blueviolet;
+        position: static;
+    }
+
+    &:not(:last-child){
+        margin-bottom: 4px;
+    }
 }

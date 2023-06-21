@@ -1,0 +1,24 @@
+/* .MuiButtonBase-root{
+    color: red;
+} */
+.MuiInputBase-root.MuiOutlinedInput-root{
+    color: var(--primary-text-color);
+}
+
+.MuiFormLabel-root.MuiInputLabel-root{
+    color: var(--primary-text-color);
+}
+
+.MuiButtonBase-root.Mui-selected{
+    color: var(--btn-bg);
+}
+
+.MuiButtonBase-root.MuiButton-root{
+    color: red;
+}
+/* .MuiButtonBase-root{
+    color: red;
+}
+.MuiButton-root{
+    color: red;
+} */
