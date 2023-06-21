@@ -4,8 +4,6 @@ import { Profile } from "./Profile/Profile";
 import { useEffect, useState } from 'react';
 import './Header.css';
 
-import Select from '@mui/material/Select';
-import Button from '@mui/material/Button'
 
 export const Header = () => {
     let [selectedTheme, setTheme] = useState('dark');

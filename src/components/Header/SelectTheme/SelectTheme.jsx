@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import css from './SelectTheme.module.scss';
-import { useEffect, useState } from "react";
-import Select from '@mui/material/Select';
-import { MenuItem, FormControl, InputLabel } from '@mui/material';
+import { useState } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
 
@@ -12,17 +10,11 @@ export const SelectTheme = ({selectHandler, selectedTheme}) => {
     const [isActive, setActive] = useState(false);
 
     const handleClick = (event) => {
-        // console.log('button clicked');
-        // console.log(event);
         const evtParent = event.currentTarget.parentElement;
-        // event.currentTarget.children[1].classList.toggle('active');
         evtParent.children[1].classList.toggle('active');
         evtParent.children[0].children[1].classList.toggle('rotate');
         
-        // console.log(event.currentTarget.parentElement.children[0].children[1]);
         setActive(!isActive);
-        // e.target.classList.toggle("active");
-
     }
 
     const test = (event) => {
