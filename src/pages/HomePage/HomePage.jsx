@@ -3,7 +3,6 @@ import { Suspense, useState } from 'react';
 import { Header } from 'components/Header/Header';
 import s from './HomePage.module.scss';
 import Modal from 'components/Modal/Modal';
-import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import NewBoard from '../../components/Forms/NewBoard/NewBoardForm';
 
 const HomePage = () => {
@@ -28,7 +27,6 @@ const HomePage = () => {
         {isOpen && (
           <Modal title="New board" closeModal={handleOpenModal}>
             <NewBoard />
-            <ButtonModalWithIcon text={'Add board'} />
           </Modal>
         )}
       </Suspense>
