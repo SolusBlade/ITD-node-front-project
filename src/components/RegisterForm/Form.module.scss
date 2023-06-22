@@ -1,0 +1,92 @@
+@import '../../sass/utils/mixin';
+@import '../../sass/utils/variables';
+
+
+
+.formwrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: var(--primary-background);    
+    width: 335px;
+
+      @include tablet {
+        padding: 40px;
+        width: 424px;
+      }
+
+      @include desktop {
+
+      }
+      h2 {
+        margin-bottom: 40px;
+      }
+}
+
+.registerloginwrapper {
+    display: flex;
+    gap: 14px;
+    
+    @include tablet {
+        
+    }    
+}
+.commoncaption {
+    font-size: 18px;
+    line-height: 1.8em;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    &.accent{
+        color: var(--primary-text-color);
+    }
+}
+
+.fieldswrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: var(--primary-background);
+
+    label {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.inputfield {
+    padding: 14px 18px;
+    width: 287px;
+    border: 1px solid;
+    border-color: var(--priority-high);
+    border-radius: 8px;
+    background-color: var(--secondary-background);
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    line-height: 1.5em;
+
+    @include tablet {
+        width: 344px;
+    }
+}
+
+.submitbutton {
+    text-align: center;
+    color: var(--header-background);
+    margin-top: 10px;
+    width: 287px;
+    padding: 14px;
+    border: 1px solid;
+    background-color: var(--btn-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    @include tablet {
+        width: 344px;
+    }
+}
+
