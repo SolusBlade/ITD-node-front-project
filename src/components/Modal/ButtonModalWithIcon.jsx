@@ -1,10 +1,10 @@
 import Icon from 'components/Icon/Icon';
 import s from './Modal.module.scss';
 
-const ButtonModalWithIcon = ({ text, handleSubmit }) => {
+const ButtonModalWithIcon = ({ text }) => {
   return (
-    <button onSubmit={handleSubmit} type="submit" className={s.buttonModal}>
-      <Icon name="icon-plus" width={28} height={28} className={s.icon} />
+    <button type="submit" className={s.buttonModal}>
+      <Icon name="icon-plus" width={32} height={32} />
       <p className={s.buttonText}>{text}</p>
     </button>
   );
