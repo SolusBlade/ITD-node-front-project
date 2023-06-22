@@ -1,0 +1,31 @@
+.section {
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+  }
+}
+
+.container {
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoText {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
