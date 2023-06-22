@@ -8,7 +8,8 @@ import sprite from '../../../assets/icons/icons.svg';
 
 export const SelectTheme = ({selectHandler, selectedTheme}) => {
     const [isActive, setActive] = useState(false);
-
+    console.log('selectedTheme ', selectedTheme, selectedTheme === 'dark')
+    
     const handleClick = (event) => {
         const evtParent = event.currentTarget.parentElement;
         evtParent.children[1].classList.toggle('active');
@@ -40,9 +41,21 @@ export const SelectTheme = ({selectHandler, selectedTheme}) => {
                         handleClick(event);
                         test(event);
                 }}>
-                    <li className={clsx(css.listItem, [isActive && css.active])}>Light</li>
+                    <li key={1} className={clsx({
+                        [css.listItem] : true,
+                        [css.current] : selectedTheme === 'light'
+                    })}>Light</li>
+                    <li key={1} className={clsx({
+                        [css.listItem] : true,
+                        [css.current] : selectedTheme === 'dark'
+                    })}>Dark</li>
+                    <li key={1} className={clsx({
+                        [css.listItem] : true,
+                        [css.current] : selectedTheme === 'violet'
+                    })}>Violet</li>
+                    {/* <li className={clsx(css.listItem, [isActive && css.active])}>Light</li>
                     <li className={clsx(css.listItem, [isActive && css.active])}>Dark</li>
-                    <li className={clsx(css.listItem, [isActive && css.active])}>Violet</li>
+                    <li className={clsx(css.listItem, [isActive && css.active])}>Violet</li> */}
                 </ul>
             </div>
         </div>

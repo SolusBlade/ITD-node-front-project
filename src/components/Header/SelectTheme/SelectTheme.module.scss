@@ -57,7 +57,7 @@
     }
 }
 .list{
-    // height: 22.6px;
+    height: 0px;
     display: none;
     overflow: hidden;
     position: relative;
@@ -75,6 +75,7 @@
     &.active{
         padding: 18px 0px 18px 0px;
         // color: green;
+        height: auto;
         width: 100px;
         
         // display: absolute;
@@ -88,20 +89,23 @@
 }
 
 .listItem{
-    position: absolute;
-    
+    // position: absolute;
+    padding-left: 18px;
     &:hover{
         background-color: var(--secondary-background);
     }
 
-    &.active{
-        padding-left: 18px;
+    // &.active{
+    //     padding-left: 18px;
 
-        // color: blueviolet;
-        position: static;
-    }
+    //     // color: blueviolet;
+    //     // position: static;
+    // }
 
     &:not(:last-child){
         margin-bottom: 4px;
     }
+}
+.current{
+    color: var(--btn-bg);
 }
