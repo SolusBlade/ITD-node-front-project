@@ -2,7 +2,6 @@ import css from './Header.module.scss';
 import { SelectTheme } from "./SelectTheme/SelectTheme";
 import { Profile } from "./Profile/Profile";
 import { useEffect, useState } from 'react';
-import './Header.css';
 
 
 export const Header = () => {
@@ -90,7 +89,6 @@ export const Header = () => {
                 <SelectTheme selectHandler={selectHandler} selectedTheme={selectedTheme}></SelectTheme>
                 <Profile></Profile>
             </div>
-            {/* <Button>Test button</Button> */}
         </header>
     )
 }
