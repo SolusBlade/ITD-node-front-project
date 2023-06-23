@@ -45,19 +45,19 @@ export const SelectTheme = ({selectHandler, selectedTheme}) => {
                         [css.listItem] : true,
                         [css.current] : selectedTheme === 'light'
                     })}>
-                        Light
+                        <p>Light</p>
                     </li>
-                    <li key={1} className={clsx({
+                    <li key={2} className={clsx({
                         [css.listItem] : true,
                         [css.current] : selectedTheme === 'dark'
                     })}>
-                        Dark
+                        <p>Dark</p>
                     </li>
-                    <li key={1} className={clsx({
+                    <li key={3} className={clsx({
                         [css.listItem] : true,
                         [css.current] : selectedTheme === 'violet'
                     })}>
-                        Violet
+                        <p>Violet</p>
                     </li>
                 </ul>
             </div>

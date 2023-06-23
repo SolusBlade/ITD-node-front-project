@@ -1,11 +1,13 @@
 
 .select{
+    margin-right: 14px;
     width: 70px;
     cursor: pointer;
     position: relative;
     z-index: 10;
 }
 .selectContainer{
+    margin: 0;
     width: 68px;
     background-color: var(--header-background);
     z-index: 1;
@@ -15,6 +17,7 @@
 }
 .header{
     margin-right: 4px;
+    user-select: none;
 
     font-weight: 500;
     font-size: 14px;
@@ -78,7 +81,7 @@
         height: auto;
         width: 100px;
         
-        // display: absolute;
+        position: absolute;
 
         border: 1px solid var(--select-list-border);
 
@@ -91,6 +94,8 @@
 .listItem{
     // position: absolute;
     padding-left: 18px;
+    user-select: none;
+
     &:hover{
         background-color: var(--secondary-background);
     }

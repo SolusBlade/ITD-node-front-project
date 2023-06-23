@@ -1,6 +1,7 @@
 import css from './Header.module.scss';
 import { SelectTheme } from "./SelectTheme/SelectTheme";
 import { Profile } from "./Profile/Profile";
+import { ProfileModal } from "./ProfileModal/ProfileModal";
 import { useEffect, useState } from 'react';
 
 
@@ -88,6 +89,9 @@ export const Header = () => {
             <div className={css.container}>
                 <SelectTheme selectHandler={selectHandler} selectedTheme={selectedTheme}></SelectTheme>
                 <Profile></Profile>
+            </div>
+            <div className={css.modal}>
+                <ProfileModal></ProfileModal>
             </div>
         </header>
     )

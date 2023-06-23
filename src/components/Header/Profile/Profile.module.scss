@@ -1,3 +1,49 @@
 // .text{
 //     color: var(--primary-text-color);
 // }
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.name{
+    margin-right: 8px;
+    font-size: 14px;
+    letter-spacing: -0.28px;
+}
+
+.avatarContainer{
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+
+    border-radius: 8px;
+    background-color: var(--secondary-background);
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid var(--select-list-border);
+    }
+}
+.svg{
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--select-list-bg);
+
+    &:first-child{
+        transform: translateY(1.5px);
+        // margin: 0;
+        // object-fit:cover;
+        // fill: orange;
+        // stroke: var(--select-header);
+        // color: inherit;
+    }
+}
+.img{
+    font-size: 9px;
+}

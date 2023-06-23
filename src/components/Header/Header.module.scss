@@ -1,29 +1,36 @@
 @import '../../sass/utils/mixin';
 
 .header{
-    height: 68px;
-
+    // height: 68px;
+    padding: 18px 0px;
     position: relative;
-    z-index: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    z-index: 0;
 
     background-color: var(--header-background);
     color: var(--primary-text-color);
 
     @include tablet-max{
-        height: 70px
+        // height: 70px
     }
 }
 
 .container{
-    height: 32px;
+    // height: 32px;
     width: 261px;
 
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 // .MuiButton-text{
 //     color: red;
 // }
+.modal{
+    display: none;
+    // position: absolute;
+    transform: translateY(170px);
+    z-index: 200;
+}
