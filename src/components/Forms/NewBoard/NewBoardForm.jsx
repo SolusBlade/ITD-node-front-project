@@ -1,14 +1,13 @@
-import Icon from '../../Icon/Icon';
 import { Formik, Form } from 'formik';
-import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import * as yup from 'yup';
-import s from './NewBoard.module.scss';
-
 import { useState } from 'react';
 import Box from '@mui/joy/Box';
 import Radio from '@mui/joy/Radio';
 import RadioGroup from '@mui/joy/RadioGroup';
 import InputField from 'shared/components/InputField/InputField';
+import Icon from '../../Icon/Icon';
+import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
+
 const initialsValue = {
   title: '',
 };
@@ -36,12 +35,7 @@ const NewBoard = () => {
       initialValues={initialsValue}
     >
       <Form>
-        <InputField
-          name="title"
-          as="textarea"
-          placeholder="Title"
-          height={49}
-        />
+        <InputField name="title" placeholder="Title" />
         <RadioGroup
           orientation="horizontal"
           aria-label="Icons"
@@ -80,70 +74,16 @@ const NewBoard = () => {
                 name="icons"
                 label={
                   {
-                    colors: (
-                      <Icon
-                        name="colors"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
-                    hexagon: (
-                      <Icon
-                        name="hexagon"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
-                    project: (
-                      <Icon
-                        name="project"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
-                    container: (
-                      <Icon
-                        name="container"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
+                    colors: <Icon name="colors" width={26} height={26} />,
+                    hexagon: <Icon name="hexagon" width={26} height={26} />,
+                    project: <Icon name="project" width={26} height={26} />,
+                    container: <Icon name="container" width={26} height={26} />,
                     lightnight: (
-                      <Icon
-                        name="lightnight"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
+                      <Icon name="lightnight" width={26} height={26} />
                     ),
-                    loading: (
-                      <Icon
-                        name="loading"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
-                    puzzle: (
-                      <Icon
-                        name="puzzle"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
-                    star: (
-                      <Icon
-                        name="star"
-                        width={26}
-                        height={26}
-                        secondaryClassName={s.icon}
-                      />
-                    ),
+                    loading: <Icon name="loading" width={26} height={26} />,
+                    puzzle: <Icon name="puzzle" width={26} height={26} />,
+                    star: <Icon name="star" width={26} height={26} />,
                   }[item]
                 }
                 variant={icon === item ? 'solid' : 'plain'}
@@ -175,7 +115,7 @@ const NewBoard = () => {
           ))}
         </RadioGroup>
 
-        <ButtonModalWithIcon text={'Add board'} />
+        <ButtonModalWithIcon text="Create" />
       </Form>
     </Formik>
   );
