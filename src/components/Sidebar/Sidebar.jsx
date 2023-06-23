@@ -34,6 +34,7 @@ export const Sidebar = () => {
             <LogoComponent />
             <p className={st.logoText}>Task Pro</p>
           </div>
+
           <p className={st.boardsTitle}>My boards</p>
           <div className={st.createBoard}>
             <p>Create a new board</p>

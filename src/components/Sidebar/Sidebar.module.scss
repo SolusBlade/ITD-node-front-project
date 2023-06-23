@@ -3,15 +3,37 @@
   flex-direction: column;
 }
 
+.logoText {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.logoWrap {
+  margin-bottom: 70px;
+}
+
 .createBoard {
+  height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.createBoard > p {
+  width: 76px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
 }
 
 .sectionBoards {
   width: 225px;
+  margin-top: 40px;
   @media screen and (min-width: 768px) {
     width: 260px;
   }
