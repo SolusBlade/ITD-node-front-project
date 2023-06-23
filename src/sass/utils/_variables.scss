@@ -1,14 +1,22 @@
 :root {
-  --primary-background:#121212;
-  --secondary-background:#1F1F1F;
-  --header-background:#161616;
-  --primary-text-color:#FFFFFF;
-  --secondary-text-color:rgba(255, 255, 255, 0.5);
-  --board-headers: #FFFFFF;
-  --btn-bg: #BEDBB0;
+  --primary-background: #121212;
+  --secondary-background: #1f1f1f;
+  --header-background: #161616;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: rgba(255, 255, 255, 0.5);
+  --board-headers: #ffffff;
+  --btn-bg: #bedbb0;
   --btn-text-color: #121212;
-  --priority-without-priority: #1616164D;
-  --priority-low: #8FA1D0;
-  --priority-medium: #E09CB5;
-  --priority-high: #BEDBB0;
+  --priority-without-priority: #1616164d;
+  --priority-low: #8fa1d0;
+  --priority-medium: #e09cb5;
+  --priority-high: #bedbb0;
 }
+
+$overlay-color: rgba(18, 20, 23, 0.4);
+$modal-bg: #151515;
+
+// добавил что бы не выбивало ошибку
+$white: #ffffff;
+$blue: blue;
+//
