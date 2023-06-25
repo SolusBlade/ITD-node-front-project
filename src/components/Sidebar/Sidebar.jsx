@@ -1,4 +1,5 @@
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
+import Icon from 'components/Icon/Icon';
 import st from './Sidebar.module.scss';
 
 export const Sidebar = () => {
@@ -55,8 +56,10 @@ export const Sidebar = () => {
                 <span className={st.boardName}>{el.name}</span>
                 {activeItem && (
                   <>
-                    <span>ed</span>
-                    <span>del</span>
+                    <span className={st.boardEditIcons}>
+                      <Icon name={'icon-pencil'} width={16} height={16} />
+                      <Icon name={'icon-trash'} width={16} height={16} />
+                    </span>
                   </>
                 )}
               </li>

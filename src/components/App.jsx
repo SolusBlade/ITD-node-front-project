@@ -9,7 +9,6 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
-import HeaderDashboard from 'pages/HomePage/ScreensPage/HeaderDashboard';
 
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
