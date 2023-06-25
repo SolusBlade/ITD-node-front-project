@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+// eslint-disable-next-line
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 // import ModalRegister from './ModalRegister/ModalRegister';
@@ -7,6 +8,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Loader from './Loader/Loader';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
+import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
 
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -37,7 +39,9 @@ const App = () => {
               // element={<HomePage />}
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route path=":boardName" element={<div></div>} />
+              <Route
+                path=":boardName"
+                element={<HeaderDashboard />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/welcome" />} />

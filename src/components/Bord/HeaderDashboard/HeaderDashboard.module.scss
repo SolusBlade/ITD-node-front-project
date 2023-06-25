@@ -1,0 +1,17 @@
+.titleHeaderDashboard {
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: var(--primary-text-color);
+}
+
+.containerDashboard {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerMainDashboard {
+  overflow-x: auto;
+}

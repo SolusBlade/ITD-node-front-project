@@ -1,0 +1,31 @@
+.cumList {
+  display: flex;
+}
+
+.titleToDo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 334px;
+  padding: 14px 20px;
+
+  border-radius: 8px;
+  background-color: var(--primary-background);
+
+  &:last-child {
+    margin-right: 34px;
+  }
+}
+
+.titleCard {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.iconToDo {
+  display: flex;
+  gap: 8px;
+}
