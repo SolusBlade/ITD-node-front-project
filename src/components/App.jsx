@@ -1,5 +1,4 @@
-import { lazy, Suspense } from 'react';
-// eslint-disable-next-line
+import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 // import ModalRegister from './ModalRegister/ModalRegister';
@@ -8,13 +7,19 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Loader from './Loader/Loader';
 import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
-import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
+import { useDispatch } from 'react-redux';
+import { getCurrentUserInfo } from 'redux/auth/authOperations';
+
 
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 const App = () => {
   const isLoading = false;
+  const dispatch = useDispatch();
+  useEffect(() => {
+  dispatch(getCurrentUserInfo())
+  }, [dispatch])
 
   return (
     <>
