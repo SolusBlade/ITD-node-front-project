@@ -1,0 +1,14 @@
+.header {
+  height: 68px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: var(--header-background);
+  color: var(--primary-text-color);
+}
+
+.container {
+  height: 32px;
+  width: 161px;
+  display: flex;
+}/*# sourceMappingURL=Header.module.css.map */

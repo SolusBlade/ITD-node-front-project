@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import {Header} from './Header/Header';
 import {RegisterForm} from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
+import { CommonWelcomeField} from './CommonWelcomField/CommonWelcomeField'
 // import ModalRegister from './ModalRegister/ModalRegister';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
@@ -25,7 +26,7 @@ const App = () => {
           <Routes>
             <Route
               path="/welcome"
-              element={<h1>Welcome</h1>}
+              element={<CommonWelcomeField/>}
               
               // element={<PublicRoute restricted component={<WelcomePage />} />}
             />

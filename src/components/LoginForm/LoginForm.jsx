@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from 'formik';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { loginUser } from '../../redux/auth/authOperations';
@@ -14,10 +15,14 @@ export const LoginForm = () => {
     email: yup
       .string()
       .email('Email must be a valid email')
-      .min(3)
-      .max(254)
+      .min(3, 'Email must be at least 3 characters')
+      .max(64, 'Email must be less than or equal to 64 characters')
       .required('Email is a required field'),
-    password: yup.string().required('Password is a required field'),
+    password: yup
+      .string()
+      .min(8, 'Password must be at least 8 characters')
+      .max(64, 'Password must be less than or equal to 64 characters')
+      .required('Password is a required field'),
   });
 
   const initialValues = { email: '', password: '' };
@@ -39,91 +44,44 @@ export const LoginForm = () => {
   // };
 
   return (
-    //   <LoginFormStyled>
-    //     <Formik
-    //       initialValues={initialValues}
-    //       validationSchema={schema}
-    //       onSubmit={handleSubmit}
-    //     >
-    //       <Form autoComplete="off">
-    //         <Caption>Login</Caption>
-    //         <FormFields>
-    //           <InputWraper>
-    //             <Field
-    //               type="text"
-    //               name="email"
-    //               placeholder=" "
-    //               autoComplete="off"
-    //             />
-    //             <label htmlFor="email">Email *</label>
-    //             <ErrorMessage className="error" component="div" name="email" />
-    //           </InputWraper>
-
-    //           <InputWraper>
-    //             <Field
-    //               type={passwordShown ? 'text' : 'password'}
-    //               name="password"
-    //               placeholder=" "
-    //               autoComplete="off"
-    //             />
-    //             <label htmlFor="password">Password *</label>
-    //             <ShowPassword
-    //               clickHandler={onClickHandler}
-    //               isShown={passwordShown}
-    //             />
-    //             <ErrorMessage className="error" component="div" name="password" />
-    //           </InputWraper>
-    //         </FormFields>
-    //         <ButtonContainer>
-    //           <Button className="orange regLogbutton" type="submit">
-    //             Log In
-    //           </Button>
-    //           <Button
-    //             className="white regLogbutton"
-    //             type="button"
-    //             onClick={redirection}
-    //           >
-    //             Register
-    //           </Button>
-    //         </ButtonContainer>
-    //       </Form>
-    //     </Formik>
-    //     {message && <Message>{message}</Message>}
-    //   </LoginFormStyled>
     <div className={s.formwrapper}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        
-          
         <Form>
           <div className={s.registerloginwrapper}>
-            <h2 className={s.commoncaption}>Registration</h2>
-            <h2 LogIn className={`${s.commoncaption} ${s.accent}`}>Log In</h2>
+            <NavLink className={s.commoncaption}>Registration</NavLink>
+            <NavLink className={`${s.commoncaption} ${s.accent}`}>
+              Log In
+            </NavLink>
           </div>
-          
           <div className={s.fieldswrapper}>
-          <label htmlFor="email">
-            <Field className={s.inputfield}
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-              autoComplete="off"
-            />
-          </label>
-          <label htmlFor="password">
-            <Field className={s.inputfield}
-              type="password"
-              name="password"
-              placeholder="Create a password"
-              autoComplete="off"
-            />
-          </label>
-          <button type="submit" className={s.submitbutton}>Register Now</button>
+            <label htmlFor="email">
+              <Field
+                className={s.inputfield}
+                id="email"
+                type="text"
+                name="email"
+                placeholder="Enter your email"
+                autoComplete="off"
+              />
+            </label>
+            <label htmlFor="password">
+              <Field
+                id="password"
+                className={s.inputfield}
+                type="password"
+                name="password"
+                placeholder="Confirm a password"
+                autoComplete="off"
+              />
+            </label>
+            <button type="submit" className={s.submitbutton}>
+              Log In Now
+            </button>
           </div>
-
         </Form>
       </Formik>
     </div>

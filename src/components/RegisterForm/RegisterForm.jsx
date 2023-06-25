@@ -8,10 +8,11 @@ import s from './Form.module.scss';
 import YupPassword from 'yup-password';
 import icon from '../../assets/icons/icons.svg';
 
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
-  const initialValues = { username: '', email: '', password: '' };
+  const initialValues = { name: '', email: '', password: '' };
 
  
   const handleSubmit = (values, { resetForm }) => {
@@ -20,7 +21,7 @@ export const RegisterForm = () => {
   };
 
   const schema = yup.object().shape({
-    username: yup
+    name: yup
       .string()
       .min(2, 'Username must be at least 2 characters')
       .max(64, 'Username must be less than or equal to 64 characters')
@@ -62,14 +63,14 @@ export const RegisterForm = () => {
         <Form>
           <div className={s.registerloginwrapper}>
             <h2 className={`${s.commoncaption} ${s.accent}`}>Registration</h2>
-            <h2 LogIn className={s.commoncaption}>Log In</h2>
+            <h2 className={s.commoncaption}>Log In</h2>
           </div>
           
           <div className={s.fieldswrapper}>
-          <label htmlFor="username">
+          <label htmlFor="name">
             <Field className={s.inputfield}
               type="text"
-              name="username"
+              name="name"
               placeholder="Enter your name"
               autoComplete="off"
             />
@@ -90,7 +91,7 @@ export const RegisterForm = () => {
               autoComplete="off"
             />
           </label>
-          <button type="submit" className={s.submitbutton}>Register Now</button>
+          <button type="submit" className={s.submitbutton}>  Register Now</button>
           </div>
 
         </Form>

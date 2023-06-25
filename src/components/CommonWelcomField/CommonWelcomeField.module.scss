@@ -1,0 +1,88 @@
+@import "../../sass/utils/mixin";
+@import "../../sass/utils/variables";
+
+.backfield {
+    background-image: linear-gradient(
+    rgba(196, 196, 196, 1),
+    rgba(190, 219, 176, 1)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   
+  height: 100vh;
+  @include tablet {
+  }
+
+  @include desktop {
+
+  }
+}
+
+.picture {  
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+}
+
+.pageinfowrapper {
+  flex-direction: column;
+  align-items: center;
+  max-width: 335px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include tablet {
+    max-width: 473px;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 48px;
+    color: var(--header-background);
+  }  
+}
+
+.brandwrapper {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 24px;
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.info {
+
+}
+
+.registationbutton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: var(--header-background);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 8px;
+  max-width: 100%;
+  @include tablet {
+    max-width: 344px;
+  }
+}
+
+.loginbutton {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: inherit;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  color: var(--header-background);
+  border-radius: 8px;
+  width: 100%;
+  @include tablet {
+    width: 344px;
+  }
+}
