@@ -15,6 +15,7 @@ import { getCurrentUserInfo } from 'redux/auth/authOperations';
 import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
 import HomePage from 'pages/HomePage/HomePage';
 
+
 // eslint-disable-next-line
 // const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
