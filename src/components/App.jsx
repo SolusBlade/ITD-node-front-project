@@ -10,6 +10,7 @@ import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
 
+
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
@@ -43,7 +44,9 @@ const App = () => {
               // element={<HomePage />}
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route path=":boardName" element={<div></div>} />
+              <Route
+                path=":boardName"
+                element={<HeaderDashboard />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/welcome" />} />

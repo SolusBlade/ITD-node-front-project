@@ -17,6 +17,33 @@
     <symbol id="icon-arrow-down" width="10" height="7" fill="none" viewBox="0 0 10 7" xmlns="http://www.w3.org/2000/svg">
       <path d="M1 1.5L5 5.5L9 1.5" stroke-opacity="0.8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
+    <symbol id="icon-plus" viewBox="0 0 32 32">
+      <path fill="none" stroke="#121212" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M16 6.667v18.667"></path>
+      <path fill="none" stroke="#121212" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M6.667 16h18.667"></path>
+    </symbol>
+    <symbol id="icon-Vector" viewBox="0 0 37 32">
+      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M33.524 2.286h-30.476l12.191 14.415v9.966l6.095 3.048v-13.013l12.19-14.415z"></path>
+    </symbol>
+    <symbol id="icon-x-close" viewBox="0 0 32 32">
+      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
+      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M8 8l16 16"></path>
+    </symbol>
+    <symbol id="icon-trash" viewBox="0 0 32 32">
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M12 4h8"></path>
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4 8h24"></path>
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M6.667 8l0.801 12.018c0.149 2.231 0.223 3.347 0.588 4.243 0.662 1.627 2.004 2.883 3.672 3.435 0.919 0.304 2.037 0.304 4.273 0.304v0c2.236 0 3.354 0 4.273-0.304 1.668-0.552 3.010-1.808 3.672-3.435 0.365-0.896 0.439-2.012 0.588-4.243l0.801-12.018"></path>
+    </symbol>
+    <symbol id="icon-trash-hover" viewBox="0 0 32 32">
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M12 4h8"></path>
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4 8h24"></path>
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M6.667 8l0.801 12.018c0.149 2.231 0.223 3.347 0.588 4.243 0.662 1.627 2.004 2.883 3.672 3.435 0.919 0.304 2.037 0.304 4.273 0.304v0c2.236 0 3.354 0 4.273-0.304 1.668-0.552 3.010-1.808 3.672-3.435 0.365-0.896 0.439-2.012 0.588-4.243l0.801-12.018"></path>
+    </symbol>
+    <symbol id="icon-pencil" viewBox="0 0 32 32">
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M3.333 28.667l7.399-2.846c0.473-0.182 0.71-0.273 0.931-0.392 0.197-0.106 0.384-0.227 0.56-0.364 0.198-0.154 0.378-0.333 0.736-0.692l15.040-15.040c1.473-1.473 1.473-3.861 0-5.333s-3.861-1.473-5.333 0l-15.040 15.040c-0.359 0.359-0.538 0.538-0.692 0.736-0.137 0.176-0.259 0.364-0.364 0.56-0.119 0.221-0.21 0.458-0.392 0.931l-2.846 7.399zM3.333 28.667l2.744-7.135c0.196-0.511 0.295-0.766 0.463-0.883 0.147-0.102 0.329-0.141 0.505-0.107 0.201 0.038 0.395 0.232 0.782 0.619l3.012 3.012c0.387 0.387 0.58 0.58 0.619 0.782 0.034 0.176-0.005 0.358-0.107 0.505-0.117 0.168-0.372 0.267-0.883 0.463l-7.135 2.744z"></path>
+    </symbol>
+    <symbol id="icon-pencil-hover" viewBox="0 0 32 32">
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M3.333 28.667l7.399-2.846c0.473-0.182 0.71-0.273 0.931-0.392 0.197-0.106 0.384-0.227 0.56-0.364 0.198-0.154 0.378-0.333 0.736-0.692l15.040-15.040c1.473-1.473 1.473-3.861 0-5.333s-3.861-1.473-5.333 0l-15.040 15.040c-0.359 0.359-0.538 0.538-0.692 0.736-0.137 0.176-0.259 0.364-0.364 0.56-0.119 0.221-0.21 0.458-0.392 0.931l-2.846 7.399zM3.333 28.667l2.744-7.135c0.196-0.511 0.295-0.766 0.463-0.883 0.147-0.102 0.329-0.141 0.505-0.107 0.201 0.038 0.395 0.232 0.782 0.619l3.012 3.012c0.387 0.387 0.58 0.58 0.619 0.782 0.034 0.176-0.005 0.358-0.107 0.505-0.117 0.168-0.372 0.267-0.883 0.463l-7.135 2.744z"></path>
+    </symbol>
     <symbol id='user-avatar-icon' viewBox="0 0 56 48" xmlns="http://www.w3.org/2000/svg">
       <circle cx="28.3333" cy="11.3334" r="11.3334"/>
       <path d="M55.7529 49.812C55.7529 46.1512 55.0319 42.5263 53.6309 39.1441C52.23 35.762 50.1766 32.6889 47.5881 30.1004C44.9995 27.5118 41.9264 25.4584 38.5443 24.0575C35.1622 22.6566 31.5372 21.9355 27.8764 21.9355C24.2157 21.9355 20.5907 22.6566 17.2086 24.0575C13.8265 25.4584 10.7534 27.5118 8.16482 30.1004C5.57625 32.6889 3.52289 35.762 2.12197 39.1441C0.721045 42.5263 -3.20036e-07 46.1512 0 49.812L27.8765 49.812H55.7529Z"/>
@@ -54,4 +81,4 @@
     </symbol>
     //
   </defs>
-</svg>  
+</svg>
