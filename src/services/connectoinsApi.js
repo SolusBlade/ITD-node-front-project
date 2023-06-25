@@ -13,7 +13,7 @@ export const registerApi = user => {
 };
 
 export const logOutApi = () => {
-  return axios.get('/users/logout').then(r => r.data);
+  return axios.post('/users/logout').then(r => r.data);
 };
 
 export const getCurrentUserInfoApi = () => {
