@@ -30,14 +30,14 @@ const authSlice = createSlice({
     builder
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         fulfilledOperation(state);
-        state.token = payload.token;
+        state.token = payload.userToken;
         state.user.name = payload.newUser.name;
         state.user.email = payload.newUser.email;
         state.isLoading = false;
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         fulfilledOperation(state);
-        state.token = payload.token;
+        state.token = payload;
         state.isLoading = false;
       })
       .addCase(getCurrentUserInfo.fulfilled, (state, { payload }) => {

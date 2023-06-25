@@ -2,6 +2,8 @@ import css from './Header.module.scss';
 import { SelectTheme } from "./SelectTheme/SelectTheme";
 import { Profile } from "./Profile/Profile";
 import { ProfileModal } from "./ProfileModal/ProfileModal";
+
+// eslint-disable-next-line
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/header/headerSelectors';

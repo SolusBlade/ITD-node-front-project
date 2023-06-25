@@ -7,8 +7,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectTheme } from 'redux/header/headerSelectors';
 import { switchTheme } from 'redux/header/headerOperations';
 
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 export const SelectTheme = ({selectHandler}) => {
     const [isActive, setActive] = useState(false);
     const theme = useSelector(selectTheme);
