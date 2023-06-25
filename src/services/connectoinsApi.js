@@ -56,17 +56,17 @@ export const deleteBoardByIdApi = (id) => {
   .then(res => res.data);
 }
 
-export const createNewColumnApi = (idBoard, data) => {
+export const createNewColumnApi = ({idBoard, data}) => {
   return axios.post(`/boards/${idBoard}/columns`, data)
   .then(res => res.data);
 }
 
-export const updateColumnByIdApi = (idColumn, idBoard, data) => {
+export const updateColumnByIdApi = ({idColumn, idBoard, data}) => {
   return axios.patch(`/boards/${idBoard}/columns/${idColumn}`, data)
   .then(res => res.data);
 }
 
-export const deleteColumnByIdApi = (idColumn, idBoard) => {
+export const deleteColumnByIdApi = ({idColumn, idBoard}) => {
   return axios.delete(`/boards/${idBoard}/columns/${idColumn}`)
   .then(res => res.data);
 }
@@ -88,7 +88,7 @@ export const getTaskByIdApi = (idTask) => {
   .then(res => res.data);
 }
 
-export const updateTaskByIdApi = (idTask, data) => {
+export const updateTaskByIdApi = ({idTask, data}) => {
   return axios.put(`/tasks/${idTask}`, data)
   .then(res => res.data);
 }

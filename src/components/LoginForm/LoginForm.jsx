@@ -52,8 +52,8 @@ export const LoginForm = () => {
       >
         <Form>
           <div className={s.registerloginwrapper}>
-            <NavLink className={s.commoncaption}>Registration</NavLink>
-            <NavLink className={`${s.commoncaption} ${s.accent}`}>
+            <NavLink to="/register" className={s.commoncaption}>Registration</NavLink>
+            <NavLink to="/login" className={`${s.commoncaption} ${s.accent}`}>
               Log In
             </NavLink>
           </div>

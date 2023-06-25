@@ -7,6 +7,7 @@ import { memo } from 'react';
 import s from './Form.module.scss';
 import YupPassword from 'yup-password';
 import icon from '../../assets/icons/icons.svg';
+import { NavLink } from 'react-router-dom';
 
 
 export const RegisterForm = () => {
@@ -62,8 +63,8 @@ export const RegisterForm = () => {
           
         <Form>
           <div className={s.registerloginwrapper}>
-            <h2 className={`${s.commoncaption} ${s.accent}`}>Registration</h2>
-            <h2 className={s.commoncaption}>Log In</h2>
+            <NavLink to="/register" className={`${s.commoncaption} ${s.accent}`}>Registration</NavLink>
+            <NavLink to="/login" className={s.commoncaption}>Log In</NavLink>
           </div>
           
           <div className={s.fieldswrapper}>

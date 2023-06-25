@@ -3,16 +3,19 @@ import Icon from "components/Icon/Icon";
 import s from './MainDashboard.module.scss';
 import BoardColumn from "../BoardColumn/BoardColumn";
 import { useDispatch } from "react-redux";
-import { createNewBoard, deleteBoardById, getAllBoards, updateBoardById } from "redux/board/boardOperations";
+import { createNewBoard, createNewColumn, deleteBoardById, deleteColumnById, getAllBoards, updateBoardById, updateColumnById } from "redux/board/boardOperations";
 
 const MainDashboard = () => {
   // const [columns, setColumns] = useState([]);
   const dispatch = useDispatch();
 
   const HandleClick = () => {
-      dispatch(deleteBoardById(
-        '6498b4a6fe7f9e8b99762d22'
-      ))
+      // dispatch(deleteColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea"}))
+      // dispatch(updateColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea", data: {title: "Progress"}}))
+      // dispatch(createNewColumn({idBoard: '6498cf6a2d349cd4315bedc7', data: {title: "To Do 3"}}))
+      // dispatch(deleteBoardById(
+      //   '6498b4a6fe7f9e8b99762d22'
+      // ))
     // dispatch(createNewBoard(
     //   {
     //     title:'www',
@@ -29,7 +32,7 @@ const MainDashboard = () => {
     //       columns: [],
     //   }}
     // ))
-    // dispatch(getAllBoards())
+    dispatch(getAllBoards())
   }
   // const handleEditColumn = (columnId, newTitle) => {
   //   const updatedColumns = columns.map((column) =>

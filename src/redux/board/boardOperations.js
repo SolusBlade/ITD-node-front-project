@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createNewBoardApi, deleteBoardByIdApi, getAllBoardsApi, updateBoardByIdApi } from "services/connectoinsApi";
+import { createNewBoardApi, createNewColumnApi, deleteBoardByIdApi, deleteColumnByIdApi, getAllBoardsApi, updateBoardByIdApi, updateColumnByIdApi } from "services/connectoinsApi";
 
 export const getAllBoards = createAsyncThunk(
   'board/getAllBoards',
 
-  async(data, thunkAPI) => {
+  async(_, thunkAPI) => {
       try{
           const boards = await getAllBoardsApi();
           return boards;
@@ -47,6 +47,48 @@ export const deleteBoardById = createAsyncThunk(
   async(id, thunkAPI) => {
       try{
           await deleteBoardByIdApi(id);
+          const boards = await getAllBoardsApi();
+          return boards;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
+  }
+)
+
+export const createNewColumn = createAsyncThunk(
+  'board/createNewColumn',
+
+  async({idBoard, data}, thunkAPI) => {
+      try{
+          await createNewColumnApi({idBoard, data});
+          const boards = await getAllBoardsApi();
+          return boards;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
+  }
+)
+
+export const updateColumnById = createAsyncThunk(
+  'board/updateColumnById',
+
+  async({idColumn, idBoard, data}, thunkAPI) => {
+      try{
+          await updateColumnByIdApi({idBoard, idColumn, data});
+          const boards = await getAllBoardsApi();
+          return boards;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
+  }
+)
+
+export const deleteColumnById = createAsyncThunk(
+  'board/deleteColumnById',
+
+  async({idColumn, idBoard}, thunkAPI) => {
+      try{
+          await deleteColumnByIdApi({idBoard, idColumn});
           const boards = await getAllBoardsApi();
           return boards;
       } catch (error) {

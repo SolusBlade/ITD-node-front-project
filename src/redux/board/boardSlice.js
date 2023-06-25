@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createNewBoard, deleteBoardById, getAllBoards, updateBoardById } from './boardOperations';
+import { createNewBoard, createNewColumn, deleteBoardById, getAllBoards, updateBoardById, updateColumnById } from './boardOperations';
 
 const fulfilledOperation = state => {
   state.isLoading = false;
@@ -21,15 +21,27 @@ const boardSlice = createSlice({
     builder
       .addCase(createNewBoard.fulfilled, (state, {payload}) => {
         state.boards = [...state.boards, payload];
+        fulfilledOperation(state)
       })
       .addCase(getAllBoards.fulfilled, (state, {payload}) => {
-          state.boards = payload;
+        state.boards = payload;
+        fulfilledOperation(state)
       })
       .addCase(updateBoardById.fulfilled, (state, {payload}) => {
         state.boards = payload;
+        fulfilledOperation(state)
       })
       .addCase(deleteBoardById.fulfilled, (state, {payload}) => {
         state.boards = payload;
+        fulfilledOperation(state)
+      })
+      .addCase(createNewColumn.fulfilled, (state, {payload}) => {
+        state.boards = payload;
+        fulfilledOperation(state)
+      })
+      .addCase(updateColumnById.fulfilled, (state, {payload}) => {
+        state.boards = payload;
+        fulfilledOperation(state)
       })
       .addMatcher(
         action =>

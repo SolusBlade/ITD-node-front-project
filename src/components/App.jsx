@@ -39,8 +39,8 @@ const App = () => {
                 <PublicRoute restricted component={<CommonWelcomeField />} />
               }
             />
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="/login" element={<LoginForm />} />
+            <Route path="/register" element={<PublicRoute restricted component={<RegisterForm />}/>}/>
+            <Route path="/login" element={<PublicRoute restricted component={<LoginForm />}/>}/>
             <Route
               path="/home"
               element={<PrivateRoute component={<HomePage />} />}
