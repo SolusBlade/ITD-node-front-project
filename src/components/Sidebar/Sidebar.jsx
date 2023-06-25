@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
@@ -12,6 +12,7 @@ import Icon from 'components/Icon/Icon';
 export const Sidebar = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const [activeItemId, setActiveItemId] = useState(null);
   const boards = [
     {
       id: 1,
@@ -23,7 +24,29 @@ export const Sidebar = () => {
       icon: 'star',
       name: 'Neon Light Project',
     },
+    {
+      id: 3,
+      icon: 'icon-pencil',
+      name: 'Project office',
+    },
+    {
+      id: 4,
+      icon: 'loading',
+      name: 'Neon Light Project',
+    },
+    {
+      id: 5,
+      icon: 'lightnight',
+      name: 'Project office',
+    },
+    {
+      id: 6,
+      icon: 'container',
+      name: 'Neon Light Project',
+    },
   ];
+
+  useEffect(() => setActiveItemId(boards[0].id), []);
 
   const handleAddBoard = () => {
     setIsOpen(true);
@@ -74,15 +97,24 @@ export const Sidebar = () => {
       <section className={st.sectionBoards}>
         <ul className={st.boardsList}>
           {boards?.map(el => {
-            const activeItem = true;
-            const currentClass = activeItem ? st.boardItemActive : st.boardItem;
+            const currentClass =
+              el.id === activeItemId ? st.boardItemActive : st.boardItem;
             return (
-              <li key={el.id} className={currentClass}>
+              <li
+                key={el.id}
+                className={currentClass}
+                onClick={() => setActiveItemId(el.id)}
+              >
                 <span className={st.boardName}>
-                  <Icon name={el.icon} width={18} height={18} />
+                  <Icon
+                    name={el.icon}
+                    width={18}
+                    height={18}
+                    className={st.boardIcon}
+                  />
                   {el.name}
                 </span>
-                {activeItem && (
+                {el.id === activeItemId && (
                   <>
                     <span className={st.boardEditIcons}>
                       <IconBtn
