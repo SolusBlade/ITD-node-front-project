@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
 import IconBtn from 'components/Icon/Icon';
 import NewBoard from 'components/Forms/NewBoard/NewBoardForm';
 import Modal from 'components/Modal/Modal';
+import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
 import Icon from 'components/Icon/Icon';
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const boards = [
     {
@@ -26,6 +29,13 @@ export const Sidebar = () => {
     setIsOpen(true);
   };
 
+  const handleEditBoard = () => {
+    console.log('edit');
+  };
+  const handleDeleteBoard = () => {
+    console.log('delete');
+  };
+
   const handleModalClose = () => {
     setIsOpen(false);
   };
@@ -35,7 +45,7 @@ export const Sidebar = () => {
   };
 
   const handleLogout = () => {
-    console.log('logout');
+    dispatch(logOutUser());
   };
   return (
     <>
@@ -75,8 +85,18 @@ export const Sidebar = () => {
                 {activeItem && (
                   <>
                     <span className={st.boardEditIcons}>
-                      <IconBtn name={'icon-pencil'} width={16} height={16} />
-                      <IconBtn name={'icon-trash'} width={16} height={16} />
+                      <IconBtn
+                        name={'icon-pencil'}
+                        width={16}
+                        height={16}
+                        onClick={handleEditBoard}
+                      />
+                      <IconBtn
+                        name={'icon-trash'}
+                        width={16}
+                        height={16}
+                        onClick={handleDeleteBoard}
+                      />
                     </span>
                   </>
                 )}
