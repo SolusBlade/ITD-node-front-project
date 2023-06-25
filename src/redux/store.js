@@ -20,11 +20,18 @@ const persistAuthConfig = {
   whitelist: [`token`],
 };
 
+const persistUserConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['settings']
+}
+
 const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
+
 
 export const store = configureStore({
   reducer: {
-    auth: persistedAuthReducer,
+    auth: persistedAuthReducer
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
