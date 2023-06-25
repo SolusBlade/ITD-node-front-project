@@ -1,0 +1,118 @@
+.container {
+  width: 225px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.sectionTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.logoWrap {
+  margin-bottom: 70px;
+}
+
+.createBoard {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.createBoard > p {
+  width: 76px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+}
+
+.buttonCreate {
+  color: rgba(190, 219, 176, 1);
+}
+
+.sectionBoards {
+  width: 225px;
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    width: 260px;
+  }
+}
+
+.boardsList {
+  list-style-type: none;
+}
+
+.boardItem {
+  width: 225px;
+  height: 60px;
+  padding-left: 14px;
+  padding-right: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.boardItemActive {
+  composes: boardItem;
+  background-color: rgba(31, 31, 31, 1);
+  border-right: 4px solid #bedbb0;
+}
+
+.boardEditIcons {
+  display: flex;
+  gap: 8px;
+}
+
+.boardIcon {
+}
+
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoText {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.64px;
+}
+
+.sectionHelp {
+}
+
+.helpWrapper {
+  height: 238px;
+  padding: 14px;
+  background-color: rgba(31, 31, 31, 1);
+  border-radius: 8px;
+}

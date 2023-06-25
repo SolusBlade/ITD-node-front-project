@@ -1,2 +1,9 @@
 @import '../../../sass/utils/variables';
 @import '../../../sass/utils/mixin';
+
+.svgIcon {
+  stroke-opacity: 0.5;
+}
+.activeSvgIcon {
+  stroke-opacity: 1;
+}
