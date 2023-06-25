@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTheme } from 'redux/header/headerSelectors';
-import { switchTheme } from 'redux/header/headerOperations';
+import { selectTheme } from 'redux/auth/authSelectors';
+import { switchTheme } from 'redux/auth/authOperations';
 
 export const SelectTheme = ({selectHandler}) => {
     const [isActive, setActive] = useState(false);
@@ -26,10 +26,8 @@ export const SelectTheme = ({selectHandler}) => {
     // }, [theme])
 
     const test = (event) => {
-        // console.log('test');
         const theme = event.target.innerText.toLowerCase();
         selectHandler(theme);
-        console.log(event.target.innerText.toLowerCase());
         dispatch(switchTheme(theme));
     }
 

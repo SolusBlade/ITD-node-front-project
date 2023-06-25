@@ -4,11 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { 
     selectAvatar, 
     selectUser 
-} from "redux/header/headerSelectors";
-import { 
-    updateAvatar, 
-    updateUser 
-} from "redux/header/headerOperations";
+} from "redux/auth/authSelectors";
 
 export const ProfileModal = () => {
     const [imgLink, setImgLink] = useState('');

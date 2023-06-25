@@ -6,7 +6,7 @@ import { ProfileModal } from "./ProfileModal/ProfileModal";
 // eslint-disable-next-line
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/header/headerSelectors';
+import { selectTheme } from 'redux/auth/authSelectors';
 
 
 

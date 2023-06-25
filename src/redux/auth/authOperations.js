@@ -6,6 +6,9 @@ import {
   logOutApi,
   loginApi,
   registerApi,
+  switchThemeApi,
+  updateAvatarApi,
+  updateUserApi,
 } from 'services/connectoinsApi';
 
 export const token = {
@@ -82,3 +85,44 @@ export const logOutUser = createAsyncThunk(
     }
   }
 );
+
+export const switchTheme = createAsyncThunk(
+    'auth/switchTheme',
+
+    async(data, thunkAPI) => {
+        try{
+            const { theme } = await switchThemeApi({theme: data});
+            return theme;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)
+
+export const updateAvatar = createAsyncThunk(
+    'auth/updateAvatar',
+
+    async(data, thunkAPI) => {
+        try{
+            const response = await updateAvatarApi(data);
+
+            return response;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)
+
+export const updateUser = createAsyncThunk(
+    'auth/updateUser',
+
+    async(data, thunkAPI) => {
+        try{
+            const response = await updateUserApi(data);
+
+            return response;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)

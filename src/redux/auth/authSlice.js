@@ -5,6 +5,9 @@ import {
   logOutUser,
   loginUser,
   registerUser,
+  switchTheme,
+  updateAvatar,
+  updateUser,
 } from './authOperations';
 
 const fulfilledOperation = state => {
@@ -16,6 +19,8 @@ const fulfilledOperation = state => {
 const initialState = {
   user: { name: null, email: null },
   token: null,
+  avatar: null,
+  theme: 'dark',
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -42,16 +47,25 @@ const authSlice = createSlice({
       })
       .addCase(getCurrentUserInfo.fulfilled, (state, { payload }) => {
         fulfilledOperation(state);
-        if (payload.user?.balance) {
-          state.balance = payload.user?.balance;
-        }
         state.isLoading = false;
-        state.user.name = payload.user.name;
-        state.user.email = payload.user.email;
+        state.user.name = payload.name;
+        state.user.email = payload.email;
+        state.user.theme = payload.theme;
+        state.user.avatar = payload.avatarUrl;
+
       })
       .addCase(getCurrentUserInfo.pending, (state, { payload }) => {})
       .addCase(logOutUser.fulfilled, (state, _) => {
         return initialState;
+      })
+      .addCase(switchTheme.fulfilled, (state, action) => {
+          state.theme = action.payload;
+      })
+      .addCase(updateAvatar.fulfilled, (state, action) => {
+          state.avatar = action.payload;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+          state.user = {...action.payload};
       })
       .addMatcher(
         action =>
