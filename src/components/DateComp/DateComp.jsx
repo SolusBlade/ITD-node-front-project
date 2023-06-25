@@ -1,18 +1,11 @@
-
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DateComp.scss';
-import Icon from 'components/Icon/Icon';
+import Icon from '../Icon/Icon';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getCategoriesStat,
-  getTransaction,
-} from 'redux/transactions/transactionsOperations';
-import { useLocation } from 'react-router-dom';
-import { selectorIsLoggedIn } from 'redux/auth/authSelectors';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
-import { getDynamicsByMonth } from 'redux/dynamics/dynamicsOperations';
 
 const months = [
   'January',
@@ -29,28 +22,42 @@ const months = [
   'December',
 ];
 
+function formatDate(date) {
+  return months[date.getMonth()] + " " + date.getDate();
+}
+
 const DateComp = () => {
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const isLoggedIn = useSelector(selectorIsLoggedIn);
-  const location = useLocation();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isDirty, setIsDirty] = useState(false);
 
-  const isDynamicsPage = location.pathname.endsWith('dynamics');
-
   useEffect(() => {
-    if (location.pathname.endsWith('transactions')) {
-      isLoggedIn && dispatch(getTransaction(changedDateForApi(selectedDate)));
+      // isLoggedIn &&
+      //   dispatch(getDynamicsByMonth(changedDateForApi(selectedDate)));
+  }, [isLoggedIn, dispatch, selectedDate]);
+
+  function getDateString(dateStr) {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const targetDate = new Date(dateStr);
+
+    if (isSameDate(targetDate, today)) {
+      return "Today, " + formatDate(targetDate);
+    } else if (isSameDate(targetDate, tomorrow)) {
+      return "Tomorrow, " + formatDate(targetDate);
+    } else {
+      return formatDate(targetDate);
     }
-    if (location.pathname.endsWith('categories')) {
-      isLoggedIn &&
-        dispatch(getCategoriesStat(changedDateForApi(selectedDate)));
-    }
-    if (location.pathname.endsWith('dynamics')) {
-      isLoggedIn &&
-        dispatch(getDynamicsByMonth(changedDateForApi(selectedDate)));
-    }
-  }, [isLoggedIn, dispatch, location.pathname, selectedDate]);
+  }
+
+  function isSameDate(date1, date2) {
+    return date1.toDateString() === date2.toDateString();
+  }
+
+
 
   const changedDateForPicker = newDate => {
     const month = newDate.getMonth();
@@ -68,15 +75,7 @@ const DateComp = () => {
     if (isDirty) {
       return;
     }
-    if (location.pathname.endsWith('transactions')) {
-      dispatch(getTransaction(changedDateForApi(date)));
-    }
-    if (location.pathname.endsWith('categories')) {
-      dispatch(getCategoriesStat(changedDateForApi(date)));
-    }
-    if (isDynamicsPage) {
-      dispatch(getDynamicsByMonth(changedDateForApi(date)));
-    }
+    // dispatch(getTransaction(changedDateForApi(date)));
     setIsDirty(true);
   };
 
@@ -86,24 +85,21 @@ const DateComp = () => {
   }
 
   return (
-    <div
-      className={clsx('calendarWrap', isDynamicsPage && 'calendarDynamicsWrap')}
+      <div
+      className={clsx('calendarWrap')}
     >
       <DatePicker
         selected={selectedDate}
         onChange={date => handleDateChange(date)} // используем setSelectedDate, чтобы обновлять значение выбранной даты
-        value={changedDateForPicker(selectedDate)}
+        value={getDateString(selectedDate)}
         onCalendarClose={() => handleCloseCalendar(selectedDate)}
-        maxDate={new Date()}
-        dateFormat="MM/yyyy"
-        showMonthYearPicker
+        minDate={new Date()}
       />
       <Icon
-        name={!isDynamicsPage ? 'icon-calendar' : 'icon-vector-down'}
-        width={'24'}
-        height={'24'}
-        className={'icon-calendar'}
-        secondaryClassName={'icon-claendar-dynamics'}
+        name={'icon-arrow-down'}
+        width={'10'}
+        height={'7'}
+        secondaryClassName={'icon-calendar'}
       />
     </div>
   );

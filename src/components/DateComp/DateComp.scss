@@ -2,17 +2,16 @@
 
 .react-datepicker__input-container {
   input {
-    font-family: 'Lato';
+    font-family: 'Poppins';
     width: 217px;
-    padding: 14px 18px;
-    font-weight: 400;
+    padding: 0;
+    font-weight: 500;
     font-size: 16px;
-    line-height: calc(19 / 16);
+    line-height: calc(21 / 14);
     border: none;
-    border-radius: 16px;
     outline: none;
-    color: $white;
-    background: rgba(37, 44, 65, 0.5);
+    color: var(--btn-bg);
+    background: none;
   }
 }
 
@@ -22,21 +21,25 @@
   }
 
   .react-datepicker-popper {
-    width: 217px;
+    width: 233px;
     padding: 0;
   }
 
   .react-datepicker__header {
-    font-family: 'Lato';
-    font-weight: 700;
+    font-family: 'Poppins';
+    font-weight: 500;
     font-size: 16px;
-    line-height: calc(19 / 16);
-    padding: 20px 0;
-    background-color: $white;
+    line-height: calc(24 / 16);
+    padding: 18px 0;
+    background-color: var(--secondary-background);
     color: #242424;
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
     border-bottom: 1px solid rgba(36, 36, 36, 0.05);
+  }
+
+  .react-datepicker__current-month{
+
   }
 
   .react-datepicker__navigation {
@@ -53,15 +56,21 @@
   }
 
   .react-datepicker {
-    border-radius: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--btn-bg);
+    width: 100%;
+  }
+
+  .react-datepicker__month-container {
+    width: 100%;
   }
 
   .react-datepicker__month {
     padding: 14px;
     margin: 0;
     background-color: $white;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -109,56 +118,22 @@
 }
 .calendarWrap {
   position: relative;
+  width: 217px;
 
   @media screen and (min-width: 768px) {
-    bottom: 8px;
+    // bottom: 8px;
   }
   @media screen and (max-width: 767px) {
-    bottom: 18px;
+    // bottom: 18px;
   }
 }
-.calendarDynamicsWrap {
-  width: 223px;
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-  input {
-    font-family: 'Lato';
-    width: 223px;
-    padding: 12px 18px;
-    padding-top: 27px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: calc(19 / 16);
-    border: none;
-    border-radius: 16px;
-    outline: none;
-    color: $white;
-    background: $blue;
-    @media screen and (max-width: 767px) {
-      width: 100%;
-    }
-  }
-  .icon-claendar-dynamics {
-    position: absolute;
-    top: 18px;
-    right: 24px;
-    fill: $white;
-  }
-  .react-datepicker-wrapper::before {
-    content: 'Month';
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 18px;
-    z-index: 1;
-    position: absolute;
 
-    font-size: 12px;
-    line-height: calc(14 / 12);
-    display: flex;
-    align-items: center;
-
-    color: rgba(243, 243, 243, 0.4);
-  }
+.icon-calendar{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  stroke: var(--btn-bg);
 }
+
+

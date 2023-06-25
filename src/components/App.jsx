@@ -9,11 +9,12 @@ import { CommonWelcomeField } from './CommonWelcomField/CommonWelcomeField';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
 import Loader from './Loader/Loader';
-import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
 import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
+import HomePage from 'pages/HomePage/HomePage';
+
 // eslint-disable-next-line
 // const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
