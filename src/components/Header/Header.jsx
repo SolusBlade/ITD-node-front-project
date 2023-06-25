@@ -3,9 +3,13 @@ import { SelectTheme } from "./SelectTheme/SelectTheme";
 import { Profile } from "./Profile/Profile";
 import { ProfileModal } from "./ProfileModal/ProfileModal";
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/header/headerSelectors';
+
 
 
 export const Header = () => {
+    const userTheme = useSelector(selectTheme);
     let [selectedTheme, setTheme] = useState('dark');
     // let selectValue;
     let themes = {
@@ -83,11 +87,10 @@ export const Header = () => {
         // console.log()
     }
 
-
     return (
         <header className={css.header}>
             <div className={css.container}>
-                <SelectTheme selectHandler={selectHandler} selectedTheme={selectedTheme}></SelectTheme>
+                <SelectTheme selectHandler={selectHandler}></SelectTheme>
                 <Profile></Profile>
             </div>
             <div className={css.modal}>
