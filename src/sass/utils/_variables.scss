@@ -7,10 +7,14 @@
   --board-headers: #ffffff;
   --btn-bg: #bedbb0;
   --btn-text-color: #121212;
-  --priority-without-priority: #1616164d;
-  --priority-low: #8fa1d0;
-  --priority-medium: #e09cb5;
-  --priority-high: #bedbb0;
+  --priority-without-priority: #1616164D;
+  --priority-low: #8FA1D0;
+  --priority-medium: #E09CB5;
+  --priority-high: #BEDBB0;
+  --select-header: rgba(255, 255, 255, 0.8);
+  --select-option: rgba(255, 255, 255, 0.5);
+  --select-list-bg: #151515;
+  --select-list-border: #BEDBB0;
 }
 
 $overlay-color: rgba(18, 20, 23, 0.4);
