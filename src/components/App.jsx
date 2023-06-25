@@ -9,6 +9,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
+import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
 
 
 // eslint-disable-next-line

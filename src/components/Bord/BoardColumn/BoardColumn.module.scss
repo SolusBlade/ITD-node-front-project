@@ -1,13 +1,19 @@
-.cumList {
+.columnList {
   display: flex;
+  gap: 34px;
+  // flex-grow: 1;
+  // align-items: flex-start;
+  // flex-shrink: 0;
 }
 
 .titleToDo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  // flex-shrink: 0;
+  margin-bottom: 14px;
   width: 334px;
+  height: 56px;
   padding: 14px 20px;
 
   border-radius: 8px;

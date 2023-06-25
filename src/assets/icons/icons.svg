@@ -17,7 +17,7 @@
     <symbol id="icon-arrow-down" width="10" height="7" fill="none" viewBox="0 0 10 7" xmlns="http://www.w3.org/2000/svg">
       <path d="M1 1.5L5 5.5L9 1.5" stroke-opacity="0.8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
-    <symbol id="icon-plus" viewBox="0 0 32 32">
+    <symbol id="icon-plus-white" viewBox="0 0 32 32">
       <path fill="none" stroke="#121212" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M16 6.667v18.667"></path>
       <path fill="none" stroke="#121212" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M6.667 16h18.667"></path>
     </symbol>
@@ -54,6 +54,10 @@
        <path d="M14 9.91667V18.0833" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
        <path d="M9.91663 14H18.0833" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
+    <symbol id="icon-plus-dark" viewBox="0 0 32 32">
+      <path fill="none" stroke="#FFFFFF" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M16 6.667v18.667"></path>
+      <path fill="none" stroke="#FFFFFF" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M6.667 16h18.667"></path>
+    </symbol>
     // NewBoard Icons
     <symbol id="colors" fill="none" viewBox="0 0 32 32" >
        <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5" stroke-width="1.5" d="M9 15.354a4.5 4.5 0 1 0 4.185-7.697m-8.37 0A4.502 4.502 0 0 0 6 16.5a4.5 4.5 0 0 0 4.185-6.158M13.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/>
@@ -78,6 +82,19 @@
     </symbol>
     <symbol id="star" fill="none" viewBox="0 0 32 32">
         <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".5" stroke-width="1.5" d="m9 1.5 1.509 3.923c.211.55.317.825.482 1.056.145.205.325.385.53.53.23.165.506.27 1.056.482L16.5 9l-3.923 1.509c-.55.211-.825.317-1.056.482a2.247 2.247 0 0 0-.53.53c-.165.23-.27.506-.482 1.056L9 16.5l-1.509-3.923c-.211-.55-.317-.825-.482-1.056a2.248 2.248 0 0 0-.53-.53c-.23-.165-.506-.27-1.056-.482L1.5 9l3.923-1.509c.55-.211.825-.317 1.056-.482a2.25 2.25 0 0 0 .53-.53c.165-.23.27-.506.482-1.056L9 1.5Z"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 32 32">
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4.45 9.333c2.305-3.985 6.614-6.667 11.55-6.667 7.364 0 13.333 5.97 13.333 13.333s-5.97 13.333-13.333 13.333c-4.935 0-9.244-2.681-11.55-6.667"></path>
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
+      <path fill="none" stroke="rgba(255,255,255,0.61)" style="stroke: var(--color1, rgba(255,255,255,0.61))" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
+    </symbol>
+    <symbol id="icon-arrow-hover" viewBox="0 0 32 32">
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4.45 9.333c2.305-3.985 6.614-6.667 11.55-6.667 7.364 0 13.333 5.97 13.333 13.333s-5.97 13.333-13.333 13.333c-4.935 0-9.244-2.681-11.55-6.667"></path>
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
+      <path fill="none" stroke="#BEDBB0" style="stroke: var(--color1, #BEDBB0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
+    </symbol>
+    <symbol id="icon-Vector-1" viewBox="0 0 4640 32">
+      <path fill="none" stroke="rgba(255, 255, 255, 0.1)" style="stroke: var(--color1, rgba(255, 255, 255, 0.1))" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="16" d="M0 16h4640"></path>
     </symbol>
     //
   </defs>
