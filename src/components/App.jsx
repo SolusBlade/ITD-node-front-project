@@ -1,24 +1,31 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import {Header} from './Header/Header';
-import {RegisterForm} from './RegisterForm/RegisterForm';
+import { RegisterForm } from './RegisterForm/RegisterForm';
 import { LoginForm } from './LoginForm/LoginForm';
-import { CommonWelcomeField} from './CommonWelcomField/CommonWelcomeField'
+import { CommonWelcomeField } from './CommonWelcomField/CommonWelcomeField';
+
 // import ModalRegister from './ModalRegister/ModalRegister';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
 import Loader from './Loader/Loader';
-
+import WelcomePage from 'pages/WelcomePage/WelcomePage';
+import { PrivateRoute, PublicRoute } from 'services/routes';
+import { useDispatch } from 'react-redux';
+import { getCurrentUserInfo } from 'redux/auth/authOperations';
+import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
 // eslint-disable-next-line
 // const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 const App = () => {
   const isLoading = false;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCurrentUserInfo());
+  }, [dispatch]);
 
   return (
     <>
-      <Header />
       {isLoading ? (
         <Loader />
       ) : (
@@ -26,25 +33,18 @@ const App = () => {
           <Routes>
             <Route
               path="/welcome"
-              element={<CommonWelcomeField/>}
-              
-              // element={<PublicRoute restricted component={<WelcomePage />} />}
+              element={
+                <PublicRoute restricted component={<CommonWelcomeField />} />
+              }
             />
-            {/* <Route
-              path="/auth"
-              element={<PublicRoute component={<AuthPage />} />}
-            >
-              <Route path="login" exact element={<Login />} />
-            <Route path="register" exact element={<Register />} />
-            </Route> 
-            {/* <Route
+            <Route path="/register" element={<RegisterForm />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route
               path="/home"
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route path=":boardName" element={<></>} />
-            </Route> */}
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="/login" element={<LoginForm/>}/>
+              <Route path=":boardName" element={<HeaderDashboard />} />
+            </Route>
             <Route path="*" element={<Navigate to="/welcome" />} />
           </Routes>
         </Suspense>

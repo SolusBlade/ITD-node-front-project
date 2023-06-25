@@ -1,0 +1,10 @@
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.iconBtn:hover,
+.iconBtn:focus {
+  filter: drop-shadow(0 0px 4px var(--btn-bg));
+}
