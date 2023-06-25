@@ -1,23 +1,33 @@
+import { useState } from 'react';
+import { Button } from '@mui/material';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
-import Icon from 'components/Icon/Icon';
+import IconBtn from 'components/Icon/Icon';
+import NewBoard from 'components/Forms/NewBoard/NewBoardForm';
+import Modal from 'components/Modal/Modal';
 import st from './Sidebar.module.scss';
+import Icon from 'components/Icon/Icon';
 
 export const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const boards = [
     {
       id: 1,
-      icon: '',
+      icon: 'puzzle',
       name: 'Project office',
     },
     {
       id: 2,
-      icon: '',
+      icon: 'star',
       name: 'Neon Light Project',
     },
   ];
 
   const handleAddBoard = () => {
-    console.log('add board');
+    setIsOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsOpen(false);
   };
 
   const handleHelp = () => {
@@ -39,9 +49,15 @@ export const Sidebar = () => {
           <p className={st.boardsTitle}>My boards</p>
           <div className={st.createBoard}>
             <p>Create a new board</p>
-            <button className={st.buttonCreate} onClick={handleAddBoard}>
+            <Button
+              variant="contained"
+              color="inherit"
+              className={st.buttonCreate}
+              onClick={handleAddBoard}
+              size="medium"
+            >
               +
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -52,13 +68,15 @@ export const Sidebar = () => {
             const currentClass = activeItem ? st.boardItemActive : st.boardItem;
             return (
               <li key={el.id} className={currentClass}>
-                <span className={st.boardIcon}>{el.icon}</span>
-                <span className={st.boardName}>{el.name}</span>
+                <span className={st.boardName}>
+                  <Icon name={el.icon} width={18} height={18} />
+                  {el.name}
+                </span>
                 {activeItem && (
                   <>
                     <span className={st.boardEditIcons}>
-                      <Icon name={'icon-pencil'} width={16} height={16} />
-                      <Icon name={'icon-trash'} width={16} height={16} />
+                      <IconBtn name={'icon-pencil'} width={16} height={16} />
+                      <IconBtn name={'icon-trash'} width={16} height={16} />
                     </span>
                   </>
                 )}
@@ -88,6 +106,11 @@ export const Sidebar = () => {
           </button>
         </div>
       </section>
+      {isOpen && (
+        <Modal title={'New board'} closeModal={handleModalClose}>
+          <NewBoard />
+        </Modal>
+      )}
     </>
   );
 };
