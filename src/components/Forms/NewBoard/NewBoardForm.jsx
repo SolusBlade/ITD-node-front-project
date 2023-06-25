@@ -1,12 +1,14 @@
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useState } from 'react';
+import clsx from 'clsx';
 import Box from '@mui/joy/Box';
 import Radio from '@mui/joy/Radio';
 import RadioGroup from '@mui/joy/RadioGroup';
 import InputField from 'shared/components/InputField/InputField';
 import Icon from '../../Icon/Icon';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
+import s from './NewBoard.module.scss';
 
 const initialsValue = {
   title: '',
@@ -22,7 +24,7 @@ const schema = yup.object().shape({
 const NewBoard = () => {
   const [icon, setIcon] = useState('colors');
 
-  const hendleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     console.log(icon);
     resetForm();
@@ -31,7 +33,7 @@ const NewBoard = () => {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit={hendleSubmit}
+      onSubmit={handleSubmit}
       initialValues={initialsValue}
     >
       <Form>
@@ -74,16 +76,94 @@ const NewBoard = () => {
                 name="icons"
                 label={
                   {
-                    colors: <Icon name="colors" width={26} height={26} />,
-                    hexagon: <Icon name="hexagon" width={26} height={26} />,
-                    project: <Icon name="project" width={26} height={26} />,
-                    container: <Icon name="container" width={26} height={26} />,
-                    lightnight: (
-                      <Icon name="lightnight" width={26} height={26} />
+                    colors: (
+                      <Icon
+                        name="colors"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'colors' && s.activeSvgIcon
+                        )}
+                      />
                     ),
-                    loading: <Icon name="loading" width={26} height={26} />,
-                    puzzle: <Icon name="puzzle" width={26} height={26} />,
-                    star: <Icon name="star" width={26} height={26} />,
+                    hexagon: (
+                      <Icon
+                        name="hexagon"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'hexagon' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    project: (
+                      <Icon
+                        name="project"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'project' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    container: (
+                      <Icon
+                        name="container"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'container' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    lightnight: (
+                      <Icon
+                        name="lightnight"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'lightnight' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    loading: (
+                      <Icon
+                        name="loading"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'loading' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    puzzle: (
+                      <Icon
+                        name="puzzle"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'puzzle' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
+                    star: (
+                      <Icon
+                        name="star"
+                        width={26}
+                        height={26}
+                        secondaryClassName={clsx(
+                          s.svgIcon,
+                          icon === 'star' && s.activeSvgIcon
+                        )}
+                      />
+                    ),
                   }[item]
                 }
                 variant={icon === item ? 'solid' : 'plain'}

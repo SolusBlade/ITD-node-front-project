@@ -9,7 +9,7 @@ import WelcomePage from 'pages/WelcomePage/WelcomePage';
 import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
-
+import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
 
 // eslint-disable-next-line
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
@@ -18,8 +18,8 @@ const App = () => {
   const isLoading = false;
   const dispatch = useDispatch();
   useEffect(() => {
-  dispatch(getCurrentUserInfo())
-  }, [dispatch])
+    dispatch(getCurrentUserInfo());
+  }, [dispatch]);
 
   return (
     <>
@@ -44,9 +44,7 @@ const App = () => {
               // element={<HomePage />}
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route
-                path=":boardName"
-                element={<HeaderDashboard />} />
+              <Route path=":boardName" element={<HeaderDashboard />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/welcome" />} />
