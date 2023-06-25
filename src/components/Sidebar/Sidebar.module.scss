@@ -1,3 +1,17 @@
+.container {
+  width: 225px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+
+  @media screen and (min-width: 768px) {
+    width: 260px;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
 .sectionTop {
   display: flex;
   flex-direction: column;
@@ -39,18 +53,31 @@
   }
 }
 
-.container {
+.boardsList {
+  list-style-type: none;
+}
+
+.boardItem {
   width: 225px;
-  padding-top: 14px;
+  height: 60px;
   padding-left: 14px;
   padding-right: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 
   @media screen and (min-width: 768px) {
     width: 260px;
-    padding-top: 24px;
     padding-left: 24px;
     padding-right: 24px;
   }
+}
+
+.boardItemActive {
+  composes: boardItem;
+  background-color: rgba(31, 31, 31, 1);
+  border-right: 4px solid #bedbb0;
 }
 
 .logoWrap {
@@ -66,4 +93,14 @@
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.64px;
+}
+
+.sectionHelp {
+}
+
+.helpWrapper {
+  height: 238px;
+  padding: 14px;
+  background-color: rgba(31, 31, 31, 1);
+  border-radius: 8px;
 }

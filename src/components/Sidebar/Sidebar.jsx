@@ -45,31 +45,37 @@ export const Sidebar = () => {
         </div>
       </section>
       <section className={st.sectionBoards}>
-        <div className={st.container}>
-          <ul className={st.boardsList}>
-            {boards?.map(el => {
-              return (
-                <li key={el.id} className={st.boardItem}>
-                  <span className={st.boardIcon}>{el.icon}</span>
-                  <span className={st.boardName}>{el.name}</span>
-                  <span>ed</span>
-                  <span>del</span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul className={st.boardsList}>
+          {boards?.map(el => {
+            const activeItem = true;
+            const currentClass = activeItem ? st.boardItemActive : st.boardItem;
+            return (
+              <li key={el.id} className={currentClass}>
+                <span className={st.boardIcon}>{el.icon}</span>
+                <span className={st.boardName}>{el.name}</span>
+                {activeItem && (
+                  <>
+                    <span>ed</span>
+                    <span>del</span>
+                  </>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </section>
       <section className={st.sectionHelp}>
         <div className={st.container}>
-          <div className={st.helpCactus}>cactus</div>
-          <p className={st.helpText}>
-            If you need help with <span>TaskPro</span>, check out our support
-            resources or reach out to our customer support team.
-          </p>
-          <button className={st.helpSend} onClick={handleHelp}>
-            Need help?
-          </button>
+          <div className={st.helpWrapper}>
+            <div className={st.helpCactus}>cactus</div>
+            <p className={st.helpText}>
+              If you need help with <span>TaskPro</span>, check out our support
+              resources or reach out to our customer support team.
+            </p>
+            <button className={st.helpSend} onClick={handleHelp}>
+              Need help?
+            </button>
+          </div>
         </div>
       </section>
       <section className={st.sectionLogOut}>
