@@ -11,8 +11,10 @@ import Icon from 'components/Icon/Icon';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
 import { getAllBoards } from 'redux/board/boardOperations';
+
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
+  const isLoggedIn = useSelector(state => state.auth.user.name);
   const dispatch = useDispatch();
   // const [isOpen, setIsOpen] = useState(false);
   const [addBoardModal, setAddBoardModal] = useState(false);
@@ -20,14 +22,13 @@ export const Sidebar = () => {
   const [activeItemId, setActiveItemId] = useState(null);
 
   useEffect(() => {
-    dispatch(getAllBoards());
-  }, []);
+    isLoggedIn && dispatch(getAllBoards());
+  }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
     if (boards.length === 0) {
       return;
     }
-
     setActiveItemId(boards[0]._id);
   }, [boards]);
 
