@@ -6,7 +6,7 @@ import { ProfileModal } from "./ProfileModal/ProfileModal";
 // eslint-disable-next-line
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectTheme, selectUserTheme } from 'redux/auth/authSelectors';
+import { selectTheme, selectUserTheme, selectAvatar } from 'redux/auth/authSelectors';
 // import Container from 'components/Container/Container';
 import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
@@ -62,6 +62,7 @@ let themes = {
 
 export const Header = () => {
     const userTheme = useSelector(selectUserTheme);
+    const avatar = useSelector(selectAvatar);
     const [selectedTheme, setSelectedTheme] = useState(userTheme);
     const [isModalOpen, setIsModalOpen] = useState(false);
     // const ref = useRef(null);
@@ -77,7 +78,7 @@ export const Header = () => {
             dispatch(switchTheme(selectedTheme));
         }
 
-    }, [selectedTheme, userTheme, dispatch]); 
+    }, [selectedTheme, userTheme, dispatch, avatar]); 
 
     const selectHandler = (theme) => {
         const root = document.querySelector(':root');
@@ -118,11 +119,11 @@ export const Header = () => {
                     >
 
                     </SelectTheme>
-                    <Profile modalHandler={modalHandler}></Profile>
+                    <Profile modalHandler={modalHandler} avatar={avatar}></Profile>
                 </div>
                 {isModalOpen && <Modal title={'Edit profile'} closeModal={closeModal}>
                     <div className={css.modal}>
-                        <ProfileModal modalHandler={modalHandler}></ProfileModal>
+                        <ProfileModal modalHandler={modalHandler} avatar={avatar}></ProfileModal>
                     </div>
                 </Modal>}
             </header>

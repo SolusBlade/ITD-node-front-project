@@ -62,7 +62,6 @@ const authSlice = createSlice({
           state.theme = action.payload;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
-          console.log('payload ', action.payload);
           state.avatar = action.payload;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
