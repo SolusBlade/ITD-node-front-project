@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
+import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
 import IconBtn from 'components/Icon/Icon';
 import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
 import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
+import Icon from 'components/Icon/Icon';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
-import Icon from 'components/Icon/Icon';
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -103,8 +104,8 @@ export const Sidebar = () => {
                 <span className={st.boardName}>
                   <Icon
                     name={el.icon}
-                    width={26}
-                    height={26}
+                    width={18}
+                    height={18}
                     className={st.boardIcon}
                   />
                   {el.name}
@@ -135,12 +136,13 @@ export const Sidebar = () => {
       <section className={st.sectionHelp}>
         <div className={st.container}>
           <div className={st.helpWrapper}>
-            <div className={st.helpCactus}>cactus</div>
+            <img src={cactus} alt="cactus image" className={st.helpCactus} />
             <p className={st.helpText}>
-              If you need help with <span>TaskPro</span>, check out our support
-              resources or reach out to our customer support team.
+              If you need help with <span> &#013;TaskPro</span>, check out our
+              support resources or reach out to our customer support team.
             </p>
             <button className={st.helpSend} onClick={handleNeedHelp}>
+              <Icon name={'icon-help-circle'} width={20} height={20} />
               Need help?
             </button>
           </div>
@@ -149,6 +151,7 @@ export const Sidebar = () => {
       <section className={st.sectionLogOut}>
         <div className={st.container}>
           <button className={st.btnLogout} onClick={handleLogout}>
+            <Icon name={'icon-iconlogout'} width={32} height={32} />
             Log out
           </button>
         </div>

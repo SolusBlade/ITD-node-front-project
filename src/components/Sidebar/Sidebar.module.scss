@@ -128,3 +128,22 @@
   background-color: rgba(31, 31, 31, 1);
   border-radius: 8px;
 }
+
+.helpSend {
+  background-color: transparent;
+}
+
+.helpText {
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+}
+
+.helpText > span {
+  color: rgba(190, 219, 176, 1);
+}
+
+.btnLogout {
+  background-color: transparent;
+}
