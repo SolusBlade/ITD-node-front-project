@@ -103,7 +103,7 @@ export const updateAvatar = createAsyncThunk(
     'auth/updateAvatar',
 
     async(data, thunkAPI) => {
-      console.log(data)
+      // console.log(data)
         try{
             const response = await updateAvatarApi(data);
 

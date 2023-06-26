@@ -20,7 +20,7 @@ export const ProfileModal = ({ modalHandler }) => {
         if(image){ 
             const formData = new FormData();
             formData.append('avatar', image);
-            // console.log(image)
+            // console.log(image.size);
             dispatch(updateAvatar(formData));
             setImage(null);
         }
