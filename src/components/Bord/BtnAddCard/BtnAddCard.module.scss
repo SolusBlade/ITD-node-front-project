@@ -1,0 +1,38 @@
+.btnAddCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 334px;
+  height: 56px;
+  padding: 14px 0;
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: var(--header-background);
+  background-color: var(--btn-bg);
+}
+
+.btnAddCardW {
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: var(--header-background);
+}
+
+// .iconPlus {
+//   fill: var(--primary-text-color);
+// }

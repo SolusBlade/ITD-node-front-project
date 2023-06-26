@@ -26,7 +26,7 @@ export const Sidebar = () => {
     },
     {
       id: 3,
-      icon: 'icon-pencil',
+      icon: 'hexagon',
       name: 'Project office',
     },
     {
@@ -108,8 +108,8 @@ export const Sidebar = () => {
                 <span className={st.boardName}>
                   <Icon
                     name={el.icon}
-                    width={18}
-                    height={18}
+                    width={26}
+                    height={26}
                     className={st.boardIcon}
                   />
                   {el.name}

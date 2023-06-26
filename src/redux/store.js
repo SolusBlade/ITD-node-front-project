@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './auth/authSlice';
+import boardReducer from './board/boardSlice';
 
 
 import {
@@ -20,18 +21,13 @@ const persistAuthConfig = {
   whitelist: [`token`],
 };
 
-const persistUserConfig = {
-  key: 'user',
-  storage,
-  whitelist: ['settings']
-}
-
 const persistedAuthReducer = persistReducer(persistAuthConfig, authReducer);
 
 
 export const store = configureStore({
   reducer: {
-    auth: persistedAuthReducer
+    auth: persistedAuthReducer,
+    board: boardReducer
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

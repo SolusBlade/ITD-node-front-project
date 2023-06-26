@@ -1,7 +1,8 @@
 .mainDashboard {
   display: flex;
   margin-top: 10px;
-  // gap: 34px;
+  align-items: flex-start;
+  gap: 34px;
 }
 
 .btnAddColumn {
@@ -9,7 +10,9 @@
   justify-content: center;
   align-items: center;
   // flex-grow: 1;
+  flex-shrink: 0;
   width: 334px;
+  // height: 56px;
   padding: 14px 0;
   // margin-top: 10px;
   cursor: pointer;
@@ -38,9 +41,9 @@
   background-color: var(--primary-text-color);
 }
 
-.iconPlus {
-  fill: var(--primary-background);
-}
+// .iconPlus {
+//   fill: var(--primary-background);
+// }
 
 .column {
   width: 334px;

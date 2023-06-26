@@ -87,6 +87,10 @@
   }
 }
 
+.boardItem:hover {
+  cursor: pointer;
+}
+
 .boardItemActive {
   composes: boardItem;
   background-color: rgba(31, 31, 31, 1);
