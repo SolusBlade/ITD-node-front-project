@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
@@ -16,6 +17,7 @@ export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
   const isLoggedIn = useSelector(state => state.auth.user.name);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
@@ -30,9 +32,15 @@ export const Sidebar = () => {
       return;
     }
     setActiveItemId(boards[0]._id);
+    navigate(`/home/${boards[0].title}`);
   }, [boards]);
 
   const handleAddBoard = () => setAddBoardModal(!addBoardModal);
+
+  const handleChangeActive = (id, title) => {
+    setActiveItemId(id);
+    navigate(`/home/${title}`);
+  };
 
   const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
@@ -79,7 +87,7 @@ export const Sidebar = () => {
               <li
                 key={el._id}
                 className={currentClass}
-                onClick={() => setActiveItemId(el._id)}
+                onClick={() => handleChangeActive(el._id, el.title)}
               >
                 <div className={st.boardName}>
                   <Icon
