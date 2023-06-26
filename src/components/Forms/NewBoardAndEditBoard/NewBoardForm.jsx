@@ -27,6 +27,8 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
+import { useDispatch } from 'react-redux';
+import { createNewBoard } from 'redux/board/boardOperations';
 
 const initialsValue = {
   title: '',
@@ -36,18 +38,17 @@ const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
 });
 
-const NewBoard = () => {
+const NewBoard = ({ closeModal }) => {
   const [icon, setIcon] = useState('colors');
   const [bg, setBg] = useState('defaultBg');
 
-  const handleSubmit = (values, { resetForm }) => {
-    const obj = {
-      title: values.title,
-      icon: icon,
-      background: bg,
-    };
-    console.log(obj);
+  const dispatch = useDispatch();
 
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(
+      createNewBoard({ title: values.title, icon: icon, background: bg })
+    );
+    closeModal();
     resetForm();
   };
 

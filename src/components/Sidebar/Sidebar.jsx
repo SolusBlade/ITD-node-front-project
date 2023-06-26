@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
@@ -10,47 +10,26 @@ import Modal from 'components/Modal/Modal';
 import Icon from 'components/Icon/Icon';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
-
+import { getAllBoards } from 'redux/board/boardOperations';
 export const Sidebar = () => {
+  const boards = useSelector(state => state.board.boards);
   const dispatch = useDispatch();
   // const [isOpen, setIsOpen] = useState(false);
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
-  const boards = [
-    {
-      id: 1,
-      icon: 'puzzle',
-      name: 'Project office',
-    },
-    {
-      id: 2,
-      icon: 'star',
-      name: 'Neon Light Project',
-    },
-    {
-      id: 3,
-      icon: 'hexagon',
-      name: 'Project office',
-    },
-    {
-      id: 4,
-      icon: 'loading',
-      name: 'Neon Light Project',
-    },
-    {
-      id: 5,
-      icon: 'lightnight',
-      name: 'Project office',
-    },
-    {
-      id: 6,
-      icon: 'container',
-      name: 'Neon Light Project',
-    },
-  ];
 
-  useEffect(() => setActiveItemId(boards[0].id), []);
+  useEffect(() => {
+    dispatch(getAllBoards());
+  }, []);
+
+  useEffect(() => {
+    if (boards.length === 0) {
+      return;
+    }
+
+    setActiveItemId(boards[0]._id);
+  }, [boards]);
 
   const handleAddBoard = () => setAddBoardModal(!addBoardModal);
 
@@ -94,12 +73,12 @@ export const Sidebar = () => {
         <ul className={st.boardsList}>
           {boards?.map(el => {
             const currentClass =
-              el.id === activeItemId ? st.boardItemActive : st.boardItem;
+              el._id === activeItemId ? st.boardItemActive : st.boardItem;
             return (
               <li
-                key={el.id}
+                key={el._id}
                 className={currentClass}
-                onClick={() => setActiveItemId(el.id)}
+                onClick={() => setActiveItemId(el._id)}
               >
                 <div className={st.boardName}>
                   <Icon
@@ -108,20 +87,20 @@ export const Sidebar = () => {
                     height={18}
                     className={st.boardIcon}
                   />
-                  {el.name}
+                  {el.title}
                 </div>
-                {el.id === activeItemId && (
+                {el._id === activeItemId && (
                   <>
                     <div className={st.boardEditIcons}>
                       <div
                         className={st.boardButtons}
-                        onClick={() => handleEditBoard(el.id)}
+                        onClick={() => handleEditBoard(el._id)}
                       >
                         <Icon name={'icon-pencil'} width={16} height={16} />
                       </div>
                       <div
                         className={st.boardButtons}
-                        onClick={() => handleDeleteBoard(el.id)}
+                        onClick={() => handleDeleteBoard(el._id)}
                       >
                         <Icon name={'icon-trash'} width={16} height={16} />
                       </div>
@@ -158,7 +137,7 @@ export const Sidebar = () => {
       </section>
       {addBoardModal && (
         <Modal title={'New board'} closeModal={handleAddBoard}>
-          <NewBoard />
+          <NewBoard closeModal={handleAddBoard} />
         </Modal>
       )}
       {needHelpModalOpen && (
