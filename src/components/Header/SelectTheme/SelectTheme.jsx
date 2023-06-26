@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import css from './SelectTheme.module.scss';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,6 +11,7 @@ export const SelectTheme = ({selectHandler}) => {
     const [isActive, setActive] = useState(false);
     const theme = useSelector(selectTheme);
     const dispatch = useDispatch();
+    const ref = useRef(theme);
     // console.log('selectedTheme ', selectedTheme, selectedTheme === 'dark')
     
     const handleClick = (event) => {
@@ -21,14 +22,19 @@ export const SelectTheme = ({selectHandler}) => {
         setActive(!isActive);
     }
 
-    // useEffect(()=>{
-
-    // }, [theme])
+    useEffect(()=>{
+        console.log('useEffect theme', theme)
+        console.log('useEffect ref', ref)
+        if(theme !== ref){
+            console.log('useEffect if theme', theme)
+            console.log('useEffect if ref', ref)
+            // dispatch(switchTheme(theme));
+        }
+    }, [theme])
 
     const test = (event) => {
         const theme = event.target.innerText.toLowerCase();
         selectHandler(theme);
-        dispatch(switchTheme(theme));
     }
 
     return (

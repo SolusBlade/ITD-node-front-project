@@ -2,9 +2,9 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { useState } from 'react';
 import clsx from 'clsx';
-import Box from '@mui/joy/Box';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
+// import Box from '@mui/joy/Box';
+// import Radio from '@mui/joy/Radio';
+// import RadioGroup from '@mui/joy/RadioGroup';
 import InputField from 'shared/components/InputField/InputField';
 import Icon from '../../Icon/Icon';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
@@ -38,7 +38,7 @@ const NewBoard = () => {
     >
       <Form>
         <InputField name="title" placeholder="Title" />
-        <RadioGroup
+        {/* <RadioGroup
           orientation="horizontal"
           aria-label="Icons"
           name="icons"
@@ -193,7 +193,7 @@ const NewBoard = () => {
               />
             </Box>
           ))}
-        </RadioGroup>
+        </RadioGroup> */}
 
         <ButtonModalWithIcon text="Create" />
       </Form>
