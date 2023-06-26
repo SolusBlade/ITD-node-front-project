@@ -103,6 +103,7 @@ export const updateAvatar = createAsyncThunk(
     'auth/updateAvatar',
 
     async(data, thunkAPI) => {
+      // console.log(data)
         try{
             const response = await updateAvatarApi(data);
 
@@ -118,6 +119,7 @@ export const updateUser = createAsyncThunk(
 
     async(data, thunkAPI) => {
         try{
+          console.log('REQ', data)
             const response = await updateUserApi(data);
 
             return response;

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 //     selectAvatar, 
 //     selectUser 
 // } from "redux/auth/authSelectors";
-import { updateUser } from "redux/auth/authOperations";
+import { updateUser, updateAvatar } from "redux/auth/authOperations";
 import sprite from '../../../assets/icons/icons.svg'
 
 export const ProfileModal = ({ modalHandler }) => {
@@ -19,8 +19,9 @@ export const ProfileModal = ({ modalHandler }) => {
     useEffect(()=>{
         if(image){ 
             const formData = new FormData();
-            formData.append('image', image);
-            // dispatch(updateAvatar(formData));
+            formData.append('avatar', image);
+            // console.log(image.size);
+            dispatch(updateAvatar(formData));
             setImage(null);
         }
 

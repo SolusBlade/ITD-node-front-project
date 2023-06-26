@@ -1,18 +1,16 @@
 import clsx from 'clsx';
 import css from './SelectTheme.module.scss';
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectTheme } from 'redux/auth/authSelectors';
-import { switchTheme } from 'redux/auth/authOperations';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { selectTheme } from 'redux/auth/authSelectors';
+// import { switchTheme } from 'redux/auth/authOperations';
 
-export const SelectTheme = ({selectHandler}) => {
+export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelectedTheme}) => {
     const [isActive, setActive] = useState(false);
-    const theme = useSelector(selectTheme);
-    const dispatch = useDispatch();
-    const ref = useRef(theme);
-    // console.log('selectedTheme ', selectedTheme, selectedTheme === 'dark')
+    // const dispatch = useDispatch();
+    // let ref = useRef(userTheme);
     
     const handleClick = (event) => {
         const evtParent = event.currentTarget.parentElement;
@@ -22,19 +20,18 @@ export const SelectTheme = ({selectHandler}) => {
         setActive(!isActive);
     }
 
-    useEffect(()=>{
-        console.log('useEffect theme', theme)
-        console.log('useEffect ref', ref)
-        if(theme !== ref){
-            console.log('useEffect if theme', theme)
-            console.log('useEffect if ref', ref)
-            // dispatch(switchTheme(theme));
-        }
-    }, [theme])
-
-    const test = (event) => {
+    const handleSelect = (event) => {
         const theme = event.target.innerText.toLowerCase();
+        if (theme !== userTheme) {
+            // console.log('localTheme ', localTheme)
+            // console.log('theme ', theme)
+            setSelectedTheme(theme);
+        }
         selectHandler(theme);
+    }
+
+    const themeCheckHandler = (selectedTheme, userTheme) => {
+        return selectedTheme ? selectedTheme : userTheme;
     }
 
     return (
@@ -51,23 +48,23 @@ export const SelectTheme = ({selectHandler}) => {
                 <ul className={clsx(css.list, [isActive && css.active])} 
                     onClick={event => {
                         handleClick(event);
-                        test(event);
+                        handleSelect(event);
                 }}>
                     <li key={1} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : theme === 'light'
+                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'light'
                     })}>
                         <p>Light</p>
                     </li>
                     <li key={2} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : theme === 'dark'
+                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'dark'
                     })}>
                         <p>Dark</p>
                     </li>
                     <li key={3} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : theme === 'violet'
+                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'violet'
                     })}>
                         <p>Violet</p>
                     </li>
