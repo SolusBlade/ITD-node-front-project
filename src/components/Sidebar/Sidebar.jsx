@@ -11,7 +11,7 @@ import Modal from 'components/Modal/Modal';
 import Icon from 'components/Icon/Icon';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
-import { getAllBoards } from 'redux/board/boardOperations';
+import { getAllBoards, getBoardById } from 'redux/board/boardOperations';
 
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
@@ -39,6 +39,7 @@ export const Sidebar = () => {
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
+    dispatch(getBoardById(id));
     navigate(`/home/${title}`);
   };
 
