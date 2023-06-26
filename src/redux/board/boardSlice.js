@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createNewBoard, createNewColumn, deleteBoardById, getAllBoards, updateBoardById, updateColumnById } from './boardOperations';
+import {
+  createNewBoard,
+  createNewColumn,
+  deleteBoardById,
+  getAllBoards,
+  getBoardById,
+  getColumnById,
+  updateBoardById,
+  updateColumnById,
+} from './boardOperations';
 
 const fulfilledOperation = state => {
   state.isLoading = false;
@@ -10,6 +19,8 @@ const initialState = {
   boards: [],
   isLoading: false,
   error: null,
+  currentBoard: null,
+  currentColumn: null,
 };
 
 const boardSlice = createSlice({
@@ -19,29 +30,35 @@ const boardSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(createNewBoard.fulfilled, (state, {payload}) => {
+      .addCase(createNewBoard.fulfilled, (state, { payload }) => {
         state.boards = [...state.boards, payload];
-        fulfilledOperation(state)
+        fulfilledOperation(state);
       })
-      .addCase(getAllBoards.fulfilled, (state, {payload}) => {
+      .addCase(getAllBoards.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        fulfilledOperation(state)
+        fulfilledOperation(state);
       })
-      .addCase(updateBoardById.fulfilled, (state, {payload}) => {
+      .addCase(updateBoardById.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        fulfilledOperation(state)
+        fulfilledOperation(state);
       })
-      .addCase(deleteBoardById.fulfilled, (state, {payload}) => {
+      .addCase(deleteBoardById.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        fulfilledOperation(state)
+        fulfilledOperation(state);
       })
-      .addCase(createNewColumn.fulfilled, (state, {payload}) => {
+      .addCase(createNewColumn.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        fulfilledOperation(state)
+        fulfilledOperation(state);
       })
-      .addCase(updateColumnById.fulfilled, (state, {payload}) => {
+      .addCase(updateColumnById.fulfilled, (state, { payload }) => {
         state.boards = payload;
-        fulfilledOperation(state)
+        fulfilledOperation(state);
+      })
+      .addCase(getBoardById.fulfilled, (state, { payload }) => {
+        state.currentBoard = payload;
+      })
+      .addCase(getColumnById.fulfilled, (state, { payload }) => {
+        state.currentColumn = payload;
       })
       .addMatcher(
         action =>
