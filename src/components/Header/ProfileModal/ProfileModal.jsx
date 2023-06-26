@@ -50,13 +50,15 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
 
     return (
         <div className={css.modal}>
-            <div className={css.image}>
-                 {!avatar.avatarURL.length === 0 ? (
+            <div className={css.imageContainer}>
+                 {!avatar ? (
                     <svg className={css.svg}>
                         <use href={sprite + '#user-avatar-icon'}></use>
                     </svg>
                 ) : (
-                    <img className={css.img} src={avatar.avatarURL} alt="Avatar" />
+                    <div className={css.image}>
+                        <img className={css.img} src={avatar} alt="Avatar" />
+                    </div>
                 )}
                 <div className={css.addImg}>
                     <label className={css.label} htmlFor="inputAddFile"></label>

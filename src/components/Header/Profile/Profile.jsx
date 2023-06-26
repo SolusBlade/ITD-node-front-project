@@ -7,17 +7,20 @@ import { selectName } from 'redux/auth/authSelectors';
 export const Profile = ({ modalHandler, avatar }) => {
     const [imgLink, setImgLink] = useState('');
     const name = useSelector(selectName);
-    // console.log(avatar.avatarURL);
+
     return (
         <div className={css.container}>
+            <div className={css.tooltip}>
+                <p></p>
+            </div>
             <p className={css.name}>{name}</p>
             <div className={css.avatarContainer} onClick={modalHandler}>
-                {!avatar.avatarURL.length === 0 ? (
+                {!avatar ? (
                     <svg className={css.svg}>
                         <use href={sprite + '#user-avatar-icon'}></use>
                     </svg>
                 ) : (
-                    <img className={css.img} src={avatar.avatarURL} alt="Avatar" />
+                    <img className={css.img} src={avatar} alt="Avatar" />
                 )}
             </div>
         </div>
