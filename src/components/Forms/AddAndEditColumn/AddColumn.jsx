@@ -25,7 +25,7 @@ const AddColumn = () => {
     >
       <Form>
         <InputField name="title" placeholder="Title" />
-        <ButtonModalWithIcon text="Add" />
+        <ButtonModalWithIcon text="Add"/>
       </Form>
     </Formik>
   );

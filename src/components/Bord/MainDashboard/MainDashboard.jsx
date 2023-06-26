@@ -1,15 +1,64 @@
 import Icon from "components/Icon/Icon";
-// import React, { useState } from "react";
+import React, { useState } from "react";
 import s from './MainDashboard.module.scss';
 import BoardColumn from "../BoardColumn/BoardColumn";
-import { useDispatch } from "react-redux";
-import { createNewBoard, createNewColumn, deleteBoardById, deleteColumnById, getAllBoards, updateBoardById, updateColumnById } from "redux/board/boardOperations";
+import AddColumn from "components/Forms/AddAndEditColumn/AddColumn";
+// import { useDispatch } from "react-redux";
+// import { createNewBoard, createNewColumn, deleteBoardById, deleteColumnById, getAllBoards, updateBoardById, updateColumnById } from "redux/board/boardOperations";
+import Modal from "components/Modal/Modal";
 
 const MainDashboard = () => {
-  // const [columns, setColumns] = useState([]);
-  const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
+  const [showBoardColumn, setShowBoardColumn] = useState(true);
 
-  const HandleClick = () => {
+  const handleAddColumnClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  // const [addBoardModal, setAddBoardModal] = useState(false);
+
+  // const handleAddBoard = () => setAddBoardModal(!addBoardModal);
+
+  // const handleModalClose = () => {
+  //   setShowModal(false);
+  // };
+
+  return (
+    <>
+      <div className={s.mainDashboard}>
+        {showBoardColumn && <BoardColumn />}
+        <button className={s.btnAddColumn} onClick={handleAddColumnClick}>
+          <div className={s.btnAddColumnW}>
+            <Icon
+              name="icon-plus-white"
+              width={14}
+              height={14}
+              secondaryClassName={s.iconPlus}
+            />
+          </div>
+          Add another column
+        </button>
+      </div>
+
+      {showModal && (
+        <Modal title="New board" closeModal={handleCloseModal}>
+          <AddColumn setBoardColumnVisibility={setShowBoardColumn} />
+        </Modal>
+      )}
+
+      {/* <button onClick={HandleClick}>qqq</button> */}
+    </>
+  );
+}
+export default MainDashboard;
+
+
+  // const dispatch = useDispatch();
+
+  // const HandleClick = () => {
       // dispatch(deleteColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea"}))
       // dispatch(updateColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea", data: {title: "Progress"}}))
       // dispatch(createNewColumn({idBoard: '6498cf6a2d349cd4315bedc7', data: {title: "To Do 3"}}))
@@ -18,8 +67,8 @@ const MainDashboard = () => {
       // ))
     // dispatch(createNewBoard(
     //   {
-    //     title:'www',
-    //     icon: 'star',
+    //     title:'ccc',
+    //     icon: 'ppp',
     //     background: `none`,
     //   }
     // ))
@@ -32,8 +81,8 @@ const MainDashboard = () => {
     //       columns: [],
     //   }}
     // ))
-    dispatch(getAllBoards())
-  }
+  //   dispatch(getAllBoards())
+  // }
   // const handleEditColumn = (columnId, newTitle) => {
   //   const updatedColumns = columns.map((column) =>
   //     column.id === columnId ? { ...column, title: newTitle } : column
@@ -45,26 +94,3 @@ const MainDashboard = () => {
   //   const updatedColumns = columns.filter((column) => column.id !== columnId);
   //   setColumns(updatedColumns);
   // };
-
-  return (
-    <div className={s.mainDashboard}>
-
-        <BoardColumn />
-
-        <button className={s.btnAddColumn}>
-          <div className={s.btnAddColumnW}>
-            <Icon
-              name='icon-plus-white'
-              width={14}
-              height={14}
-              secondaryClassName={s.iconPlus}
-            />
-          </div>
-            Add another column
-        </button>
-        <button onClick={HandleClick}>qqq</button>
-    </div>
-  )
-}
-
-export default MainDashboard;
