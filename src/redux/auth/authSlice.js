@@ -51,7 +51,7 @@ const authSlice = createSlice({
         state.user.name = payload.name;
         state.user.email = payload.email;
         state.user.theme = payload.theme;
-        state.user.avatar = payload.avatarUrl;
+        state.user.avatar = payload.avatarURL;
 
       })
       .addCase(getCurrentUserInfo.pending, (state, { payload }) => {})
@@ -62,7 +62,6 @@ const authSlice = createSlice({
           state.theme = action.payload;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
-          console.log('payload ', action.payload);
           state.avatar = action.payload;
       })
       .addCase(updateUser.fulfilled, (state, action) => {

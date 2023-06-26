@@ -3,6 +3,7 @@ import css from './SelectTheme.module.scss';
 import { useState } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
+import { OutsideClicker } from './OutsideClicker';
 // import { useSelector, useDispatch } from 'react-redux';
 // import { selectTheme } from 'redux/auth/authSelectors';
 // import { switchTheme } from 'redux/auth/authOperations';
@@ -35,6 +36,7 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
     }
 
     return (
+        <OutsideClicker isActive={isActive} setActive={setActive}>
         <div className={css.container}>   
             <div className={css.select}>
                 <div className={css.selectContainer} onClick={handleClick}>
@@ -45,6 +47,7 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
                         </svg>
                     </div>
                 </div>
+                
                 <ul className={clsx(css.list, [isActive && css.active])} 
                     onClick={event => {
                         handleClick(event);
@@ -71,5 +74,6 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
                 </ul>
             </div>
         </div>
+        </OutsideClicker>
     )
 }

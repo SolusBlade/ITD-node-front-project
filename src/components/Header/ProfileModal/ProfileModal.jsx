@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateUser, updateAvatar } from "redux/auth/authOperations";
 import sprite from '../../../assets/icons/icons.svg'
 
-export const ProfileModal = ({ modalHandler }) => {
+export const ProfileModal = ({ modalHandler, avatar }) => {
     const [imgLink, setImgLink] = useState('');
     const [image, setImage] = useState(null);
     // const prevImageRef = useRef(image);
@@ -50,13 +50,15 @@ export const ProfileModal = ({ modalHandler }) => {
 
     return (
         <div className={css.modal}>
-            <div className={css.image}>
-                 {imgLink.length === 0 ? (
+            <div className={css.imageContainer}>
+                 {!avatar ? (
                     <svg className={css.svg}>
                         <use href={sprite + '#user-avatar-icon'}></use>
                     </svg>
                 ) : (
-                    <img className={css.img} src="" alt="Avatar" />
+                    <div className={css.image}>
+                        <img className={css.img} src={avatar} alt="Avatar" />
+                    </div>
                 )}
                 <div className={css.addImg}>
                     <label className={css.label} htmlFor="inputAddFile"></label>
