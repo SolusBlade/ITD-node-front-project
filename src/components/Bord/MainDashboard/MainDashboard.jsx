@@ -45,7 +45,7 @@ const MainDashboard = () => {
 
       {showModal && (
         <Modal title="Add column" closeModal={handleCloseModal}>
-          <AddColumn setBoardColumnVisibility={setShowBoardColumn} />
+          <AddColumn closeModal={handleCloseModal} />
         </Modal>
       )}
 
