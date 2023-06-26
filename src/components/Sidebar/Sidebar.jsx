@@ -56,11 +56,11 @@ export const Sidebar = () => {
 
   const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
-  const handleEditBoard = () => {
-    console.log('edit');
+  const handleEditBoard = id => {
+    console.log(`edit id:${id}`);
   };
-  const handleDeleteBoard = () => {
-    console.log('delete');
+  const handleDeleteBoard = id => {
+    console.log(`delete id:${id}`);
   };
 
   const handleLogout = () => {
@@ -101,7 +101,7 @@ export const Sidebar = () => {
                 className={currentClass}
                 onClick={() => setActiveItemId(el.id)}
               >
-                <span className={st.boardName}>
+                <div className={st.boardName}>
                   <Icon
                     name={el.icon}
                     width={18}
@@ -109,23 +109,23 @@ export const Sidebar = () => {
                     className={st.boardIcon}
                   />
                   {el.name}
-                </span>
+                </div>
                 {el.id === activeItemId && (
                   <>
-                    <span className={st.boardEditIcons}>
-                      <IconBtn
-                        name={'icon-pencil'}
-                        width={16}
-                        height={16}
-                        onClick={handleEditBoard}
-                      />
-                      <IconBtn
-                        name={'icon-trash'}
-                        width={16}
-                        height={16}
-                        onClick={handleDeleteBoard}
-                      />
-                    </span>
+                    <div className={st.boardEditIcons}>
+                      <div
+                        className={st.boardButtons}
+                        onClick={() => handleEditBoard(el.id)}
+                      >
+                        <Icon name={'icon-pencil'} width={16} height={16} />
+                      </div>
+                      <div
+                        className={st.boardButtons}
+                        onClick={() => handleDeleteBoard(el.id)}
+                      >
+                        <Icon name={'icon-trash'} width={16} height={16} />
+                      </div>
+                    </div>
                   </>
                 )}
               </li>
@@ -136,7 +136,7 @@ export const Sidebar = () => {
       <section className={st.sectionHelp}>
         <div className={st.container}>
           <div className={st.helpWrapper}>
-            <img src={cactus} alt="cactus image" className={st.helpCactus} />
+            <img src={cactus} alt="cactus" className={st.helpCactus} />
             <p className={st.helpText}>
               If you need help with <span> &#013;TaskPro</span>, check out our
               support resources or reach out to our customer support team.
