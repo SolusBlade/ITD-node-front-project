@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
 import IconBtn from 'components/Icon/Icon';
 import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
+import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
@@ -11,7 +12,9 @@ import Icon from 'components/Icon/Icon';
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const [addBoardModal, setAddBoardModal] = useState(false);
+  const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const boards = [
     {
@@ -48,23 +51,15 @@ export const Sidebar = () => {
 
   useEffect(() => setActiveItemId(boards[0].id), []);
 
-  const handleAddBoard = () => {
-    setIsOpen(true);
-  };
+  const handleAddBoard = () => setAddBoardModal(!addBoardModal);
+
+  const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
   const handleEditBoard = () => {
     console.log('edit');
   };
   const handleDeleteBoard = () => {
     console.log('delete');
-  };
-
-  const handleModalClose = () => {
-    setIsOpen(false);
-  };
-
-  const handleHelp = () => {
-    console.log('help');
   };
 
   const handleLogout = () => {
@@ -145,7 +140,7 @@ export const Sidebar = () => {
               If you need help with <span>TaskPro</span>, check out our support
               resources or reach out to our customer support team.
             </p>
-            <button className={st.helpSend} onClick={handleHelp}>
+            <button className={st.helpSend} onClick={handleNeedHelp}>
               Need help?
             </button>
           </div>
@@ -158,9 +153,14 @@ export const Sidebar = () => {
           </button>
         </div>
       </section>
-      {isOpen && (
-        <Modal title={'New board'} closeModal={handleModalClose}>
+      {addBoardModal && (
+        <Modal title={'New board'} closeModal={handleAddBoard}>
           <NewBoard />
+        </Modal>
+      )}
+      {needHelpModalOpen && (
+        <Modal title="Need help" closeModal={handleNeedHelp}>
+          <NeedHelp />
         </Modal>
       )}
     </>
