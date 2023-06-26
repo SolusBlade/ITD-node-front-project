@@ -2,13 +2,14 @@
   display: flex;
   margin-top: 10px;
   align-items: flex-start;
-  gap: 34px;
+  // gap: 34px;
 }
 
 .btnAddColumn {
   display: flex;
   justify-content: center;
   align-items: center;
+
   // flex-grow: 1;
   flex-shrink: 0;
   width: 334px;
