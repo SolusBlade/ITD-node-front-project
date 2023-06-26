@@ -4,15 +4,20 @@ import { Profile } from "./Profile/Profile";
 import { ProfileModal } from "./ProfileModal/ProfileModal";
 
 // eslint-disable-next-line
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/authSelectors';
+// import Container from 'components/Container/Container';
+import Modal from 'components/Modal/Modal';
 
 
 
 export const Header = () => {
     const userTheme = useSelector(selectTheme);
-    let [selectedTheme, setTheme] = useState('dark');
+    const [selectedTheme, setTheme] = useState('dark');
+    const ref = useRef(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     // let selectValue;
     let themes = {
         dark: {
@@ -27,7 +32,8 @@ export const Header = () => {
             selectHeader: 'rgba(255, 255, 255, 0.8)',
             selectOption: 'rgba(255, 255, 255, 0.5)',
             selectListBg: '#151515',
-            selectListBorder: '#BEDBB0'
+            selectListBorder: '#BEDBB0',
+            modalBackground: '#151515'
         },
         light: {
             primaryBackground: '#FFFFFF',
@@ -41,7 +47,8 @@ export const Header = () => {
             selectHeader: 'rgba(160, 160, 160, 0.8)',
             selectOption: '#161616',
             selectListBg: '#FCFCFC',
-            selectListBorder: '#BEDBB0'
+            selectListBorder: '#BEDBB0',
+            modalBackground: '#FCFCFC'
         },
         violet: {
             primaryBackground: '#5255BC',
@@ -55,15 +62,17 @@ export const Header = () => {
             selectHeader: 'rgba(160, 160, 160, 0.8)',
             selectOption: '#161616',
             selectListBg: '#FCFCFC',
-            selectListBorder: '#ECEDFD'
+            selectListBorder: '#ECEDFD',
+            modalBackground: '#FCFCFC'
         }
     }
-
+    
     useEffect(()=> {
         // console.log('useEffect')
         // console.log(selectedTheme)
+        // console.log(isModalOpen)
 
-    }, [selectedTheme]); 
+    }, [selectedTheme, isModalOpen]); 
 
     const selectHandler = (theme) => {
         const root = document.querySelector(':root');
@@ -81,6 +90,7 @@ export const Header = () => {
         root.style.setProperty('--select-option', themes[theme].selectOption);
         root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
         root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
+        root.style.setProperty('--modal-background', themes[theme].modalBackground);
 
         setTheme(theme);
         // console.log('selectHandler', selectValue);
@@ -89,15 +99,27 @@ export const Header = () => {
         // console.log()
     }
 
+    const modalHandler = () => setIsModalOpen(!isModalOpen);
+
+    const closeModal = () => {
+        // console.log('closeModal');
+        modalHandler();
+    }
+
     return (
-        <header className={css.header}>
-            <div className={css.container}>
-                <SelectTheme selectHandler={selectHandler}></SelectTheme>
-                <Profile></Profile>
-            </div>
-            <div className={css.modal}>
-                <ProfileModal></ProfileModal>
-            </div>
-        </header>
+        // <Container>
+            <header className={css.header}>
+                <div className={css.container}>
+                    <SelectTheme selectHandler={selectHandler}></SelectTheme>
+                    <Profile modalHandler={modalHandler}></Profile>
+                </div>
+                {isModalOpen && <Modal title={'Edit profile'} closeModal={closeModal}>
+                    <div className={css.modal}>
+                        <ProfileModal modalHandler={modalHandler}></ProfileModal>
+                    </div>
+                </Modal>}
+            </header>
+        // </Container>
+        
     )
 }

@@ -29,9 +29,17 @@
 // .MuiButton-text{
 //     color: red;
 // }
-.modal{
+
+.modalContainer{
     display: none;
+}
+
+.backdrop{
+    background-color: red;
+}
+.modal{
+    // display: none;
     // position: absolute;
-    transform: translateY(170px);
+    // transform: translateY(170px);
     z-index: 200;
 }

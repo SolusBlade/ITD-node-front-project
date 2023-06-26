@@ -1,8 +1,8 @@
 .modal{
     width: 100%;
-    min-width: 280px;
-    max-width: 335px;
-    padding: 14px 24px 24px 24px;
+    min-width: 240px;
+    // max-width: 335px;
+    // padding: 14px 24px 24px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,8 +10,8 @@
    
     background-color: var(--select-list-bg); 
     border-radius: 8px;
-    border: 1px solid rgba(190, 219, 176, 0.50);
-    box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
+    // border: 1px solid rgba(190, 219, 176, 0.50);
+    // box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
 }
 
 .header{
@@ -24,14 +24,23 @@
     height: 68px;
     width: 68px;
     margin-bottom: 25px;
-    position: relative;
+    // overflow: hidden;
 
-    background-color: green;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    background-color: var(--secondary-background);
+    border-radius: 8px;
+
 }
 
 .svg{
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 85%;
+    transform: translate(0%, 4%);
+    fill: var(--select-list-bg);
 }
 
 .addImg{
@@ -41,15 +50,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translate(117%, -70%);
+    flex-direction: column;
+    // overflow: hidden;
+    
+    transform: translate(0%, 50%);
 
     background-color: var(--btn-bg);
+
+    border-radius: 4px;
+
+    &:hover {
+        // opacity: 0.8;
+        background-color: lightslategray;
+    }
+}
+
+.label{
+    width: 100%;
+    height: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.addFile{
+    // height: 100%;
+    // width: 100%;
+    // visibility:hidden;
+    display: none;
+    // opacity: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+    // &::file-selector-button {
+    //     display: none;
+    // }
 }
 
 .form{
     // width: 100%;
     min-width: 200px;
-    max-width: 287px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -85,9 +128,11 @@
     // width: 287px;
     height: 49px;
     flex-shrink: 0;
-    border-radius: 8px;
     background-color: var(--btn-bg);
 
+    border-radius: 8px;
+    border: none;
+    
     &:hover{    
         opacity: 0.7;
     }
