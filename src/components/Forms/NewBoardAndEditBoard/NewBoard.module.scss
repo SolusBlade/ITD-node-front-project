@@ -1,9 +1,16 @@
 @import '../../../sass/utils/variables';
 @import '../../../sass/utils/mixin';
 
+.title {
+  @include font(500, 14px, 1.3);
+  margin-bottom: 14px;
+}
 .svgIcon {
   stroke-opacity: 0.5;
 }
 .activeSvgIcon {
   stroke-opacity: 1;
+}
+.bgIcon {
+  outline: 1px solid red;
 }

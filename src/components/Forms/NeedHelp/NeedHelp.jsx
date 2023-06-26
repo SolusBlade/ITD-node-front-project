@@ -3,8 +3,13 @@ import * as yup from 'yup';
 import InputField from 'shared/components/InputField/InputField';
 import s from './NeedHelp.module.scss';
 const schema = yup.object().shape({
-  email: yup.string().required('*Обовязкове поле'),
-  comment: yup.string().required('*Обовязкове поле'),
+  email: yup
+    .string()
+    .email('Email must be a valid email')
+    .min(3, 'Email must be at least 3 characters')
+    .max(64, 'Email must be less than or equal to 64 characters')
+    .required('Email is a required field'),
+  comment: yup.string().required('Comment is a required field'),
 });
 
 const initialValues = {
@@ -14,7 +19,11 @@ const initialValues = {
 
 const NeedHelp = () => {
   const hendleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    const obj = {
+      email: values.email,
+      comment: values.comment,
+    };
+    console.log(obj);
     resetForm();
   };
   return (
@@ -23,7 +32,7 @@ const NeedHelp = () => {
       validationSchema={schema}
       onSubmit={hendleSubmit}
     >
-      <Form>
+      <Form autoComplete="off">
         <InputField name="email" placeholder="Email address" />
         <label className={s.label}>
           <Field
