@@ -32,7 +32,8 @@ export const Header = () => {
             selectHeader: 'rgba(255, 255, 255, 0.8)',
             selectOption: 'rgba(255, 255, 255, 0.5)',
             selectListBg: '#151515',
-            selectListBorder: '#BEDBB0'
+            selectListBorder: '#BEDBB0',
+            modalBackground: '#151515'
         },
         light: {
             primaryBackground: '#FFFFFF',
@@ -46,7 +47,8 @@ export const Header = () => {
             selectHeader: 'rgba(160, 160, 160, 0.8)',
             selectOption: '#161616',
             selectListBg: '#FCFCFC',
-            selectListBorder: '#BEDBB0'
+            selectListBorder: '#BEDBB0',
+            modalBackground: '#FCFCFC'
         },
         violet: {
             primaryBackground: '#5255BC',
@@ -60,7 +62,8 @@ export const Header = () => {
             selectHeader: 'rgba(160, 160, 160, 0.8)',
             selectOption: '#161616',
             selectListBg: '#FCFCFC',
-            selectListBorder: '#ECEDFD'
+            selectListBorder: '#ECEDFD',
+            modalBackground: '#FCFCFC'
         }
     }
     
@@ -87,6 +90,7 @@ export const Header = () => {
         root.style.setProperty('--select-option', themes[theme].selectOption);
         root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
         root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
+        root.style.setProperty('--modal-background', themes[theme].modalBackground);
 
         setTheme(theme);
         // console.log('selectHandler', selectValue);
