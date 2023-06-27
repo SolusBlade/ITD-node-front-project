@@ -8,7 +8,7 @@ const BtnAddCard = () => {
     <button className={s.btnAddCard}>
           <div className={s.btnAddCardW}>
             <Icon
-              name='icon-plus-dark'
+              name='icon-btn-plus'
               width={14}
               height={14}
               secondaryClassName={s.iconPlus}

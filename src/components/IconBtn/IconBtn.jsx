@@ -3,7 +3,7 @@ import Icon from 'components/Icon/Icon';
 import clsx from 'clsx';
 import s from './IconBtn.module.scss';
 
-const IconBtn = ({ name, width, height, btnClassName, secondaryClassName }) => {
+const IconBtn = ({ name, width, height, btnClassName, secondaryClassName, onClick }) => {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -22,6 +22,7 @@ const IconBtn = ({ name, width, height, btnClassName, secondaryClassName }) => {
       btnClassName && btnClassName)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
     >
       <Icon
         name={iconName}

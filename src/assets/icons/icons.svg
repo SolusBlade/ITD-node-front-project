@@ -49,10 +49,11 @@
       <path d="M55.7529 49.812C55.7529 46.1512 55.0319 42.5263 53.6309 39.1441C52.23 35.762 50.1766 32.6889 47.5881 30.1004C44.9995 27.5118 41.9264 25.4584 38.5443 24.0575C35.1622 22.6566 31.5372 21.9355 27.8764 21.9355C24.2157 21.9355 20.5907 22.6566 17.2086 24.0575C13.8265 25.4584 10.7534 27.5118 8.16482 30.1004C5.57625 32.6889 3.52289 35.762 2.12197 39.1441C0.721045 42.5263 -3.20036e-07 46.1512 0 49.812L27.8765 49.812H55.7529Z"/>
     </symbol>
     // Button +
-    <symbol id="icon-btn-plus" fill="none" viewBox="0 0 28 28">
-       <path d="M22 0H6C2.68629 0 0 2.68629 0 6V22C0 25.3137 2.68629 28 6 28H22C25.3137 28 28 25.3137 28 22V6C28 2.68629 25.3137 0 22 0Z" fill="#161616"/>
-       <path d="M14 9.91667V18.0833" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-       <path d="M9.91663 14H18.0833" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+    <symbol id="icon-btn-plus" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="plus">
+      <path id="Vector" d="M7 2.91667V11.0833" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Vector_2" d="M2.9165 7H11.0832" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
     </symbol>
     <symbol id="icon-plus-dark" viewBox="0 0 32 32">
       <path fill="none" stroke="#FFFFFF" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M16 6.667v18.667"></path>

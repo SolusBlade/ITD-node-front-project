@@ -21,6 +21,7 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
   const isLoggedIn = useSelector(state => state.auth.user.name);
+  const currentBoard = useSelector(state => state.board.currentBoardId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +29,7 @@ export const Sidebar = () => {
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
+  const [boardToEdit, setBoardToEdit] = useState(null);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -37,8 +39,12 @@ export const Sidebar = () => {
     if (boards.length === 0) {
       return;
     }
-    setActiveItemId(boards[0]._id);
-  }, [boards]);
+    if (!currentBoard) {
+      setActiveItemId(boards[0]._id);
+      const newTitle = boards[0].title.split(' ').join('-').toLowerCase();
+      navigate(`/home/${newTitle}`);
+    }
+  }, [boards, currentBoard, navigate]);
 
   useEffect(() => {
     dispatch(getBoardById(activeItemId));
@@ -52,17 +58,19 @@ export const Sidebar = () => {
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
-    const newTitle = title.split(' ').join('').toLowerCase();
+
+    const newTitle = title.split(' ').join('-').toLowerCase();
     navigate(`/home/${newTitle}`);
   };
 
   const handleEditBoard = id => {
-    console.log(`edit id:${id}`);
+    setBoardToEdit(boards.filter(el => el._id === currentBoard));
     handleEditBoardModal();
   };
+
   const handleDeleteBoard = id => {
-    console.log(`delete id:${id}`);
     dispatch(deleteBoardById(id));
+    dispatch(getBoardById(null));
   };
 
   const handleLogout = () => {
@@ -110,7 +118,7 @@ export const Sidebar = () => {
                     height={18}
                     className={st.boardIcon}
                   />
-                  {el.title}
+                  <p>{el.title}</p>
                 </div>
                 {el._id === activeItemId && (
                   <>
@@ -170,7 +178,10 @@ export const Sidebar = () => {
       )}
       {editBoardModal && (
         <Modal title="Edit board" closeModal={handleEditBoardModal}>
-          <EditBoard closeModal={handleEditBoardModal} />
+          <EditBoard
+            closeModal={handleEditBoardModal}
+            boardToEdit={boardToEdit}
+          />
         </Modal>
       )}
     </>

@@ -47,6 +47,12 @@ export const Header = () => {
         root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
         root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
         root.style.setProperty('--modal-background', themes[theme].modalBackground);
+        root.style.setProperty('--btn-modal-icon-plus', themes[theme].btnModalIconPlus);
+        root.style.setProperty('--btn-modal-bg', themes[theme].btnModalBg);
+        root.style.setProperty('--btn-modal-text-color', themes[theme].btnModalTextColor);
+        root.style.setProperty('--card-bg', themes[theme].cardBg);
+        root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
+        root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
 
         setSelectedTheme(theme);
     }
@@ -77,9 +83,7 @@ export const Header = () => {
                     <Profile modalHandler={modalHandler} avatar={avatar}></Profile>
                 </div>
                 {isModalOpen && <Modal title={'Edit profile'} closeModal={closeModal}>
-                    <div className={css.modal}>
-                        <ProfileModal modalHandler={modalHandler} avatar={avatar}></ProfileModal>
-                    </div>
+                    <ProfileModal modalHandler={modalHandler} avatar={avatar}></ProfileModal>
                 </Modal>}
             </header>
         // </Container>
