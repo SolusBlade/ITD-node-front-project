@@ -53,7 +53,8 @@ export const Header = () => {
         root.style.setProperty('--card-bg', themes[theme].cardBg);
         root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
         root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
-
+        root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
+    
         setSelectedTheme(theme);
     }
 
