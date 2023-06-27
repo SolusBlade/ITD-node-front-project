@@ -12,7 +12,10 @@ export let themes = {
         selectOption: 'rgba(255, 255, 255, 0.5)',
         selectListBg: '#151515',
         selectListBorder: '#BEDBB0',
-        modalBackground: '#151515'
+        modalBackground: '#151515',
+        btnModalIconPlus: '#FFFFFF',
+        btnModalBg: "#161616",
+        btnModalTextColor: "#161616"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -27,7 +30,9 @@ export let themes = {
         selectOption: '#161616',
         selectListBg: '#FCFCFC',
         selectListBorder: '#BEDBB0',
-        modalBackground: '#FCFCFC'
+        modalBackground: '#FCFCFC',
+        btnModalIconPlus: '#FFFFFF',
+        btnModalBg: "#161616"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -42,6 +47,8 @@ export let themes = {
         selectOption: '#161616',
         selectListBg: '#FCFCFC',
         selectListBorder: '#ECEDFD',
-        modalBackground: '#FCFCFC'
+        modalBackground: '#FCFCFC',
+        btnModalIconPlus: '#161616',
+        btnModalBg: "#FFFFFF"
     }
 }

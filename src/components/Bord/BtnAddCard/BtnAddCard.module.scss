@@ -17,7 +17,7 @@
   font-size: 14px;
   line-height: 1.5;
 
-  color: var(--header-background);
+  color: var(--btn-modal-bg);
   background-color: var(--btn-bg);
 }
 
@@ -30,9 +30,9 @@
   width: 28px;
   height: 28px;
   border-radius: 6px;
-  background-color: var(--header-background);
+  background-color: var(--btn-modal-bg);
 }
 
-// .iconPlus {
-//   fill: var(--primary-text-color);
-// }
+.iconPlus {
+  stroke: var(--btn-modal-icon-plus);
+}
