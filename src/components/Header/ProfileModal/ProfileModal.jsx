@@ -75,7 +75,11 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
           </div>
         )}
         <div className={css.addImg}>
-          <label className={css.label} htmlFor="inputAddFile"></label>
+          <label className={css.label} htmlFor="inputAddFile">
+            <svg className={css.labelSvg}>
+                <use href={sprite + "#icon-btn-plus"}></use>
+            </svg>
+          </label>
           <input
             className={css.addFile}
             id="inputAddFile"

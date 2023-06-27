@@ -18,7 +18,8 @@ export let themes = {
         btnModalTextColor: "#161616",
         cardBg: "#121212",
         boardAddColumnBtn: "#FFFFFF",
-        boardAddColumnPlus: "#121212"
+        boardAddColumnPlus: "#121212",
+        headerModalBtnAddFile: "#BEDBB0"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -38,7 +39,8 @@ export let themes = {
         btnModalBg: "#161616",
         cardBg: "#FFFFFF",
         boardAddColumnBtn: "#121212",
-        boardAddColumnPlus: "#FFFFFF"
+        boardAddColumnPlus: "#FFFFFF",
+        headerModalBtnAddFile: "#BEDBB0"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -58,6 +60,7 @@ export let themes = {
         btnModalBg: "#FFFFFF",
         cardBg: "#FFFFFF",
         boardAddColumnBtn: "#5255BC",
-        boardAddColumnPlus: "#FFFFFF"
+        boardAddColumnPlus: "#FFFFFF",
+        headerModalBtnAddFile: "#ECEDFD"
     }
 }
