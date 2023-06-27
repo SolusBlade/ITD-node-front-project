@@ -4,14 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
-import IconBtn from 'components/Icon/Icon';
+// import IconBtn from 'components/Icon/Icon';
 import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
 import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
 import Icon from 'components/Icon/Icon';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
-import { getAllBoards, getBoardById } from 'redux/board/boardOperations';
+import {
+  deleteBoardById,
+  getAllBoards,
+  getBoardById,
+} from 'redux/board/boardOperations';
+import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
@@ -21,6 +26,7 @@ export const Sidebar = () => {
   // const [isOpen, setIsOpen] = useState(false);
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
+  const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
 
   useEffect(() => {
@@ -32,24 +38,31 @@ export const Sidebar = () => {
       return;
     }
     setActiveItemId(boards[0]._id);
-    navigate(`/home/${boards[0].title}`);
   }, [boards]);
+
+  useEffect(() => {
+    dispatch(getBoardById(activeItemId));
+  }, [activeItemId, dispatch]);
 
   const handleAddBoard = () => setAddBoardModal(!addBoardModal);
 
+  const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
+
+  const handleEditBoardModal = () => setEditBoardModal(!editBoardModal);
+
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
-    dispatch(getBoardById(id));
-    navigate(`/home/${title}`);
+    const newTitle = title.split(' ').join('').toLowerCase();
+    navigate(`/home/${newTitle}`);
   };
-
-  const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
   const handleEditBoard = id => {
     console.log(`edit id:${id}`);
+    handleEditBoardModal();
   };
   const handleDeleteBoard = id => {
     console.log(`delete id:${id}`);
+    dispatch(deleteBoardById(id));
   };
 
   const handleLogout = () => {
@@ -152,7 +165,12 @@ export const Sidebar = () => {
       )}
       {needHelpModalOpen && (
         <Modal title="Need help" closeModal={handleNeedHelp}>
-          <NeedHelp />
+          <NeedHelp closeModal={handleNeedHelp} />
+        </Modal>
+      )}
+      {editBoardModal && (
+        <Modal title="Edit board" closeModal={handleEditBoardModal}>
+          <EditBoard closeModal={handleEditBoardModal} />
         </Modal>
       )}
     </>
