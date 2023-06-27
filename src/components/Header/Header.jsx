@@ -11,6 +11,8 @@ import { selectTheme, selectUserTheme, selectAvatar } from 'redux/auth/authSelec
 import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
 import { switchTheme } from 'redux/auth/authOperations';
+import sprite from '../../assets/icons/icons.svg'
+import { toggleButtonClasses } from '@mui/material';
 
 let themes = {
     dark: {
@@ -65,6 +67,7 @@ export const Header = () => {
     const avatar = useSelector(selectAvatar);
     const [selectedTheme, setSelectedTheme] = useState(userTheme);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(false);
     // const ref = useRef(null);
     const dispatch = useDispatch();
     // console.log('userTheme', userTheme)
@@ -79,6 +82,10 @@ export const Header = () => {
         }
 
     }, [selectedTheme, userTheme, dispatch, avatar]); 
+
+    useEffect(() => {
+        console.log('sidebar ', showSidebar)
+    }, [showSidebar])
 
     const selectHandler = (theme) => {
         const root = document.querySelector(':root');
@@ -107,9 +114,18 @@ export const Header = () => {
         modalHandler();
     }
 
+    const toggleSidebar = () => {
+        setShowSidebar(!showSidebar);
+    }
+
     return (
         // <Container>
             <header className={css.header}>
+                <div className={css.menu} onClick={toggleSidebar}>
+                    <svg className={css.icon}>
+                        <use href={sprite + '#icon-burger-menu'}></use>
+                    </svg>
+                </div>
                 <div className={css.container}>
                     <SelectTheme 
                         selectHandler={selectHandler} 

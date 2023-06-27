@@ -2,10 +2,11 @@
 
 .header{
     // height: 68px;
+    width: 100%;
     padding: 18px 0px;
     position: relative;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     z-index: 0;
@@ -16,12 +17,13 @@
     @include tablet-max{
         padding: 18px 20px;
         // height: 70px
+        min-width: 220px;
     }
 }
 
 .container{
     // height: 32px;
-    width: 261px;
+    // width: 261px;
 
     display: flex;
     justify-content: flex-end;
@@ -30,6 +32,42 @@
 // .MuiButton-text{
 //     color: red;
 // }
+
+.menu{
+    width: 24px;
+    height: 24px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.icon{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // color: orange;
+    // stroke: orange;
+    // fill: red;
+    stroke: var(--primary-text-color);
+
+    &:first-child{
+        // margin: 0;
+        height: 100%;
+        width: 100%;
+        // fill: orange;
+        // stroke: var(--select-header);
+        // color: inherit;
+    }
+    
+    // &:first-child{
+    //     width: 18px;
+    //     height: 18px;
+    // }
+}
 
 .modalContainer{
     display: none;
