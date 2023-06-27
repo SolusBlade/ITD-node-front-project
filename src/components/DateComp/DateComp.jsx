@@ -58,13 +58,14 @@ const DateComp = () => {
   }
 
 
-
+  // eslint-disable-next-line
   const changedDateForPicker = newDate => {
     const month = newDate.getMonth();
     const year = newDate.getFullYear();
     return `${months[month]}, ${year}`;
   };
 
+  // eslint-disable-next-line
   const changedDateForApi = newDate => {
     const month = newDate.getMonth();
     const year = newDate.getFullYear();
