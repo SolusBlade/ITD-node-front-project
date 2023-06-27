@@ -3,6 +3,7 @@ import {
   createNewBoard,
   createNewColumn,
   deleteBoardById,
+  deleteColumnById,
   getAllBoards,
   getBoardById,
   getColumnById,
@@ -19,7 +20,7 @@ const initialState = {
   boards: [],
   isLoading: false,
   error: null,
-  currentBoard: null,
+  currentBoardId: null,
   currentColumn: null,
 };
 
@@ -55,10 +56,15 @@ const boardSlice = createSlice({
         fulfilledOperation(state);
       })
       .addCase(getBoardById.fulfilled, (state, { payload }) => {
-        state.currentBoard = payload;
+        state.currentBoardId = payload;
       })
       .addCase(getColumnById.fulfilled, (state, { payload }) => {
         state.currentColumn = payload;
+      })
+      .addCase(deleteColumnById.fulfilled, (state, { payload }) => {
+        state.boards = payload;
+        fulfilledOperation(state);
+
       })
       .addMatcher(
         action =>
