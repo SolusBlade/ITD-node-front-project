@@ -19,12 +19,14 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
     const handleSelect = (event) => {
         const theme = event.target.innerText.toLowerCase();
         if (theme !== userTheme) {
+            // console.log('handleSelect', selectedTheme)
             setSelectedTheme(theme);
         }
         selectHandler(theme);
     }
 
     const themeCheckHandler = (selectedTheme, userTheme) => {
+        // console.log('themeCheck', selectedTheme, userTheme)
         return selectedTheme ? selectedTheme : userTheme;
     }
 
@@ -48,19 +50,22 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
                 }}>
                     <li key={1} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'light'
+                        [css.current] : isActive && 
+                            themeCheckHandler(selectedTheme, userTheme) === 'light'
                     })}>
                         <p>Light</p>
                     </li>
                     <li key={2} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'dark'
+                        [css.current] : isActive && 
+                            themeCheckHandler(selectedTheme, userTheme) === 'dark'
                     })}>
                         <p>Dark</p>
                     </li>
                     <li key={3} className={clsx({
                         [css.listItem] : true,
-                        [css.current] : themeCheckHandler(selectedTheme, userTheme) === 'violet'
+                        [css.current] : isActive && 
+                            themeCheckHandler(selectedTheme, userTheme) === 'violet'
                     })}>
                         <p>Violet</p>
                     </li>

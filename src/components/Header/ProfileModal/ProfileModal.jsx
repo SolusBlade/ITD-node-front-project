@@ -32,7 +32,7 @@ const InitalVelues = {
   password: '',
 };
 
-export const ProfileModal = ({ modalHandler, avatar }) => {
+export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
   const [image, setImage] = useState(null);
   const dispatch = useDispatch();
 
@@ -40,6 +40,9 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
     if (image) {
       const formData = new FormData();
       formData.append('avatar', image);
+
+      if(image.size > 1040000) return alert('Maximum image size is 1MB');
+
       dispatch(updateAvatar(formData));
       setImage(null);
     }
@@ -62,16 +65,23 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
     setImage(evt.target.files[0]);
   };
 
+  const checkAvatar = () => {
+    if (avatar && avatar.length > 0) {
+        return avatar;
+    }
+    return userAvatar;
+  }
+
   return (
     <div className={css.modal}>
       <div className={css.imageContainer}>
-        {!avatar ? (
+        {userAvatar.length === 0 ? (
           <svg className={css.svg}>
             <use href={sprite + '#user-avatar-icon'}></use>
           </svg>
         ) : (
           <div className={css.image}>
-            <img className={css.img} src={avatar} alt="Avatar" />
+            <img className={css.img} src={checkAvatar()} alt="Avatar" />
           </div>
         )}
         <div className={css.addImg}>
