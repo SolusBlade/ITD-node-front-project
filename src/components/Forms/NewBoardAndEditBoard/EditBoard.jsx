@@ -1,6 +1,7 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { useState } from 'react';
 import clsx from 'clsx';
 import Box from '@mui/joy/Box';
 import Radio from '@mui/joy/Radio';
@@ -9,6 +10,8 @@ import InputField from 'shared/components/InputField/InputField';
 import Icon from '../../Icon/Icon';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import BgIcon from './BgIcon';
+import { updateBoardById } from 'redux/board/boardOperations';
+import { selectCurrentBoardId } from 'redux/board/boardSelectors';
 import s from './NewBoard.module.scss';
 
 import defaultBg from '../../../static/images/bgIcons/defaultBg.png';
@@ -27,11 +30,6 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateBoardById } from 'redux/board/boardOperations';
-// const initialsValue = {
-//   title: 'ggg',
-// };
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -40,13 +38,13 @@ const schema = yup.object().shape({
 const EditBoard = ({ closeModal, boardToEdit }) => {
   const [icon, setIcon] = useState(boardToEdit[0].icon);
   const [bg, setBg] = useState(boardToEdit[0].background);
-  const boardId = useSelector(state => state.board.currentBoardId);
+  const currentBoardId = useSelector(selectCurrentBoardId);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
       updateBoardById({
-        id: boardId,
+        id: currentBoardId,
         data: {
           title: values.title,
           icon: icon,
