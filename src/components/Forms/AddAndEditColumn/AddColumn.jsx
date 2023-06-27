@@ -15,10 +15,13 @@ const schema = yup.object().shape({
 
 const AddColumn = ({ closeModal }) => {
   const currentBoard = useSelector(state => state.board.currentBoard);
+  console.log(currentBoard);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(createNewColumn({ id: currentBoard, title: values.title }));
+    dispatch(
+      createNewColumn({ idBoard: currentBoard, data: { title: values.title } })
+    );
     closeModal();
     resetForm();
   };
