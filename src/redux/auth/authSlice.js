@@ -61,15 +61,19 @@ const authSlice = createSlice({
         return initialState;
       })
       .addCase(switchTheme.fulfilled, (state, action) => {
+        fulfilledOperation(state);
           state.theme = action.payload;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
+        fulfilledOperation(state);
           state.avatar = action.payload;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
+        fulfilledOperation(state);
           state.user = {...action.payload};
       })
       .addCase(toggleSidebar.fulfilled, (state, action) => {
+        fulfilledOperation(state);
           state.isSidebar = action.payload;
       })
       .addMatcher(

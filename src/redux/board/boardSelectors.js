@@ -1,5 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
+export const selectIsBoardLoading = state => state.board.isBoardLoading;
 export const selectCurrentBoardId = state => state.board.currentBoardId;
 export const selectBoards = state => state.board.boards;
 

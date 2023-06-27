@@ -12,13 +12,13 @@ import {
 } from './boardOperations';
 
 const fulfilledOperation = state => {
-  state.isLoading = false;
+  state.isBoardLoading = false;
   state.error = null;
 };
 
 const initialState = {
   boards: [],
-  isLoading: false,
+  isBoardLoading: false,
   error: null,
   currentBoardId: null,
   currentColumn: null,
@@ -57,9 +57,11 @@ const boardSlice = createSlice({
       })
       .addCase(getBoardById.fulfilled, (state, { payload }) => {
         state.currentBoardId = payload;
+        fulfilledOperation(state);
       })
       .addCase(getColumnById.fulfilled, (state, { payload }) => {
         state.currentColumn = payload;
+        fulfilledOperation(state);
       })
       .addCase(deleteColumnById.fulfilled, (state, { payload }) => {
         state.boards = payload;
@@ -70,7 +72,7 @@ const boardSlice = createSlice({
         action =>
           action.type.startsWith('board') && action.type.endsWith('/pending'),
         state => {
-          state.isLoading = true;
+          state.isBoardLoading = true;
           state.error = null;
         }
       )
@@ -78,7 +80,7 @@ const boardSlice = createSlice({
         action =>
           action.type.startsWith('board') && action.type.endsWith('/rejected'),
         (state, { payload }) => {
-          state.isLoading = false;
+          state.isBoardLoading = false;
           state.error = payload;
         }
       );
