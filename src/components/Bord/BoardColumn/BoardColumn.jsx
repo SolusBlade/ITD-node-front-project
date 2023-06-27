@@ -26,7 +26,7 @@ const BoardColumn = () => {
     <>
        <ul className={s.columnList}>
       {columns?.map(column => (
-        <li key={column._id}>
+        <li key={column._id} className={s.columnItem}>
           <div className={s.titleToDo}>
             <h2 className={s.titleCard}>{column.title}</h2>
             <div className={s.iconToDo} >

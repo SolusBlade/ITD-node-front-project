@@ -9,7 +9,7 @@ import { CommonWelcomeField } from './CommonWelcomField/CommonWelcomeField';
 // import ModalLogin from './ModalLogin/ModalLogin';
 
 import Loader from './Loader/Loader';
-import { PrivateRoute, PublicRoute } from 'services/routes';
+import { BoardRoute, PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
 import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
@@ -44,7 +44,8 @@ const App = () => {
               path="/home"
               element={<PrivateRoute component={<HomePage />} />}
             >
-              <Route path=":boardName" element={<HeaderDashboard />} />
+              {/* <Route path=":boardName" element={<HeaderDashboard />} /> */}BoardRoute
+              <Route path=":boardName" element={<BoardRoute component={<HeaderDashboard />} />} />
             </Route>
             <Route path="*" element={<Navigate to="/welcome" />} />
           </Routes>
