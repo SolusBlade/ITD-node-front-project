@@ -60,23 +60,18 @@
     justify-content: center;
     align-items: center;
     stroke: var(--primary-text-color);
+    // fill: black;
+    // background-color: black;
 
     &:first-child{
-        height: 100%;
-        width: 100%;
+        // height: 100%;
+        // width: 100%;
+        display: flex;
+    justify-content: center;
+    align-items: center;
     }
 }
 
 .modalContainer{
     display: none;
-}
-
-.backdrop{
-    background-color: red;
-}
-.modal{
-    // display: none;
-    // position: absolute;
-    // transform: translateY(170px);
-    z-index: 200;
 }
