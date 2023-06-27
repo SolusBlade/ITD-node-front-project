@@ -29,17 +29,17 @@ import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateBoardById } from 'redux/board/boardOperations';
-const initialsValue = {
-  title: '',
-};
+// const initialsValue = {
+//   title: 'ggg',
+// };
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
 });
 
-const EditBoard = ({ closeModal }) => {
-  const [icon, setIcon] = useState('colors');
-  const [bg, setBg] = useState('defaultBg');
+const EditBoard = ({ closeModal, boardToEdit }) => {
+  const [icon, setIcon] = useState(boardToEdit[0].icon);
+  const [bg, setBg] = useState(boardToEdit[0].background);
   const boardId = useSelector(state => state.board.currentBoard);
   const dispatch = useDispatch();
 
@@ -62,10 +62,14 @@ const EditBoard = ({ closeModal }) => {
     <Formik
       validationSchema={schema}
       onSubmit={handleSubmit}
-      initialValues={initialsValue}
+      initialValues={{ title: boardToEdit[0].title }}
     >
       <Form>
-        <InputField name="title" placeholder="Title" />
+        <InputField
+          name="title"
+          placeholder="Title"
+          value={boardToEdit[0].title}
+        />
         <div>
           <p className={s.title}>Icons</p>
           <RadioGroup

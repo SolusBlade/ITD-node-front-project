@@ -29,6 +29,7 @@ export const Sidebar = () => {
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
+  const [boardToEdit, setBoardToEdit] = useState(null);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -62,6 +63,7 @@ export const Sidebar = () => {
   };
 
   const handleEditBoard = id => {
+    setBoardToEdit(boards.filter(el => el._id === currentBoardId));
     handleEditBoardModal();
   };
 
@@ -175,7 +177,10 @@ export const Sidebar = () => {
       )}
       {editBoardModal && (
         <Modal title="Edit board" closeModal={handleEditBoardModal}>
-          <EditBoard closeModal={handleEditBoardModal} />
+          <EditBoard
+            closeModal={handleEditBoardModal}
+            boardToEdit={boardToEdit}
+          />
         </Modal>
       )}
     </>
