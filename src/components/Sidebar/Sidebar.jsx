@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
 // import IconBtn from 'components/Icon/Icon';
@@ -77,7 +77,7 @@ export const Sidebar = () => {
     dispatch(logOutUser());
   };
   return (
-    <>
+    <nav>
       <section className={st.sectionTop}>
         <div className={st.container}>
           <div className={st.logoWrap}>
@@ -88,15 +88,13 @@ export const Sidebar = () => {
           <p className={st.boardsTitle}>My boards</p>
           <div className={st.createBoard}>
             <p>Create a new board</p>
-            <Button
-              variant="contained"
-              color="inherit"
+            <button
+              type="button"
               className={st.buttonCreate}
               onClick={handleAddBoard}
-              size="medium"
             >
-              +
-            </Button>
+              <Icon name={'icon-btn-plus'} width={20} height={20} />
+            </button>
           </div>
         </div>
       </section>
@@ -148,8 +146,9 @@ export const Sidebar = () => {
           <div className={st.helpWrapper}>
             <img src={cactus} alt="cactus" className={st.helpCactus} />
             <p className={st.helpText}>
-              If you need help with <span> &#013;TaskPro</span>, check out our
-              support resources or reach out to our customer support team.
+              If you need help with <br />
+              <span> TaskPro</span>, check out our support resources or reach
+              out to our customer support team.
             </p>
             <button className={st.helpSend} onClick={handleNeedHelp}>
               <Icon name={'icon-help-circle'} width={20} height={20} />
@@ -184,6 +183,6 @@ export const Sidebar = () => {
           />
         </Modal>
       )}
-    </>
+    </nav>
   );
 };
