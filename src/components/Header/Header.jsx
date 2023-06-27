@@ -84,7 +84,7 @@ export const Header = () => {
     }, [selectedTheme, userTheme, dispatch, avatar]); 
 
     useEffect(() => {
-        console.log('sidebar ', showSidebar)
+        // console.log('sidebar ', showSidebar)
     }, [showSidebar])
 
     const selectHandler = (theme) => {
