@@ -20,10 +20,20 @@
 }
 
 .picture {  
+  background-image: url('../CommonWelcomField/themeimaige.png');
+  background-size: contain;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 14px;
-}
+  width: 124px;
+  height: 124px;
+  
+  @include tablet {
+    width: 162px;
+  height: 162px;
+  }
+
+  }
 
 .pageinfowrapper {
   flex-direction: column;
@@ -43,13 +53,13 @@
 
 .brandwrapper {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 24px;
-  p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+ p {
+  margin-bottom: 0;
+ }
 }
 
 .info {
@@ -66,8 +76,13 @@
   padding-bottom: 14px;
   border-radius: 8px;
   max-width: 100%;
+  transition: background-color 250ms linear, color 250ms linear;
   @include tablet {
     max-width: 344px;
+  }
+  &:hover {
+    background-color: var(--filter-svg-color);
+    color: var(--header-background);
   }
 }
 
@@ -82,7 +97,11 @@
   color: var(--header-background);
   border-radius: 8px;
   width: 100%;
+  transition: background-color 250ms linear;
   @include tablet {
     width: 344px;
+  }
+  &:hover {
+    background-color: var(--filter-svg-color);
   }
 }

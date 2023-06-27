@@ -13,6 +13,7 @@ import YupPassword from 'yup-password';
 // eslint-disable-next-line
 import icon from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
+import Icon from 'components/Icon/Icon';
 
 
 export const RegisterForm = () => {
@@ -87,16 +88,18 @@ export const RegisterForm = () => {
               type="text"
               name="email"
               placeholder="Enter your email"
-              autoComplete="off"
+              autoComplete="off"              
             />
+
           </label>
           <label htmlFor="password">
-            <Field className={s.inputfield}
+            <Field className={`${s.inputfield} ${s.passwordfield}`}
               type="password"
               name="password"
               placeholder="Create a password"
               autoComplete="off"
             />
+            <Icon name={'icon-eye'} width={18} height={18} className={s.eye}></Icon>
           </label>
           <button type="submit" className={s.submitbutton}>  Register Now</button>
           </div>
