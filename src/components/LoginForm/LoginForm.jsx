@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { loginUser } from '../../redux/auth/authOperations';
@@ -8,6 +9,7 @@ import s from '../RegisterForm/Form.module.scss';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const [passwordShown, setPasswordShown] = useState(false);
   // const message = useSelector(selectAuthError);
 

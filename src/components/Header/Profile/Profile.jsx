@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectName } from 'redux/auth/authSelectors';
 
 export const Profile = ({ modalHandler, avatar }) => {
+    // eslint-disable-next-line
     const [imgLink, setImgLink] = useState('');
     const name = useSelector(selectName);
 

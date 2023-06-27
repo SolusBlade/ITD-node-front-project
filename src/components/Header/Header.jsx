@@ -6,6 +6,8 @@ import { ProfileModal } from "./ProfileModal/ProfileModal";
 // eslint-disable-next-line
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+// eslint-disable-next-line
 import { selectTheme, selectUserTheme, selectAvatar } from 'redux/auth/authSelectors';
 // import Container from 'components/Container/Container';
 import Modal from 'components/Modal/Modal';

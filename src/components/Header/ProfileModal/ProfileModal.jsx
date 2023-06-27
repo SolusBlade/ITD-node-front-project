@@ -1,5 +1,7 @@
+// eslint-disable-next-line
 import { useEffect, useRef, useState } from "react";
 import css from "./ProfileModal.module.scss";
+// eslint-disable-next-line
 import { useSelector, useDispatch } from 'react-redux';
 // import { 
 //     selectAvatar, 
@@ -9,6 +11,7 @@ import { updateUser, updateAvatar } from "redux/auth/authOperations";
 import sprite from '../../../assets/icons/icons.svg'
 
 export const ProfileModal = ({ modalHandler, avatar }) => {
+    // eslint-disable-next-line
     const [imgLink, setImgLink] = useState('');
     const [image, setImage] = useState(null);
     // const prevImageRef = useRef(image);
@@ -25,7 +28,7 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
             setImage(null);
         }
 
-    }, [image]);
+    }, [image, dispatch]);
 
     const submitHandler = (evt) => {
         evt.preventDefault();
