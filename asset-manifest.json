@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.e31a571a.css",
-    "main.js": "/ITD-node-front-project/static/js/main.6dceb747.js",
+    "main.js": "/ITD-node-front-project/static/js/main.a4ad6829.js",
     "static/css/241.e60d742a.chunk.css": "/ITD-node-front-project/static/css/241.e60d742a.chunk.css",
     "static/js/241.cbbbbbf3.chunk.js": "/ITD-node-front-project/static/js/241.cbbbbbf3.chunk.js",
     "static/js/359.1347bb80.chunk.js": "/ITD-node-front-project/static/js/359.1347bb80.chunk.js",
@@ -12,13 +12,13 @@
     "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.d7290a42eb614320c4a2f9e8283b9d71.svg",
     "index.html": "/ITD-node-front-project/index.html",
     "main.e31a571a.css.map": "/ITD-node-front-project/static/css/main.e31a571a.css.map",
-    "main.6dceb747.js.map": "/ITD-node-front-project/static/js/main.6dceb747.js.map",
+    "main.a4ad6829.js.map": "/ITD-node-front-project/static/js/main.a4ad6829.js.map",
     "241.e60d742a.chunk.css.map": "/ITD-node-front-project/static/css/241.e60d742a.chunk.css.map",
     "241.cbbbbbf3.chunk.js.map": "/ITD-node-front-project/static/js/241.cbbbbbf3.chunk.js.map",
     "359.1347bb80.chunk.js.map": "/ITD-node-front-project/static/js/359.1347bb80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e31a571a.css",
-    "static/js/main.6dceb747.js"
+    "static/js/main.a4ad6829.js"
   ]
 }
