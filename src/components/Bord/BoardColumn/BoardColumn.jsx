@@ -4,14 +4,8 @@ import BoardCard from '../BoardCard/BoardCard';
 import BtnAddCard from '../BtnAddCard/BtnAddCard';
 import { useSelector } from 'react-redux';
 import { selectCurrentBoard, selectBoards } from 'redux/board/boardSelectors';
-const BoardColumn = () => {
-  // const columns = [
-  //   { title: 'To Do', id: 1 },
-  //   { title: 'Work', id: 2 },
-  //   // {title: "Progress" , id: 3},
-  //   // {title: "Done" , id: 4},
-  // ];
 
+const BoardColumn = () => {
   const currentBoardId = useSelector(selectCurrentBoard);
   const boards = useSelector(selectBoards);
 

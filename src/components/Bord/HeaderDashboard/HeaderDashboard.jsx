@@ -11,12 +11,7 @@ const HeaderDashboard = () => {
 
   return (
     <div className={s.headerDashboard}>
-      {boards.length === 0 && (
-        <Container className={s.containerWelcomeDashboard}>
-          <WelcomePageBoard />
-        </Container>
-      )}
-      {boards.length > 0 && (
+      {boards.length > 0 ? (
         <>
           <Container className={s.containerDashboard}>
             <h1 className={s.titleHeaderDashboard}>Title</h1>
@@ -26,17 +21,11 @@ const HeaderDashboard = () => {
             <MainDashboard />
           </Container>
         </>
+      ):(
+        <Container className={s.containerWelcomeDashboard}>
+          <WelcomePageBoard />
+        </Container>
       )}
-      {/* <Container className={s.containerWelcomeDashboard}>
-        <WelcomePageBoard />
-      </Container> */}
-      {/* <Container className={s.containerDashboard}>
-        <h1 className={s.titleHeaderDashboard}>Title</h1>
-        <Filters />
-      </Container>
-      <Container className={s.containerMainDashboard}>
-        <MainDashboard />
-      </Container> */}
     </div>
   );
 };
