@@ -38,6 +38,7 @@ export const Sidebar = () => {
       return;
     }
     setActiveItemId(boards[0]._id);
+    navigate(`/home/${boards[0].title}`);
   }, [boards]);
 
   useEffect(() => {
