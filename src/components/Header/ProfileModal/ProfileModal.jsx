@@ -1,26 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import css from "./ProfileModal.module.scss";
-import { useSelector, useDispatch } from 'react-redux';
-// import { 
-//     selectAvatar, 
-//     selectUser 
-// } from "redux/auth/authSelectors";
+import { useDispatch } from 'react-redux';
 import { updateUser, updateAvatar } from "redux/auth/authOperations";
 import sprite from '../../../assets/icons/icons.svg'
 
 export const ProfileModal = ({ modalHandler, avatar }) => {
-    const [imgLink, setImgLink] = useState('');
     const [image, setImage] = useState(null);
-    // const prevImageRef = useRef(image);
-    // const avatar = useSelector(selectAvatar);
-    // const user = useSelector(selectUser);
     const dispatch = useDispatch();
 
     useEffect(()=>{
         if(image){ 
             const formData = new FormData();
             formData.append('avatar', image);
-            // console.log(image.size);
             dispatch(updateAvatar(formData));
             setImage(null);
         }
@@ -35,15 +26,15 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
         const email = form.elements[1].value;
         const password = form.elements[2].value;
 
-        // console.log('submitHandler ', evt.currentTarget.elements[0].value);
-        // console.log('form', name)
-        // console.log('form', email)
-        // console.log('form', password)
-        dispatch(updateUser({name: name, email: email, password: password}))
+        dispatch(updateUser({
+            name: name, 
+            email: email, 
+            password: password
+        }));
+
         form.reset();
         modalHandler();
     }
-    // console.log('image 1', image)
     const handleFileSelect = (evt) => {
         setImage(evt.target.files[0])
     }

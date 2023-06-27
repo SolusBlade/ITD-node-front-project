@@ -8,5 +8,6 @@ export const selectUser = state => state.auth.user;
 export const selectUserTheme = state => state.auth.user.theme;
 export const selectTheme = state => state.auth.theme;
 export const selectAvatar = state => state.auth.user.avatar;
+export const selectIsSidebar = state => state.auth.isSidebar; 
 
 

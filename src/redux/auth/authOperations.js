@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { async } from 'q';
 
 import {
   getCurrentUserInfoApi,
@@ -103,7 +104,6 @@ export const updateAvatar = createAsyncThunk(
     'auth/updateAvatar',
 
     async(data, thunkAPI) => {
-      // console.log(data)
         try{
             const response = await updateAvatarApi(data);
 
@@ -119,7 +119,6 @@ export const updateUser = createAsyncThunk(
 
     async(data, thunkAPI) => {
         try{
-          console.log('REQ', data)
             const response = await updateUserApi(data);
 
             return response;
@@ -127,4 +126,12 @@ export const updateUser = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message);
         }
     }
+)
+
+export const toggleSidebar = createAsyncThunk(
+  'auth/toggleSidebar',
+
+  async (data, _) => {
+      return data;
+  }
 )

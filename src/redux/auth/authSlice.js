@@ -8,6 +8,7 @@ import {
   switchTheme,
   updateAvatar,
   updateUser,
+  toggleSidebar
 } from './authOperations';
 
 const fulfilledOperation = state => {
@@ -24,6 +25,7 @@ const initialState = {
   isLoggedIn: false,
   isLoading: false,
   error: null,
+  isSidebar: false
 };
 
 const authSlice = createSlice({
@@ -66,6 +68,9 @@ const authSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
           state.user = {...action.payload};
+      })
+      .addCase(toggleSidebar.fulfilled, (state, action) => {
+          state.isSidebar = action.payload;
       })
       .addMatcher(
         action =>
