@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.2227c3b1.css",
-    "main.js": "/ITD-node-front-project/static/js/main.9dc124ac.js",
+    "main.js": "/ITD-node-front-project/static/js/main.cbcd6473.js",
     "static/css/293.a712cd47.chunk.css": "/ITD-node-front-project/static/css/293.a712cd47.chunk.css",
-    "static/js/293.68411f1a.chunk.js": "/ITD-node-front-project/static/js/293.68411f1a.chunk.js",
+    "static/js/293.96a9f5c9.chunk.js": "/ITD-node-front-project/static/js/293.96a9f5c9.chunk.js",
     "static/media/Poppins-Regular.ttf": "/ITD-node-front-project/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/ITD-node-front-project/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/ITD-node-front-project/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -11,12 +11,12 @@
     "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.070aa8f99ad82ca941bae77754594a5a.svg",
     "index.html": "/ITD-node-front-project/index.html",
     "main.2227c3b1.css.map": "/ITD-node-front-project/static/css/main.2227c3b1.css.map",
-    "main.9dc124ac.js.map": "/ITD-node-front-project/static/js/main.9dc124ac.js.map",
+    "main.cbcd6473.js.map": "/ITD-node-front-project/static/js/main.cbcd6473.js.map",
     "293.a712cd47.chunk.css.map": "/ITD-node-front-project/static/css/293.a712cd47.chunk.css.map",
-    "293.68411f1a.chunk.js.map": "/ITD-node-front-project/static/js/293.68411f1a.chunk.js.map"
+    "293.96a9f5c9.chunk.js.map": "/ITD-node-front-project/static/js/293.96a9f5c9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2227c3b1.css",
-    "static/js/main.9dc124ac.js"
+    "static/js/main.cbcd6473.js"
   ]
 }
