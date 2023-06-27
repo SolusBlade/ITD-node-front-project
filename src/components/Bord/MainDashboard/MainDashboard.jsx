@@ -18,13 +18,6 @@ const MainDashboard = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  // const [addBoardModal, setAddBoardModal] = useState(false);
-
-  // const handleAddBoard = () => setAddBoardModal(!addBoardModal);
-
-  // const handleModalClose = () => {
-  //   setShowModal(false);
-  // };
 
   return (
     <>
