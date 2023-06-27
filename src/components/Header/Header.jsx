@@ -50,6 +50,9 @@ export const Header = () => {
         root.style.setProperty('--btn-modal-icon-plus', themes[theme].btnModalIconPlus);
         root.style.setProperty('--btn-modal-bg', themes[theme].btnModalBg);
         root.style.setProperty('--btn-modal-text-color', themes[theme].btnModalTextColor);
+        root.style.setProperty('--card-bg', themes[theme].cardBg);
+        root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
+        root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
 
         setSelectedTheme(theme);
     }

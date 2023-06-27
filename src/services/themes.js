@@ -15,7 +15,10 @@ export let themes = {
         modalBackground: '#151515',
         btnModalIconPlus: '#FFFFFF',
         btnModalBg: "#161616",
-        btnModalTextColor: "#161616"
+        btnModalTextColor: "#161616",
+        cardBg: "#121212",
+        boardAddColumnBtn: "#FFFFFF",
+        boardAddColumnPlus: "#121212"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -32,7 +35,10 @@ export let themes = {
         selectListBorder: '#BEDBB0',
         modalBackground: '#FCFCFC',
         btnModalIconPlus: '#FFFFFF',
-        btnModalBg: "#161616"
+        btnModalBg: "#161616",
+        cardBg: "#FFFFFF",
+        boardAddColumnBtn: "#121212",
+        boardAddColumnPlus: "#FFFFFF"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -49,6 +55,9 @@ export let themes = {
         selectListBorder: '#ECEDFD',
         modalBackground: '#FCFCFC',
         btnModalIconPlus: '#161616',
-        btnModalBg: "#FFFFFF"
+        btnModalBg: "#FFFFFF",
+        cardBg: "#FFFFFF",
+        boardAddColumnBtn: "#5255BC",
+        boardAddColumnPlus: "#FFFFFF"
     }
 }
