@@ -4,6 +4,7 @@ import InputField from 'shared/components/InputField/InputField';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewColumn } from 'redux/board/boardOperations';
+import { selectCurrentBoardId } from 'redux/board/boardSelectors';
 
 const initialsValue = {
   title: '',
@@ -14,13 +15,12 @@ const schema = yup.object().shape({
 });
 
 const AddColumn = ({ closeModal }) => {
-  const currentBoard = useSelector(state => state.board.currentBoard);
-  console.log(currentBoard);
+  const currentBoardId = useSelector(selectCurrentBoardId);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
-      createNewColumn({ idBoard: currentBoard, data: { title: values.title } })
+      createNewColumn({ idBoard: currentBoardId, data: { title: values.title } })
     );
     closeModal();
     resetForm();
