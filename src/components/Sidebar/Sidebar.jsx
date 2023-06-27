@@ -21,6 +21,7 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
   const isLoggedIn = useSelector(state => state.auth.user.name);
+  const currentBoardId = useSelector(state => state.board.currentBoard);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +38,12 @@ export const Sidebar = () => {
     if (boards.length === 0) {
       return;
     }
-    setActiveItemId(boards[0]._id);
-    navigate(`/home/${boards[0].title}`);
-  }, [boards]);
+    if (currentBoardId) setActiveItemId(currentBoardId);
+    else {
+      setActiveItemId(boards[0]._id);
+      navigate(`/home/${boards[0].title}`);
+    }
+  }, [boards, currentBoardId, navigate]);
 
   useEffect(() => {
     dispatch(getBoardById(activeItemId));
@@ -53,17 +57,17 @@ export const Sidebar = () => {
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
-    const newTitle = title.split(' ').join('').toLowerCase();
+    const newTitle = title.split(' ').join('-').toLowerCase();
     navigate(`/home/${newTitle}`);
   };
 
   const handleEditBoard = id => {
-    console.log(`edit id:${id}`);
     handleEditBoardModal();
   };
+
   const handleDeleteBoard = id => {
-    console.log(`delete id:${id}`);
     dispatch(deleteBoardById(id));
+    dispatch(getBoardById(null));
   };
 
   const handleLogout = () => {
