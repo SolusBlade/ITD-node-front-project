@@ -1,12 +1,42 @@
+.hidden {
+  display: none;
+  @media screen and (min-width: 1280px) {
+    display: block;
+  }
+}
+
+.sideBarBackDrop {
+  width: 100vw;
+  height: 100vh;
+  background-color: #505050;
+  z-index: 2;
+}
+
 .sideBar {
+  // display: none;
   background-color: var(--primary-background);
   // width: 260px;
   height: 100%;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: static;
+  }
 }
+
+.sideBarOpen {
+  composes: sideBar;
+  display: block;
+}
+
 .homeWrap {
   display: flex;
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .screenWrap {
   width: 100%;
