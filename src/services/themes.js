@@ -45,7 +45,7 @@ export let themes = {
         secondaryBackground: '#ECEDFD',
         headerBackground: '#FFFFFF',
         primaryTextColor: '#161616',
-        secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
+        secondaryTextColor: 'rgba(22, 22, 22, 0.5)',
         boardHeaders: '#161616',
         btnBg: '#5255BC',
         btnTextColor: '#FFFFFF',
