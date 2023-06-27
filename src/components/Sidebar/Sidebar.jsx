@@ -17,10 +17,11 @@ import {
   getBoardById,
 } from 'redux/board/boardOperations';
 import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
-  const isLoggedIn = useSelector(state => state.auth.user.name);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const currentBoard = useSelector(state => state.board.currentBoardId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const Sidebar = () => {
   const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
+  console.log(isLoggedIn);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());

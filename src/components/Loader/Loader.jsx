@@ -1,9 +1,10 @@
 import { ThreeCircles } from 'react-loader-spinner';
 import s from './Loader.module.scss';
+import clsx from 'clsx';
 
-const Loader = () => {
+const Loader = ({secondClassName}) => {
   return (
-    <div className={s.backdrop}>
+    <div className={clsx(s.backdrop, secondClassName && secondClassName)}>
       <ThreeCircles
         height="200"
         width="200"
