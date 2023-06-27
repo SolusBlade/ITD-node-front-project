@@ -1,12 +1,11 @@
 import Icon from 'components/Icon/Icon';
 import s from './Modal.module.scss';
-import sprite from '../../assets/icons/icons.svg';
 
 const ButtonModalWithIcon = ({ text }) => {
   return (
     <button type="submit" className={s.buttonModal}>
       <div className={s.iconContainer}>
-        <Icon name="icon-btn-plus" width={14} height={14} className="svg"/>
+        <Icon name="icon-btn-plus" width={14} height={14} className="svg" />
       </div>
       <p className={s.buttonText}>{text}</p>
     </button>
