@@ -27,7 +27,8 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { updateBoardById } from 'redux/board/boardOperations';
 const initialsValue = {
   title: '',
 };
@@ -36,18 +37,24 @@ const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
 });
 
-const EditBoard = () => {
+const EditBoard = ({ closeModal }) => {
   const [icon, setIcon] = useState('colors');
   const [bg, setBg] = useState('defaultBg');
+  const boardId = useSelector(state => state.board.currentBoard);
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    const obj = {
-      title: values.title,
-      icon: icon,
-      background: bg,
-    };
-    console.log(obj);
-
+    dispatch(
+      updateBoardById({
+        id: boardId,
+        data: {
+          title: values.title,
+          icon: icon,
+          background: bg,
+        },
+      })
+    );
+    closeModal();
     resetForm();
   };
 
