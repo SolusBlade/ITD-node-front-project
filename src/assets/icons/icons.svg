@@ -114,5 +114,12 @@
 <path fill="none" stroke="#bedbb0" style="stroke: var(--color2, #bedbb0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5" d="M16.867 11.533l4.467 4.467-4.467 4.467"></path>
 </symbol>
     //
+  <symbol id="icon-burger-menu" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="menu-01">
+      <path id="Icon" d="M3 12H21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Icon_2" d="M3 6H21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Icon_3" d="M3 18H21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </symbol>
   </defs>
 </svg>
