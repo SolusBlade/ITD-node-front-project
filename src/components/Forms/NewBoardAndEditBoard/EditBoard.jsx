@@ -40,7 +40,7 @@ const schema = yup.object().shape({
 const EditBoard = ({ closeModal, boardToEdit }) => {
   const [icon, setIcon] = useState(boardToEdit[0].icon);
   const [bg, setBg] = useState(boardToEdit[0].background);
-  const boardId = useSelector(state => state.board.currentBoard);
+  const boardId = useSelector(state => state.board.currentBoardId);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {

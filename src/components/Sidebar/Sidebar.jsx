@@ -21,7 +21,7 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
   const isLoggedIn = useSelector(state => state.auth.user.name);
-  const currentBoardId = useSelector(state => state.board.currentBoard);
+  const currentBoard = useSelector(state => state.board.currentBoardId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
@@ -39,12 +39,12 @@ export const Sidebar = () => {
     if (boards.length === 0) {
       return;
     }
-    if (currentBoardId) setActiveItemId(currentBoardId);
-    else {
+    if (!currentBoard) {
       setActiveItemId(boards[0]._id);
-      navigate(`/home/${boards[0].title}`);
+      const newTitle = boards[0].title.split(' ').join('-').toLowerCase();
+      navigate(`/home/${newTitle}`);
     }
-  }, [boards, currentBoardId, navigate]);
+  }, [boards, currentBoard, navigate]);
 
   useEffect(() => {
     dispatch(getBoardById(activeItemId));
@@ -58,12 +58,13 @@ export const Sidebar = () => {
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
+
     const newTitle = title.split(' ').join('-').toLowerCase();
     navigate(`/home/${newTitle}`);
   };
 
   const handleEditBoard = id => {
-    setBoardToEdit(boards.filter(el => el._id === currentBoardId));
+    setBoardToEdit(boards.filter(el => el._id === currentBoard));
     handleEditBoardModal();
   };
 
@@ -117,7 +118,7 @@ export const Sidebar = () => {
                     height={18}
                     className={st.boardIcon}
                   />
-                  {el.title}
+                  <p>{el.title}</p>
                 </div>
                 {el._id === activeItemId && (
                   <>
