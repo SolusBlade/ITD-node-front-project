@@ -2,13 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   createNewBoard,
   createNewColumn,
+  createNewTask,
   deleteBoardById,
   deleteColumnById,
+  deleteTaskById,
   getAllBoards,
+  getAllTasks,
   getBoardById,
   getColumnById,
   updateBoardById,
   updateColumnById,
+  updateTaskById,
+  updateTaskColumnById,
 } from './boardOperations';
 
 const fulfilledOperation = state => {
@@ -18,6 +23,7 @@ const fulfilledOperation = state => {
 
 const initialState = {
   boards: [],
+  tasks: [],
   isLoading: false,
   error: null,
   currentBoardId: null,
@@ -64,7 +70,26 @@ const boardSlice = createSlice({
       .addCase(deleteColumnById.fulfilled, (state, { payload }) => {
         state.boards = payload;
         fulfilledOperation(state);
-
+      })
+      .addCase(getAllTasks.fulfilled, (state, { payload }) => {
+        state.tasks = payload;
+        fulfilledOperation(state);
+      })
+      .addCase(createNewTask.fulfilled, (state, { payload }) => {
+        state.tasks = payload;
+        fulfilledOperation(state);
+      })
+      .addCase(updateTaskById.fulfilled, (state, { payload }) => {
+        state.tasks = payload;
+        fulfilledOperation(state);
+      })
+      .addCase(updateTaskColumnById.fulfilled, (state, { payload }) => {
+        state.tasks = payload;
+        fulfilledOperation(state);
+      })
+      .addCase(deleteTaskById.fulfilled, (state, { payload }) => {
+        state.tasks = payload;
+        fulfilledOperation(state);
       })
       .addMatcher(
         action =>
