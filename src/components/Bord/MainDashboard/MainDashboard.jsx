@@ -9,6 +9,7 @@ import Modal from 'components/Modal/Modal';
 
 const MainDashboard = () => {
   const [showModal, setShowModal] = useState(false);
+  // eslint-disable-next-line
   const [showBoardColumn, setShowBoardColumn] = useState(true);
 
   const handleAddColumnClick = () => {
@@ -18,13 +19,6 @@ const MainDashboard = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  // const [addBoardModal, setAddBoardModal] = useState(false);
-
-  // const handleAddBoard = () => setAddBoardModal(!addBoardModal);
-
-  // const handleModalClose = () => {
-  //   setShowModal(false);
-  // };
 
   return (
     <>

@@ -13,11 +13,10 @@ import { PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
 import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
-import HomePage from 'pages/HomePage/HomePage';
 
 
 // eslint-disable-next-line
-// const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 const App = () => {
   const isLoading = false;

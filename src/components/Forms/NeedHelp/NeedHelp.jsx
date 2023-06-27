@@ -17,13 +17,14 @@ const initialValues = {
   comment: '',
 };
 
-const NeedHelp = () => {
+const NeedHelp = ({ closeModal }) => {
   const hendleSubmit = (values, { resetForm }) => {
     const obj = {
       email: values.email,
       comment: values.comment,
     };
     console.log(obj);
+    closeModal();
     resetForm();
   };
   return (
