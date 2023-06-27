@@ -47,8 +47,8 @@ const BoardColumn = () => {
             </div>
           </div>
           <div>
-            <BoardCard />
-            <BtnAddCard />
+            <BoardCard column={column}/>
+            <BtnAddCard column={column}/>
           </div>
         </li>
       ))}

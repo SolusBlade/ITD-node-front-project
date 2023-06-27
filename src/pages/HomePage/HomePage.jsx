@@ -1,10 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Header } from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import s from './HomePage.module.scss';
+import { useDispatch } from 'react-redux';
+import { getAllTasks } from 'redux/board/boardOperations';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllTasks())
+  },[dispatch])
+  
   const [openMobile, setOpenMobile] = useState(false);
   const closeMobileOnBackdrop = e => {
     if (e.target === e.currentTarget) {

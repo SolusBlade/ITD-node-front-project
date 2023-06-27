@@ -83,6 +83,10 @@ export const updateTaskByIdApi = ({ idTask, data }) => {
   return axios.put(`/tasks/${idTask}`, data).then(res => res.data);
 };
 
+export const updateTaskColumnByIdApi = ({ idTask, idColumn }) => {
+  return axios.put(`/tasks/${idTask}`, idColumn).then(res => res.data);
+};
+
 export const deleteTaskByIdApi = idTask => {
   return axios.delete(`/tasks/${idTask}`).then(res => res.data);
 };

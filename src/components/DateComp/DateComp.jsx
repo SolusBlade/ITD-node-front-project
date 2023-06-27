@@ -26,7 +26,7 @@ function formatDate(date) {
   return months[date.getMonth()] + " " + date.getDate();
 }
 
-const DateComp = () => {
+const DateComp = ({field}) => {
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -82,6 +82,12 @@ const DateComp = () => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    field.onChange({
+      target: {
+        name: field.name,
+        value: date,
+      },
+    });
     setIsDirty(true);
   }
 

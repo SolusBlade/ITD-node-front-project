@@ -6,6 +6,7 @@ import AddColumn from 'components/Forms/AddAndEditColumn/AddColumn';
 // import { useDispatch } from "react-redux";
 // import { createNewBoard, createNewColumn, deleteBoardById, deleteColumnById, getAllBoards, updateBoardById, updateColumnById } from "redux/board/boardOperations";
 import Modal from 'components/Modal/Modal';
+// import { createNewTask, deleteTaskById, getAllTasks, updateTaskById } from 'redux/board/boardOperations';
 
 const MainDashboard = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,6 +37,7 @@ const MainDashboard = () => {
           Add another column
         </button>
       </div>
+
 
       {showModal && (
         <Modal title="Add column" closeModal={handleCloseModal}>
