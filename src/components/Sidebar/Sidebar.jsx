@@ -31,7 +31,7 @@ export const Sidebar = () => {
   const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
