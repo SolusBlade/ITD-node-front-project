@@ -4,9 +4,12 @@ import { useState } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
 import { OutsideClicker } from './OutsideClicker';
+import { selectTheme } from 'redux/auth/authSelectors';
+import { useSelector } from 'react-redux';
 
 export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelectedTheme}) => {
     const [isActive, setActive] = useState(false);
+    const storedTheme = useSelector(selectTheme);
     
     const handleClick = (event) => {
         const evtParent = event.currentTarget.parentElement;
@@ -18,16 +21,16 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
 
     const handleSelect = (event) => {
         const theme = event.target.innerText.toLowerCase();
-        if (theme !== userTheme) {
-            // console.log('handleSelect', selectedTheme)
+        // if (theme !== userTheme) {
             setSelectedTheme(theme);
-        }
+        // }
         selectHandler(theme);
     }
 
-    const themeCheckHandler = (selectedTheme, userTheme) => {
+    const themeCheckHandler = () => {
         // console.log('themeCheck', selectedTheme, userTheme)
-        return selectedTheme ? selectedTheme : userTheme;
+        // return selectedTheme ? selectedTheme : userTheme;
+        return storedTheme ? storedTheme : userTheme;
     }
 
     return (
@@ -51,21 +54,21 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
                     <li key={1} className={clsx({
                         [css.listItem] : true,
                         [css.current] : isActive && 
-                            themeCheckHandler(selectedTheme, userTheme) === 'light'
+                            themeCheckHandler() === 'light'
                     })}>
                         <p>Light</p>
                     </li>
                     <li key={2} className={clsx({
                         [css.listItem] : true,
                         [css.current] : isActive && 
-                            themeCheckHandler(selectedTheme, userTheme) === 'dark'
+                            themeCheckHandler() === 'dark'
                     })}>
                         <p>Dark</p>
                     </li>
                     <li key={3} className={clsx({
                         [css.listItem] : true,
                         [css.current] : isActive && 
-                            themeCheckHandler(selectedTheme, userTheme) === 'violet'
+                            themeCheckHandler() === 'violet'
                     })}>
                         <p>Violet</p>
                     </li>

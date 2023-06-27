@@ -20,7 +20,7 @@ export const Header = () => {
     const userTheme = useSelector(selectUserTheme);
     const userAvatar = useSelector(selectUserAvatar);
     const avatar = useSelector(selectAvatar)
-    const [selectedTheme, setSelectedTheme] = useState(userTheme);
+    const [selectedTheme, setSelectedTheme] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const dispatch = useDispatch();
     
@@ -28,12 +28,12 @@ export const Header = () => {
         console.log('useEffect selected', selectedTheme)
         console.log('useEffect user', userTheme)
         if (userTheme && selectedTheme === undefined) selectHandler(userTheme)
-        if (selectedTheme && selectedTheme !== userTheme) {
+        if (selectedTheme) {
             console.log('useEffect if', selectedTheme)
-            selectHandler(userTheme);
+            selectHandler(selectedTheme);
             dispatch(switchTheme(selectedTheme));
         }
-
+        return;
     }, [selectedTheme, userTheme, dispatch, userAvatar]); 
 
     const selectHandler = (theme) => {
@@ -61,7 +61,7 @@ export const Header = () => {
         root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
         
         // console.log('selectHandler', selectedTheme)
-        // setSelectedTheme(theme);
+        setSelectedTheme(theme);
         // console.log('selectHandler', selectedTheme)
     }
 

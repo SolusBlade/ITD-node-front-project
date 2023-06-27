@@ -21,7 +21,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   avatar: null,
-  theme: 'dark',
+  theme: null,
   isLoggedIn: false,
   isLoading: false,
   error: null,
