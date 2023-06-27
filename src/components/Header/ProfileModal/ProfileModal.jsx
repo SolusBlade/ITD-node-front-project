@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import css from "./ProfileModal.module.scss";
 import { useDispatch } from 'react-redux';
 import { updateUser, updateAvatar } from "redux/auth/authOperations";
@@ -16,7 +16,7 @@ export const ProfileModal = ({ modalHandler, avatar }) => {
             setImage(null);
         }
 
-    }, [image]);
+    }, [image, dispatch]);
 
     const submitHandler = (evt) => {
         evt.preventDefault();
