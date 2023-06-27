@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 // import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
-// import IconBtn from 'components/Icon/Icon';
 import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
 import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
@@ -17,15 +16,15 @@ import {
   getBoardById,
 } from 'redux/board/boardOperations';
 import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
-import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
+import { selectName } from 'redux/auth/authSelectors';
 
 export const Sidebar = () => {
-  const boards = useSelector(state => state.board.boards);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const currentBoard = useSelector(state => state.board.currentBoardId);
+  const boards = useSelector(selectBoards);
+  const isLoggedIn = useSelector(selectName);
+  const currentBoard = useSelector(selectCurrentBoardId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [isOpen, setIsOpen] = useState(false);
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
