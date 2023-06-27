@@ -12,7 +12,14 @@ export let themes = {
         selectOption: 'rgba(255, 255, 255, 0.5)',
         selectListBg: '#151515',
         selectListBorder: '#BEDBB0',
-        modalBackground: '#151515'
+        modalBackground: '#151515',
+        btnModalIconPlus: '#FFFFFF',
+        btnModalBg: "#161616",
+        btnModalTextColor: "#161616",
+        cardBg: "#121212",
+        boardAddColumnBtn: "#FFFFFF",
+        boardAddColumnPlus: "#121212",
+        headerModalBtnAddFile: "#BEDBB0"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -27,14 +34,20 @@ export let themes = {
         selectOption: '#161616',
         selectListBg: '#FCFCFC',
         selectListBorder: '#BEDBB0',
-        modalBackground: '#FCFCFC'
+        modalBackground: '#FCFCFC',
+        btnModalIconPlus: '#FFFFFF',
+        btnModalBg: "#161616",
+        cardBg: "#FFFFFF",
+        boardAddColumnBtn: "#121212",
+        boardAddColumnPlus: "#FFFFFF",
+        headerModalBtnAddFile: "#BEDBB0"
     },
     violet: {
         primaryBackground: '#5255BC',
         secondaryBackground: '#ECEDFD',
         headerBackground: '#FFFFFF',
         primaryTextColor: '#161616',
-        secondaryTextColor: 'rgba(255, 255, 255, 0.5)',
+        secondaryTextColor: 'rgba(22, 22, 22, 0.5)',
         boardHeaders: '#161616',
         btnBg: '#5255BC',
         btnTextColor: '#FFFFFF',
@@ -42,6 +55,12 @@ export let themes = {
         selectOption: '#161616',
         selectListBg: '#FCFCFC',
         selectListBorder: '#ECEDFD',
-        modalBackground: '#FCFCFC'
+        modalBackground: '#FCFCFC',
+        btnModalIconPlus: '#161616',
+        btnModalBg: "#FFFFFF",
+        cardBg: "#FFFFFF",
+        boardAddColumnBtn: "#5255BC",
+        boardAddColumnPlus: "#FFFFFF",
+        headerModalBtnAddFile: "#ECEDFD"
     }
 }

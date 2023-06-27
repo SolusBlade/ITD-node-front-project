@@ -27,7 +27,7 @@
   line-height: 1.5;
 
   color: var(--primary-text-color);
-  background-color: var(--primary-background);
+  background-color: var(--card-bg);
 }
 
 .btnAddColumnW {
@@ -39,12 +39,12 @@
   width: 28px;
   height: 28px;
   border-radius: 6px;
-  background-color: var(--primary-text-color);
+  background-color: var(--board-add-column-btn);
 }
 
-// .iconPlus {
-//   fill: var(--primary-background);
-// }
+.iconPlus {
+  stroke: var(--board-add-column-plus);
+}
 
 .column {
   width: 334px;

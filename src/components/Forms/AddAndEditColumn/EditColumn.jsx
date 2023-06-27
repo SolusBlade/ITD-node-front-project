@@ -15,13 +15,14 @@ const schema = yup.object().shape({
 
 
 
-const EditColumn = ({column}) => {
-
+const EditColumn = ({column, closeModal}) => {
   const dispatch = useDispatch();
+  initialsValue.title = column.title;
+
   const handleSubmit = (values, { resetForm }) => {
-    // console.log(column);
     dispatch(updateColumnById({idColumn: column._id, idBoard: column.boardId, data: {title: values.title}}))
     resetForm();
+    closeModal();
   };
 
   return (

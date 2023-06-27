@@ -1,11 +1,13 @@
 .columnList {
   display: flex;
-  gap: 34px;
+  // gap: 34px;
   // flex-grow: 1;
   // align-items: flex-start;
   // flex-shrink: 0;
 }
-
+.columnItem{
+  margin-right: 34px;
+}
 .titleToDo {
   display: flex;
   justify-content: space-between;
@@ -17,7 +19,7 @@
   padding: 14px 20px;
 
   border-radius: 8px;
-  background-color: var(--primary-background);
+  background-color: var(--card-bg);
 
   &:last-child {
     margin-right: 34px;

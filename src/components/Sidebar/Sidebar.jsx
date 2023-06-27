@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import cactus from '../../static/images/cactus.png';
 import { LogoComponent } from 'components/LogoComponent/LogoComponent';
 // import IconBtn from 'components/Icon/Icon';
@@ -17,10 +17,12 @@ import {
   getBoardById,
 } from 'redux/board/boardOperations';
 import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 export const Sidebar = () => {
   const boards = useSelector(state => state.board.boards);
-  const isLoggedIn = useSelector(state => state.auth.user.name);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const currentBoard = useSelector(state => state.board.currentBoardId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,8 @@ export const Sidebar = () => {
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
+  const [boardToEdit, setBoardToEdit] = useState(null);
+  // console.log(isLoggedIn);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -37,8 +41,12 @@ export const Sidebar = () => {
     if (boards.length === 0) {
       return;
     }
-    setActiveItemId(boards[0]._id);
-  }, [boards]);
+    if (!currentBoard) {
+      setActiveItemId(boards[0]._id);
+      const newTitle = boards[0].title.split(' ').join('-').toLowerCase();
+      navigate(`/home/${newTitle}`);
+    }
+  }, [boards, currentBoard, navigate]);
 
   useEffect(() => {
     dispatch(getBoardById(activeItemId));
@@ -52,24 +60,26 @@ export const Sidebar = () => {
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
-    const newTitle = title.split(' ').join('').toLowerCase();
+
+    const newTitle = title.split(' ').join('-').toLowerCase();
     navigate(`/home/${newTitle}`);
   };
 
   const handleEditBoard = id => {
-    console.log(`edit id:${id}`);
+    setBoardToEdit(boards.filter(el => el._id === currentBoard));
     handleEditBoardModal();
   };
+
   const handleDeleteBoard = id => {
-    console.log(`delete id:${id}`);
     dispatch(deleteBoardById(id));
+    dispatch(getBoardById(null));
   };
 
   const handleLogout = () => {
     dispatch(logOutUser());
   };
   return (
-    <>
+    <nav>
       <section className={st.sectionTop}>
         <div className={st.container}>
           <div className={st.logoWrap}>
@@ -80,15 +90,13 @@ export const Sidebar = () => {
           <p className={st.boardsTitle}>My boards</p>
           <div className={st.createBoard}>
             <p>Create a new board</p>
-            <Button
-              variant="contained"
-              color="inherit"
+            <button
+              type="button"
               className={st.buttonCreate}
               onClick={handleAddBoard}
-              size="medium"
             >
-              +
-            </Button>
+              <Icon name={'icon-btn-plus'} width={20} height={20} />
+            </button>
           </div>
         </div>
       </section>
@@ -110,7 +118,7 @@ export const Sidebar = () => {
                     height={18}
                     className={st.boardIcon}
                   />
-                  {el.title}
+                  <p>{el.title}</p>
                 </div>
                 {el._id === activeItemId && (
                   <>
@@ -140,8 +148,9 @@ export const Sidebar = () => {
           <div className={st.helpWrapper}>
             <img src={cactus} alt="cactus" className={st.helpCactus} />
             <p className={st.helpText}>
-              If you need help with <span> &#013;TaskPro</span>, check out our
-              support resources or reach out to our customer support team.
+              If you need help with <br />
+              <span> TaskPro</span>, check out our support resources or reach
+              out to our customer support team.
             </p>
             <button className={st.helpSend} onClick={handleNeedHelp}>
               <Icon name={'icon-help-circle'} width={20} height={20} />
@@ -170,9 +179,12 @@ export const Sidebar = () => {
       )}
       {editBoardModal && (
         <Modal title="Edit board" closeModal={handleEditBoardModal}>
-          <EditBoard closeModal={handleEditBoardModal} />
+          <EditBoard
+            closeModal={handleEditBoardModal}
+            boardToEdit={boardToEdit}
+          />
         </Modal>
       )}
-    </>
+    </nav>
   );
 };

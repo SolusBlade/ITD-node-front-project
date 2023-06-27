@@ -4,7 +4,9 @@ import s from './Modal.module.scss';
 const ButtonModalWithIcon = ({ text }) => {
   return (
     <button type="submit" className={s.buttonModal}>
-      <Icon name="icon-btn-plus" width={32} height={32} />
+      <div className={s.iconContainer}>
+        <Icon name="icon-btn-plus" width={14} height={14} className="svg" />
+      </div>
       <p className={s.buttonText}>{text}</p>
     </button>
   );

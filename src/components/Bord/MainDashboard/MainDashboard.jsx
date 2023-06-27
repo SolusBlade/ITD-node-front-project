@@ -28,7 +28,7 @@ const MainDashboard = () => {
         <button className={s.btnAddColumn} onClick={handleAddColumnClick}>
           <div className={s.btnAddColumnW}>
             <Icon
-              name="icon-plus-white"
+              name="icon-btn-plus"
               width={14}
               height={14}
               secondaryClassName={s.iconPlus}

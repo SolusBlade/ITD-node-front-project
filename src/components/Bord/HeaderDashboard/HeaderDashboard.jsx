@@ -5,12 +5,19 @@ import Container from 'components/Container/Container';
 import MainDashboard from '../MainDashboard/MainDashboard';
 import WelcomePageBoard from '../WelcomePageBoard/WelcomePageBoard';
 import { useSelector } from 'react-redux';
+import { selectIsBoardLoading } from 'redux/board/boardSelectors';
+import Loader from 'components/Loader/Loader';
 
 const HeaderDashboard = () => {
   const boards = useSelector(state => state.board.boards);
-
+  const isBoardLoading = useSelector(selectIsBoardLoading)
+  // const isBoardLoading = true
   return (
-    <div className={s.headerDashboard}>
+    <>
+      { isBoardLoading ? (
+        <Loader secondClassName={s.boardLoader}/>
+      ) : (
+      <div className={s.headerDashboard}>
       {boards.length > 0 ? (
         <>
           <Container className={s.containerDashboard}>
@@ -27,6 +34,8 @@ const HeaderDashboard = () => {
         </Container>
       )}
     </div>
+    )}
+    </>
   );
 };
 
