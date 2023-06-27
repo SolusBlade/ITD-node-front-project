@@ -7,7 +7,7 @@ import { OutsideClicker } from './OutsideClicker';
 import { selectTheme } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 
-export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelectedTheme}) => {
+export const SelectTheme = ({selectHandler, userTheme, setSelectedTheme}) => {
     const [isActive, setActive] = useState(false);
     const storedTheme = useSelector(selectTheme);
     
@@ -21,60 +21,53 @@ export const SelectTheme = ({selectHandler, userTheme, selectedTheme, setSelecte
 
     const handleSelect = (event) => {
         const theme = event.target.innerText.toLowerCase();
-        // if (theme !== userTheme) {
-            setSelectedTheme(theme);
-        // }
+        setSelectedTheme(theme);
         selectHandler(theme);
     }
 
     const themeCheckHandler = () => {
-        // console.log('themeCheck', selectedTheme, userTheme)
-        // return selectedTheme ? selectedTheme : userTheme;
         return storedTheme ? storedTheme : userTheme;
     }
 
     return (
         <OutsideClicker isActive={isActive} setActive={setActive}>
-        <div className={css.container}>   
-            <div className={css.select}>
-                <div className={css.selectContainer} onClick={handleClick}>
-                    <p className={css.header}>Theme</p>
-                    <div className={clsx(css.icon, [isActive && css.rotate])}>
-                        <svg className={css.svg}>
-                            <use href={sprite + '#icon-arrow-down'}></use>
-                        </svg>
+            <div className={css.container}>   
+                <div className={css.select}>
+                    <div className={css.selectContainer} onClick={handleClick}>
+                        <p className={css.header}>Theme</p>
+                        <div className={clsx(css.icon, [isActive && css.rotate])}>
+                            <svg className={css.svg}>
+                                <use href={sprite + '#icon-arrow-down'}></use>
+                            </svg>
+                        </div>
                     </div>
+                    
+                    <ul className={clsx(css.list, [isActive && css.active])} 
+                        onClick={event => {
+                            handleClick(event);
+                            handleSelect(event);
+                    }}>
+                        <li key={1} className={clsx({
+                            [css.listItem] : true,
+                            [css.current] : isActive && themeCheckHandler() === 'light'
+                        })}>
+                            <p>Light</p>
+                        </li>
+                        <li key={2} className={clsx({
+                            [css.listItem] : true,
+                            [css.current] : isActive && themeCheckHandler() === 'dark'
+                        })}>
+                            <p>Dark</p>
+                        </li>
+                        <li key={3} className={clsx({
+                            [css.listItem] : true,
+                            [css.current] : isActive && themeCheckHandler() === 'violet'
+                        })}>
+                            <p>Violet</p>
+                        </li>
+                    </ul>
                 </div>
-                
-                <ul className={clsx(css.list, [isActive && css.active])} 
-                    onClick={event => {
-                        handleClick(event);
-                        handleSelect(event);
-                }}>
-                    <li key={1} className={clsx({
-                        [css.listItem] : true,
-                        [css.current] : isActive && 
-                            themeCheckHandler() === 'light'
-                    })}>
-                        <p>Light</p>
-                    </li>
-                    <li key={2} className={clsx({
-                        [css.listItem] : true,
-                        [css.current] : isActive && 
-                            themeCheckHandler() === 'dark'
-                    })}>
-                        <p>Dark</p>
-                    </li>
-                    <li key={3} className={clsx({
-                        [css.listItem] : true,
-                        [css.current] : isActive && 
-                            themeCheckHandler() === 'violet'
-                    })}>
-                        <p>Violet</p>
-                    </li>
-                </ul>
             </div>
-        </div>
         </OutsideClicker>
     )
 }

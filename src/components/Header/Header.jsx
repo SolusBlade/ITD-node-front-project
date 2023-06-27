@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { 
     selectUserTheme, 
+    selectTheme,
     selectAvatar,
-    selectUserAvatar 
+    selectUserAvatar, 
 } from 'redux/auth/authSelectors';
 import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
@@ -18,6 +19,7 @@ import {themes} from '../../services/themes'
 
 export const Header = () => {
     const userTheme = useSelector(selectUserTheme);
+    const storeTheme = useSelector(selectTheme)
     const userAvatar = useSelector(selectUserAvatar);
     const avatar = useSelector(selectAvatar)
     const [selectedTheme, setSelectedTheme] = useState(null);
@@ -25,11 +27,9 @@ export const Header = () => {
     const dispatch = useDispatch();
     
     useEffect(()=> {
-        console.log('useEffect selected', selectedTheme)
-        console.log('useEffect user', userTheme)
-        if (userTheme && selectedTheme === undefined) selectHandler(userTheme)
+        if (userTheme && storeTheme === null) selectHandler(userTheme);
         if (selectedTheme) {
-            console.log('useEffect if', selectedTheme)
+            // console.log('useEffect if', selectedTheme)
             selectHandler(selectedTheme);
             dispatch(switchTheme(selectedTheme));
         }
@@ -60,16 +60,10 @@ export const Header = () => {
         root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
         root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
         
-        // console.log('selectHandler', selectedTheme)
-        setSelectedTheme(theme);
-        // console.log('selectHandler', selectedTheme)
+        // setSelectedTheme(theme);
     }
 
     const modalHandler = () => setIsModalOpen(!isModalOpen);
-
-    const closeModal = () => {
-        modalHandler();
-    }
 
     return (
         // <Container>
@@ -95,7 +89,7 @@ export const Header = () => {
                     >
                     </Profile>
                 </div>
-                {isModalOpen && <Modal title={'Edit profile'} closeModal={closeModal}>
+                {isModalOpen && <Modal title={'Edit profile'} closeModal={modalHandler}>
                     <ProfileModal 
                         modalHandler={modalHandler} 
                         avatar={avatar} 
