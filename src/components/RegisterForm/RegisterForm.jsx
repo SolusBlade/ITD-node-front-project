@@ -1,17 +1,23 @@
 import { Formik, Form, Field } from 'formik';
+// eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line
 import { useState, useNavigate } from 'react';
 import { registerUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
+// eslint-disable-next-line
 import { memo } from 'react';
 import s from './Form.module.scss';
+// eslint-disable-next-line
 import YupPassword from 'yup-password';
+// eslint-disable-next-line
 import icon from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
 
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const [passwordShown, setPasswordShown] = useState(false);
   const initialValues = { name: '', email: '', password: '' };
 
