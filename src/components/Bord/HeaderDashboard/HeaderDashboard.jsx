@@ -18,7 +18,7 @@ const HeaderDashboard = () => {
   const background = useSelector(selectCurrentBoardBackground);
   const boards = useSelector(selectBoards);
   const isBoardLoading = useSelector(selectIsBoardLoading);
-  console.log(background);
+
   return (
     <>
       {isBoardLoading ? (
