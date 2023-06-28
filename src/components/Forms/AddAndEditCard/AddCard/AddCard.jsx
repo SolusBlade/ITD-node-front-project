@@ -50,7 +50,7 @@ const AddCard = ({boardId, columnId, closeModal}) => {
         </Field>
         <p className={s.titleP}>Label color</p>
         <Field name="priority">
-          {({ field }) => <PrioritySelector field={field} />}
+          {({ field }) => <PrioritySelector field={field} /> }
         </Field>
         <p className={s.titleP}>Deadline</p>
         <Field name="deadline">
