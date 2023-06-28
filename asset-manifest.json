@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.05485e4c.css",
-    "main.js": "/ITD-node-front-project/static/js/main.4f407e4a.js",
-    "static/css/293.6d22eb07.chunk.css": "/ITD-node-front-project/static/css/293.6d22eb07.chunk.css",
+    "main.css": "/ITD-node-front-project/static/css/main.b9c7d50f.css",
+    "main.js": "/ITD-node-front-project/static/js/main.ec736442.js",
+    "static/css/293.f29183d4.chunk.css": "/ITD-node-front-project/static/css/293.f29183d4.chunk.css",
     "static/js/293.b46e9115.chunk.js": "/ITD-node-front-project/static/js/293.b46e9115.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
@@ -52,13 +52,13 @@
     "static/media/yacht-mobile.jpg": "/ITD-node-front-project/static/media/yacht-mobile.e429925c6ae897202dd0.jpg",
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.05485e4c.css.map": "/ITD-node-front-project/static/css/main.05485e4c.css.map",
-    "main.4f407e4a.js.map": "/ITD-node-front-project/static/js/main.4f407e4a.js.map",
-    "293.6d22eb07.chunk.css.map": "/ITD-node-front-project/static/css/293.6d22eb07.chunk.css.map",
+    "main.b9c7d50f.css.map": "/ITD-node-front-project/static/css/main.b9c7d50f.css.map",
+    "main.ec736442.js.map": "/ITD-node-front-project/static/js/main.ec736442.js.map",
+    "293.f29183d4.chunk.css.map": "/ITD-node-front-project/static/css/293.f29183d4.chunk.css.map",
     "293.b46e9115.chunk.js.map": "/ITD-node-front-project/static/js/293.b46e9115.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05485e4c.css",
-    "static/js/main.4f407e4a.js"
+    "static/css/main.b9c7d50f.css",
+    "static/js/main.ec736442.js"
   ]
 }
