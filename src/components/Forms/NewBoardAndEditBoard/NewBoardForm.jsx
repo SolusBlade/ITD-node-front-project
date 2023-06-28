@@ -246,7 +246,7 @@ const NewBoard = ({ closeModal }) => {
               'defaultBg',
               'flowers',
               'leaves',
-              'mountainsAndBallon',
+              'mountainsAndBalloon',
               'nature',
               'oceanAndYacht',
               'orangePlanet',
@@ -279,7 +279,7 @@ const NewBoard = ({ closeModal }) => {
                       defaultBg: <BgIcon name={defaultBg} alt={defaultBg} />,
                       flowers: <BgIcon name={flowers} alt={flowers} />,
                       leaves: <BgIcon name={leaves} alt={leaves} />,
-                      mountainsAndBallon: (
+                      mountainsAndBalloon: (
                         <BgIcon
                           name={mountainsAndBalloon}
                           alt={mountainsAndBalloon}
