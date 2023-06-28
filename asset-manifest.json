@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.633f790b.css",
-    "main.js": "/ITD-node-front-project/static/js/main.e39129e9.js",
-    "static/css/869.c56dede1.chunk.css": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css",
+    "main.css": "/ITD-node-front-project/static/css/main.51e454d6.css",
+    "main.js": "/ITD-node-front-project/static/js/main.43567a3b.js",
+    "static/css/869.b10e3fdb.chunk.css": "/ITD-node-front-project/static/css/869.b10e3fdb.chunk.css",
     "static/js/869.90f450b8.chunk.js": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
@@ -53,14 +53,14 @@
     "static/media/yacht-mobile.jpg": "/ITD-node-front-project/static/media/yacht-mobile.e429925c6ae897202dd0.jpg",
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.633f790b.css.map": "/ITD-node-front-project/static/css/main.633f790b.css.map",
-    "main.e39129e9.js.map": "/ITD-node-front-project/static/js/main.e39129e9.js.map",
-    "869.c56dede1.chunk.css.map": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css.map",
+    "main.51e454d6.css.map": "/ITD-node-front-project/static/css/main.51e454d6.css.map",
+    "main.43567a3b.js.map": "/ITD-node-front-project/static/js/main.43567a3b.js.map",
+    "869.b10e3fdb.chunk.css.map": "/ITD-node-front-project/static/css/869.b10e3fdb.chunk.css.map",
     "869.90f450b8.chunk.js.map": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.633f790b.css",
-    "static/js/main.e39129e9.js"
+    "static/css/main.51e454d6.css",
+    "static/js/main.43567a3b.js"
   ]
 }
