@@ -1,3 +1,4 @@
+@import '../../../sass/utils/mixin';
 .titleHeaderDashboard {
   padding-top: 10px;
   font-weight: 500;
@@ -15,7 +16,7 @@
 .containerMainDashboard {
   overflow-x: auto;
 }
-.boardLoader{
+.boardLoader {
   position: static;
   width: 100%;
   height: calc(100% - 68px);
@@ -28,4 +29,216 @@
   z-index: 1200;
 }
 
+.sky {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/sky-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/sky-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/sky-desktop.jpg');
+  }
+}
 
+.yacht {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/yacht-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/yacht-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/yacht-desktop.jpg');
+  }
+}
+.flowers {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/flowers-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/flowers-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/flowers-desktop.jpg');
+  }
+}
+
+.leaves {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/leaves-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/leaves-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/leaves-desktop.jpg');
+  }
+}
+
+.rocksAndOcean {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/rocksAndOcean-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/rocksAndOcean-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/rocksAndOcean-desktop.jpg');
+  }
+}
+.sakura {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/sakura-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/sakura-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/sakura-desktop.jpg');
+  }
+}
+.skyBalloons {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/skyBalloons-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/skyBalloons-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/skyBalloons-desktop.jpg');
+  }
+}
+.starsAndShine {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/starsAndShine-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/starsAndShine-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/starsAndShine-desktop.jpg');
+  }
+}
+.trailerInTheCanyon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/trailerInTheCanyon-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/trailerInTheCanyon-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/trailerInTheCanyon-desktop.jpg');
+  }
+}
+.youngMonth {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/youngMonth-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/youngMonth-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/youngMonth-desktop.jpg');
+  }
+}
+.mountainsAndBalloon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/mountainsAndBalloon-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/mountainsAndBalloon-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/mountainsAndBalloon-desktop.jpg');
+  }
+}
+.nature {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/nature-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/nature-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/nature-desktop.jpg');
+  }
+}
+.oceanAndYacht {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/oceanAndYacht-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/oceanAndYacht-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/oceanAndYacht-desktop.jpg');
+  }
+}
+.orangePlanet {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/orangePlanet-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/orangePlanet-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/orangePlanet-desktop.jpg');
+  }
+}
+.planets {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  @include tablet_max {
+    background-image: url('../../../static/images/mobile/planets-mobile.jpg');
+  }
+  @include tablet {
+    background-image: url('../../../static/images/tablet/planets-tablet.jpg');
+  }
+  @include desktop {
+    background-image: url('../../../static/images/desktop/planets-desktop.jpg');
+  }
+}
