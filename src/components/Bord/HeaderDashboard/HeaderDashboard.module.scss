@@ -32,7 +32,9 @@
 
 .headerDashboard{
   height: calc(100vh - 68px);
-  width: calc(100vw - 260px);
+  @include desktop {
+    width: calc(100vw - 260px);
+  }
 }
 
 .sky {
