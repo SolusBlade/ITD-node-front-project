@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.0624cc7c.css",
-    "main.js": "/ITD-node-front-project/static/js/main.1a5ff74a.js",
+    "main.js": "/ITD-node-front-project/static/js/main.e9c0d8ae.js",
     "static/css/61.a7ef36e4.chunk.css": "/ITD-node-front-project/static/css/61.a7ef36e4.chunk.css",
     "static/js/61.40283219.chunk.js": "/ITD-node-front-project/static/js/61.40283219.chunk.js",
     "static/js/320.9c810b29.chunk.js": "/ITD-node-front-project/static/js/320.9c810b29.chunk.js",
@@ -54,13 +54,13 @@
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
     "main.0624cc7c.css.map": "/ITD-node-front-project/static/css/main.0624cc7c.css.map",
-    "main.1a5ff74a.js.map": "/ITD-node-front-project/static/js/main.1a5ff74a.js.map",
+    "main.e9c0d8ae.js.map": "/ITD-node-front-project/static/js/main.e9c0d8ae.js.map",
     "61.a7ef36e4.chunk.css.map": "/ITD-node-front-project/static/css/61.a7ef36e4.chunk.css.map",
     "61.40283219.chunk.js.map": "/ITD-node-front-project/static/js/61.40283219.chunk.js.map",
     "320.9c810b29.chunk.js.map": "/ITD-node-front-project/static/js/320.9c810b29.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0624cc7c.css",
-    "static/js/main.1a5ff74a.js"
+    "static/js/main.e9c0d8ae.js"
   ]
 }
