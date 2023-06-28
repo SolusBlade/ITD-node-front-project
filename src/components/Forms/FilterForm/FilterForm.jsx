@@ -31,6 +31,7 @@ import {
 // import { selectUserTheme } from 'redux/auth/authSelectors';
 import { useDispatch } from 'react-redux';
 import { updateBoardById } from 'redux/board/boardOperations';
+import { selectUserTheme } from 'redux/auth/authSelectors';
 const initialsValue = {
   priority: 'none',
 };
@@ -38,6 +39,7 @@ const FilterForm = () => {
   const currentBoardId = useSelector(selectCurrentBoardId);
   const currentBoard = useSelector(selectCurrentBoard);
   const [bg, setBg] = useState(currentBoard.background);
+  const theme = useSelector(selectUserTheme);
   const filterStyles = true;
   const dispatch = useDispatch();
 
@@ -152,14 +154,25 @@ const FilterForm = () => {
                       }[item]
                     }
                     variant={bg === item ? 'solid' : 'plain'}
-                    sx={{
-                      '& .Joy-checked': {
-                        backgroundColor: 'transparent',
-                        outline: '2px solid white',
-                        borderRadius: '6px',
-                        zIndex: '99',
-                      },
-                    }}
+                    sx={
+                      theme === 'violet'
+                        ? {
+                            '& .Joy-checked': {
+                              backgroundColor: 'transparent',
+                              outline: '2px solid #5255BC',
+                              borderRadius: '6px',
+                              zIndex: '99',
+                            },
+                          }
+                        : {
+                            '& .Joy-checked': {
+                              backgroundColor: 'transparent',
+                              outline: '2px solid #BEDBB0',
+                              borderRadius: '6px',
+                              zIndex: '99',
+                            },
+                          }
+                    }
                     slotProps={{
                       input: { 'aria-label': item },
                       action: {
