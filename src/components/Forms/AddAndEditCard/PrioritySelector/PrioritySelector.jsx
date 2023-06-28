@@ -2,8 +2,12 @@ import { priorityOptions } from 'services/priorityOptions';
 import s from './PrioritySelector.module.scss';
 import clsx from 'clsx';
 import { getFormattedValue } from 'services/priorityChange';
+import { useDispatch } from 'react-redux';
+import { changeFilter } from 'redux/board/boardOperations';
 
 const PrioritySelector = ({ field, filter }) => {
+  const dispatch = useDispatch();
+
   return (
     <div
       className={clsx(s.prioritySelector, filter && s.prioritySelectorFilter)}
@@ -16,7 +20,14 @@ const PrioritySelector = ({ field, filter }) => {
               field.value === option.value && s.selected
             )}
             style={{ backgroundColor: option.color }}
-            onClick={() => field.onChange(field.name)(option.value)}
+            onClick={
+              filter
+                ? () => {
+                    field.onChange(field.name)(option.value);
+                    dispatch(changeFilter(option.value));
+                  }
+                : () => field.onChange(field.name)(option.value)
+            }
           />
           {filter && (
             <p className={s.optionText}>

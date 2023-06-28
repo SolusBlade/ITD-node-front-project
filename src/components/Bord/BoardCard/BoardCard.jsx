@@ -7,7 +7,11 @@ import {
 } from 'redux/board/boardOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
-import { selectBoards, selectTasks } from 'redux/board/boardSelectors';
+import {
+  selectBoards,
+  selectFilter,
+  selectTasks,
+} from 'redux/board/boardSelectors';
 import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
@@ -23,12 +27,15 @@ const BoardCard = ({ column }) => {
   const wrapperRef = useRef(null);
   const allCards = useSelector(selectTasks);
   const allBoards = useSelector(selectBoards);
+  const filter = useSelector(selectFilter);
 
   const filteredCards = filter => {
-    return allCards
+    const result = allCards
       .filter(el => el.columnId === column._id)
-      .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
-      .filter(el => el.priority === filter);
+      .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    if (!filter) return result;
+
+    return result.filter(el => el.priority === filter);
   };
 
   const hendleRedirectOpen = ({ columnId, boardId, cardId }) => {
@@ -85,7 +92,7 @@ const BoardCard = ({ column }) => {
   return (
     <>
       <ul className={s.cardList}>
-        {filteredCards().map(card => (
+        {filteredCards(filter).map(card => (
           <li className={s.cardToDo} key={card._id}>
             <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
             <p className={s.textCard}>{card.text}</p>
