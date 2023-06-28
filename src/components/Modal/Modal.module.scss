@@ -71,7 +71,11 @@ $transition: 300ms linear;
   &:hover,
   &:focus {
     opacity: 0.9;
-    // background-color: #89a779;
+    background-color: var(--btn-hover-main);
+  }
+
+  &:active {
+    background-color: var(--btn-active-main);
   }
 }
 

@@ -62,6 +62,14 @@
   border-radius: 6px;
   background-color: var(--sidebar-button-create-bg);
   stroke: var(--sidebar-button-icon-plus);
+
+  &:hover {
+    background-color: var(--btn-hover-main);
+  }
+
+  &:active{
+    background-color: var(--btn-active-main);
+  }
 }
 
 .sectionBoards {
@@ -98,6 +106,7 @@
 
 .boardItem:hover {
   cursor: pointer;
+  background-color: var(--sidebar-board-item-hover);
 }
 
 .boardItemActive {
