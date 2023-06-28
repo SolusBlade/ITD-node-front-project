@@ -67,7 +67,7 @@ $transition: 300ms linear;
   border: none;
   stroke: var(--btn-modal-icon-plus);
   color: var(--btn-modal-bg);
-  
+
   &:hover,
   &:focus {
     opacity: 0.9;
@@ -75,15 +75,14 @@ $transition: 300ms linear;
   }
 }
 
-.iconContainer{
-  margin-right: 8px;
-  width: 32px;
-  height: 32px;
+.iconContainer {
+  width: 28px;
+  height: 28px;
   background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   background-color: var(--btn-modal-bg);
   stroke: var(--btn-modal-icon-plus);
 
