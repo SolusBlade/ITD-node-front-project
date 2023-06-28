@@ -11,6 +11,7 @@ import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
 import Icon from 'components/Icon/Icon';
+import { trimTitleString } from 'services/trimStr';
 
 const BoardCard = ({column}) => {
   const [redirectData, setRedirectData] = useState(null)
@@ -75,7 +76,7 @@ const BoardCard = ({column}) => {
       <ul className={s.cardList}>
         {filteredCards().map((card) => (
           <li className={s.cardToDo} key={card._id}>
-            <h2 className={s.titleCard}>{card.title}</h2>
+            <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
             <p className={s.textCard}>{card.text}</p>
             <div className={s.line}></div>
             <div className={s.bottomMenuCard}>
