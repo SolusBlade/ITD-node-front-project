@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DateComp.scss';
 import Icon from '../Icon/Icon';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
 
 const months = [
@@ -26,16 +24,9 @@ function formatDate(date) {
   return months[date.getMonth()] + " " + date.getDate();
 }
 
-const DateComp = ({field}) => {
-  const dispatch = useDispatch();
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+const DateComp = ({ field }) => {
+  const [selectedDate, setSelectedDate] = useState(field.value || new Date());
   const [isDirty, setIsDirty] = useState(false);
-
-  useEffect(() => {
-      // isLoggedIn &&
-      //   dispatch(getDynamicsByMonth(changedDateForApi(selectedDate)));
-  }, [isLoggedIn, dispatch, selectedDate]);
 
   function getDateString(dateStr) {
     const today = new Date();
@@ -57,26 +48,10 @@ const DateComp = ({field}) => {
     return date1.toDateString() === date2.toDateString();
   }
 
-
-  // eslint-disable-next-line
-  const changedDateForPicker = newDate => {
-    const month = newDate.getMonth();
-    const year = newDate.getFullYear();
-    return `${months[month]}, ${year}`;
-  };
-
-  // eslint-disable-next-line
-  const changedDateForApi = newDate => {
-    const month = newDate.getMonth();
-    const year = newDate.getFullYear();
-    return { year, month: month + 1 };
-  };
-
   const handleCloseCalendar = date => {
     if (isDirty) {
       return;
     }
-    // dispatch(getTransaction(changedDateForApi(date)));
     setIsDirty(true);
   };
 

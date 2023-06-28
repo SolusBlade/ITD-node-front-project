@@ -11,7 +11,7 @@
     border: none;
     outline: none;
     color: var(--btn-bg);
-    background: var(--secondary-background);
+    background: var(--modal-background);
   }
 }
 
@@ -38,7 +38,7 @@
     border-top-left-radius: 8px;
     border-bottom: none;
   }
-  
+
   .react-datepicker__day-names{
     line-height: 1;
     margin: 0;

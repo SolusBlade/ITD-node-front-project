@@ -4,7 +4,8 @@ export const selectIsBoardLoading = state => state.board.isBoardLoading;
 export const selectCurrentBoardId = state => state.board.currentBoardId;
 export const selectBoards = state => state.board.boards;
 export const selectTasks = state => state.board.tasks;
-export const selectIsSidebar = state => state.board.isSidebar;
+export const selectColumns = state => state.board.columns;
+
 
 export const selectCurrentBoardTitle = createSelector(
   [selectBoards, selectCurrentBoardId],
