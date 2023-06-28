@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.6c7cc6e0.css",
-    "main.js": "/ITD-node-front-project/static/js/main.70fa443a.js",
+    "main.js": "/ITD-node-front-project/static/js/main.ea081959.js",
     "static/css/869.c56dede1.chunk.css": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css",
-    "static/js/869.158c8e83.chunk.js": "/ITD-node-front-project/static/js/869.158c8e83.chunk.js",
+    "static/js/869.90f450b8.chunk.js": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
@@ -54,13 +54,13 @@
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
     "main.6c7cc6e0.css.map": "/ITD-node-front-project/static/css/main.6c7cc6e0.css.map",
-    "main.70fa443a.js.map": "/ITD-node-front-project/static/js/main.70fa443a.js.map",
+    "main.ea081959.js.map": "/ITD-node-front-project/static/js/main.ea081959.js.map",
     "869.c56dede1.chunk.css.map": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css.map",
-    "869.158c8e83.chunk.js.map": "/ITD-node-front-project/static/js/869.158c8e83.chunk.js.map",
+    "869.90f450b8.chunk.js.map": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c7cc6e0.css",
-    "static/js/main.70fa443a.js"
+    "static/js/main.ea081959.js"
   ]
 }
