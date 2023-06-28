@@ -8,6 +8,7 @@ import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
 import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
 import Icon from 'components/Icon/Icon';
+import IconBtn from 'components/IconBtn/IconBtn';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
 import {
@@ -122,18 +123,19 @@ export const Sidebar = () => {
                 {el._id === activeItemId && (
                   <>
                     <div className={st.boardEditIcons}>
-                      <div
-                        className={st.boardButtons}
+                      <IconBtn
+                        name={'icon-pencil'}
+                        width={16}
+                        height={16}
                         onClick={() => handleEditBoard(el._id)}
-                      >
-                        <Icon name={'icon-pencil'} width={16} height={16} />
-                      </div>
-                      <div
-                        className={st.boardButtons}
+                      />
+
+                      <IconBtn
+                        name={'icon-trash'}
+                        width={16}
+                        height={16}
                         onClick={() => handleDeleteBoard(el._id)}
-                      >
-                        <Icon name={'icon-trash'} width={16} height={16} />
-                      </div>
+                      />
                     </div>
                   </>
                 )}

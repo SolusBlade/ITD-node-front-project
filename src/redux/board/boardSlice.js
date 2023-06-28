@@ -14,6 +14,7 @@ import {
   updateColumnById,
   updateTaskById,
   updateTaskColumnById,
+  toggleSidebar,
 } from './boardOperations';
 
 const fulfilledOperation = state => {
@@ -91,6 +92,10 @@ const boardSlice = createSlice({
       })
       .addCase(deleteTaskById.fulfilled, (state, { payload }) => {
         state.tasks = payload;
+        fulfilledOperation(state);
+      })
+      .addCase(toggleSidebar.fulfilled, (state, { payload }) => {
+        state.isSidebar = payload;
         fulfilledOperation(state);
       })
       .addMatcher(
