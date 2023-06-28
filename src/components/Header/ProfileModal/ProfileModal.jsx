@@ -75,7 +75,7 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
   return (
     <div className={css.modal}>
       <div className={css.imageContainer}>
-        {userAvatar.length === 0 ? (
+        {userAvatar.length === 0 && !avatar ? (
           <svg className={css.svg}>
             <use href={sprite + '#user-avatar-icon'}></use>
           </svg>
