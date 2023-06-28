@@ -30,6 +30,7 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
+import { selectUserTheme } from 'redux/auth/authSelectors';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -39,6 +40,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
   const [icon, setIcon] = useState(boardToEdit[0].icon);
   const [bg, setBg] = useState(boardToEdit[0].background);
   const currentBoardId = useSelector(selectCurrentBoardId);
+  const theme = useSelector(selectUserTheme);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
@@ -318,14 +320,25 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                     }[item]
                   }
                   variant={bg === item ? 'solid' : 'plain'}
-                  sx={{
-                    '& .Joy-checked': {
-                      backgroundColor: 'transparent',
-                      outline: '2px solid white',
-                      borderRadius: '6px',
-                      zIndex: '99',
-                    },
-                  }}
+                  sx={
+                    theme === 'violet'
+                      ? {
+                          '& .Joy-checked': {
+                            backgroundColor: 'transparent',
+                            outline: '2px solid #5255BC',
+                            borderRadius: '6px',
+                            zIndex: '99',
+                          },
+                        }
+                      : {
+                          '& .Joy-checked': {
+                            backgroundColor: 'transparent',
+                            outline: '2px solid #BEDBB0',
+                            borderRadius: '6px',
+                            zIndex: '99',
+                          },
+                        }
+                  }
                   slotProps={{
                     input: { 'aria-label': item },
                     action: {

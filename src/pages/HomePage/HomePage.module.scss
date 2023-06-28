@@ -6,10 +6,17 @@
 }
 
 .sideBarBackDrop {
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100vw;
   height: 100vh;
-  background-color: #505050;
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  // z-index: 2;
+}
+
+.showMobile {
+  left: 0;
 }
 
 .sideBar {
@@ -17,7 +24,7 @@
   background-color: var(--primary-background);
   // width: 260px;
   height: 100%;
-  z-index: 5;
+  // z-index: 5;
   position: absolute;
   top: 0;
 

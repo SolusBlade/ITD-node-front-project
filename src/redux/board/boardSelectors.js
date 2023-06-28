@@ -5,6 +5,16 @@ export const selectCurrentBoardId = state => state.board.currentBoardId;
 export const selectBoards = state => state.board.boards;
 export const selectTasks = state => state.board.tasks;
 export const selectColumns = state => state.board.columns;
+export const selectIsSidebar = state => state.board.isSidebar;
+export const selectFilter = state => state.board.filter;
+
+export const selectCurrentBoard = createSelector(
+  [selectBoards, selectCurrentBoardId],
+  (boards, currentBoardId) => {
+    const currentBoard = boards.filter(el => el._id === currentBoardId);
+    return currentBoard[0];
+  }
+);
 
 export const selectCurrentBoardTitle = createSelector(
   [selectBoards, selectCurrentBoardId],

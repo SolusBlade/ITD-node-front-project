@@ -1,4 +1,5 @@
 import Filters from '../Filters/Filters';
+import { useState } from 'react';
 import s from './HeaderDashboard.module.scss';
 import Container from 'components/Container/Container';
 import MainDashboard from '../MainDashboard/MainDashboard';
@@ -10,11 +11,16 @@ import {
 import { selectIsBoardLoading } from 'redux/board/boardSelectors';
 import Loader from 'components/Loader/Loader';
 import clsx from 'clsx';
+import Modal from 'components/Modal/Modal';
+import FilterForm from 'components/Forms/FilterForm/FilterForm';
 
 const HeaderDashboard = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const title = useSelector(selectCurrentBoardTitle);
   const background = useSelector(selectCurrentBoardBackground);
   const isBoardLoading = useSelector(selectIsBoardLoading);
+  const filterModal = true;
+  const handleOpenModal = () => setIsOpen(!isOpen);
 
   return (
     <>
@@ -43,12 +49,21 @@ const HeaderDashboard = () => {
         >
           <Container className={s.containerDashboard}>
             <h1 className={s.titleHeaderDashboard}>{title}</h1>
-            <Filters />
+            <Filters openModal={handleOpenModal} />
           </Container>
           <Container className={s.containerMainDashboard}>
             <MainDashboard />
           </Container>
         </div>
+      )}
+      {isOpen && (
+        <Modal
+          title="Filters"
+          closeModal={handleOpenModal}
+          filter={filterModal}
+        >
+          <FilterForm />
+        </Modal>
       )}
     </>
   );
