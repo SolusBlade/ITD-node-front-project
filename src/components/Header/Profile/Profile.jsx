@@ -7,7 +7,7 @@ export const Profile = ({ modalHandler, avatar, userAvatar }) => {
     const name = useSelector(selectName);
 
     const checkAvatar = () => {
-        if (avatar && avatar.length > 0) {
+        if (avatar && avatar?.length > 0) {
             return avatar;
         }
         return userAvatar;
@@ -21,7 +21,7 @@ export const Profile = ({ modalHandler, avatar, userAvatar }) => {
             </div>
             <p className={css.name}>{name}</p>
             <div className={css.avatarContainer} onClick={modalHandler}>
-                {userAvatar.length === 0 && !avatar ? (
+                {userAvatar?.length === 0 && !avatar ? (
                     <svg className={css.svg}>
                         <use href={sprite + '#user-avatar-icon'}></use>
                     </svg>

@@ -19,7 +19,7 @@ const initialsValue = {
   title: '',
   text: '',
   priority: 'none',
-  deadline: null,
+  deadline: new Date(),
 }
 
 const AddCard = ({boardId, columnId, closeModal}) => {

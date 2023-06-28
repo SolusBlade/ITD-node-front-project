@@ -13,7 +13,7 @@ import { BoardRoute, PrivateRoute, PublicRoute } from 'services/routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUserInfo } from 'redux/auth/authOperations';
 import HeaderDashboard from './Bord/HeaderDashboard/HeaderDashboard';
-import { selectIsAuthLoading } from 'redux/auth/authSelectors';
+import { selectIsAuthLoading, selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 
 
@@ -22,12 +22,13 @@ const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 
 const App = () => {
   const isAuthLoading = useSelector(selectIsAuthLoading);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   // const isAuthLoading = true;
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCurrentUserInfo());
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   return (
     <>
