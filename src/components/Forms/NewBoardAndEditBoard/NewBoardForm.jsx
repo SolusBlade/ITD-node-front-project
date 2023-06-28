@@ -1,6 +1,7 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
-import { useState } from 'react';
 import clsx from 'clsx';
 import Box from '@mui/joy/Box';
 import Radio from '@mui/joy/Radio';
@@ -27,8 +28,8 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
-import { useDispatch } from 'react-redux';
 import { createNewBoard } from 'redux/board/boardOperations';
+import { selectUserTheme } from 'redux/auth/authSelectors';
 
 const initialsValue = {
   title: '',
@@ -41,6 +42,7 @@ const schema = yup.object().shape({
 const NewBoard = ({ closeModal }) => {
   const [icon, setIcon] = useState('colors');
   const [bg, setBg] = useState('defaultBg');
+  const theme = useSelector(selectUserTheme);
 
   const dispatch = useDispatch();
 
@@ -103,7 +105,7 @@ const NewBoard = ({ closeModal }) => {
                     {
                       colors: (
                         <Icon
-                          name="colors"
+                          name={theme === 'dark' ? 'colors' : 'colors-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -114,7 +116,7 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       hexagon: (
                         <Icon
-                          name="hexagon"
+                          name={theme === 'dark' ? 'hexagon' : 'hexagon-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -125,7 +127,7 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       project: (
                         <Icon
-                          name="project"
+                          name={theme === 'dark' ? 'project' : 'project-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -136,7 +138,9 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       container: (
                         <Icon
-                          name="container"
+                          name={
+                            theme === 'dark' ? 'container' : 'container-white'
+                          }
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -147,7 +151,9 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       lightnight: (
                         <Icon
-                          name="lightnight"
+                          name={
+                            theme === 'dark' ? 'lightnight' : 'lightnight-white'
+                          }
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -158,7 +164,7 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       loading: (
                         <Icon
-                          name="loading"
+                          name={theme === 'dark' ? 'loading' : 'loading-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -169,7 +175,7 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       puzzle: (
                         <Icon
-                          name="puzzle"
+                          name={theme === 'dark' ? 'puzzle' : 'puzzle-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -180,7 +186,7 @@ const NewBoard = ({ closeModal }) => {
                       ),
                       star: (
                         <Icon
-                          name="star"
+                          name={theme === 'dark' ? 'star' : 'star-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
