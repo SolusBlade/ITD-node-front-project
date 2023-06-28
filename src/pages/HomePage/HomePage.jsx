@@ -7,6 +7,9 @@ import { Sidebar } from 'components/Sidebar/Sidebar';
 // import { toggleSidebar } from 'redux/auth/authOperations';
 import { toggleSidebar } from 'redux/board/boardOperations';
 import { getAllTasks } from 'redux/board/boardOperations';
+import WelcomePageBoard from 'components/Bord/WelcomePageBoard/WelcomePageBoard';
+import { selectBoards } from 'redux/board/boardSelectors';
+import { Container } from '@mui/joy';
 // import { selectIsSidebar } from 'redux/auth/authSelectors';
 import { selectIsSidebar } from 'redux/board/boardSelectors';
 
@@ -14,6 +17,7 @@ import s from './HomePage.module.scss';
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const boards = useSelector(selectBoards);
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   const isMobileOpen = useSelector(selectIsSidebar);
 
@@ -23,15 +27,10 @@ const HomePage = () => {
 
   const closeMobileOnBackdrop = e => {
     if (e.target === e.currentTarget) {
-      console.log(e.target);
-      console.log(e.currentTarget);
-      console.log(isMobileOpen);
-      // setOpenMobile(false);
       dispatch(toggleSidebar(false));
     }
   };
-  // const backDropClass = openMobile ? s.sideBarBackDrop : s.hidden;
-  // const sideBarClass = openMobile ? s.sideBarOpen : s.sideBar;
+
   return (
     <>
       <Suspense fallback={null}>
@@ -44,7 +43,14 @@ const HomePage = () => {
 
           <div className={s.screenWrap}>
             <Header />
-            <Outlet />
+            {boards.length > 0 ? (
+              <Outlet />
+            ) : (
+              <Container className={s.containerWelcomeDashboard}>
+                <Outlet />
+                <WelcomePageBoard />
+              </Container>
+            )}
           </div>
         </div>
         {!isDesktop && isMobileOpen && (

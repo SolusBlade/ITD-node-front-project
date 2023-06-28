@@ -23,7 +23,7 @@ const BtnAddCard = ({column}) => {
       <button className={s.btnAddCard} onClick={handleAddCardClick}>
         <div className={s.btnAddCardW}>
           <Icon
-            name='icon-plus-dark'
+            name='icon-btn-plus'
             width={14}
             height={14}
             secondaryClassName={s.iconPlus}

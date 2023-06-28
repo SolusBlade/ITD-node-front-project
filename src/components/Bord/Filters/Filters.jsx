@@ -6,10 +6,10 @@ const Filters = () => {
     <div>
       <button className={s.dashboardFilter}>
         <Icon
-          name='icon-Vector'
+          name='icon-filter'
           width={12}
           height={13}
-          secondaryClassName={s.iconVector}
+          secondaryClassName={s.iconFilter}
         />
         Filters
       </button>

@@ -2,10 +2,8 @@ import Filters from '../Filters/Filters';
 import s from './HeaderDashboard.module.scss';
 import Container from 'components/Container/Container';
 import MainDashboard from '../MainDashboard/MainDashboard';
-import WelcomePageBoard from '../WelcomePageBoard/WelcomePageBoard';
 import { useSelector } from 'react-redux';
 import {
-  selectBoards,
   selectCurrentBoardBackground,
   selectCurrentBoardTitle,
 } from 'redux/board/boardSelectors';
@@ -16,7 +14,6 @@ import clsx from 'clsx';
 const HeaderDashboard = () => {
   const title = useSelector(selectCurrentBoardTitle);
   const background = useSelector(selectCurrentBoardBackground);
-  const boards = useSelector(selectBoards);
   const isBoardLoading = useSelector(selectIsBoardLoading);
 
   return (
@@ -44,21 +41,13 @@ const HeaderDashboard = () => {
             background === 'youngMonth' && s.youngMonth
           )}
         >
-          {boards.length > 0 ? (
-            <>
-              <Container className={s.containerDashboard}>
-                <h1 className={s.titleHeaderDashboard}>{title}</h1>
-                <Filters />
-              </Container>
-              <Container className={s.containerMainDashboard}>
-                <MainDashboard />
-              </Container>
-            </>
-          ) : (
-            <Container className={s.containerWelcomeDashboard}>
-              <WelcomePageBoard />
-            </Container>
-          )}
+          <Container className={s.containerDashboard}>
+            <h1 className={s.titleHeaderDashboard}>{title}</h1>
+            <Filters />
+          </Container>
+          <Container className={s.containerMainDashboard}>
+            <MainDashboard />
+          </Container>
         </div>
       )}
     </>
