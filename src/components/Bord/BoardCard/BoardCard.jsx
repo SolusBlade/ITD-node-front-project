@@ -7,7 +7,11 @@ import {
 } from 'redux/board/boardOperations';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
-import { selectBoards, selectTasks } from 'redux/board/boardSelectors';
+import {
+  selectBoards,
+  selectFilter,
+  selectTasks,
+} from 'redux/board/boardSelectors';
 import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
@@ -23,11 +27,23 @@ const BoardCard = ({ column }) => {
   const wrapperRef = useRef(null);
   const allCards = useSelector(selectTasks);
   const allBoards = useSelector(selectBoards);
+  const filter = useSelector(selectFilter);
 
+  const isToday = (date) => {
+    const currentDateTime = new Date();
+    const deadlineDateTime = new Date(date);
+    deadlineDateTime.setHours(0, 0, 0, 0);
+    const currentDate = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate());
+    return currentDate.getTime() === deadlineDateTime.getTime();
+  }
+  
   const filteredCards = filter => {
-    return allCards
+    const result = allCards
       .filter(el => el.columnId === column._id)
       .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    if (!filter) return result;
+
+    return result.filter(el => el.priority === filter);
   };
 
   const hendleRedirectOpen = ({ columnId, boardId, cardId }) => {
@@ -84,8 +100,14 @@ const BoardCard = ({ column }) => {
   return (
     <>
       <ul className={s.cardList}>
-        {filteredCards().map(card => (
+        {filteredCards(filter).map(card => (
           <li className={s.cardToDo} key={card._id}>
+            <div
+              style={{
+                backgroundColor: findPriorityColor(card.priority),
+              }}
+              className={s.beforeColor}
+            ></div>{' '}
             <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
             <p className={s.textCard}>{card.text}</p>
             <div className={s.line}></div>
@@ -112,6 +134,16 @@ const BoardCard = ({ column }) => {
               </div>
 
               <div className={s.iconToDo}>
+                {
+                  isToday(card.deadline) && (
+                    <Icon
+                    name="icon-alarm"
+                    width={16}
+                    height={16}
+                    secondaryClassName={s.alarm}
+                  />
+                    )
+                }
                 <IconBtn
                   name="icon-arrow"
                   width={16}
