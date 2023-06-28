@@ -7,7 +7,9 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { 
     selectUserTheme, 
-    selectAvatar, 
+    selectTheme,
+    selectAvatar,
+    selectUserAvatar, 
 } from 'redux/auth/authSelectors';
 import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
@@ -17,19 +19,22 @@ import {themes} from '../../services/themes'
 
 export const Header = () => {
     const userTheme = useSelector(selectUserTheme);
-    const avatar = useSelector(selectAvatar);
-    const [selectedTheme, setSelectedTheme] = useState(userTheme);
+    const storeTheme = useSelector(selectTheme)
+    const userAvatar = useSelector(selectUserAvatar);
+    const avatar = useSelector(selectAvatar)
+    const [selectedTheme, setSelectedTheme] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const dispatch = useDispatch();
     
     useEffect(()=> {
-        if (userTheme && selectedTheme === undefined) selectHandler(userTheme)
-        if (selectedTheme && selectedTheme !== userTheme) {
+        if (userTheme && storeTheme === null) selectHandler(userTheme);
+        if (selectedTheme) {
+            // console.log('useEffect if', selectedTheme)
             selectHandler(selectedTheme);
             dispatch(switchTheme(selectedTheme));
         }
-
-    }, [selectedTheme, userTheme, dispatch, avatar]); 
+        return;
+    }, [selectedTheme, userTheme, dispatch, userAvatar]); 
 
     const selectHandler = (theme) => {
         const root = document.querySelector(':root');
@@ -54,15 +59,11 @@ export const Header = () => {
         root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
         root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
         root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
-    
-        setSelectedTheme(theme);
+        
+        // setSelectedTheme(theme);
     }
 
     const modalHandler = () => setIsModalOpen(!isModalOpen);
-
-    const closeModal = () => {
-        modalHandler();
-    }
 
     return (
         // <Container>
@@ -81,10 +82,20 @@ export const Header = () => {
                     >
 
                     </SelectTheme>
-                    <Profile modalHandler={modalHandler} avatar={avatar}></Profile>
+                    <Profile 
+                        modalHandler={modalHandler} 
+                        avatar={avatar} 
+                        userAvatar={userAvatar}
+                    >
+                    </Profile>
                 </div>
-                {isModalOpen && <Modal title={'Edit profile'} closeModal={closeModal}>
-                    <ProfileModal modalHandler={modalHandler} avatar={avatar}></ProfileModal>
+                {isModalOpen && <Modal title={'Edit profile'} closeModal={modalHandler}>
+                    <ProfileModal 
+                        modalHandler={modalHandler} 
+                        avatar={avatar} 
+                        userAvatar={userAvatar}
+                        >    
+                    </ProfileModal>
                 </Modal>}
             </header>
         // </Container>
