@@ -24,6 +24,7 @@ export let themes = {
         sidebarHelpWrapperBg: "#1F1F1F",
         sidebarButtonCreateBg: "#BEDBB0",
         sidebarButtonIconPlus: "#121212",
+        sidebarBoardItemHover: "#404040",
         btnHoverMain:"#a8cf96",
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#d9d9d9",
@@ -53,6 +54,7 @@ export let themes = {
         sidebarHelpWrapperBg: "#F6F6F7",
         sidebarButtonCreateBg: "#BEDBB0",
         sidebarButtonIconPlus: "#121212",
+        sidebarBoardItemHover: "#e4e4e7",
         btnHoverMain: "#a8cf96",
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#404040",
@@ -82,6 +84,7 @@ export let themes = {
         sidebarHelpWrapperBg: "rgba(236, 237, 253, 0.40)",
         sidebarButtonCreateBg: "#B8BCFD",
         sidebarButtonIconPlus: "#FFFFFF",
+        sidebarBoardItemHover: "rgba(217, 217, 217, 0.5)",
         btnHoverMain: "#6c6fc6",
         btnActiveMain: "#4044a5",
         btnHoverSecondary: "#6c6fc6",
@@ -117,11 +120,13 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--sidebar-help-wrapper-bg', themes[theme].sidebarHelpWrapperBg);
     root.style.setProperty('--sidebar-button-create-bg', themes[theme].sidebarButtonCreateBg);
     root.style.setProperty('--sidebar-button-icon-plus', themes[theme].sidebarButtonIconPlus);
+    root.style.setProperty('--sidebar-board-item-hover', themes[theme].sidebarBoardItemHover);
     root.style.setProperty('--btn-hover-main', themes[theme].btnHoverMain);
     root.style.setProperty('--btn-active-main', themes[theme].btnActiveMain);
     root.style.setProperty('--btn-hover-secondary', themes[theme].btnHoverSecondary);
     root.style.setProperty('--btn-active-secondary', themes[theme].btnActiveSecondary);
 
+    // --sidebar-board-item-hover: #404040;
     // --btn-hover-secondary: #d9d9d9;
     // --btn-active-secondary: #b3b3b3;
     // setSelectedTheme(theme);
