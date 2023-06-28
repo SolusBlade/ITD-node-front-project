@@ -1,19 +1,24 @@
 import IconBtn from 'components/IconBtn/IconBtn';
 import s from './BoardCard.module.scss';
 // eslint-disable-next-line
-import { deleteTaskById } from 'redux/board/boardOperations';
+import { deleteTaskById, updateTaskColumnById } from 'redux/board/boardOperations';
 // eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line
-import { useState } from 'react';
-import { selectTasks } from 'redux/board/boardSelectors';
+import { useEffect, useRef, useState } from 'react';
+import { selectBoards, selectTasks } from 'redux/board/boardSelectors';
 import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
+import Icon from 'components/Icon/Icon';
 
 const BoardCard = ({column}) => {
-
+  const [redirectData, setRedirectData] = useState(null)
+  const [currentCard, setCurrentCard] = useState(null)
+  const dispatch = useDispatch()
+  const wrapperRef = useRef(null);
   const allCards = useSelector(selectTasks);
+  const allBoards = useSelector(selectBoards);
 
   const filteredCards = (filter) => {
     return allCards
@@ -21,11 +26,40 @@ const BoardCard = ({column}) => {
     .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
   }
 
+  const hendleRedirectOpen = ({columnId, boardId, cardId}) => {
+    const allCurrentBoardColumns = allBoards.filter(({ _id }) => _id === boardId)[0].columns
+    setCurrentCard(cardId)
+    setRedirectData(allCurrentBoardColumns.filter(({ _id }) => _id !== columnId))
+  }
+
+  const hendleRedirectClose = () => {
+    setCurrentCard(null)
+    setRedirectData(null)
+  }
+
+  const hendleRedirectClick = (data) => {
+    dispatch(updateTaskColumnById(data))
+    setCurrentCard(null)
+    setRedirectData(null)
+  }
+
+  useEffect(() => {
+      function handleClickOutside(event) {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+            hendleRedirectClose()
+        }
+      }
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [wrapperRef]);
+
+
   // const filtredCardsByDeadline = () => {
 
   // }
 
-  const dispatch = useDispatch()
 
   // const [editCardModal, setEditCardModal] = useState(null);
 
@@ -61,7 +95,7 @@ const BoardCard = ({column}) => {
                   name='icon-arrow'
                   width={16}
                   height={16}
-                  secondaryClassName={s.iconArrow}
+                  onClick={() => hendleRedirectOpen({columnId: card.columnId, boardId: card.boardId, cardId: card._id})}
                 />
                 <IconBtn
                   name='icon-pencil'
@@ -76,6 +110,21 @@ const BoardCard = ({column}) => {
                   secondaryClassName={s.iconTrash}
                   onClick={() => hendleDeleteClick(card._id)}
                 />
+                {redirectData && currentCard === card._id && (
+                    <ul className={s.redirectList} ref={wrapperRef}>
+                      {redirectData.map((column) => (
+                        <li key={column._id} className={s.redirectItem} onClick={() => hendleRedirectClick({idTask: card._id, idColumn: column._id})}>
+                          <p>{column.title}</p>
+                          <Icon
+                            name='icon-arrow-redirect'
+                            width={16}
+                            height={16}
+                            secondaryClassName={s.iconArrow}
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                )}
                 </div>
               </div>
           </li>

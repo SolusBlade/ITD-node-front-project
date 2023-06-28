@@ -12,10 +12,13 @@
   border: none;
   font-family: inherit;
 
-  color: var(--select-header);
+  color: var(--primary-text-color);
+  opacity: 0.8;
   background-color: transparent;
 }
 
-.iconVector {
+.iconFilter {
   margin-right: 9px;
+  stroke: var(--primary-text-color);
+  opacity: 0.8;
 }

@@ -1,33 +1,20 @@
-import { useState } from 'react';
 import Icon from 'components/Icon/Icon';
 import clsx from 'clsx';
 import s from './IconBtn.module.scss';
 
+
 const IconBtn = ({ name, width, height, btnClassName, secondaryClassName, onClick }) => {
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
-
-  const iconName = hovered ? `${name}-hover` : name;
-
   return (
     <button
       className={clsx(s.iconBtn,
       btnClassName && btnClassName)}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       onClick={onClick}
     >
       <Icon
-        name={iconName}
+        name={name}
         width={width}
         height={height}
+        className={"iconBtn"}
         secondaryClassName={secondaryClassName}
       />
     </button>

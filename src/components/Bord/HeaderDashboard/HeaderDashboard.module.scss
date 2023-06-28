@@ -14,6 +14,7 @@
 }
 
 .containerMainDashboard {
+  height: calc(100% - 45px);
   overflow-x: auto;
 }
 .boardLoader {
@@ -29,10 +30,14 @@
   z-index: 1200;
 }
 
+.headerDashboard{
+  height: calc(100vh - 68px);
+  width: calc(100vw - 260px);
+}
+
 .sky {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/sky-mobile.jpg');
   }
@@ -47,7 +52,6 @@
 .yacht {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/yacht-mobile.jpg');
   }
@@ -61,7 +65,6 @@
 .flowers {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/flowers-mobile.jpg');
   }
@@ -76,7 +79,6 @@
 .leaves {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/leaves-mobile.jpg');
   }
@@ -91,7 +93,6 @@
 .rocksAndOcean {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/rocksAndOcean-mobile.jpg');
   }
@@ -105,7 +106,6 @@
 .sakura {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/sakura-mobile.jpg');
   }
@@ -119,7 +119,6 @@
 .skyBalloons {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/skyBalloons-mobile.jpg');
   }
@@ -133,7 +132,6 @@
 .starsAndShine {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/starsAndShine-mobile.jpg');
   }
@@ -147,7 +145,6 @@
 .trailerInTheCanyon {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/trailerInTheCanyon-mobile.jpg');
   }
@@ -161,7 +158,6 @@
 .youngMonth {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/youngMonth-mobile.jpg');
   }
@@ -175,7 +171,6 @@
 .mountainsAndBalloon {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/mountainsAndBalloon-mobile.jpg');
   }
@@ -189,7 +184,6 @@
 .nature {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/nature-mobile.jpg');
   }
@@ -203,7 +197,6 @@
 .oceanAndYacht {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/oceanAndYacht-mobile.jpg');
   }
@@ -217,7 +210,6 @@
 .orangePlanet {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/orangePlanet-mobile.jpg');
   }
@@ -231,7 +223,6 @@
 .planets {
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
   @include tablet_max {
     background-image: url('../../../static/images/mobile/planets-mobile.jpg');
   }
