@@ -21,6 +21,8 @@
   padding-top: 12px;
   padding-left: 18px;
   resize: none;
+  font-family: Poppins;
+
   @include font(400, 14px, 1.5);
   &:focus,
   &:hover {
