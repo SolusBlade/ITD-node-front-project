@@ -46,17 +46,17 @@ const BoardColumn = () => {
                 onClick={() => hendleDeleteClick(column)}
               />
             </div>
-          </div>
-          <div>
-            <BoardCard column={column}/>
-            <BtnAddCard column={column}/>
-          </div>
-        </li>
-      ))}
-    </ul>
-    {editColumnModal && (
+            </div>
+            <div>
+              <BoardCard column={column}/>
+              <BtnAddCard column={column}/>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {editColumnModal && (
         <Modal title="Edit column" closeModal={handleCloseEditColumnModal}>
-          <EditColumn closeModal={handleCloseEditColumnModal} column={editColumnModal}/>
+          <EditColumn closeModal={handleCloseEditColumnModal} column={editColumnModal} />
         </Modal>
       )}
     </>
