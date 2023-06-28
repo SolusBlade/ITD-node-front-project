@@ -211,3 +211,14 @@ export const toggleSidebar = createAsyncThunk(
     }
   }
 );
+
+export const changeFilter = createAsyncThunk(
+  'board/changeFilter',
+  async (data, thunkAPI) => {
+    try {
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

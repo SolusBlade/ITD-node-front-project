@@ -29,3 +29,17 @@
 .red {
   background-color: var(--select-header);
 }
+.priorityOptionWrapper {
+  display: flex;
+}
+.prioritySelectorFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.optionText {
+  color: var(--primary-text-color);
+  font-size: 12px;
+  font-family: Poppins;
+  letter-spacing: -0.24px;
+}
