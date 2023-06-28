@@ -21,7 +21,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   avatar: null,
-  theme: 'dark',
+  theme: null,
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -66,7 +66,7 @@ const authSlice = createSlice({
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
         fulfilledOperation(state);
-          state.avatar = action.payload;
+          state.avatar = action.payload.avatarURL;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         fulfilledOperation(state);

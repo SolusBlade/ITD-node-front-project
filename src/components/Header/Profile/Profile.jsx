@@ -3,9 +3,17 @@ import sprite from '../../../assets/icons/icons.svg';
 import { useSelector } from 'react-redux';
 import { selectName } from 'redux/auth/authSelectors';
 
-export const Profile = ({ modalHandler, avatar }) => {
+export const Profile = ({ modalHandler, avatar, userAvatar }) => {
     const name = useSelector(selectName);
 
+    const checkAvatar = () => {
+        if (avatar && avatar.length > 0) {
+            return avatar;
+        }
+        return userAvatar;
+    }
+
+// console.log('test', checkAvatar)
     return (
         <div className={css.container}>
             <div className={css.tooltip}>
@@ -13,12 +21,12 @@ export const Profile = ({ modalHandler, avatar }) => {
             </div>
             <p className={css.name}>{name}</p>
             <div className={css.avatarContainer} onClick={modalHandler}>
-                {!avatar ? (
+                {userAvatar.length === 0 && !avatar ? (
                     <svg className={css.svg}>
                         <use href={sprite + '#user-avatar-icon'}></use>
                     </svg>
                 ) : (
-                    <img className={css.img} src={avatar} alt="Avatar" />
+                    <img className={css.img} src={`${checkAvatar()}`} alt="Avatar" />
                 )}
             </div>
         </div>
