@@ -28,6 +28,14 @@
 
   color: var(--primary-text-color);
   background-color: var(--card-bg);
+  
+  &:hover{
+    background-color: var(--btn-hover-secondary);
+  }
+
+  &:active{
+    background-color: var(--btn-active-secondary)
+  }
 }
 
 .btnAddColumnW {
@@ -40,6 +48,14 @@
   height: 28px;
   border-radius: 6px;
   background-color: var(--board-add-column-btn);
+
+  // &:hover{
+  //   background-color: var(--btn-hover-secondary);
+  // }
+
+  // &:active{
+  //   background-color: var(--btn-active-secondary)
+  // }
 }
 
 .iconPlus {
