@@ -14,6 +14,7 @@ import {
   updateColumnById,
   updateTaskById,
   updateTaskColumnById,
+  toggleSidebar,
 } from './boardOperations';
 
 const fulfilledOperation = state => {
@@ -29,6 +30,7 @@ const initialState = {
   currentBoardId: null,
   currentColumn: null,
   filter: '',
+  isSidebar: false,
 };
 
 const boardSlice = createSlice({
@@ -94,9 +96,14 @@ const boardSlice = createSlice({
         state.tasks = payload;
         fulfilledOperation(state);
       })
+      .addCase(toggleSidebar.fulfilled, (state, { payload }) => {
+        state.isSidebar = payload;
+      })
       .addMatcher(
         action =>
-          action.type.startsWith('board') && action.type.endsWith('/pending'),
+          action.type.startsWith('board') &&
+          !action.type.startsWith('board/toogleSidebar') &&
+          action.type.endsWith('/pending'),
         state => {
           state.isBoardLoading = true;
           state.error = null;

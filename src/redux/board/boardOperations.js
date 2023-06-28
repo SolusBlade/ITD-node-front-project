@@ -190,11 +190,22 @@ export const updateTaskColumnById = createAsyncThunk(
 export const deleteTaskById = createAsyncThunk(
   'board/deleteTaskById',
 
-  async (idTask , thunkAPI) => {
+  async (idTask, thunkAPI) => {
     try {
       await deleteTaskByIdApi(idTask);
       const tasks = await getAllTasksApi();
       return tasks;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const toggleSidebar = createAsyncThunk(
+  'board/toogleSidebar',
+  async (data, thunkAPI) => {
+    try {
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

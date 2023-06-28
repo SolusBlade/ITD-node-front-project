@@ -1,19 +1,20 @@
 import IconBtn from 'components/IconBtn/IconBtn';
 import s from './BoardCard.module.scss';
-// eslint-disable-next-line
 import {
   deleteTaskById,
+  updateTaskById,
   updateTaskColumnById,
 } from 'redux/board/boardOperations';
-// eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
-// eslint-disable-next-line
 import { useEffect, useRef, useState } from 'react';
 import { selectBoards, selectTasks } from 'redux/board/boardSelectors';
 import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
+import Modal from 'components/Modal/Modal';
+import EditCard from 'components/Forms/AddAndEditCard/EditCard/EditCard';
 import Icon from 'components/Icon/Icon';
+import { trimTitleString } from 'services/trimStr';
 
 const BoardCard = ({ column }) => {
   const [redirectData, setRedirectData] = useState(null);
@@ -63,14 +64,19 @@ const BoardCard = ({ column }) => {
     };
   }, [wrapperRef]);
 
-  // const filtredCardsByDeadline = () => {
+  const [editCardModal, setEditCardModal] = useState(null);
 
-  // }
+  const handleCloseEditCardModal = () => setEditCardModal(null);
+  const handleOpenEditCardModal = card => setEditCardModal({ ...card });
 
-  // const [editCardModal, setEditCardModal] = useState(null);
-
-  // const handleCloseEditCardModal = () => setEditCardModal(null);
-  // const handleOpenEditCardModal = (card) => setEditCardModal(card);
+  const handleCardUpdate = async updatedCard => {
+    try {
+      await dispatch(updateTaskById({ id: updatedCard.id, data: updatedCard }));
+      handleCloseEditCardModal();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const hendleDeleteClick = id => {
     dispatch(deleteTaskById(id));
@@ -81,7 +87,7 @@ const BoardCard = ({ column }) => {
       <ul className={s.cardList}>
         {filteredCards().map(card => (
           <li className={s.cardToDo} key={card._id}>
-            <h2 className={s.titleCard}>{card.title}</h2>
+            <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
             <p className={s.textCard}>{card.text}</p>
             <div className={s.line}></div>
             <div className={s.bottomMenuCard}>
@@ -124,6 +130,7 @@ const BoardCard = ({ column }) => {
                   width={16}
                   height={16}
                   secondaryClassName={s.iconPencil}
+                  onClick={() => handleOpenEditCardModal(card)}
                 />
                 <IconBtn
                   name="icon-trash"
@@ -161,34 +168,17 @@ const BoardCard = ({ column }) => {
           </li>
         ))}
       </ul>
-      {/* {editCardModal && (
-        <Modal title="Edit column" closeModal={handleCloseEditCardModal}>
-          <AddCard closeModal={handleCloseEditCardModal}/>
+      {editCardModal && (
+        <Modal title="Edit card" closeModal={handleCloseEditCardModal}>
+          <EditCard
+            closeModal={handleCloseEditCardModal}
+            card={editCardModal}
+            onUpdate={handleCardUpdate}
+          />
         </Modal>
-      )} */}
+      )}
     </>
   );
 };
 
 export default BoardCard;
-
-// const cards = [
-// {
-//   title: "The Watch Spot Design",
-//   id: 1,
-//   text: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-//   priority: "",
-//   deadline: "12/05/2023",
-//   createdAt: "2023-06-21T18:25:45.953+00:00",
-//   updatedAt: "2023-06-21T18:25:45.953+00:00",
-// },
-// {
-//   title: "The Watch Spot Design",
-//   id: 2,
-//   text: "Create a visually stunning and eye-catching watch dial design that embodies our brand's essence of sleek aesthetics and modern elegance. Your design should be unique, innovative, and reflective of the latest trends in watch design.",
-//   priority: "",
-//   deadline: "12/05/2023",
-//   createdAt: "2023-06-21T18:25:45.953+00:00",
-//   updatedAt: "2023-06-21T18:25:45.953+00:00",
-// }
-// ]

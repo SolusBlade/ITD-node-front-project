@@ -8,6 +8,7 @@ import NewBoard from 'components/Forms/NewBoardAndEditBoard/NewBoardForm';
 import NeedHelp from 'components/Forms/NeedHelp/NeedHelp';
 import Modal from 'components/Modal/Modal';
 import Icon from 'components/Icon/Icon';
+import IconBtn from 'components/IconBtn/IconBtn';
 import { logOutUser } from 'redux/auth/authOperations';
 import st from './Sidebar.module.scss';
 import {
@@ -18,7 +19,6 @@ import {
 import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
-import IconBtn from 'components/IconBtn/IconBtn';
 import clsx from 'clsx';
 
 export const Sidebar = () => {
@@ -126,17 +126,21 @@ export const Sidebar = () => {
                   <>
                     <div className={st.boardEditIcons}>
                       <IconBtn
-                        name='icon-pencil'
+                        name="icon-pencil"
                         width={16}
                         height={16}
-                        secondaryClassName={clsx(theme === 'violet' && st.icons)}
+                        secondaryClassName={clsx(
+                          theme === 'violet' && st.icons
+                        )}
                         onClick={() => handleEditBoard(el._id)}
                       />
                       <IconBtn
-                        name='icon-trash'
+                        name="icon-trash"
                         width={16}
                         height={16}
-                        secondaryClassName={clsx(theme === 'violet' && st.icons)}
+                        secondaryClassName={clsx(
+                          theme === 'violet' && st.icons
+                        )}
                         onClick={() => handleDeleteBoard(el._id)}
                       />
                     </div>
@@ -157,7 +161,12 @@ export const Sidebar = () => {
               out to our customer support team.
             </p>
             <button className={st.helpSend} onClick={handleNeedHelp}>
-              <Icon name={'icon-help-circle'} width={20} height={20} secobdaryClassName={st.helpIcon}/>
+              <Icon
+                name={'icon-help-circle'}
+                width={20}
+                height={20}
+                secobdaryClassName={st.helpIcon}
+              />
               Need help?
             </button>
           </div>
