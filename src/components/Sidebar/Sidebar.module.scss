@@ -102,7 +102,8 @@
 
 .boardItemActive {
   composes: boardItem;
-  background-color: rgba(31, 31, 31, 1);
+  // opacity: 0.4000000059604645;
+  background-color: var(--sidebar-board-active-bg);
   border-right: 4px solid var(--select-list-border);
   padding-right: 14px;
 }
@@ -134,7 +135,7 @@
 .helpWrapper {
   height: 238px;
   padding: 14px;
-  background-color: rgba(31, 31, 31, 1);
+  background-color: var(--sidebar-help-wrapper-bg);
   border-radius: 8px;
 }
 

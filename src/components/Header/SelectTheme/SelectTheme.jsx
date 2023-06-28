@@ -4,12 +4,12 @@ import { useState } from "react";
 import './SelectTheme.module.scss';
 import sprite from '../../../assets/icons/icons.svg';
 import { OutsideClicker } from './OutsideClicker';
-import { selectTheme } from 'redux/auth/authSelectors';
+// import { selectTheme } from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
 
 export const SelectTheme = ({selectHandler, userTheme, setSelectedTheme}) => {
     const [isActive, setActive] = useState(false);
-    const storedTheme = useSelector(selectTheme);
+    // const storedTheme = useSelector(selectTheme);
     
     const handleClick = (event) => {
         const evtParent = event.currentTarget.parentElement;
@@ -26,7 +26,7 @@ export const SelectTheme = ({selectHandler, userTheme, setSelectedTheme}) => {
     }
 
     const themeCheckHandler = () => {
-        return storedTheme ? storedTheme : userTheme;
+        return userTheme.length === 0 ? 'dark' : userTheme;
     }
 
     return (
