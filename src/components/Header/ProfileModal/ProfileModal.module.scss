@@ -72,7 +72,11 @@
 
   &:hover {
     // opacity: 0.8;
-    background-color: lightslategray;
+    background-color: var(--btn-hover-main);
+  }
+
+  &:active {
+    background-color: var(--btn-active-main);
   }
 }
 
@@ -167,6 +171,11 @@
   border: none;
 
   &:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
+    background-color: var(--btn-hover-main);
+  }
+
+  &:active {
+    background-color: var(--btn-active-main);
   }
 }
