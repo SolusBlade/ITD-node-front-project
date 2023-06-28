@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.6c7cc6e0.css",
-    "main.js": "/ITD-node-front-project/static/js/main.ea081959.js",
+    "main.css": "/ITD-node-front-project/static/css/main.a4bd6421.css",
+    "main.js": "/ITD-node-front-project/static/js/main.e39129e9.js",
     "static/css/869.c56dede1.chunk.css": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css",
     "static/js/869.90f450b8.chunk.js": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
@@ -53,14 +53,14 @@
     "static/media/yacht-mobile.jpg": "/ITD-node-front-project/static/media/yacht-mobile.e429925c6ae897202dd0.jpg",
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.6c7cc6e0.css.map": "/ITD-node-front-project/static/css/main.6c7cc6e0.css.map",
-    "main.ea081959.js.map": "/ITD-node-front-project/static/js/main.ea081959.js.map",
+    "main.a4bd6421.css.map": "/ITD-node-front-project/static/css/main.a4bd6421.css.map",
+    "main.e39129e9.js.map": "/ITD-node-front-project/static/js/main.e39129e9.js.map",
     "869.c56dede1.chunk.css.map": "/ITD-node-front-project/static/css/869.c56dede1.chunk.css.map",
     "869.90f450b8.chunk.js.map": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c7cc6e0.css",
-    "static/js/main.ea081959.js"
+    "static/css/main.a4bd6421.css",
+    "static/js/main.e39129e9.js"
   ]
 }
