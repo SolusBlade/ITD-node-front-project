@@ -18,10 +18,9 @@ const fulfilledOperation = state => {
 };
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, theme: null },
   token: null,
   avatar: null,
-  theme: null,
   isLoggedIn: false,
   isLoading: false,
   error: null,
@@ -54,19 +53,18 @@ const authSlice = createSlice({
         state.user.email = payload.email;
         state.user.theme = payload.theme;
         state.user.avatar = payload.avatarURL;
-
       })
-      .addCase(getCurrentUserInfo.pending, (state, { payload }) => {})
       .addCase(logOutUser.fulfilled, (state, _) => {
         return initialState;
       })
       .addCase(switchTheme.fulfilled, (state, action) => {
         fulfilledOperation(state);
-          state.theme = action.payload;
+          state.user.theme = action.payload;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
         fulfilledOperation(state);
           state.avatar = action.payload.avatarURL;
+          state.user.avatar = action.payload.avatarURL;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         fulfilledOperation(state);
