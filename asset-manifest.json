@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.b9c7d50f.css",
-    "main.js": "/ITD-node-front-project/static/js/main.ec736442.js",
-    "static/css/293.f29183d4.chunk.css": "/ITD-node-front-project/static/css/293.f29183d4.chunk.css",
-    "static/js/293.b46e9115.chunk.js": "/ITD-node-front-project/static/js/293.b46e9115.chunk.js",
+    "main.css": "/ITD-node-front-project/static/css/main.a2f43485.css",
+    "main.js": "/ITD-node-front-project/static/js/main.1a5ff74a.js",
+    "static/css/61.a7ef36e4.chunk.css": "/ITD-node-front-project/static/css/61.a7ef36e4.chunk.css",
+    "static/js/61.40283219.chunk.js": "/ITD-node-front-project/static/js/61.40283219.chunk.js",
+    "static/js/320.9c810b29.chunk.js": "/ITD-node-front-project/static/js/320.9c810b29.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
     "static/media/Poppins-Regular.ttf": "/ITD-node-front-project/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
@@ -36,8 +37,8 @@
     "static/media/themeimaige.png": "/ITD-node-front-project/static/media/themeimaige.9955dc96038af23566c3.png",
     "static/media/trailerInTheCanyon-mobile.jpg": "/ITD-node-front-project/static/media/trailerInTheCanyon-mobile.39e38db633f91def2d6b.jpg",
     "static/media/rocksAndOcean-mobile.jpg": "/ITD-node-front-project/static/media/rocksAndOcean-mobile.593ae143929859e3b39a.jpg",
-    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.b9e5122384d4fa3dffa99f7360ff4d57.svg",
     "static/media/starsAndShine-mobile.jpg": "/ITD-node-front-project/static/media/starsAndShine-mobile.a63d193a773a460ddc43.jpg",
+    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.2f2c445e4dfe84b6f1656bcc038b99f2.svg",
     "static/media/sky-tablet.jpg": "/ITD-node-front-project/static/media/sky-tablet.75536aab607e4e47a71d.jpg",
     "static/media/yacht-tablet.jpg": "/ITD-node-front-project/static/media/yacht-tablet.21ed1bb47af44b04cb97.jpg",
     "static/media/sky-desktop.jpg": "/ITD-node-front-project/static/media/sky-desktop.13f8101a0dfb39843bdf.jpg",
@@ -52,13 +53,14 @@
     "static/media/yacht-mobile.jpg": "/ITD-node-front-project/static/media/yacht-mobile.e429925c6ae897202dd0.jpg",
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.b9c7d50f.css.map": "/ITD-node-front-project/static/css/main.b9c7d50f.css.map",
-    "main.ec736442.js.map": "/ITD-node-front-project/static/js/main.ec736442.js.map",
-    "293.f29183d4.chunk.css.map": "/ITD-node-front-project/static/css/293.f29183d4.chunk.css.map",
-    "293.b46e9115.chunk.js.map": "/ITD-node-front-project/static/js/293.b46e9115.chunk.js.map"
+    "main.a2f43485.css.map": "/ITD-node-front-project/static/css/main.a2f43485.css.map",
+    "main.1a5ff74a.js.map": "/ITD-node-front-project/static/js/main.1a5ff74a.js.map",
+    "61.a7ef36e4.chunk.css.map": "/ITD-node-front-project/static/css/61.a7ef36e4.chunk.css.map",
+    "61.40283219.chunk.js.map": "/ITD-node-front-project/static/js/61.40283219.chunk.js.map",
+    "320.9c810b29.chunk.js.map": "/ITD-node-front-project/static/js/320.9c810b29.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b9c7d50f.css",
-    "static/js/main.ec736442.js"
+    "static/css/main.a2f43485.css",
+    "static/js/main.1a5ff74a.js"
   ]
 }
