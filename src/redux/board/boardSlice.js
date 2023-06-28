@@ -28,6 +28,7 @@ const initialState = {
   error: null,
   currentBoardId: null,
   currentColumn: null,
+  filter: '',
 };
 
 const boardSlice = createSlice({

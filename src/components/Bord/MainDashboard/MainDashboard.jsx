@@ -38,54 +38,12 @@ const MainDashboard = () => {
         </button>
       </div>
 
-
       {showModal && (
         <Modal title="Add column" closeModal={handleCloseModal}>
           <AddColumn closeModal={handleCloseModal} />
         </Modal>
       )}
-
-      {/* <button onClick={HandleClick}>qqq</button> */}
     </>
   );
 };
 export default MainDashboard;
-
-// const dispatch = useDispatch();
-
-// const HandleClick = () => {
-// dispatch(deleteColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea"}))
-// dispatch(updateColumnById({idBoard: '6498cf6a2d349cd4315bedc7', idColumn: "6498cfed2d349cd4315bedea", data: {title: "Progress"}}))
-// dispatch(createNewColumn({idBoard: '6498cf6a2d349cd4315bedc7', data: {title: "To Do 3"}}))
-// dispatch(deleteBoardById(
-//   '6498b4a6fe7f9e8b99762d22'
-// ))
-// dispatch(createNewBoard(
-//   {
-//     title:'ccc',
-//     icon: 'ppp',
-//     background: `none`,
-//   }
-// ))
-// dispatch(updateBoardById(
-//   {id: '6498b4a6fe7f9e8b99762d22',
-//   data: {
-//       title:"iii",
-//       icon:"star",
-//       background:`none`,
-//       columns: [],
-//   }}
-// ))
-//   dispatch(getAllBoards())
-// }
-// const handleEditColumn = (columnId, newTitle) => {
-//   const updatedColumns = columns.map((column) =>
-//     column.id === columnId ? { ...column, title: newTitle } : column
-//   );
-//   setColumns(updatedColumns);
-// };
-
-// const handleDeleteColumn = (columnId) => {
-//   const updatedColumns = columns.filter((column) => column.id !== columnId);
-//   setColumns(updatedColumns);
-// };
