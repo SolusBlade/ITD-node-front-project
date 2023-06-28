@@ -25,10 +25,11 @@ export let themes = {
         sidebarButtonCreateBg: "#BEDBB0",
         sidebarButtonIconPlus: "#121212",
         sidebarBoardItemHover: "#404040",
+        sidebarTextColorMain: "#FFF",
         btnHoverMain:"#a8cf96",
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#d9d9d9",
-        btnActiveSecondary: "#b3b3b3"
+        btnActiveSecondary: "#b3b3b3",
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -55,10 +56,11 @@ export let themes = {
         sidebarButtonCreateBg: "#BEDBB0",
         sidebarButtonIconPlus: "#121212",
         sidebarBoardItemHover: "#e4e4e7",
+        sidebarTextColorMain: "#161616",
         btnHoverMain: "#a8cf96",
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#404040",
-        btnActiveSecondary: "#737373"
+        btnActiveSecondary: "#737373",
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -85,10 +87,11 @@ export let themes = {
         sidebarButtonCreateBg: "#B8BCFD",
         sidebarButtonIconPlus: "#FFFFFF",
         sidebarBoardItemHover: "rgba(217, 217, 217, 0.5)",
+        sidebarTextColorMain: "#FFF",
         btnHoverMain: "#6c6fc6",
         btnActiveMain: "#4044a5",
         btnHoverSecondary: "#6c6fc6",
-        btnActiveSecondary: "#4044a5"
+        btnActiveSecondary: "#4044a5",
     }
 }
 // --btn-hover-main: #a8cf96;
@@ -121,6 +124,7 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--sidebar-button-create-bg', themes[theme].sidebarButtonCreateBg);
     root.style.setProperty('--sidebar-button-icon-plus', themes[theme].sidebarButtonIconPlus);
     root.style.setProperty('--sidebar-board-item-hover', themes[theme].sidebarBoardItemHover);
+    root.style.setProperty('--sidebar-text-color-main', themes[theme].sidebarTextColorMain);
     root.style.setProperty('--btn-hover-main', themes[theme].btnHoverMain);
     root.style.setProperty('--btn-active-main', themes[theme].btnActiveMain);
     root.style.setProperty('--btn-hover-secondary', themes[theme].btnHoverSecondary);
