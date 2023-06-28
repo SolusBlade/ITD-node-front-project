@@ -6,8 +6,7 @@ import s from '../AddCard/AddCard.module.scss';
 import PrioritySelector from '../PrioritySelector/PrioritySelector';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import { useDispatch } from 'react-redux';
-import { createNewTask, updateTaskById } from 'redux/board/boardOperations';
-import { useEffect, useState } from 'react';
+import { updateTaskById } from 'redux/board/boardOperations';
 
 const schema = yup.object().shape({
   title: yup.string().min(3).required('Title is a required field'),
@@ -19,29 +18,13 @@ const schema = yup.object().shape({
 
 const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
   const dispatch = useDispatch();
-  const [initialsValue, setInitialValues] = useState({
+
+  const initialsValue = {
     title: card.title || '',
     text: card.text || '',
     priority: card.priority || 'none',
     deadline: card.deadline ? new Date(card.deadline) : new Date(),
-  });
-  // const [initialsValue, setInitialValues] = useState({
-  //   title: '',
-  //   text: '',
-  //   priority: 'none',
-  //   deadline: new Date(),
-  // });
-
-  // useEffect(() => {
-  //   if (card) {
-  //     setInitialValues({
-  //       title: card.title,
-  //       text: card.text,
-  //       priority: card.priority,
-  //       deadline: new Date(card.deadline),
-  //     });
-  //   }
-  // }, [card]);
+  };
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(updateTaskById({ idTask: card._id, data: {...values, boardId, columnId} }))

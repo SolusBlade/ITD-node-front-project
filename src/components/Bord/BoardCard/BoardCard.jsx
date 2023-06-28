@@ -174,7 +174,6 @@ const BoardCard = ({ column }) => {
             card={editCardModal}
             onUpdate={handleCardUpdate}
           />
-          <AddCard closeModal={handleCloseEditCardModal} />
         </Modal>
       )}
     </>
