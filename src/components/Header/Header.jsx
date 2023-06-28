@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { 
     selectUserTheme, 
-    selectTheme,
     selectAvatar,
     selectUserAvatar, 
 } from 'redux/auth/authSelectors';
@@ -15,53 +14,28 @@ import Modal from 'components/Modal/Modal';
 import { useDispatch } from 'react-redux';
 import { switchTheme, toggleSidebar } from 'redux/auth/authOperations';
 import sprite from '../../assets/icons/icons.svg';
-import {themes} from '../../services/themes'
+import { selectHandler } from '../../services/themes'
 
 export const Header = () => {
     const userTheme = useSelector(selectUserTheme);
-    const storeTheme = useSelector(selectTheme)
     const userAvatar = useSelector(selectUserAvatar);
     const avatar = useSelector(selectAvatar)
     const [selectedTheme, setSelectedTheme] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const dispatch = useDispatch();
     
+    useEffect(() => {
+        if (userTheme) selectHandler(userTheme);
+    }, [userTheme]);
+
     useEffect(()=> {
-        if (userTheme && storeTheme === null) selectHandler(userTheme);
         if (selectedTheme) {
             // console.log('useEffect if', selectedTheme)
             selectHandler(selectedTheme);
             dispatch(switchTheme(selectedTheme));
         }
         return;
-    }, [selectedTheme, userTheme, dispatch, userAvatar, storeTheme]); 
-
-    const selectHandler = (theme) => {
-        const root = document.querySelector(':root');
-
-        root.style.setProperty('--primary-background', themes[theme].primaryBackground);
-        root.style.setProperty('--secondary-background', themes[theme].secondaryBackground );
-        root.style.setProperty('--header-background', themes[theme].headerBackground);
-        root.style.setProperty('--primary-text-color', themes[theme].primaryTextColor);
-        root.style.setProperty('--secondary-text-color', themes[theme].secondaryTextColor);
-        root.style.setProperty('--board-headers', themes[theme].boardHeaders);
-        root.style.setProperty('--btn-bg', themes[theme].btnBg);
-        root.style.setProperty('--btn-text-color', themes[theme].btnTextColor);
-        root.style.setProperty('--select-header', themes[theme].selectHeader);
-        root.style.setProperty('--select-option', themes[theme].selectOption);
-        root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
-        root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
-        root.style.setProperty('--modal-background', themes[theme].modalBackground);
-        root.style.setProperty('--btn-modal-icon-plus', themes[theme].btnModalIconPlus);
-        root.style.setProperty('--btn-modal-bg', themes[theme].btnModalBg);
-        root.style.setProperty('--btn-modal-text-color', themes[theme].btnModalTextColor);
-        root.style.setProperty('--card-bg', themes[theme].cardBg);
-        root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
-        root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
-        root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
-        
-        // setSelectedTheme(theme);
-    }
+    }, [selectedTheme, dispatch]); 
 
     const modalHandler = () => setIsModalOpen(!isModalOpen);
 
@@ -99,6 +73,5 @@ export const Header = () => {
                 </Modal>}
             </header>
         // </Container>
-        
     )
 }

@@ -19,7 +19,16 @@ export let themes = {
         cardBg: "#121212",
         boardAddColumnBtn: "#FFFFFF",
         boardAddColumnPlus: "#121212",
-        headerModalBtnAddFile: "#BEDBB0"
+        headerModalBtnAddFile: "#BEDBB0",
+        sidebarBoardActiveBg: "#1F1F1F",
+        sidebarHelpWrapperBg: "#1F1F1F",
+        sidebarButtonCreateBg: "#BEDBB0",
+        sidebarButtonIconPlus: "#121212",
+        sidebarBoardItemHover: "#404040",
+        btnHoverMain:"#a8cf96",
+        btnActiveMain: "#8bbf73",
+        btnHoverSecondary: "#d9d9d9",
+        btnActiveSecondary: "#b3b3b3"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -40,7 +49,16 @@ export let themes = {
         cardBg: "#FFFFFF",
         boardAddColumnBtn: "#121212",
         boardAddColumnPlus: "#FFFFFF",
-        headerModalBtnAddFile: "#BEDBB0"
+        headerModalBtnAddFile: "#BEDBB0",
+        sidebarBoardActiveBg: "#F6F6F7",
+        sidebarHelpWrapperBg: "#F6F6F7",
+        sidebarButtonCreateBg: "#BEDBB0",
+        sidebarButtonIconPlus: "#121212",
+        sidebarBoardItemHover: "#e4e4e7",
+        btnHoverMain: "#a8cf96",
+        btnActiveMain: "#8bbf73",
+        btnHoverSecondary: "#404040",
+        btnActiveSecondary: "#737373"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -61,6 +79,55 @@ export let themes = {
         cardBg: "#FFFFFF",
         boardAddColumnBtn: "#5255BC",
         boardAddColumnPlus: "#FFFFFF",
-        headerModalBtnAddFile: "#ECEDFD"
+        headerModalBtnAddFile: "#ECEDFD",
+        sidebarBoardActiveBg: "rgba(255, 255, 255, 0.21)",
+        sidebarHelpWrapperBg: "rgba(236, 237, 253, 0.40)",
+        sidebarButtonCreateBg: "#B8BCFD",
+        sidebarButtonIconPlus: "#FFFFFF",
+        sidebarBoardItemHover: "rgba(217, 217, 217, 0.5)",
+        btnHoverMain: "#6c6fc6",
+        btnActiveMain: "#4044a5",
+        btnHoverSecondary: "#6c6fc6",
+        btnActiveSecondary: "#4044a5"
     }
+}
+// --btn-hover-main: #a8cf96;
+// --btn-active-main: #8bbf73;
+export const selectHandler = (theme) => {
+    const root = document.querySelector(':root');
+
+    root.style.setProperty('--primary-background', themes[theme].primaryBackground);
+    root.style.setProperty('--secondary-background', themes[theme].secondaryBackground );
+    root.style.setProperty('--header-background', themes[theme].headerBackground);
+    root.style.setProperty('--primary-text-color', themes[theme].primaryTextColor);
+    root.style.setProperty('--secondary-text-color', themes[theme].secondaryTextColor);
+    root.style.setProperty('--board-headers', themes[theme].boardHeaders);
+    root.style.setProperty('--btn-bg', themes[theme].btnBg);
+    root.style.setProperty('--btn-text-color', themes[theme].btnTextColor);
+    root.style.setProperty('--select-header', themes[theme].selectHeader);
+    root.style.setProperty('--select-option', themes[theme].selectOption);
+    root.style.setProperty('--select-list-bg', themes[theme].selectListBg);
+    root.style.setProperty('--select-list-border', themes[theme].selectListBorder);
+    root.style.setProperty('--modal-background', themes[theme].modalBackground);
+    root.style.setProperty('--btn-modal-icon-plus', themes[theme].btnModalIconPlus);
+    root.style.setProperty('--btn-modal-bg', themes[theme].btnModalBg);
+    root.style.setProperty('--btn-modal-text-color', themes[theme].btnModalTextColor);
+    root.style.setProperty('--card-bg', themes[theme].cardBg);
+    root.style.setProperty('--board-add-column-btn', themes[theme].boardAddColumnBtn);
+    root.style.setProperty('--board-add-column-plus', themes[theme].boardAddColumnPlus);
+    root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
+    root.style.setProperty('--sidebar-board-active-bg', themes[theme].sidebarBoardActiveBg);
+    root.style.setProperty('--sidebar-help-wrapper-bg', themes[theme].sidebarHelpWrapperBg);
+    root.style.setProperty('--sidebar-button-create-bg', themes[theme].sidebarButtonCreateBg);
+    root.style.setProperty('--sidebar-button-icon-plus', themes[theme].sidebarButtonIconPlus);
+    root.style.setProperty('--sidebar-board-item-hover', themes[theme].sidebarBoardItemHover);
+    root.style.setProperty('--btn-hover-main', themes[theme].btnHoverMain);
+    root.style.setProperty('--btn-active-main', themes[theme].btnActiveMain);
+    root.style.setProperty('--btn-hover-secondary', themes[theme].btnHoverSecondary);
+    root.style.setProperty('--btn-active-secondary', themes[theme].btnActiveSecondary);
+
+    // --sidebar-board-item-hover: #404040;
+    // --btn-hover-secondary: #d9d9d9;
+    // --btn-active-secondary: #b3b3b3;
+    // setSelectedTheme(theme);
 }

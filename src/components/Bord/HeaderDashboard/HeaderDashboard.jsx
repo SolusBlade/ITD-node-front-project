@@ -1,50 +1,53 @@
-import { useState, useEffect } from 'react';
 import Filters from '../Filters/Filters';
 import s from './HeaderDashboard.module.scss';
 import Container from 'components/Container/Container';
 import MainDashboard from '../MainDashboard/MainDashboard';
-import WelcomePageBoard from '../WelcomePageBoard/WelcomePageBoard';
 import { useSelector } from 'react-redux';
-import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
+import {
+  selectCurrentBoardBackground,
+  selectCurrentBoardTitle,
+} from 'redux/board/boardSelectors';
 import { selectIsBoardLoading } from 'redux/board/boardSelectors';
 import Loader from 'components/Loader/Loader';
+import clsx from 'clsx';
 
 const HeaderDashboard = () => {
-  const [title, setTitle] = useState('');
-  const boards = useSelector(selectBoards);
-  const currentBoardId = useSelector(selectCurrentBoardId);
+  const title = useSelector(selectCurrentBoardTitle);
+  const background = useSelector(selectCurrentBoardBackground);
   const isBoardLoading = useSelector(selectIsBoardLoading);
-
-  useEffect(() => {
-    if (!currentBoardId) {
-      return;
-    }
-    const currentBoard = boards.filter(el => el._id === currentBoardId);
-    const title = currentBoard[0].title;
-    setTitle(title);
-  }, [boards, currentBoardId]);
 
   return (
     <>
       {isBoardLoading ? (
         <Loader secondClassName={s.boardLoader} />
       ) : (
-        <div className={s.headerDashboard}>
-          {boards.length > 0 ? (
-            <>
-              <Container className={s.containerDashboard}>
-                <h1 className={s.titleHeaderDashboard}>{title}</h1>
-                <Filters />
-              </Container>
-              <Container className={s.containerMainDashboard}>
-                <MainDashboard />
-              </Container>
-            </>
-          ) : (
-            <Container className={s.containerWelcomeDashboard}>
-              <WelcomePageBoard />
-            </Container>
+        <div
+          className={clsx(
+            s.headerDashboard,
+            background === 'sky' && s.sky,
+            background === 'yacht' && s.yacht,
+            background === 'flowers' && s.flowers,
+            background === 'leaves' && s.leaves,
+            background === 'mountainsAndBalloon' && s.mountainsAndBalloon,
+            background === 'nature' && s.nature,
+            background === 'oceanAndYacht' && s.oceanAndYacht,
+            background === 'orangePlanet' && s.orangePlanet,
+            background === 'planets' && s.planets,
+            background === 'rocksAndOcean' && s.rocksAndOcean,
+            background === 'sakura' && s.sakura,
+            background === 'skyBalloons' && s.skyBalloons,
+            background === 'starsAndShine' && s.starsAndShine,
+            background === 'trailerInTheCanyon' && s.trailerInTheCanyon,
+            background === 'youngMonth' && s.youngMonth
           )}
+        >
+          <Container className={s.containerDashboard}>
+            <h1 className={s.titleHeaderDashboard}>{title}</h1>
+            <Filters />
+          </Container>
+          <Container className={s.containerMainDashboard}>
+            <MainDashboard />
+          </Container>
         </div>
       )}
     </>

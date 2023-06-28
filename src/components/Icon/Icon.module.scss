@@ -1,5 +1,13 @@
 // @import '../../sass/utils/variables';
-
+.iconBtn{
+    stroke: var(--primary-text-color);
+    opacity: 0.5;
+    &:hover,
+    &:focus{
+        stroke: var(--btn-bg);
+        opacity: 1;
+    }
+}
 // .icon-diagram {
 //   fill: $white;
 // }

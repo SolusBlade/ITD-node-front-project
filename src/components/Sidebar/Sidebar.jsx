@@ -17,10 +17,13 @@ import {
 } from 'redux/board/boardOperations';
 import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
-import { selectName } from 'redux/auth/authSelectors';
+import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
+import IconBtn from 'components/IconBtn/IconBtn';
+import clsx from 'clsx';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
+  const theme = useSelector(selectUserTheme);
   const isLoggedIn = useSelector(selectName);
   const currentBoard = useSelector(selectCurrentBoardId);
   const dispatch = useDispatch();
@@ -122,18 +125,20 @@ export const Sidebar = () => {
                 {el._id === activeItemId && (
                   <>
                     <div className={st.boardEditIcons}>
-                      <div
-                        className={st.boardButtons}
+                      <IconBtn
+                        name='icon-pencil'
+                        width={16}
+                        height={16}
+                        secondaryClassName={clsx(theme === 'violet' && st.icons)}
                         onClick={() => handleEditBoard(el._id)}
-                      >
-                        <Icon name={'icon-pencil'} width={16} height={16} />
-                      </div>
-                      <div
-                        className={st.boardButtons}
+                      />
+                      <IconBtn
+                        name='icon-trash'
+                        width={16}
+                        height={16}
+                        secondaryClassName={clsx(theme === 'violet' && st.icons)}
                         onClick={() => handleDeleteBoard(el._id)}
-                      >
-                        <Icon name={'icon-trash'} width={16} height={16} />
-                      </div>
+                      />
                     </div>
                   </>
                 )}
@@ -152,7 +157,7 @@ export const Sidebar = () => {
               out to our customer support team.
             </p>
             <button className={st.helpSend} onClick={handleNeedHelp}>
-              <Icon name={'icon-help-circle'} width={20} height={20} />
+              <Icon name={'icon-help-circle'} width={20} height={20} secobdaryClassName={st.helpIcon}/>
               Need help?
             </button>
           </div>

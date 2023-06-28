@@ -3,11 +3,15 @@ import { Suspense, useEffect, useState } from 'react';
 import { Header } from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import s from './HomePage.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllTasks } from 'redux/board/boardOperations';
+import WelcomePageBoard from 'components/Bord/WelcomePageBoard/WelcomePageBoard';
+import { selectBoards } from 'redux/board/boardSelectors';
+import { Container } from '@mui/joy';
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const boards = useSelector(selectBoards);
 
   useEffect(() => {
     dispatch(getAllTasks())
@@ -37,7 +41,14 @@ const HomePage = () => {
           </div>
           <div className={s.screenWrap}>
             <Header />
-            <Outlet />
+            {boards.length > 0 ? (
+              <Outlet />
+              ) : (
+              <Container className={s.containerWelcomeDashboard}>
+                <Outlet />
+                <WelcomePageBoard />
+              </Container>
+            )}
           </div>
         </div>
       </Suspense>

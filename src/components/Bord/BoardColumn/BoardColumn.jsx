@@ -8,6 +8,7 @@ import { deleteColumnById } from 'redux/board/boardOperations';
 import { useState } from 'react';
 import EditColumn from 'components/Forms/AddAndEditColumn/EditColumn';
 import Modal from 'components/Modal/Modal';
+import { trimTitleString } from 'services/trimStr';
 
 
 const BoardColumn = () => {
@@ -24,27 +25,27 @@ const BoardColumn = () => {
 
   return (
     <>
-      <ul className={s.columnList}>
-        {columns?.map(column => (
-          <li key={column._id} className={s.columnItem}>
-            <div className={s.titleToDo}>
-              <h2 className={s.titleCard}>{column.title}</h2>
-              <div className={s.iconToDo} >
-                <IconBtn
-                  name="icon-pencil"
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconPencil}
-                  onClick={() => handleOpenEditColumnModal(column)}
-                />
-                <IconBtn
-                  name="icon-trash"
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconTrash}
-                  onClick={() => hendleDeleteClick(column)}
-                />
-              </div>
+       <ul className={s.columnList}>
+      {columns?.map(column => (
+        <li key={column._id} className={s.columnItem}>
+          <div className={s.titleToDo}>
+            <h2 className={s.titleCard}>{trimTitleString(column.title, 20)}</h2>
+            <div className={s.iconToDo} >
+              <IconBtn
+                name="icon-pencil"
+                width={16}
+                height={16}
+                secondaryClassName={s.iconPencil}
+                onClick={() => handleOpenEditColumnModal(column)}
+              />
+              <IconBtn
+                name="icon-trash"
+                width={16}
+                height={16}
+                secondaryClassName={s.iconTrash}
+                onClick={() => hendleDeleteClick(column)}
+              />
+            </div>
             </div>
             <div>
               <BoardCard column={column}/>

@@ -32,7 +32,6 @@ const App = () => {
 
   return (
     <>
-      <div></div>
       {isAuthLoading ? (
         <Loader />
       ) : (
