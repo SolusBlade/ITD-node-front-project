@@ -83,6 +83,7 @@
   overflow-x: hidden;
   @media screen and (min-width: 768px) {
     width: 260px;
+    height: calc(100vh - 645px);
   }
 }
 
@@ -153,10 +154,14 @@
 }
 
 .helpWrapper {
-  height: 238px;
+  // height: 238px;
   padding: 14px;
+  margin-bottom: 24px;
   background-color: var(--sidebar-help-wrapper-bg);
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .helpSend {
