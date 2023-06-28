@@ -14,6 +14,7 @@ const HomePage = () => {
   },[dispatch])
   
   const [openMobile, setOpenMobile] = useState(false);
+  
   const closeMobileOnBackdrop = e => {
     if (e.target === e.currentTarget) {
       console.log(e);
