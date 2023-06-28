@@ -1,9 +1,11 @@
-export const findPriorityColor = (value) => {
-  const matchedOption = priorityOptions.filter(option => option.value === value)[0];
+export const findPriorityColor = value => {
+  const matchedOption = priorityOptions.filter(
+    option => option.value === value
+  )[0];
   if (matchedOption) {
     return matchedOption.color;
   }
-}
+};
 
 export const priorityOptions = [
   { value: 'low', color: 'var(--priority-low)' },

@@ -8,10 +8,15 @@
 .sideBarBackDrop {
   position: absolute;
   top: 0;
+  left: -100%;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   // z-index: 2;
+}
+
+.showMobile {
+  left: 0;
 }
 
 .sideBar {

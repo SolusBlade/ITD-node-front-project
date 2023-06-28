@@ -316,14 +316,25 @@ const NewBoard = ({ closeModal }) => {
                     }[item]
                   }
                   variant={bg === item ? 'solid' : 'plain'}
-                  sx={{
-                    '& .Joy-checked': {
-                      backgroundColor: 'transparent',
-                      outline: '2px solid white',
-                      borderRadius: '6px',
-                      zIndex: '99',
-                    },
-                  }}
+                  sx={
+                    theme === 'violet'
+                      ? {
+                          '& .Joy-checked': {
+                            backgroundColor: 'transparent',
+                            outline: '2px solid #5255BC',
+                            borderRadius: '6px',
+                            zIndex: '99',
+                          },
+                        }
+                      : {
+                          '& .Joy-checked': {
+                            backgroundColor: 'transparent',
+                            outline: '2px solid #BEDBB0',
+                            borderRadius: '6px',
+                            zIndex: '99',
+                          },
+                        }
+                  }
                   slotProps={{
                     input: { 'aria-label': item },
                     action: {

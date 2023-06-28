@@ -10,6 +10,7 @@ import WelcomePageBoard from 'components/Bord/WelcomePageBoard/WelcomePageBoard'
 import { selectBoards } from 'redux/board/boardSelectors';
 import { Container } from '@mui/joy';
 import { selectIsSidebar } from 'redux/board/boardSelectors';
+import clsx from 'clsx';
 import s from './HomePage.module.scss';
 
 const HomePage = () => {
@@ -50,16 +51,15 @@ const HomePage = () => {
             )}
           </div>
         </div>
-        {!isDesktop && isMobileOpen && (
-          <div
-            className={s.sideBarBackDrop}
-            onClick={e => closeMobileOnBackdrop(e)}
-          >
-            <div className={s.sideBarOpen}>
-              <Sidebar />
-            </div>
+
+        <div
+          className={clsx(s.sideBarBackDrop, isMobileOpen && s.showMobile)}
+          onClick={e => closeMobileOnBackdrop(e)}
+        >
+          <div className={s.sideBarOpen}>
+            <Sidebar />
           </div>
-        )}
+        </div>
       </Suspense>
     </>
   );
