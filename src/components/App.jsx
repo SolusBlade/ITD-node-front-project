@@ -32,12 +32,12 @@ const App = () => {
 
   return (
     <>
-      <div></div>
       {isAuthLoading ? (
         <Loader />
       ) : (
         <Suspense fallback={<Loader />}>
           <Routes>
+            <Route path="/" element={<Navigate to="/welcome" />} />
             <Route
               path="/welcome"
               element={
