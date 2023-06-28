@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.1da11cca.css",
-    "main.js": "/ITD-node-front-project/static/js/main.54d5354c.js",
+    "main.js": "/ITD-node-front-project/static/js/main.ed05041b.js",
     "static/css/293.99aa114f.chunk.css": "/ITD-node-front-project/static/css/293.99aa114f.chunk.css",
-    "static/js/293.94e8b98e.chunk.js": "/ITD-node-front-project/static/js/293.94e8b98e.chunk.js",
+    "static/js/293.6d5ad195.chunk.js": "/ITD-node-front-project/static/js/293.6d5ad195.chunk.js",
     "static/media/Poppins-Regular.ttf": "/ITD-node-front-project/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/Poppins-Medium.ttf": "/ITD-node-front-project/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
     "static/media/Poppins-SemiBold.ttf": "/ITD-node-front-project/static/media/Poppins-SemiBold.ac8d04b620e54be9b0f0.ttf",
@@ -12,12 +12,12 @@
     "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.b9e5122384d4fa3dffa99f7360ff4d57.svg",
     "index.html": "/ITD-node-front-project/index.html",
     "main.1da11cca.css.map": "/ITD-node-front-project/static/css/main.1da11cca.css.map",
-    "main.54d5354c.js.map": "/ITD-node-front-project/static/js/main.54d5354c.js.map",
+    "main.ed05041b.js.map": "/ITD-node-front-project/static/js/main.ed05041b.js.map",
     "293.99aa114f.chunk.css.map": "/ITD-node-front-project/static/css/293.99aa114f.chunk.css.map",
-    "293.94e8b98e.chunk.js.map": "/ITD-node-front-project/static/js/293.94e8b98e.chunk.js.map"
+    "293.6d5ad195.chunk.js.map": "/ITD-node-front-project/static/js/293.6d5ad195.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1da11cca.css",
-    "static/js/main.54d5354c.js"
+    "static/js/main.ed05041b.js"
   ]
 }
