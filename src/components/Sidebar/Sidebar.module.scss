@@ -60,8 +60,8 @@
   width: 40px;
   height: 36px;
   border-radius: 6px;
-  background-color: #bedbb0;
-  stroke: var(--primary-text-color);
+  background-color: var(--sidebar-button-create-bg);
+  stroke: var(--sidebar-button-icon-plus);
 }
 
 .sectionBoards {
@@ -102,7 +102,8 @@
 
 .boardItemActive {
   composes: boardItem;
-  background-color: rgba(31, 31, 31, 1);
+  // opacity: 0.4000000059604645;
+  background-color: var(--sidebar-board-active-bg);
   border-right: 4px solid var(--select-list-border);
   padding-right: 14px;
 }
@@ -134,7 +135,7 @@
 .helpWrapper {
   height: 238px;
   padding: 14px;
-  background-color: rgba(31, 31, 31, 1);
+  background-color: var(--sidebar-help-wrapper-bg);
   border-radius: 8px;
 }
 
