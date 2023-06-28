@@ -4,15 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { Header } from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
-// import { toggleSidebar } from 'redux/auth/authOperations';
 import { toggleSidebar } from 'redux/board/boardOperations';
 import { getAllTasks } from 'redux/board/boardOperations';
 import WelcomePageBoard from 'components/Bord/WelcomePageBoard/WelcomePageBoard';
 import { selectBoards } from 'redux/board/boardSelectors';
 import { Container } from '@mui/joy';
-// import { selectIsSidebar } from 'redux/auth/authSelectors';
 import { selectIsSidebar } from 'redux/board/boardSelectors';
-
 import s from './HomePage.module.scss';
 
 const HomePage = () => {

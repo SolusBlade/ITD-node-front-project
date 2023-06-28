@@ -29,6 +29,7 @@ const initialState = {
   error: null,
   currentBoardId: null,
   currentColumn: null,
+  isSidebar: false,
 };
 
 const boardSlice = createSlice({
@@ -96,11 +97,10 @@ const boardSlice = createSlice({
       })
       .addCase(toggleSidebar.fulfilled, (state, { payload }) => {
         state.isSidebar = payload;
-        fulfilledOperation(state);
       })
       .addMatcher(
         action =>
-          action.type.startsWith('board') && action.type.endsWith('/pending'),
+          action.type.startsWith('board') && !action.type.startsWith('board/toogleSidebar') && action.type.endsWith('/pending'),
         state => {
           state.isBoardLoading = true;
           state.error = null;
