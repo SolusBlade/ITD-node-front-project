@@ -102,6 +102,12 @@ const BoardCard = ({ column }) => {
       <ul className={s.cardList}>
         {filteredCards(filter).map(card => (
           <li className={s.cardToDo} key={card._id}>
+            <div
+              style={{
+                backgroundColor: findPriorityColor(card.priority),
+              }}
+              className={s.beforeColor}
+            ></div>{' '}
             <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
             <p className={s.textCard}>{card.text}</p>
             <div className={s.line}></div>
