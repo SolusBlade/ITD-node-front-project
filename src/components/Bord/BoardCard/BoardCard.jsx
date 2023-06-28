@@ -1,8 +1,7 @@
 import IconBtn from 'components/IconBtn/IconBtn';
 import s from './BoardCard.module.scss';
 // eslint-disable-next-line
-import { deleteTaskById } from 'redux/board/boardOperations';
-// eslint-disable-next-line
+import { deleteTaskById, updateTaskById, updateTaskColumnById } from 'redux/board/boardOperations';
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line
 import { useState } from 'react';
@@ -10,6 +9,8 @@ import { selectTasks } from 'redux/board/boardSelectors';
 import { formatDate } from 'services/dateChange';
 import { getFormattedValue } from 'services/priorityChange';
 import { findPriorityColor } from 'services/priorityOptions';
+import Modal from 'components/Modal/Modal';
+import EditCard from 'components/Forms/AddAndEditCard/EditCard/EditCard';
 
 const BoardCard = ({column}) => {
 
@@ -21,16 +22,23 @@ const BoardCard = ({column}) => {
     .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
   }
 
-  // const filtredCardsByDeadline = () => {
-
-  // }
-
   const dispatch = useDispatch()
 
-  // const [editCardModal, setEditCardModal] = useState(null);
+  const [editCardModal, setEditCardModal] = useState(null);
 
-  // const handleCloseEditCardModal = () => setEditCardModal(null);
-  // const handleOpenEditCardModal = (card) => setEditCardModal(card);
+  const handleCloseEditCardModal = () => setEditCardModal(null);
+  const handleOpenEditCardModal = (card) => setEditCardModal({ ...card});
+
+  const handleCardUpdate = async (updatedCard) => {
+    try {
+      await dispatch(
+        updateTaskById({ id: updatedCard.id, data: updatedCard })
+      );
+      handleCloseEditCardModal();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const hendleDeleteClick = (id) => {
     dispatch(deleteTaskById(id))
@@ -40,52 +48,57 @@ const BoardCard = ({column}) => {
     <>
       <ul className={s.cardList}>
         {filteredCards().map((card) => (
-          <li className={s.cardToDo} key={card._id}>
-            <h2 className={s.titleCard}>{card.title}</h2>
-            <p className={s.textCard}>{card.text}</p>
-            <div className={s.line}></div>
-            <div className={s.bottomMenuCard}>
-              <div className={s.textBottomMenuCard}>
-                <div>
-                  <h3 className={s.titleBottomMenuCard}>Priority</h3>
-                  <p className={s.discriptionBottomMenuCard}><span style={{backgroundColor:findPriorityColor(card.priority)}} className={s.priorityColor}></span> {getFormattedValue(card.priority)}</p>
-                </div>
-                <div>
-                  <h3 className={s.titleBottomMenuCard}>Deadline</h3>
-                  <p className={s.discriptionBottomMenuCard}>{formatDate(card.deadline)}</p>
-                </div>
-              </div>
+              <li className={s.cardToDo} key={card._id}>
+                <h2 className={s.titleCard}>{card.title}</h2>
+                <p className={s.textCard}>{card.text}</p>
+                <div className={s.line}></div>
+                <div className={s.bottomMenuCard}>
+                  <div className={s.textBottomMenuCard}>
+                    <div>
+                      <h3 className={s.titleBottomMenuCard}>Priority</h3>
+                      <p className={s.discriptionBottomMenuCard}><span style={{backgroundColor:findPriorityColor(card.priority)}} className={s.priorityColor}></span> {getFormattedValue(card.priority)}</p>
+                    </div>
+                    <div>
+                      <h3 className={s.titleBottomMenuCard}>Deadline</h3>
+                      <p className={s.discriptionBottomMenuCard}>{formatDate(card.deadline)}</p>
+                    </div>
+                  </div>
 
-              <div className={s.iconToDo}>
-                <IconBtn
-                  name='icon-arrow'
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconArrow}
-                />
-                <IconBtn
-                  name='icon-pencil'
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconPencil}
-                />
-                <IconBtn
-                  name='icon-trash'
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconTrash}
-                  onClick={() => hendleDeleteClick(card._id)}
-                />
-                </div>
-              </div>
-          </li>
-        ))}
-      </ul>
-      {/* {editCardModal && (
-        <Modal title="Edit column" closeModal={handleCloseEditCardModal}>
-          <AddCard closeModal={handleCloseEditCardModal}/>
+                  <div className={s.iconToDo}>
+                    <IconBtn
+                      name='icon-arrow'
+                      width={16}
+                      height={16}
+                      secondaryClassName={s.iconArrow}
+                    />
+                    <IconBtn
+                      name='icon-pencil'
+                      width={16}
+                      height={16}
+                      secondaryClassName={s.iconPencil}
+                      onClick={() => handleOpenEditCardModal(card)}
+                    />
+                    <IconBtn
+                      name='icon-trash'
+                      width={16}
+                      height={16}
+                      secondaryClassName={s.iconTrash}
+                      onClick={() => hendleDeleteClick(card._id)}
+                    />
+                    </div>
+                  </div>
+              </li>
+             ))}
+          </ul>
+      {editCardModal && (
+        <Modal title="Edit card" closeModal={handleCloseEditCardModal}>
+          <EditCard
+            closeModal={handleCloseEditCardModal}
+            card={editCardModal}
+            onUpdate={handleCardUpdate}
+          />
         </Modal>
-      )} */}
+      )}
     </>
   )
 }
