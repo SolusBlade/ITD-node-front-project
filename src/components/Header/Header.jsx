@@ -34,7 +34,7 @@ export const Header = () => {
             dispatch(switchTheme(selectedTheme));
         }
         return;
-    }, [selectedTheme, userTheme, dispatch, userAvatar]); 
+    }, [selectedTheme, userTheme, dispatch, userAvatar, storeTheme]); 
 
     const selectHandler = (theme) => {
         const root = document.querySelector(':root');
