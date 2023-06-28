@@ -21,7 +21,9 @@ export let themes = {
         boardAddColumnPlus: "#121212",
         headerModalBtnAddFile: "#BEDBB0",
         sidebarBoardActiveBg: "#1F1F1F",
-        sidebarHelpWrapperBg: "#1F1F1F"
+        sidebarHelpWrapperBg: "#1F1F1F",
+        sidebarButtonCreateBg: "#BEDBB0",
+        sidebarButtonIconPlus: "#121212"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -44,7 +46,9 @@ export let themes = {
         boardAddColumnPlus: "#FFFFFF",
         headerModalBtnAddFile: "#BEDBB0",
         sidebarBoardActiveBg: "#F6F6F7",
-        sidebarHelpWrapperBg: "#F6F6F7"
+        sidebarHelpWrapperBg: "#F6F6F7",
+        sidebarButtonCreateBg: "#BEDBB0",
+        sidebarButtonIconPlus: "#121212"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -67,10 +71,13 @@ export let themes = {
         boardAddColumnPlus: "#FFFFFF",
         headerModalBtnAddFile: "#ECEDFD",
         sidebarBoardActiveBg: "rgba(255, 255, 255, 0.21)",
-        sidebarHelpWrapperBg: "rgba(236, 237, 253, 0.40)"
+        sidebarHelpWrapperBg: "rgba(236, 237, 253, 0.40)",
+        sidebarButtonCreateBg: "#B8BCFD",
+        sidebarButtonIconPlus: "#FFFFFF"
     }
 }
-
+// --sidebar-button-create-bg: #BEDBB0;
+// --sidebar-button-icon-plus: #121212;
 export const selectHandler = (theme) => {
     const root = document.querySelector(':root');
 
@@ -96,7 +103,8 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--header-modal-btn-add-file', themes[theme].headerModalBtnAddFile);
     root.style.setProperty('--sidebar-board-active-bg', themes[theme].sidebarBoardActiveBg);
     root.style.setProperty('--sidebar-help-wrapper-bg', themes[theme].sidebarHelpWrapperBg);
+    root.style.setProperty('--sidebar-button-create-bg', themes[theme].sidebarButtonCreateBg);
+    root.style.setProperty('--sidebar-button-icon-plus', themes[theme].sidebarButtonIconPlus);
 
-    
     // setSelectedTheme(theme);
 }
