@@ -135,3 +135,7 @@
   background-color: var(--secondary-background);
   border: 1px solid var(--btn-bg);
 }
+.alarm{
+  stroke: var(--btn-bg);
+  filter: drop-shadow(0 0px 4px var(--btn-bg));
+}

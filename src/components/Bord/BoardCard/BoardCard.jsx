@@ -24,6 +24,14 @@ const BoardCard = ({ column }) => {
   const allCards = useSelector(selectTasks);
   const allBoards = useSelector(selectBoards);
 
+  const isToday = (date) => {
+    const currentDateTime = new Date();
+    const deadlineDateTime = new Date(date);
+    deadlineDateTime.setHours(0, 0, 0, 0);
+    const currentDate = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate());
+    return currentDate.getTime() === deadlineDateTime.getTime();
+  }
+  
   const filteredCards = filter => {
     return allCards
       .filter(el => el.columnId === column._id)
@@ -112,6 +120,16 @@ const BoardCard = ({ column }) => {
               </div>
 
               <div className={s.iconToDo}>
+                {
+                  isToday(card.deadline) && (
+                    <Icon
+                    name="icon-alarm"
+                    width={16}
+                    height={16}
+                    secondaryClassName={s.alarm}
+                  />
+                    )
+                }
                 <IconBtn
                   name="icon-arrow"
                   width={16}
