@@ -27,14 +27,16 @@
 }
 
 .logoText {
-  color: var(--primary-text-color);
+  color: var(--sidebar-text-color-main);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.64px;
 }
 
 .boardsTitle {
-  color: var(--secondary-text-color);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--sidebar-text-color-secondary);
 }
 
 .createBoard {
@@ -50,7 +52,7 @@
 
 .createBoard > p {
   width: 76px;
-  color: var(--primary-text-color);
+  color: var(--sidebar-text-color-main);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
@@ -67,7 +69,7 @@
     background-color: var(--btn-hover-main);
   }
 
-  &:active{
+  &:active {
     background-color: var(--btn-active-main);
   }
 }
@@ -104,6 +106,10 @@
   }
 }
 
+.boardItem p {
+  color: var(--sidebar-text-color-secondary);
+}
+
 .boardItem:hover {
   cursor: pointer;
   background-color: var(--sidebar-board-item-hover);
@@ -117,6 +123,10 @@
   padding-right: 14px;
 }
 
+.boardItemActive p {
+  color: var(--sidebar-text-color-main);
+}
+
 .boardName {
   display: flex;
   align-items: center;
@@ -128,7 +138,7 @@
 .boardName > p {
   width: 100%;
   overflow: hidden;
-  color: var(--primary-text-color);
+  // color: var(--primary-text-color);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.28px;
@@ -154,16 +164,19 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sidebar-text-color-main);
   border: none;
   background-color: transparent;
-  color: var(--primary-text-color);
 }
 
 .helpText {
   margin-top: 14px;
   margin-bottom: 18px;
-  color: var(--primary-text-color);
-  font-size: 12px;
+  color: var(--sidebar-text-color-main);
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.33;
   letter-spacing: -0.24px;
 }
@@ -177,11 +190,13 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--sidebar-text-color-main);
   border: none;
   background-color: transparent;
-  color: var(--primary-text-color);
 }
 
-.icons{
-  stroke: #FFF;
+.icons {
+  stroke: #fff;
 }
