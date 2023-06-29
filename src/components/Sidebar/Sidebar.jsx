@@ -107,6 +107,8 @@ export const Sidebar = () => {
           {boards?.map(el => {
             const currentClass =
               el._id === activeItemId ? st.boardItemActive : st.boardItem;
+            const iconName = theme !== 'light' ? el.icon : `${el.icon}-white`;
+            console.log(iconName);
             return (
               <li
                 key={el._id}
@@ -115,10 +117,10 @@ export const Sidebar = () => {
               >
                 <div className={st.boardName}>
                   <Icon
-                    name={el.icon}
+                    name={iconName}
                     width={18}
                     height={18}
-                    className={st.boardIcon}
+                    className={st.boardNameIcon}
                   />
                   <p>{el.title}</p>
                 </div>
@@ -155,7 +157,7 @@ export const Sidebar = () => {
         <div className={st.container}>
           <div className={st.helpWrapper}>
             <img src={cactus} alt="cactus" className={st.helpCactus} />
-            <p className={st.helpText}>
+            <p className={clsx(st.helpText, theme === 'violet' && st.violet)}>
               If you need help with <br />
               <span> TaskPro</span>, check out our support resources or reach
               out to our customer support team.
@@ -175,7 +177,12 @@ export const Sidebar = () => {
       <section className={st.sectionLogOut}>
         <div className={st.container}>
           <button className={st.btnLogout} onClick={handleLogout}>
-            <Icon name={'icon-iconlogout'} width={32} height={32} />
+            <Icon
+              name={'icon-iconlogout'}
+              width={32}
+              height={32}
+              secondaryClassName={clsx(theme === 'violet' && st.violet)}
+            />
             Log out
           </button>
         </div>

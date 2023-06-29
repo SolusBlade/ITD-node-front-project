@@ -3,7 +3,13 @@ import { Formik, Form, Field } from 'formik';
 import Box from '@mui/joy/Box';
 import Radio from '@mui/joy/Radio';
 import RadioGroup from '@mui/joy/RadioGroup';
+import {
+  selectCurrentBoard,
+  selectCurrentBoardId,
+} from 'redux/board/boardSelectors';
+
 import defaultBg from '../../../static/images/bgIcons/defaultBg.png';
+import defaultBgWhite from '../../../static/images/bgIcons/defaultBgWhite.png';
 import flowers from '../../../static/images/bgIcons/flowers.png';
 import leaves from '../../../static/images/bgIcons/leaves.png';
 import mountainsAndBalloon from '../../../static/images/bgIcons/mountainsAndBalloon.png';
@@ -23,10 +29,6 @@ import BgIcon from '../NewBoardAndEditBoard/BgIcon';
 import PrioritySelector from '../AddAndEditCard/PrioritySelector/PrioritySelector';
 import s from '../NewBoardAndEditBoard/NewBoard.module.scss';
 import { useSelector } from 'react-redux';
-import {
-  selectCurrentBoard,
-  selectCurrentBoardId,
-} from 'redux/board/boardSelectors';
 
 // import { selectUserTheme } from 'redux/auth/authSelectors';
 import { useDispatch } from 'react-redux';
@@ -112,7 +114,12 @@ const FilterForm = () => {
                     name="background"
                     label={
                       {
-                        defaultBg: <BgIcon name={defaultBg} alt={defaultBg} />,
+                        defaultBg:
+                          theme === 'dark' ? (
+                            <BgIcon name={defaultBg} alt={defaultBg} />
+                          ) : (
+                            <BgIcon name={defaultBgWhite} alt="icon" />
+                          ),
                         flowers: <BgIcon name={flowers} alt={flowers} />,
                         leaves: <BgIcon name={leaves} alt={leaves} />,
                         mountainsAndBalloon: (

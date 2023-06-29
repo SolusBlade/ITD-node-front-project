@@ -12,6 +12,7 @@ import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import BgIcon from './BgIcon';
 import { updateBoardById } from 'redux/board/boardOperations';
 import { selectCurrentBoardId } from 'redux/board/boardSelectors';
+import { selectUserTheme } from 'redux/auth/authSelectors';
 import s from './NewBoard.module.scss';
 
 import defaultBg from '../../../static/images/bgIcons/defaultBg.png';
@@ -30,7 +31,7 @@ import starsAndShine from '../../../static/images/bgIcons/starsAndShine.png';
 import trailerInTheCanyon from '../../../static/images/bgIcons/trailerInTheCanyon.png';
 import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
-import { selectUserTheme } from 'redux/auth/authSelectors';
+import defaultBgWhite from '../../../static/images/bgIcons/defaultBgWhite.png';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -113,7 +114,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                     {
                       colors: (
                         <Icon
-                          name="colors"
+                          name={theme === 'dark' ? 'colors' : 'colors-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -124,7 +125,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       hexagon: (
                         <Icon
-                          name="hexagon"
+                          name={theme === 'dark' ? 'hexagon' : 'hexagon-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -135,7 +136,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       project: (
                         <Icon
-                          name="project"
+                          name={theme === 'dark' ? 'project' : 'project-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -146,7 +147,9 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       container: (
                         <Icon
-                          name="container"
+                          name={
+                            theme === 'dark' ? 'container' : 'container-white'
+                          }
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -157,7 +160,9 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       lightnight: (
                         <Icon
-                          name="lightnight"
+                          name={
+                            theme === 'dark' ? 'lightnight' : 'lightnight-white'
+                          }
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -168,7 +173,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       loading: (
                         <Icon
-                          name="loading"
+                          name={theme === 'dark' ? 'loading' : 'loading-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -179,7 +184,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       puzzle: (
                         <Icon
-                          name="puzzle"
+                          name={theme === 'dark' ? 'puzzle' : 'puzzle-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -190,7 +195,7 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                       ),
                       star: (
                         <Icon
-                          name="star"
+                          name={theme === 'dark' ? 'star' : 'star-white'}
                           width={18}
                           height={18}
                           secondaryClassName={clsx(
@@ -280,7 +285,12 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                   name="background"
                   label={
                     {
-                      defaultBg: <BgIcon name={defaultBg} alt={defaultBg} />,
+                      defaultBg:
+                        theme === 'dark' ? (
+                          <BgIcon name={defaultBg} alt={defaultBg} />
+                        ) : (
+                          <BgIcon name={defaultBgWhite} alt="icon" />
+                        ),
                       flowers: <BgIcon name={flowers} alt={flowers} />,
                       leaves: <BgIcon name={leaves} alt={leaves} />,
                       mountainsAndBalloon: (
