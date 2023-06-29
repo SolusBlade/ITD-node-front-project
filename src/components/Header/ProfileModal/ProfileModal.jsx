@@ -113,9 +113,9 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
         <Form>
           <InputField name="name" placeholder="Enter name" />
           <InputField name="email" placeholder="Enter email" value="hello" />
-          <div  className={css.passLabel}>
+          <label htmlFor="updatePassInput" className={css.passLabel}>
             <Field 
-                // id='updatePassInput'
+                id='updatePassInput'
                 name="password" 
                 placeholder="Enter password" 
                 type={showPass} 
@@ -136,8 +136,7 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
                     <use href={sprite + "#icon-eye"}></use>
                 </svg>
             )}
-
-          </div>
+          </label>
           <button className={css.button} type="submit">
             Send
           </button>
