@@ -7,7 +7,7 @@ const ButtonModalWithIcon = ({ text }) => {
       <div className={s.iconContainer}>
         <Icon name="icon-btn-plus" width={14} height={14} className="svg" />
       </div>
-      <p className={s.buttonText}>{text}</p>
+      <p>{text}</p>
     </button>
   );
 };

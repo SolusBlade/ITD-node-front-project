@@ -1,17 +1,18 @@
 import Icon from 'components/Icon/Icon';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import s from './MainDashboard.module.scss';
 import BoardColumn from '../BoardColumn/BoardColumn';
 import AddColumn from 'components/Forms/AddAndEditColumn/AddColumn';
-// import { useDispatch } from "react-redux";
-// import { createNewBoard, createNewColumn, deleteBoardById, deleteColumnById, getAllBoards, updateBoardById, updateColumnById } from "redux/board/boardOperations";
 import Modal from 'components/Modal/Modal';
-// import { createNewTask, deleteTaskById, getAllTasks, updateTaskById } from 'redux/board/boardOperations';
+import { useScrollBar } from 'hooks/useScrollBar';
+import { useSelector } from 'react-redux';
+import { selectCurrentBoardColumns } from 'redux/board/boardSelectors';
+
 
 const MainDashboard = () => {
   const [showModal, setShowModal] = useState(false);
-  // eslint-disable-next-line
-  const [showBoardColumn, setShowBoardColumn] = useState(true);
+  const columnWrapper = useRef(null);
+  const columns = useSelector(selectCurrentBoardColumns)
 
   const handleAddColumnClick = () => {
     setShowModal(true);
@@ -20,22 +21,25 @@ const MainDashboard = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  useScrollBar(columnWrapper, columns?.length >= 2)
 
   return (
     <>
-      <div className={s.mainDashboard}>
-        {showBoardColumn && <BoardColumn />}
-        <button className={s.btnAddColumn} onClick={handleAddColumnClick}>
-          <div className={s.btnAddColumnW}>
-            <Icon
-              name="icon-btn-plus"
-              width={14}
-              height={14}
-              secondaryClassName={s.iconPlus}
-            />
-          </div>
-          Add another column
-        </button>
+      <div ref={columnWrapper} className='columnScroll'>
+        <div className={s.mainDashboard}>
+          <BoardColumn />
+          <button className={s.btnAddColumn} onClick={handleAddColumnClick}>
+            <div className={s.btnAddColumnW}>
+              <Icon
+                name="icon-btn-plus"
+                width={14}
+                height={14}
+                secondaryClassName={s.iconPlus}
+              />
+            </div>
+            Add another column
+          </button>
+        </div>
       </div>
 
       {showModal && (
