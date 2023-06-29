@@ -111,7 +111,6 @@ export const Sidebar = () => {
             const currentClass =
               el._id === activeItemId ? st.boardItemActive : st.boardItem;
             const iconName = theme !== 'light' ? el.icon : `${el.icon}-white`;
-            console.log(iconName);
             return (
               <li
                 key={el._id}

@@ -10,8 +10,6 @@ import { selectTasks } from 'redux/board/boardSelectors';
 const BtnAddCard = ({ column }) => {
   const cards = useSelector(selectTasks)
   const [showModal, setShowModal] = useState(false);
-// eslint-disable-next-line
-  // const [showBoardColumn, setShowBoardColumn] = useState(true);
 
   const handleAddCardClick = () => {
     setShowModal(true);
@@ -20,7 +18,7 @@ const BtnAddCard = ({ column }) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  console.log(cards.filter(el => el.columnId === column._id).length);
+  
   return (
     <>
       <button className={s.btnAddCard} onClick={handleAddCardClick} style={

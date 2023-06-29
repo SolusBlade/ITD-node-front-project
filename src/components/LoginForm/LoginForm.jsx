@@ -7,6 +7,7 @@ import { loginUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
 import s from '../RegisterForm/Form.module.scss';
 import sprite from '../../assets/icons/icons.svg'
+import WelcomeConainer from 'components/WelcomeConainer/WelcomeConainer';
 // import s2 from '../../shared/components/InputField/InputField.module.scss'
 
 export const LoginForm = () => {
@@ -48,7 +49,8 @@ export const LoginForm = () => {
   // };
 
   return (
-    <div className={s.formwrapper}>
+    <WelcomeConainer>
+      <div className={s.formwrapper}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
@@ -94,5 +96,6 @@ export const LoginForm = () => {
         </Form>
       </Formik>
     </div>
+    </WelcomeConainer>
   );
 };

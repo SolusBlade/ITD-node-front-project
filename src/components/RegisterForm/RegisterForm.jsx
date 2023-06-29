@@ -10,6 +10,7 @@ import { memo } from 'react';
 import s from './Form.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
+import WelcomeConainer from 'components/WelcomeConainer/WelcomeConainer';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,8 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className={s.formwrapper}>
+    <WelcomeConainer>
+      <div className={s.formwrapper}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
@@ -127,5 +129,6 @@ export const RegisterForm = () => {
         </Form>
       </Formik>
     </div>
+    </WelcomeConainer>
   );
 };
