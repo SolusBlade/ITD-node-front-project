@@ -14,7 +14,7 @@
   margin-bottom: 24px;
   color: var(--primary-text-color);
   padding-left: 18px;
-  //   resize: none;
+  font-family: Poppins;
   @include font(400, 14px, 1.5);
   &:focus,
   &:hover {

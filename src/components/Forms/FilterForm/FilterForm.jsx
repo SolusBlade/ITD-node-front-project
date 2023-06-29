@@ -30,7 +30,7 @@ import {
 
 // import { selectUserTheme } from 'redux/auth/authSelectors';
 import { useDispatch } from 'react-redux';
-import { updateBoardById } from 'redux/board/boardOperations';
+import { changeFilter, updateBoardById } from 'redux/board/boardOperations';
 import { selectUserTheme } from 'redux/auth/authSelectors';
 const initialsValue = {
   priority: 'none',
@@ -200,7 +200,11 @@ const FilterForm = () => {
                   )}
                 </Field>
               </div>
-              <button className={s.showAll} type="button">
+              <button
+                onClick={() => dispatch(changeFilter(''))}
+                className={s.showAll}
+                type="button"
+              >
                 Show all
               </button>
             </div>
