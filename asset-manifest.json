@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.ce996b84.css",
-    "main.js": "/ITD-node-front-project/static/js/main.3091bb69.js",
-    "static/css/869.433e6576.chunk.css": "/ITD-node-front-project/static/css/869.433e6576.chunk.css",
-    "static/js/869.d257d8cf.chunk.js": "/ITD-node-front-project/static/js/869.d257d8cf.chunk.js",
+    "main.js": "/ITD-node-front-project/static/js/main.b427e707.js",
+    "static/css/869.e3835268.chunk.css": "/ITD-node-front-project/static/css/869.e3835268.chunk.css",
+    "static/js/869.17529a85.chunk.js": "/ITD-node-front-project/static/js/869.17529a85.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.031259485a07cb8462d9.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.3cdc5d7d57c001ef6787.jpg",
@@ -55,7 +55,7 @@
     "static/media/sky-mobile.jpg": "/ITD-node-front-project/static/media/sky-mobile.ae3a3f4784ce5dbb7f62.jpg",
     "static/media/themeimaige.png": "/ITD-node-front-project/static/media/themeimaige.9955dc96038af23566c3.png",
     "static/media/planets-mobile.jpg": "/ITD-node-front-project/static/media/planets-mobile.6cc1ac2d606b9ba04a29.jpg",
-    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.0e94984dd90df58b2abd60c5c34d1402.svg",
+    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.0677ccd0d77c9e50c65064ae13e2cb9e.svg",
     "static/media/sakura.png": "/ITD-node-front-project/static/media/sakura.2542bd11376f265fc6d3.png",
     "static/media/leaves.png": "/ITD-node-front-project/static/media/leaves.e2d63ddd4fa2ebc1cbdb.png",
     "static/media/flowers.png": "/ITD-node-front-project/static/media/flowers.1a30ba9d245d9b4bfd6d.png",
@@ -70,13 +70,13 @@
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
     "main.ce996b84.css.map": "/ITD-node-front-project/static/css/main.ce996b84.css.map",
-    "main.3091bb69.js.map": "/ITD-node-front-project/static/js/main.3091bb69.js.map",
-    "869.433e6576.chunk.css.map": "/ITD-node-front-project/static/css/869.433e6576.chunk.css.map",
-    "869.d257d8cf.chunk.js.map": "/ITD-node-front-project/static/js/869.d257d8cf.chunk.js.map",
+    "main.b427e707.js.map": "/ITD-node-front-project/static/js/main.b427e707.js.map",
+    "869.e3835268.chunk.css.map": "/ITD-node-front-project/static/css/869.e3835268.chunk.css.map",
+    "869.17529a85.chunk.js.map": "/ITD-node-front-project/static/js/869.17529a85.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ce996b84.css",
-    "static/js/main.3091bb69.js"
+    "static/js/main.b427e707.js"
   ]
 }
