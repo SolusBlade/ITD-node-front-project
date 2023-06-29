@@ -44,5 +44,16 @@
   width: 100%;
   height: 49px;
   border-radius: 8px;
-  background-color: #bedbb0;
+  font-family: "Poppins";
+  @include font(500, 14px, 1);
+  border: none;
+  background-color: var(--btn-bg);
+  &:hover,
+  &:focus{
+    opacity: 0.9;
+    background-color: var(--btn-hover-main);
+  }
+  &:active{
+    background-color: var(--btn-active-main);
+  }
 }
