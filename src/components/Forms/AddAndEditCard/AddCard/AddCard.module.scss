@@ -53,3 +53,17 @@
 .secClassName {
   margin-bottom: 14px;
 }
+
+
+.priorityValue {
+  display: flex;
+  align-items: center;
+}
+
+.priorityName {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--secondary-text-color);
+}
