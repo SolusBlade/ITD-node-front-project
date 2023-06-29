@@ -149,6 +149,11 @@
     height: 49px;
     padding-left: 18px;
 
+    font-size: 14px;
+    font-family: Poppins;
+    line-height: normal;
+    letter-spacing: -0.28px;
+
     opacity: 0.4;
     color: var(--primary-text-color);
     background-color: var(--select-list-bg);
@@ -218,9 +223,16 @@
   flex-shrink: 0;
   background-color: var(--btn-bg);
 
+  font-size: 14px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+
   border-radius: 8px;
   border: none;
-
+  color: var(--btn-modal-bg);
   &:hover {
     // opacity: 0.7;
     background-color: var(--btn-hover-main);
