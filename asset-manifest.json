@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.51e454d6.css",
-    "main.js": "/ITD-node-front-project/static/js/main.54dcc24a.js",
-    "static/css/869.b5147562.chunk.css": "/ITD-node-front-project/static/css/869.b5147562.chunk.css",
-    "static/js/869.0cbeb306.chunk.js": "/ITD-node-front-project/static/js/869.0cbeb306.chunk.js",
+    "main.js": "/ITD-node-front-project/static/js/main.adfb2bb0.js",
+    "static/css/869.f0a1e7d9.chunk.css": "/ITD-node-front-project/static/css/869.f0a1e7d9.chunk.css",
+    "static/js/869.2e24ff34.chunk.js": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
@@ -66,13 +66,13 @@
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
     "main.51e454d6.css.map": "/ITD-node-front-project/static/css/main.51e454d6.css.map",
-    "main.54dcc24a.js.map": "/ITD-node-front-project/static/js/main.54dcc24a.js.map",
-    "869.b5147562.chunk.css.map": "/ITD-node-front-project/static/css/869.b5147562.chunk.css.map",
-    "869.0cbeb306.chunk.js.map": "/ITD-node-front-project/static/js/869.0cbeb306.chunk.js.map",
+    "main.adfb2bb0.js.map": "/ITD-node-front-project/static/js/main.adfb2bb0.js.map",
+    "869.f0a1e7d9.chunk.css.map": "/ITD-node-front-project/static/css/869.f0a1e7d9.chunk.css.map",
+    "869.2e24ff34.chunk.js.map": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.51e454d6.css",
-    "static/js/main.54dcc24a.js"
+    "static/js/main.adfb2bb0.js"
   ]
 }
