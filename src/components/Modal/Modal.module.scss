@@ -50,8 +50,8 @@ $transition: 300ms linear;
 }
 .close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 14px;
+  right: 14px;
   fill: var(--primary-text-color);
   background-color: var(--modal-background);
   padding: 0;
@@ -101,4 +101,11 @@ $transition: 300ms linear;
 }
 .titleFilter {
   margin-bottom: 14px;
+}
+
+.buttonText {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
 }

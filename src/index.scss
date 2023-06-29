@@ -1,9 +1,11 @@
 @import-normalize;
+@import 'overlayscrollbars/overlayscrollbars.css';
 
 @import './assets/fonts/poppinsFontStyle.css';
 @import './sass/utils/base';
 @import './sass/utils/mixin';
 @import './sass/utils/variables';
+@import './sass/utils/scrollConfig';
 
 * {
   box-sizing: border-box;
@@ -20,3 +22,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
+
+

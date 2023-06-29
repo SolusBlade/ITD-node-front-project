@@ -9,54 +9,70 @@ import { useState } from 'react';
 import EditColumn from 'components/Forms/AddAndEditColumn/EditColumn';
 import Modal from 'components/Modal/Modal';
 import { trimTitleString } from 'services/trimStr';
-
-
+import ButtonDelete from 'components/Modal/ButtonDelete';
 const BoardColumn = () => {
   const columns = useSelector(selectCurrentBoardColumns);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [editColumnModal, setEditColumnModal] = useState(null);
+  const [deleteModal, setDeleteModal] = useState(false);
 
+  const handleDeleteModal = () => setDeleteModal(!deleteModal);
   const handleCloseEditColumnModal = () => setEditColumnModal(null);
-  const handleOpenEditColumnModal = (column) => setEditColumnModal(column);
+  const handleOpenEditColumnModal = column => setEditColumnModal(column);
 
   const hendleDeleteClick = ({ _id: idColumn, boardId: idBoard }, e) => {
-    dispatch(deleteColumnById({idColumn, idBoard}))
-  }
+    dispatch(deleteColumnById({ idColumn, idBoard }));
+  };
 
   return (
     <>
-       <ul className={s.columnList}>
-      {columns?.map(column => (
-        <li key={column._id} className={s.columnItem}>
-          <div className={s.titleToDo}>
-            <h2 className={s.titleCard}>{trimTitleString(column.title, 20)}</h2>
-            <div className={s.iconToDo} >
-              <IconBtn
-                name="icon-pencil"
-                width={16}
-                height={16}
-                secondaryClassName={s.iconPencil}
-                onClick={() => handleOpenEditColumnModal(column)}
-              />
-              <IconBtn
-                name="icon-trash"
-                width={16}
-                height={16}
-                secondaryClassName={s.iconTrash}
-                onClick={() => hendleDeleteClick(column)}
-              />
-            </div>
+      <div className={s.columnList}>
+        {columns?.map(column => (
+          <div key={column._id} className={s.columnItem}>
+            <div className={s.titleToDo}>
+              <h2 className={s.titleCard}>
+                {trimTitleString(column.title, 20)}
+              </h2>
+              <div className={s.iconToDo}>
+                <IconBtn
+                  name="icon-pencil"
+                  width={16}
+                  height={16}
+                  secondaryClassName={s.iconPencil}
+                  onClick={() => handleOpenEditColumnModal(column)}
+                />
+                <IconBtn
+                  name="icon-trash"
+                  width={16}
+                  height={16}
+                  secondaryClassName={s.iconTrash}
+                  onClick={handleDeleteModal}
+                />
+              </div>
             </div>
             <div>
-              <BoardCard column={column}/>
-              <BtnAddCard column={column}/>
+              <BoardCard column={column} />
+              <BtnAddCard column={column} />
             </div>
-          </li>
+            {deleteModal && (
+              <Modal title="Are you sure ?" closeModal={handleDeleteModal}>
+                <ButtonDelete
+                  onClick={() => {
+                    hendleDeleteClick(column);
+                    handleDeleteModal();
+                  }}
+                />
+              </Modal>
+            )}
+          </div>
         ))}
-      </ul>
+      </div>
       {editColumnModal && (
         <Modal title="Edit column" closeModal={handleCloseEditColumnModal}>
-          <EditColumn closeModal={handleCloseEditColumnModal} column={editColumnModal} />
+          <EditColumn
+            closeModal={handleCloseEditColumnModal}
+            column={editColumnModal}
+          />
         </Modal>
       )}
     </>

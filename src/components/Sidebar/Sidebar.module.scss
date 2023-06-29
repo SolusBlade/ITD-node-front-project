@@ -105,19 +105,21 @@
   align-items: center;
   justify-content: space-between;
 
+  &:hover {
+    cursor: pointer;
+    background-color: var(--sidebar-board-item-hover);
+  }
+
   @media screen and (min-width: 768px) {
     padding-left: 24px;
     padding-right: 24px;
   }
 }
 
-.boardItem p {
+.boardItem p,
+.boardItem svg {
   color: var(--sidebar-text-color-secondary);
-}
-
-.boardItem:hover {
-  cursor: pointer;
-  background-color: var(--sidebar-board-item-hover);
+  stroke-opacity: 0.5;
 }
 
 .boardItemActive {
@@ -128,8 +130,11 @@
   padding-right: 14px;
 }
 
-.boardItemActive p {
+.boardItemActive p,
+.boardItemActive svg {
   color: var(--sidebar-text-color-main);
+  // stroke: var(--sidebar-text-color-main);
+  stroke-opacity: 1;
 }
 
 .boardName {
@@ -176,8 +181,10 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--sidebar-text-color-main);
+  stroke: var(--sidebar-text-color-main);
   border: none;
   background-color: transparent;
+  font-family: "Poppins";
 }
 
 .helpText {
@@ -188,10 +195,14 @@
   font-weight: 400;
   line-height: 1.33;
   letter-spacing: -0.24px;
-}
 
-.helpText > span {
-  color: rgba(190, 219, 176, 1);
+  & > span {
+    color: var(--select-list-border);
+  }
+
+  &.violet > span {
+    color: var(--primary-background);
+  }
 }
 
 .btnLogout {
@@ -202,11 +213,15 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--sidebar-text-color-main);
+  stroke: var(--select-list-border);
   border: none;
   background-color: transparent;
+  &.violet {
+    stroke: var(--btn-text-color);
+  }
 }
 
-.icons{
-  stroke: #FFF;
+.icons {
+  stroke: #fff;
   display: flex;
 }

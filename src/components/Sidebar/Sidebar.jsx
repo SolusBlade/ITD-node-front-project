@@ -20,6 +20,7 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
+import ButtonDelete from 'components/Modal/ButtonDelete';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
@@ -31,9 +32,9 @@ export const Sidebar = () => {
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
-  // console.log(isLoggedIn);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -59,6 +60,8 @@ export const Sidebar = () => {
   const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
   const handleEditBoardModal = () => setEditBoardModal(!editBoardModal);
+
+  const handleDeleteModal = () => setDeleteModal(!deleteModal);
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
@@ -107,6 +110,8 @@ export const Sidebar = () => {
           {boards?.map(el => {
             const currentClass =
               el._id === activeItemId ? st.boardItemActive : st.boardItem;
+            const iconName = theme !== 'light' ? el.icon : `${el.icon}-white`;
+            console.log(iconName);
             return (
               <li
                 key={el._id}
@@ -115,10 +120,10 @@ export const Sidebar = () => {
               >
                 <div className={st.boardName}>
                   <Icon
-                    name={el.icon}
+                    name={iconName}
                     width={18}
                     height={18}
-                    className={st.boardIcon}
+                    className={st.boardNameIcon}
                   />
                   <p>{el.title}</p>
                 </div>
@@ -141,9 +146,22 @@ export const Sidebar = () => {
                         secondaryClassName={clsx(
                           theme === 'violet' && st.icons
                         )}
-                        onClick={() => handleDeleteBoard(el._id)}
+                        onClick={handleDeleteModal}
                       />
                     </div>
+                    {deleteModal && (
+                      <Modal
+                        title="Are you sure ?"
+                        closeModal={handleDeleteModal}
+                      >
+                        <ButtonDelete
+                          onClick={() => {
+                            handleDeleteBoard(el._id);
+                            handleDeleteModal();
+                          }}
+                        />
+                      </Modal>
+                    )}
                   </>
                 )}
               </li>
@@ -155,7 +173,7 @@ export const Sidebar = () => {
         <div className={st.container}>
           <div className={st.helpWrapper}>
             <img src={cactus} alt="cactus" className={st.helpCactus} />
-            <p className={st.helpText}>
+            <p className={clsx(st.helpText, theme === 'violet' && st.violet)}>
               If you need help with <br />
               <span> TaskPro</span>, check out our support resources or reach
               out to our customer support team.
@@ -175,7 +193,12 @@ export const Sidebar = () => {
       <section className={st.sectionLogOut}>
         <div className={st.container}>
           <button className={st.btnLogout} onClick={handleLogout}>
-            <Icon name={'icon-iconlogout'} width={32} height={32} />
+            <Icon
+              name={'icon-iconlogout'}
+              width={32}
+              height={32}
+              secondaryClassName={clsx(theme === 'violet' && st.violet)}
+            />
             Log out
           </button>
         </div>
