@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.51e454d6.css",
-    "main.js": "/ITD-node-front-project/static/js/main.0affca0d.js",
+    "main.js": "/ITD-node-front-project/static/js/main.54dcc24a.js",
     "static/css/869.b5147562.chunk.css": "/ITD-node-front-project/static/css/869.b5147562.chunk.css",
-    "static/js/869.90f450b8.chunk.js": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js",
+    "static/js/869.0cbeb306.chunk.js": "/ITD-node-front-project/static/js/869.0cbeb306.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
@@ -44,23 +44,35 @@
     "static/media/sky-desktop.jpg": "/ITD-node-front-project/static/media/sky-desktop.13f8101a0dfb39843bdf.jpg",
     "static/media/mountainsAndBalloon-mobile.jpg": "/ITD-node-front-project/static/media/mountainsAndBalloon-mobile.a10cc09e3bd3e5ac3072.jpg",
     "static/media/yacht-desktop.jpg": "/ITD-node-front-project/static/media/yacht-desktop.ea06d7a1d2777dabc61b.jpg",
+    "static/media/sakura.png": "/ITD-node-front-project/static/media/sakura.2542bd11376f265fc6d3.png",
+    "static/media/leaves.png": "/ITD-node-front-project/static/media/leaves.e2d63ddd4fa2ebc1cbdb.png",
+    "static/media/flowers.png": "/ITD-node-front-project/static/media/flowers.1a30ba9d245d9b4bfd6d.png",
     "static/media/nature-mobile.jpg": "/ITD-node-front-project/static/media/nature-mobile.79f4bf061f79a33b467f.jpg",
     "static/media/planets-desktop.jpg": "/ITD-node-front-project/static/media/planets-desktop.43f2bf6240dfca15e5e7.jpg",
     "static/media/orangePlanet-tablet.jpg": "/ITD-node-front-project/static/media/orangePlanet-tablet.c5523432c7bcf2e8d615.jpg",
+    "static/media/oceanAndYacht.png": "/ITD-node-front-project/static/media/oceanAndYacht.950c81c5a19d52d9f140.png",
+    "static/media/rocksAndOcean.png": "/ITD-node-front-project/static/media/rocksAndOcean.2aa7352b61c96b15ca54.png",
     "static/media/orangePlanet-desktop.jpg": "/ITD-node-front-project/static/media/orangePlanet-desktop.de238a71fb0a94899abd.jpg",
+    "static/media/trailerInTheCanyon.png": "/ITD-node-front-project/static/media/trailerInTheCanyon.e3f40702b42450da3e1e.png",
+    "static/media/skyBalloons.png": "/ITD-node-front-project/static/media/skyBalloons.dd5d965fb1e97c3936b3.png",
+    "static/media/mountainsAndBalloon.png": "/ITD-node-front-project/static/media/mountainsAndBalloon.6c65b4fa51a7d14fff3b.png",
+    "static/media/nature.png": "/ITD-node-front-project/static/media/nature.5234e3833a677dc43908.png",
     "static/media/youngMonth-desktop.jpg": "/ITD-node-front-project/static/media/youngMonth-desktop.961fdef676d2e5837703.jpg",
     "static/media/planets-tablet.jpg": "/ITD-node-front-project/static/media/planets-tablet.481984e37bc152bdf430.jpg",
+    "static/media/starsAndShine.png": "/ITD-node-front-project/static/media/starsAndShine.469862c36a79e3322c6a.png",
     "static/media/yacht-mobile.jpg": "/ITD-node-front-project/static/media/yacht-mobile.e429925c6ae897202dd0.jpg",
     "static/media/orangePlanet-mobile.jpg": "/ITD-node-front-project/static/media/orangePlanet-mobile.1827e52d33460919e068.jpg",
+    "static/media/sky.png": "/ITD-node-front-project/static/media/sky.f43ec3d1551635112d93.png",
+    "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
     "main.51e454d6.css.map": "/ITD-node-front-project/static/css/main.51e454d6.css.map",
-    "main.0affca0d.js.map": "/ITD-node-front-project/static/js/main.0affca0d.js.map",
+    "main.54dcc24a.js.map": "/ITD-node-front-project/static/js/main.54dcc24a.js.map",
     "869.b5147562.chunk.css.map": "/ITD-node-front-project/static/css/869.b5147562.chunk.css.map",
-    "869.90f450b8.chunk.js.map": "/ITD-node-front-project/static/js/869.90f450b8.chunk.js.map",
+    "869.0cbeb306.chunk.js.map": "/ITD-node-front-project/static/js/869.0cbeb306.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.51e454d6.css",
-    "static/js/main.0affca0d.js"
+    "static/js/main.54dcc24a.js"
   ]
 }
