@@ -2,6 +2,7 @@ import css from './Header.module.scss';
 import { SelectTheme } from './SelectTheme/SelectTheme';
 import { Profile } from './Profile/Profile';
 import { ProfileModal } from './ProfileModal/ProfileModal';
+import Container from 'components/Container/Container';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';

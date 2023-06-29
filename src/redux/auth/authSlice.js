@@ -68,7 +68,7 @@ const authSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         fulfilledOperation(state);
-          state.user = {...action.payload};
+          state.user = { ...state.user, ...action.payload };
       })
       .addCase(toggleSidebar.fulfilled, (state, action) => {
         fulfilledOperation(state);
