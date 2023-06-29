@@ -20,6 +20,7 @@ import EditCard from 'components/Forms/AddAndEditCard/EditCard/EditCard';
 import Icon from 'components/Icon/Icon';
 import { trimTitleString } from 'services/trimStr';
 import clsx from 'clsx';
+import ButtonDelete from 'components/Modal/ButtonDelete';
 
 const BoardCard = ({ column }) => {
   const [redirectData, setRedirectData] = useState(null);
@@ -29,21 +30,26 @@ const BoardCard = ({ column }) => {
   const allCards = useSelector(selectTasks);
   const allBoards = useSelector(selectBoards);
   const filter = useSelector(selectFilter);
+  const [deleteModal, setDeleteModal] = useState(false);
 
-  const checkDate = (date) => {
+  const handleDeleteModal = () => setDeleteModal(!deleteModal);
+
+  const checkDate = date => {
     const currentDateTime = new Date();
     const deadlineDateTime = new Date(date);
     deadlineDateTime.setHours(0, 0, 0, 0);
-    const currentDate = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate());
+    const currentDate = new Date(
+      currentDateTime.getFullYear(),
+      currentDateTime.getMonth(),
+      currentDateTime.getDate()
+    );
 
     return {
       isToday: currentDate.getTime() === deadlineDateTime.getTime(),
-      isPast: currentDate > deadlineDateTime
+      isPast: currentDate > deadlineDateTime,
     };
   };
 
-
-  
   const filteredCards = filter => {
     const result = allCards
       .filter(el => el.columnId === column._id)
@@ -141,16 +147,18 @@ const BoardCard = ({ column }) => {
               </div>
 
               <div className={s.iconToDo}>
-                {
-                  (checkDate(card.deadline).isToday || checkDate(card.deadline).isPast) && (
-                    <Icon
+                {(checkDate(card.deadline).isToday ||
+                  checkDate(card.deadline).isPast) && (
+                  <Icon
                     name="icon-alarm"
                     width={16}
                     height={16}
-                    secondaryClassName={clsx(s.alarm, checkDate(card.deadline).isPast && s.deadLineFailed)}
+                    secondaryClassName={clsx(
+                      s.alarm,
+                      checkDate(card.deadline).isPast && s.deadLineFailed
+                    )}
                   />
-                    )
-                }
+                )}
                 <IconBtn
                   name="icon-arrow"
                   width={16}
@@ -175,8 +183,18 @@ const BoardCard = ({ column }) => {
                   width={16}
                   height={16}
                   secondaryClassName={s.iconTrash}
-                  onClick={() => hendleDeleteClick(card._id)}
+                  onClick={handleDeleteModal}
                 />
+                {deleteModal && (
+                  <Modal title="Are you sure ?" closeModal={handleDeleteModal}>
+                    <ButtonDelete
+                      onClick={() => {
+                        hendleDeleteClick(card._id);
+                        handleDeleteModal();
+                      }}
+                    />
+                  </Modal>
+                )}
                 {redirectData && currentCard === card._id && (
                   <ul className={s.redirectList} ref={wrapperRef}>
                     {redirectData.map(column => (
