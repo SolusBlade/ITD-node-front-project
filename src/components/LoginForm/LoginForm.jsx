@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { loginUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
 import s from '../RegisterForm/Form.module.scss';
+import sprite from '../../assets/icons/icons.svg'
+// import s2 from '../../shared/components/InputField/InputField.module.scss'
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -31,12 +33,13 @@ export const LoginForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(loginUser(values));
+    console.log(Form);
     resetForm();
   };
 
-  // const onClickHandler = () => {
-  //   setPasswordShown(state => !state);
-  // };
+  const hidePassword = () => {
+    setPasswordShown(state => !state);
+  };
 
   // const navigate = useNavigate();
   // const redirection = () => {
@@ -60,25 +63,30 @@ export const LoginForm = () => {
             </NavLink>
           </div>
           <div className={s.fieldswrapper}>
-            <label htmlFor="email">
+            <label htmlFor="email" className={s.loginfield}>
               <Field
                 className={s.inputfield}
                 id="email"
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Enter your email"
                 autoComplete="off"
               />
+              <ErrorMessage className={s.errorMessage} component="span" name="email" />
             </label>
-            <label htmlFor="password">
+            <label htmlFor="password" className={s.passwordfield}>
               <Field
-                id="password"
                 className={s.inputfield}
-                type="password"
+                id="password"
+                type={passwordShown ? "text" : "password"}
                 name="password"
                 placeholder="Confirm a password"
                 autoComplete="off"
               />
+              <svg onClick={()=>hidePassword()} className={s.eye}>
+                  <use href={sprite + '#icon-eye'}></use>
+                </svg>
+              <ErrorMessage className={s.errorMessage} component="span" name="password" />
             </label>
             <button type="submit" className={s.submitbutton}>
               Log In Now

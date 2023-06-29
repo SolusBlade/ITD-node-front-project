@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 // eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
 // eslint-disable-next-line
@@ -8,25 +8,19 @@ import * as yup from 'yup';
 // eslint-disable-next-line
 import { memo } from 'react';
 import s from './Form.module.scss';
-// eslint-disable-next-line
-import YupPassword from 'yup-password';
-// eslint-disable-next-line
-import icon from '../../assets/icons/icons.svg';
+import sprite from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
-import Icon from 'components/Icon/Icon';
-
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  // eslint-disable-next-line
   const [passwordShown, setPasswordShown] = useState(false);
   const initialValues = { name: '', email: '', password: '' };
 
- 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(registerUser(values));
+    dispatch(registerUser(values));       
     resetForm();
   };
+ 
 
   const schema = yup.object().shape({
     name: yup
@@ -55,59 +49,83 @@ export const RegisterForm = () => {
   //   navigate(path);
   // };
 
-  // const onClickHandler = () => {
-  //   setPasswordShown(state => !state);
-  // };
+  const hidePassword = () => {
+    setPasswordShown(state => !state);
+  };
 
-  return (   
+  return (
     <div className={s.formwrapper}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        
-          
         <Form>
           <div className={s.registerloginwrapper}>
-            <NavLink to="/register" className={`${s.commoncaption} ${s.accent}`}>Registration</NavLink>
-            <NavLink to="/login" className={s.commoncaption}>Log In</NavLink>
+            <NavLink
+              to="/register"
+              className={`${s.commoncaption} ${s.accent}`}
+            >
+              Registration
+            </NavLink>
+            <NavLink to="/login" className={s.commoncaption}>
+              Log In
+            </NavLink>
           </div>
-          
+
           <div className={s.fieldswrapper}>
-          <label htmlFor="name">
-            <Field className={s.inputfield}
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              autoComplete="off"
-            />
-          </label>
-          <label htmlFor="email">
-            <Field className={s.inputfield}
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-              autoComplete="off"              
-            />
-
-          </label>
-          <label htmlFor="password">
-            <Field className={`${s.inputfield} ${s.passwordfield}`}
-              type="password"
-              name="password"
-              placeholder="Create a password"
-              autoComplete="off"
-            />
-            <Icon name={'icon-eye'} width={18} height={18} className={s.eye}></Icon>
-          </label>
-          <button type="submit" className={s.submitbutton}>  Register Now</button>
+            <label htmlFor="name" className={s.namefield}>
+              <Field
+                className={s.inputfield}
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                autoComplete="off"
+              />
+              <ErrorMessage
+                className={s.errorMessage}
+                component="span"
+                name="name"
+              />
+            </label>
+            <label htmlFor="email" className={s.loginfield}>
+              <Field
+                className={s.inputfield}
+                type="text"
+                name="email"
+                placeholder="Enter your email"
+                autoComplete="off"
+              />
+              <ErrorMessage
+                className={s.errorMessage}
+                component="span"
+                name="email"
+              />
+            </label>
+            <label htmlFor="password" className={s.passwordfield}>
+              <Field
+                className={s.inputfield}
+                type={passwordShown ? "text" : "password"}
+                name="password"
+                placeholder="Create a password"
+                autoComplete="off"
+              />              
+                <svg onClick={()=>hidePassword()} className={s.eye}>
+                  <use href={sprite + '#icon-eye'}></use>
+                </svg>
+              <ErrorMessage
+                className={s.errorMessage}
+                component="span"
+                name="password"
+              />
+            </label>
+            <button type="submit" className={s.submitbutton}>
+              {' '}
+              Register Now
+            </button>
           </div>
-
         </Form>
       </Formik>
     </div>
   );
 };
-
-
