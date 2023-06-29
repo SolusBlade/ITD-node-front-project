@@ -17,7 +17,6 @@
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   color: var(--primary-text-color);
   background-color: var(--select-list-bg);
-  @include font(400, 14px, 1.5);
   &:focus,
   &:hover {
     opacity: 1;
