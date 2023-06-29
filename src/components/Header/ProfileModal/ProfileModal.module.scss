@@ -7,6 +7,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  font-family: Poppins;
 
   background-color: var(--select-list-bg);
   border-radius: 8px;
@@ -148,8 +150,16 @@
     width: 100%;
     height: 49px;
     padding-left: 18px;
-
     opacity: 0.4;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+// l   line-height: normal;
+    // letter-spacing: -0.28px;
+
     color: var(--primary-text-color);
     background-color: var(--select-list-bg);
 
@@ -224,11 +234,15 @@
   width: 100%;
   height: 49px;
   flex-shrink: 0;
+
+  color: var(--btn-modal-bg);
   background-color: var(--btn-bg);
 
   border-radius: 8px;
   border: none;
-
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
   &:hover {
     // opacity: 0.7;
     background-color: var(--btn-hover-main);
