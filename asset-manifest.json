@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.43496f13.css",
-    "main.js": "/ITD-node-front-project/static/js/main.590ed762.js",
-    "static/css/869.fdab78aa.chunk.css": "/ITD-node-front-project/static/css/869.fdab78aa.chunk.css",
-    "static/js/869.2e24ff34.chunk.js": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js",
+    "main.css": "/ITD-node-front-project/static/css/main.e75cb63a.css",
+    "main.js": "/ITD-node-front-project/static/js/main.449a7684.js",
+    "static/css/869.87a60c8b.chunk.css": "/ITD-node-front-project/static/css/869.87a60c8b.chunk.css",
+    "static/js/869.8a81419f.chunk.js": "/ITD-node-front-project/static/js/869.8a81419f.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.55fd7b3a2ed328d3cfa5.jpg",
@@ -38,7 +38,7 @@
     "static/media/trailerInTheCanyon-mobile.jpg": "/ITD-node-front-project/static/media/trailerInTheCanyon-mobile.39e38db633f91def2d6b.jpg",
     "static/media/rocksAndOcean-mobile.jpg": "/ITD-node-front-project/static/media/rocksAndOcean-mobile.593ae143929859e3b39a.jpg",
     "static/media/starsAndShine-mobile.jpg": "/ITD-node-front-project/static/media/starsAndShine-mobile.a63d193a773a460ddc43.jpg",
-    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.48c44c0665bf4a603b8f2345aa66250a.svg",
+    "static/media/icons.svg": "/ITD-node-front-project/static/media/icons.fb2655c0f02c30c5d531c243e5d843db.svg",
     "static/media/sky-tablet.jpg": "/ITD-node-front-project/static/media/sky-tablet.75536aab607e4e47a71d.jpg",
     "static/media/yacht-tablet.jpg": "/ITD-node-front-project/static/media/yacht-tablet.21ed1bb47af44b04cb97.jpg",
     "static/media/sky-desktop.jpg": "/ITD-node-front-project/static/media/sky-desktop.13f8101a0dfb39843bdf.jpg",
@@ -65,14 +65,14 @@
     "static/media/sky.png": "/ITD-node-front-project/static/media/sky.f43ec3d1551635112d93.png",
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.43496f13.css.map": "/ITD-node-front-project/static/css/main.43496f13.css.map",
-    "main.590ed762.js.map": "/ITD-node-front-project/static/js/main.590ed762.js.map",
-    "869.fdab78aa.chunk.css.map": "/ITD-node-front-project/static/css/869.fdab78aa.chunk.css.map",
-    "869.2e24ff34.chunk.js.map": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js.map",
+    "main.e75cb63a.css.map": "/ITD-node-front-project/static/css/main.e75cb63a.css.map",
+    "main.449a7684.js.map": "/ITD-node-front-project/static/js/main.449a7684.js.map",
+    "869.87a60c8b.chunk.css.map": "/ITD-node-front-project/static/css/869.87a60c8b.chunk.css.map",
+    "869.8a81419f.chunk.js.map": "/ITD-node-front-project/static/js/869.8a81419f.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.43496f13.css",
-    "static/js/main.590ed762.js"
+    "static/css/main.e75cb63a.css",
+    "static/js/main.449a7684.js"
   ]
 }
