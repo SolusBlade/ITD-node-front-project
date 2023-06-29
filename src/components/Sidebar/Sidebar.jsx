@@ -20,6 +20,7 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
+import ButtonDelete from 'components/Modal/ButtonDelete';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
@@ -31,9 +32,9 @@ export const Sidebar = () => {
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
-  // console.log(isLoggedIn);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -59,6 +60,8 @@ export const Sidebar = () => {
   const handleNeedHelp = () => setNeedHelpModalOpen(!needHelpModalOpen);
 
   const handleEditBoardModal = () => setEditBoardModal(!editBoardModal);
+
+  const handleDeleteModal = () => setDeleteModal(!deleteModal);
 
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
@@ -143,9 +146,22 @@ export const Sidebar = () => {
                         secondaryClassName={clsx(
                           theme === 'violet' && st.icons
                         )}
-                        onClick={() => handleDeleteBoard(el._id)}
+                        onClick={handleDeleteModal}
                       />
                     </div>
+                    {deleteModal && (
+                      <Modal
+                        title="Are you sure ?"
+                        closeModal={handleDeleteModal}
+                      >
+                        <ButtonDelete
+                          onClick={() => {
+                            handleDeleteBoard(el._id);
+                            handleDeleteModal();
+                          }}
+                        />
+                      </Modal>
+                    )}
                   </>
                 )}
               </li>
