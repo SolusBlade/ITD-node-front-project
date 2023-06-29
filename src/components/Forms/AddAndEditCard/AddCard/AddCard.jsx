@@ -7,6 +7,8 @@ import PrioritySelector from '../PrioritySelector/PrioritySelector';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import { useDispatch } from 'react-redux';
 import { createNewTask } from 'redux/board/boardOperations';
+import { getFormattedValue } from 'services/priorityChange';
+// import { getFormattedValue } from 'services/priorityChange';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -38,8 +40,8 @@ const AddCard = ({boardId, columnId, closeModal}) => {
       onSubmit={handleSubmit}
     >
       <Form autoComplete="off">
-        <InputField name="title" placeholder="Title"/>
-        <Field name="text">
+        <InputField name="title" placeholder="Title" secendaryClassName={s.secClassName}/>
+        <Field name="text" className={s.description}>
           {({ field }) => (
             <textarea
               {...field}
@@ -48,11 +50,20 @@ const AddCard = ({boardId, columnId, closeModal}) => {
             />
           )}
         </Field>
-        <p className={s.titleP}>Label color</p>
+        <p className={s.titleLabel}>Label color</p>
         <Field name="priority">
-          {({ field }) => <PrioritySelector field={field} /> }
+          {({ field }) => (
+            <div className={s.priorityValue}>
+              <PrioritySelector field={field} />
+              <p className={s.priorityName}>{getFormattedValue(field.value)}</p>
+            </div>
+          )}
         </Field>
-        <p className={s.titleP}>Deadline</p>
+        {/* <Field name="priority">
+          {({ field }) => <PrioritySelector field={field} /> }
+        </Field> */}
+        {/* <p>{getFormattedValue()}</p> */}
+        <p className={s.titleDeadline}>Deadline</p>
         <Field name="deadline">
           {({ field }) => (
             <div className={s.datePickerContainer}>
@@ -62,6 +73,7 @@ const AddCard = ({boardId, columnId, closeModal}) => {
             </div>
           )}
         </Field>
+        <ErrorMessage name="title" component="span" className={s.errorMessageTitle} />
         <ErrorMessage name="deadline" component="span" className={s.errorMessage} />
         <ButtonModalWithIcon text="Add" />
       </Form>

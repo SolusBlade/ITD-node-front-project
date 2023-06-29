@@ -8,6 +8,7 @@ import s from './Form.module.scss';
 import ss from '../CommonWelcomField/CommonWelcomeField.module.scss'
 import sprite from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
+import WelcomeConainer from 'components/WelcomeConainer/WelcomeConainer';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ export const RegisterForm = () => {
     name: yup
       .string()
       .min(2, 'Username must be at least 2 characters')
-      .max(64, 'Username must be less than or equal to 64 characters')
+      .max(32, 'Username must be less than or equal to 32 characters')
       .required('Username is a required field'),
     email: yup
       .string()
@@ -93,7 +94,6 @@ export const RegisterForm = () => {
                 Log In
               </NavLink>
             </div>
-
             <div className={s.fieldswrapper}>
               <label htmlFor="name" className={s.namefield}>
                 <Field
@@ -154,5 +154,6 @@ export const RegisterForm = () => {
         </Formik>
       </div>
     </div>
+    </WelcomeConainer>
   );
 };

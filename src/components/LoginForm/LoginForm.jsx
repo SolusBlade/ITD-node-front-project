@@ -9,6 +9,7 @@ import s from '../RegisterForm/Form.module.scss';
 import ss from '../CommonWelcomField/CommonWelcomeField.module.scss';
 import sprite from '../../assets/icons/icons.svg';
 
+
 export const LoginForm = () => {
   const dispatch = useDispatch();
   // eslint-disable-next-line
@@ -112,5 +113,6 @@ export const LoginForm = () => {
         </Formik>
       </div>
     </div>
+    </WelcomeConainer>
   );
 };

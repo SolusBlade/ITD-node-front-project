@@ -32,12 +32,12 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fff;
+  background: var(--btn-bg);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-track {

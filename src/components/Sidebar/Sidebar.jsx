@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { Button } from '@mui/material';
@@ -20,6 +20,8 @@ import EditBoard from 'components/Forms/NewBoardAndEditBoard/EditBoard';
 import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
+import ButtonDelete from 'components/Modal/ButtonDelete';
+import { useScrollBar } from 'hooks/useScrollBar';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
@@ -31,9 +33,10 @@ export const Sidebar = () => {
   const [addBoardModal, setAddBoardModal] = useState(false);
   const [needHelpModalOpen, setNeedHelpModalOpen] = useState(false);
   const [editBoardModal, setEditBoardModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
-  // console.log(isLoggedIn);
+  const boardWrapper = useRef(null);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -60,6 +63,8 @@ export const Sidebar = () => {
 
   const handleEditBoardModal = () => setEditBoardModal(!editBoardModal);
 
+  const handleDeleteModal = () => setDeleteModal(!deleteModal);
+
   const handleChangeActive = (id, title) => {
     setActiveItemId(id);
 
@@ -80,6 +85,9 @@ export const Sidebar = () => {
   const handleLogout = () => {
     dispatch(logOutUser());
   };
+
+  useScrollBar(boardWrapper, true, {scrollbars : {autoHide: "l"}});
+
   return (
     <nav>
       <section className={st.sectionTop}>
@@ -103,16 +111,14 @@ export const Sidebar = () => {
         </div>
       </section>
       <section className={st.sectionBoards}>
+        <div ref={boardWrapper} className='boardScroll'>
         <ul className={st.boardsList}>
           {boards?.map(el => {
-            const currentClass =
-              el._id === activeItemId ? st.boardItemActive : st.boardItem;
             const iconName = theme !== 'light' ? el.icon : `${el.icon}-white`;
-            console.log(iconName);
             return (
               <li
                 key={el._id}
-                className={currentClass}
+                className={clsx(st.boardItem, el._id === activeItemId && st.boardItemActive)}
                 onClick={() => handleChangeActive(el._id, el.title)}
               >
                 <div className={st.boardName}>
@@ -143,7 +149,7 @@ export const Sidebar = () => {
                         secondaryClassName={clsx(
                           theme === 'violet' && st.icons
                         )}
-                        onClick={() => handleDeleteBoard(el._id)}
+                        onClick={() => handleDeleteModal()}
                       />
                     </div>
                   </>
@@ -151,7 +157,8 @@ export const Sidebar = () => {
               </li>
             );
           })}
-        </ul>
+          </ul>
+        </div>
       </section>
       <section className={st.sectionHelp}>
         <div className={st.container}>
@@ -202,6 +209,16 @@ export const Sidebar = () => {
           <EditBoard
             closeModal={handleEditBoardModal}
             boardToEdit={boardToEdit}
+          />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal title="Are you sure ?" closeModal={handleDeleteModal}>
+          <ButtonDelete
+            onClick={() => {
+              handleDeleteBoard(currentBoard);
+              handleDeleteModal();
+            }}
           />
         </Modal>
       )}

@@ -7,6 +7,7 @@ import PrioritySelector from '../PrioritySelector/PrioritySelector';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import { useDispatch } from 'react-redux';
 import { updateTaskById } from 'redux/board/boardOperations';
+import { getFormattedValue } from 'services/priorityChange';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -16,7 +17,7 @@ const schema = yup.object().shape({
 });
 
 
-const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
+const EditCard = ({ boardId, columnId, closeModal, card }) => {
   const dispatch = useDispatch();
 
   const initialsValue = {
@@ -27,9 +28,8 @@ const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
+    console.log(card);
     dispatch(updateTaskById({ idTask: card._id, data: {...values, boardId, columnId} }))
-    const updatedCard = { ...card, ...values };
-    onUpdate(updatedCard);
     resetForm();
     closeModal();
   };
@@ -41,7 +41,7 @@ const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
       onSubmit={handleSubmit}
     >
       <Form autoComplete="off">
-        <InputField name="title" placeholder="Title"/>
+        <InputField name="title" placeholder="Title" secendaryClassName={s.secClassName}/>
         <Field name="text">
           {({ field }) => (
             <textarea
@@ -51,11 +51,19 @@ const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
             />
           )}
         </Field>
-        <p className={s.titleP}>Label color</p>
+        <p className={s.titleLabel}>Label color</p>
         <Field name="priority">
-          {({ field }) => <PrioritySelector field={field} />}
+          {({ field }) => (
+            <div className={s.priorityValue}>
+              <PrioritySelector field={field} />
+              <p className={s.priorityName}>{getFormattedValue(field.value)}</p>
+            </div>
+          )}
         </Field>
-        <p className={s.titleP}>Deadline</p>
+        {/* <Field name="priority">
+          {({ field }) => <PrioritySelector field={field} />}
+        </Field> */}
+        <p className={s.titleDeadline}>Deadline</p>
         <Field name="deadline">
           {({ field }) => (
             <div className={s.datePickerContainer}>

@@ -6,13 +6,15 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
+  border: none;
   margin-right: 10px;
   cursor: pointer;
+  position: relative;
 }
 
-.selected {
-  border: 2px solid #333;
-}
+// .selected {
+//   border: 1px solid #333;
+// }
 
 .green {
   background-color: var(--priority-low);
@@ -29,17 +31,95 @@
 .red {
   background-color: var(--select-header);
 }
+
 .priorityOptionWrapper {
   display: flex;
+  cursor: pointer;
 }
+
 .prioritySelectorFilter {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .optionText {
   color: var(--primary-text-color);
   font-size: 12px;
   font-family: Poppins;
   letter-spacing: -0.24px;
 }
+
+.colorIndicator {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #151515;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.green .colorIndicator {
+  background-color: var(--priority-low);
+}
+
+.yellow .colorIndicator {
+  background-color: var(--priority-medium);
+}
+
+.orange .colorIndicator {
+  background-color: var(--priority-high);
+}
+
+.red .colorIndicator {
+  background-color: var(--select-header);
+}
+
+// .prioritySelector {
+//   display: flex;
+// }
+
+// .priorityOption {
+//   width: 14px;
+//   height: 14px;
+//   border-radius: 50%;
+//   border: none;
+//   margin-right: 10px;
+//   cursor: pointer;
+// }
+
+// .selected {
+//   border: 1px solid #333;
+// }
+
+// .green {
+//   background-color: var(--priority-low);
+// }
+
+// .yellow {
+//   background-color: var(--priority-medium);
+// }
+
+// .orange {
+//   background-color: var(--priority-high);
+// }
+
+// .red {
+//   background-color: var(--select-header);
+// }
+// .priorityOptionWrapper {
+//   display: flex;
+// }
+// .prioritySelectorFilter {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+// }
+// .optionText {
+//   color: var(--primary-text-color);
+//   font-size: 12px;
+//   font-family: Poppins;
+//   letter-spacing: -0.24px;
+// }

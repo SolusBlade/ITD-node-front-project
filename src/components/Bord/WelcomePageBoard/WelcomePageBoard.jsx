@@ -16,7 +16,7 @@ const WelcomePageBoard = () => {
   };
 
   return (
-    <div>
+    <div className={s.welcomePageContainer}>
       <div className={s.welcomePage}>
         <Filters />
       </div>

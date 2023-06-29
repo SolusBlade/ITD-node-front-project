@@ -3,14 +3,9 @@
 .titleHeaderDashboard {
   font-weight: 500;
   line-height: 1.5;
+  font-size: 14px;
 
   color: var(--primary-text-color);
-
-  @media screen and (min-width: 320px) {
-    // padding-top: 14px;
-    font-size: 14px;
-  }
-
   @media screen and (min-width: 768px) {
     // padding-top: 26px;
     font-size: 18px;
@@ -42,8 +37,14 @@
 }
 
 .containerMainDashboard {
-  height: calc(100% - 45px);
-  overflow-x: auto;
+  height: calc(100% - 47px);
+  position: relative;
+  @media screen and (max-width: 1279px) {
+      height: calc(100% - 80px);
+  }
+  @media screen and (max-width: 767px) {
+      height: calc(100% - 80px);
+  }
 }
 .boardLoader {
   position: static;
