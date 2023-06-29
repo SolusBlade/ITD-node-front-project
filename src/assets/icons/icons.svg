@@ -83,8 +83,9 @@
         stroke-miterlimit="4" stroke-width="2.2857" d="M16 6.667v18.667"></path>
       <path fill="none" stroke="#FFFFFF" stroke-linejoin="round" stroke-linecap="round"
         stroke-miterlimit="4" stroke-width="2.2857" d="M6.667 16h18.667"></path>
-    </symbol> //
-    NewBoard Icons <symbol id="colors" fill="none" viewBox="0 0 18 18">
+    </symbol>
+     // NewBoard Icons
+      <symbol id="colors" fill="none" viewBox="0 0 18 18">
       <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
         d="M9 15.354a4.5 4.5 0 1 0 4.185-7.697m-8.37 0A4.502 4.502 0 0 0 6 16.5a4.5 4.5 0 0 0 4.185-6.158M13.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" />
     </symbol>
@@ -133,7 +134,8 @@
       <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
         d="m9 1.5 1.509 3.923c.211.55.317.825.482 1.056.145.205.325.385.53.53.23.165.506.27 1.056.482L16.5 9l-3.923 1.509c-.55.211-.825.317-1.056.482a2.247 2.247 0 0 0-.53.53c-.165.23-.27.506-.482 1.056L9 16.5l-1.509-3.923c-.211-.55-.317-.825-.482-1.056a2.248 2.248 0 0 0-.53-.53c-.23-.165-.506-.27-1.056-.482L1.5 9l3.923-1.509c.55-.211.825-.317 1.056-.482a2.25 2.25 0 0 0 .53-.53c.165-.23.27-.506.482-1.056L9 1.5Z" />
     </symbol>
-    // NewBoard Icons white theme <symbol id="colors-white" fill="none" viewBox="0 0 18 18">
+    // NewBoard Icons white theme
+     <symbol id="colors-white" fill="none" viewBox="0 0 18 18">
       <path
         d="M8.99999 15.3542C9.79613 16.0667 10.8475 16.5 12 16.5C14.4853 16.5 16.5 14.4853 16.5 12C16.5 9.92481 15.0953 8.17769 13.1849 7.65763M4.81513 7.65762C2.9047 8.17768 1.5 9.9248 1.5 12C1.5 14.4853 3.51472 16.5 6 16.5C8.48528 16.5 10.5 14.4853 10.5 12C10.5 11.4146 10.3882 10.8554 10.1849 10.3424M13.5 6C13.5 8.48528 11.4853 10.5 9 10.5C6.51472 10.5 4.5 8.48528 4.5 6C4.5 3.51472 6.51472 1.5 9 1.5C11.4853 1.5 13.5 3.51472 13.5 6Z"
         stroke="#161616" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
