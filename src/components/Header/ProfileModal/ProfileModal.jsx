@@ -114,17 +114,7 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
           <InputField name="name" placeholder="Enter name" />
           <InputField name="email" placeholder="Enter email" value="hello" />
           <label htmlFor="updatePassInput" className={css.passLabel}>
-            <Field 
-                id='updatePassInput'
-                name="password" 
-                placeholder="Enter password" 
-                type={showPass} 
-                className={css.input}
-            />
-            
-            <ErrorMessage name="password" component="span" className={css.errorMessage} />
-            
-            {showPass === 'password' ? (
+          {showPass === 'password' ? (
                 <svg className={css.iconEye} onClick={() => setShowPass('text')}>
                     <use href={sprite + "#icon-eye-blocked"}></use>
                 </svg>
@@ -136,6 +126,15 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
                     <use href={sprite + "#icon-eye"}></use>
                 </svg>
             )}
+            <Field 
+                id='updatePassInput'
+                name="password" 
+                placeholder="Enter password" 
+                type={showPass} 
+                className={css.input}
+            />
+            
+            <ErrorMessage name="password" component="span" className={css.errorMessage} />
           </label>
           <button className={css.button} type="submit">
             Send

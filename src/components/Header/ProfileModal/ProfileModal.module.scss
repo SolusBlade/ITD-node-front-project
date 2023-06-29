@@ -130,15 +130,15 @@
     // opacity: 0.4;
 
     // // z-index: 0;
-    // &:hover {
-    //   opacity: 1;
-    // //   z-index: 100;
-    // //   outline: none;
-    // }
-    // &:focus{
-    //     // opacity: 1;
-    //     // outline: none;
-    // }
+    &:hover {
+      opacity: 1;
+    //   z-index: 100;
+    //   outline: none;
+    }
+    &:focus{
+        opacity: 1;
+        // outline: none;
+    }
     // &:hover + .iconEye{
     //     opacity: 1;
     // }
@@ -156,6 +156,7 @@
     border: 1px solid var(--btn-bg);
     box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
     border-radius: 8px;
+    z-index: 1;
     // margin-bottom: 24px;
     //   resize: none;
     &:focus,
@@ -169,11 +170,11 @@
     // .passLabel:hover + &{
     //     // opacity: 1;
     // }
-    // &:focus{
-    //     opacity: 1;
-    //     outline: none;
-    //     z-index: 0;
-    // }
+    &:focus{
+        opacity: 1;
+        outline: none;
+        z-index: 0;
+    }
 
 }
 
@@ -181,15 +182,22 @@
     width: 20px;
     height: 20px;
     position: absolute;
-
-    transform: translate(-200%, 75%);
+    top: 50%;
+    right: 15px;
+    // transform: translate(-200%, 75%);
+    transform: translateY(-50%);
 
     fill: var(--primary-text-color);
-    opacity: 0.4;
+    // opacity: 0.4;
     
     user-select: none;
     cursor: pointer;
     z-index: 0;
+    &:hover + .input{
+        opacity: 1;
+    }
+        //     // opacity: 1;
+        // }
     // &:focus,
     // &:hover{
     //     opacity: 1;
