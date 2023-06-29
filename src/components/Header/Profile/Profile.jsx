@@ -13,7 +13,6 @@ export const Profile = ({ modalHandler, avatar, userAvatar }) => {
         return userAvatar;
     }
 
-// console.log('test', checkAvatar)
     return (
         <div className={css.container}>
             <div className={css.tooltip}>
