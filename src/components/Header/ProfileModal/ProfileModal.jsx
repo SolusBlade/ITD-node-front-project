@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import InputField from 'shared/components/InputField/InputField';
 import * as yup from 'yup';
 import css from './ProfileModal.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, updateAvatar } from 'redux/auth/authOperations';
 import sprite from '../../../assets/icons/icons.svg';
+import clsx from 'clsx';
+import { selectUser } from 'redux/auth/authSelectors';
 
 const schema = yup.object().shape({
   name: yup
@@ -26,15 +28,17 @@ const schema = yup.object().shape({
     .required('Password is a required field'),
 });
 
-const InitalVelues = {
-  name: '',
-  email: '',
-  password: '',
-};
-
 export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
   const [image, setImage] = useState(null);
+  const [showPass, setShowPass] = useState('password');
   const dispatch = useDispatch();
+  const userObj = useSelector(selectUser);
+
+  const InitalVelues = {
+    name: userObj.name,
+    email: userObj.email,
+    password: '',
+  };
 
   useEffect(() => {
     if (image) {
@@ -108,8 +112,32 @@ export const ProfileModal = ({ modalHandler, avatar, userAvatar }) => {
       >
         <Form>
           <InputField name="name" placeholder="Enter name" />
-          <InputField name="email" placeholder="Enter email" />
-          <InputField name="password" placeholder="Enter password" />
+          <InputField name="email" placeholder="Enter email" value="hello" />
+          <div  className={css.passLabel}>
+            <Field 
+                // id='updatePassInput'
+                name="password" 
+                placeholder="Enter password" 
+                type={showPass} 
+                className={css.input}
+            />
+            
+            <ErrorMessage name="password" component="span" className={css.errorMessage} />
+            
+            {showPass === 'password' ? (
+                <svg className={css.iconEye} onClick={() => setShowPass('text')}>
+                    <use href={sprite + "#icon-eye-blocked"}></use>
+                </svg>
+            ) : (
+                <svg className={clsx({
+                    [css.iconEye] : true,
+                    [css.iconEyeOpen] : showPass === 'text'
+                })} onClick={() => setShowPass('password')}>
+                    <use href={sprite + "#icon-eye"}></use>
+                </svg>
+            )}
+
+          </div>
           <button className={css.button} type="submit">
             Send
           </button>
