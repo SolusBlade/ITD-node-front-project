@@ -28,20 +28,23 @@ const BoardCard = ({ column }) => {
   const allBoards = useSelector(selectBoards);
   const [redirectData, setRedirectData] = useState(null);
   const [currentCard, setCurrentCard] = useState(null);
-  const currentBoardId = useSelector(selectCurrentBoardId)
+  const currentBoardId = useSelector(selectCurrentBoardId);
+  const [deleteModal, setDeleteModal] = useState(null);
 
-  const allColumns = allBoards.filter(
-      ({ _id }) => _id === currentBoardId
-  )[0].columns || [];
-  
+  const allColumns =
+    allBoards.filter(({ _id }) => _id === currentBoardId)[0].columns || [];
+
   const dispatch = useDispatch();
   const wrapperRef = useRef(null);
   const allCards = useSelector(selectTasks);
   const filter = useSelector(selectFilter);
-  const [deleteModal, setDeleteModal] = useState(false);
   const cardWrapper = useRef(null);
 
-  const handleDeleteModal = () => setDeleteModal(!deleteModal);
+  const handleDeleteModalOpen = id => {
+    setDeleteModal(id);
+  };
+
+  const handleDeleteModalClose = () => setDeleteModal(null);
 
   const checkDate = date => {
     const currentDateTime = new Date();
@@ -71,9 +74,7 @@ const BoardCard = ({ column }) => {
 
   const hendleRedirectOpen = ({ columnId, boardId, cardId }) => {
     setCurrentCard(cardId);
-    setRedirectData(
-      allColumns.filter(({ _id }) => _id !== columnId)
-    );
+    setRedirectData(allColumns.filter(({ _id }) => _id !== columnId));
   };
 
   const hendleRedirectClose = () => {
@@ -141,35 +142,35 @@ const BoardCard = ({ column }) => {
   };
 
   useScrollBar(cardWrapper, true);
-  
+
   return (
     <>
       <div ref={cardWrapper} className="cardScroll">
-      <ul className={s.cardList}>
-        {filteredCards(filter).map(card => (
-          <li className={s.cardToDo} key={card._id}>
-            <div
-              style={{
-                backgroundColor: findPriorityColor(card.priority),
-              }}
-              className={s.beforeColor}
-            ></div>{' '}
-            <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
-            <p className={s.textCard}>{trimText(card.text, 95)}</p>
-            <div className={s.line}></div>
-            <div className={s.bottomMenuCard}>
-              <div className={s.textBottomMenuCard}>
-                <div>
-                  <h3 className={s.titleBottomMenuCard}>Priority</h3>
-                  <p className={s.discriptionBottomMenuCard}>
-                    <span
-                      style={{
-                        backgroundColor: findPriorityColor(card.priority),
-                      }}
-                      className={s.priorityColor}
-                    ></span>{' '}
-                    {getFormattedValue(card.priority)}
-                  </p>
+        <ul className={s.cardList}>
+          {filteredCards(filter).map(card => (
+            <li className={s.cardToDo} key={card._id}>
+              <div
+                style={{
+                  backgroundColor: findPriorityColor(card.priority),
+                }}
+                className={s.beforeColor}
+              ></div>{' '}
+              <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
+              <p className={s.textCard}>{trimText(card.text, 95)}</p>
+              <div className={s.line}></div>
+              <div className={s.bottomMenuCard}>
+                <div className={s.textBottomMenuCard}>
+                  <div>
+                    <h3 className={s.titleBottomMenuCard}>Priority</h3>
+                    <p className={s.discriptionBottomMenuCard}>
+                      <span
+                        style={{
+                          backgroundColor: findPriorityColor(card.priority),
+                        }}
+                        className={s.priorityColor}
+                      ></span>{' '}
+                      {getFormattedValue(card.priority)}
+                    </p>
                   </div>
                   <div>
                     <h3 className={s.titleBottomMenuCard}>Deadline</h3>
@@ -191,22 +192,20 @@ const BoardCard = ({ column }) => {
                       )}
                     />
                   )}
-                {
-                  allColumns?.length > 1 && (
+                  {allColumns?.length > 1 && (
                     <IconBtn
-                    name="icon-arrow"
-                    width={16}
-                    height={16}
-                    onClick={() =>
-                      hendleRedirectOpen({
-                        columnId: card.columnId,
-                        boardId: card.boardId,
-                        cardId: card._id,
-                      })
-                    }
-                  />
-                  )
-                }
+                      name="icon-arrow"
+                      width={16}
+                      height={16}
+                      onClick={() =>
+                        hendleRedirectOpen({
+                          columnId: card.columnId,
+                          boardId: card.boardId,
+                          cardId: card._id,
+                        })
+                      }
+                    />
+                  )}
                   <IconBtn
                     name="icon-pencil"
                     width={16}
@@ -219,21 +218,9 @@ const BoardCard = ({ column }) => {
                     width={16}
                     height={16}
                     secondaryClassName={s.iconTrash}
-                    onClick={handleDeleteModal}
+                    onClick={() => handleDeleteModalOpen(card._id)}
                   />
-                  {deleteModal && (
-                    <Modal
-                      title="Are you sure ?"
-                      closeModal={handleDeleteModal}
-                    >
-                      <ButtonDelete
-                        onClick={() => {
-                          hendleDeleteClick(card._id);
-                          handleDeleteModal();
-                        }}
-                      />
-                    </Modal>
-                  )}
+
                   {redirectData && currentCard === card._id && (
                     <ul className={s.redirectList} ref={wrapperRef}>
                       {redirectData.map(column => (
@@ -270,6 +257,16 @@ const BoardCard = ({ column }) => {
             closeModal={handleCloseEditCardModal}
             card={editCardModal}
             onUpdate={handleCardUpdate}
+          />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal title="Are you sure ?" closeModal={handleDeleteModalClose}>
+          <ButtonDelete
+            onClick={() => {
+              hendleDeleteClick(deleteModal);
+              handleDeleteModalClose();
+            }}
           />
         </Modal>
       )}
