@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.1da0d81c.css",
-    "main.js": "/ITD-node-front-project/static/js/main.cd5b84eb.js",
-    "static/css/869.f0a1e7d9.chunk.css": "/ITD-node-front-project/static/css/869.f0a1e7d9.chunk.css",
+    "main.css": "/ITD-node-front-project/static/css/main.43496f13.css",
+    "main.js": "/ITD-node-front-project/static/js/main.590ed762.js",
+    "static/css/869.fdab78aa.chunk.css": "/ITD-node-front-project/static/css/869.fdab78aa.chunk.css",
     "static/js/869.2e24ff34.chunk.js": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.2d51dbd66b255564b9cf.jpg",
@@ -65,14 +65,14 @@
     "static/media/sky.png": "/ITD-node-front-project/static/media/sky.f43ec3d1551635112d93.png",
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.1da0d81c.css.map": "/ITD-node-front-project/static/css/main.1da0d81c.css.map",
-    "main.cd5b84eb.js.map": "/ITD-node-front-project/static/js/main.cd5b84eb.js.map",
-    "869.f0a1e7d9.chunk.css.map": "/ITD-node-front-project/static/css/869.f0a1e7d9.chunk.css.map",
+    "main.43496f13.css.map": "/ITD-node-front-project/static/css/main.43496f13.css.map",
+    "main.590ed762.js.map": "/ITD-node-front-project/static/js/main.590ed762.js.map",
+    "869.fdab78aa.chunk.css.map": "/ITD-node-front-project/static/css/869.fdab78aa.chunk.css.map",
     "869.2e24ff34.chunk.js.map": "/ITD-node-front-project/static/js/869.2e24ff34.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1da0d81c.css",
-    "static/js/main.cd5b84eb.js"
+    "static/css/main.43496f13.css",
+    "static/js/main.590ed762.js"
   ]
 }
