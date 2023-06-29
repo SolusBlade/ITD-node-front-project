@@ -28,7 +28,9 @@ const PrioritySelector = ({ field, filter }) => {
                   }
                 : () => field.onChange(field.name)(option.value)
             }
-          />
+            >
+            {field.value === option.value && <div className={s.innerCircle} />}
+          </div>
           {filter && (
             <p className={s.optionText}>
               {getFormattedValue(option.value) === 'Without'

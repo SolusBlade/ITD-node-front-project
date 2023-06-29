@@ -36,7 +36,7 @@ const BoardCard = ({ column }) => {
     const currentDate = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate());
     return currentDate.getTime() === deadlineDateTime.getTime();
   }
-  
+
   const filteredCards = filter => {
     const result = allCards
       .filter(el => el.columnId === column._id)
@@ -97,6 +97,30 @@ const BoardCard = ({ column }) => {
     dispatch(deleteTaskById(id));
   };
 
+  const trimText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      if (text.includes(' ')) {
+        const words = text.split(' ');
+        let firstLine = '';
+        let secondLine = '';
+
+        for (let i = 0; i < words.length; i++) {
+          if ((firstLine + words[i]).length <= maxLength) {
+            firstLine += words[i] + ' ';
+          } else {
+            secondLine += words[i] + ' ';
+          }
+        }
+
+        return firstLine.trim() + '\n' + secondLine.trim();
+      } else {
+        return text.slice(0, maxLength - 3) + '...';
+      }
+    }
+
+    return text;
+  };
+
   return (
     <>
       <ul className={s.cardList}>
@@ -109,7 +133,8 @@ const BoardCard = ({ column }) => {
               className={s.beforeColor}
             ></div>{' '}
             <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
-            <p className={s.textCard}>{card.text}</p>
+            {/* <p className={s.textCard}>{card.text}</p> */}
+            <p className={s.textCard}>{trimText(card.text, 95)}</p>
             <div className={s.line}></div>
             <div className={s.bottomMenuCard}>
               <div className={s.textBottomMenuCard}>
