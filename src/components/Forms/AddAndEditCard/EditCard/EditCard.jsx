@@ -7,6 +7,7 @@ import PrioritySelector from '../PrioritySelector/PrioritySelector';
 import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import { useDispatch } from 'react-redux';
 import { updateTaskById } from 'redux/board/boardOperations';
+import { getFormattedValue } from 'services/priorityChange';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -53,8 +54,16 @@ const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
         </Field>
         <p className={s.titleLabel}>Label color</p>
         <Field name="priority">
-          {({ field }) => <PrioritySelector field={field} />}
+          {({ field }) => (
+            <div className={s.priorityValue}>
+              <PrioritySelector field={field} />
+              <p className={s.priorityName}>{getFormattedValue(field.value)}</p>
+            </div>
+          )}
         </Field>
+        {/* <Field name="priority">
+          {({ field }) => <PrioritySelector field={field} />}
+        </Field> */}
         <p className={s.titleDeadline}>Deadline</p>
         <Field name="deadline">
           {({ field }) => (

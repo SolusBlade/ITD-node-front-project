@@ -2,6 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 export const selectIsBoardLoading = state => state.board.isBoardLoading;
 export const selectCurrentBoardId = state => state.board.currentBoardId;
+export const selectCurrentColumnId = state => state.board.selectCurrentColumn;
 export const selectBoards = state => state.board.boards;
 export const selectTasks = state => state.board.tasks;
 export const selectColumns = state => state.board.columns;

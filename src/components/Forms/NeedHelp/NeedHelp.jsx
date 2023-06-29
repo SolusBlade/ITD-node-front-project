@@ -9,7 +9,7 @@ const schema = yup.object().shape({
     .min(3, 'Email must be at least 3 characters')
     .max(64, 'Email must be less than or equal to 64 characters')
     .required('Email is a required field'),
-  comment: yup.string().required('Comment is a required field'),
+  comment: yup.string().trim().required('Comment is a required field'),
 });
 
 const initialValues = {

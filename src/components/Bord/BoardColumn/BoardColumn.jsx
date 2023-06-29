@@ -3,25 +3,34 @@ import s from './BoardColumn.module.scss';
 import BoardCard from '../BoardCard/BoardCard';
 import BtnAddCard from '../BtnAddCard/BtnAddCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentBoardColumns } from 'redux/board/boardSelectors';
+import {
+  selectCurrentBoardColumns,
+  selectCurrentBoardId,
+} from 'redux/board/boardSelectors';
 import { deleteColumnById } from 'redux/board/boardOperations';
 import { useState } from 'react';
 import EditColumn from 'components/Forms/AddAndEditColumn/EditColumn';
 import Modal from 'components/Modal/Modal';
 import { trimTitleString } from 'services/trimStr';
 import ButtonDelete from 'components/Modal/ButtonDelete';
+
 const BoardColumn = () => {
   const columns = useSelector(selectCurrentBoardColumns);
-  const dispatch = useDispatch();
+  const currentBoardId = useSelector(selectCurrentBoardId);
   const [editColumnModal, setEditColumnModal] = useState(null);
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(null);
+  const dispatch = useDispatch();
 
-  const handleDeleteModal = () => setDeleteModal(!deleteModal);
+  const handleDeleteModalOpen = column => {
+    setDeleteModal(column);
+  };
+  const handleDeleteModalClose = () => setDeleteModal(null);
+
   const handleCloseEditColumnModal = () => setEditColumnModal(null);
   const handleOpenEditColumnModal = column => setEditColumnModal(column);
 
-  const hendleDeleteClick = ({ _id: idColumn, boardId: idBoard }, e) => {
-    dispatch(deleteColumnById({ idColumn, idBoard }));
+  const hendleDeleteClick = data => {
+    dispatch(deleteColumnById(data));
   };
 
   return (
@@ -46,7 +55,7 @@ const BoardColumn = () => {
                   width={16}
                   height={16}
                   secondaryClassName={s.iconTrash}
-                  onClick={handleDeleteModal}
+                  onClick={() => handleDeleteModalOpen(column._id)}
                 />
               </div>
             </div>
@@ -54,16 +63,6 @@ const BoardColumn = () => {
               <BoardCard column={column} />
               <BtnAddCard column={column} />
             </div>
-            {deleteModal && (
-              <Modal title="Are you sure ?" closeModal={handleDeleteModal}>
-                <ButtonDelete
-                  onClick={() => {
-                    hendleDeleteClick(column);
-                    handleDeleteModal();
-                  }}
-                />
-              </Modal>
-            )}
           </div>
         ))}
       </div>
@@ -72,6 +71,19 @@ const BoardColumn = () => {
           <EditColumn
             closeModal={handleCloseEditColumnModal}
             column={editColumnModal}
+          />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal title="Are you sure ?" closeModal={handleDeleteModalClose}>
+          <ButtonDelete
+            onClick={() => {
+              hendleDeleteClick({
+                idColumn: deleteModal,
+                idBoard: currentBoardId,
+              });
+              handleDeleteModalClose();
+            }}
           />
         </Modal>
       )}
