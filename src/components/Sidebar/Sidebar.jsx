@@ -21,6 +21,7 @@ import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
 import ButtonDelete from 'components/Modal/ButtonDelete';
+import ClassNameGenerator from '@mui/utils/ClassNameGenerator/ClassNameGenerator';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
@@ -76,6 +77,7 @@ export const Sidebar = () => {
   };
 
   const handleDeleteBoard = id => {
+    console.log(id);
     dispatch(deleteBoardById(id));
     dispatch(getBoardById(null));
   };
@@ -145,22 +147,9 @@ export const Sidebar = () => {
                         secondaryClassName={clsx(
                           theme === 'violet' && st.icons
                         )}
-                        onClick={handleDeleteModal}
+                        onClick={() => handleDeleteModal()}
                       />
                     </div>
-                    {deleteModal && (
-                      <Modal
-                        title="Are you sure ?"
-                        closeModal={handleDeleteModal}
-                      >
-                        <ButtonDelete
-                          onClick={() => {
-                            handleDeleteBoard(el._id);
-                            handleDeleteModal();
-                          }}
-                        />
-                      </Modal>
-                    )}
                   </>
                 )}
               </li>
@@ -217,6 +206,16 @@ export const Sidebar = () => {
           <EditBoard
             closeModal={handleEditBoardModal}
             boardToEdit={boardToEdit}
+          />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal title="Are you sure ?" closeModal={handleDeleteModal}>
+          <ButtonDelete
+            onClick={() => {
+              handleDeleteBoard(currentBoard);
+              handleDeleteModal();
+            }}
           />
         </Modal>
       )}
