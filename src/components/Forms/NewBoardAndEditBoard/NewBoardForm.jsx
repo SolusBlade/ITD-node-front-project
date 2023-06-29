@@ -40,7 +40,7 @@ const schema = yup.object().shape({
 });
 
 const NewBoard = ({ closeModal }) => {
-  const [icon, setIcon] = useState('colors');
+  const [icon, setIcon] = useState('project');
   const [bg, setBg] = useState('defaultBg');
   const theme = useSelector(selectUserTheme);
 
@@ -78,13 +78,13 @@ const NewBoard = ({ closeModal }) => {
             }}
           >
             {[
-              'colors',
               'project',
               'star',
               'loading',
               'puzzle',
               'container',
               'lightnight',
+              'colors',
               'hexagon',
             ].map(item => (
               <Box
