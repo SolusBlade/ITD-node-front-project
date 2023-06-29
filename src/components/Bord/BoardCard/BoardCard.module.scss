@@ -8,6 +8,7 @@
 .cardToDo {
   position: relative;
   padding: 14px 24px;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -52,7 +53,6 @@
   margin-top: auto;
   display: flex;
   gap: 8px;
-  position: relative;
 }
 
 .line {
@@ -105,8 +105,8 @@
 .beforeColor {
   position: absolute;
   width: 4px;
-  height: calc(100% - 2px);
-  top: 1px;
+  height: 100% ;
+  top: 0;
   left: 0;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -135,7 +135,8 @@
 .redirectList{
   position: absolute;
   z-index: 100;
-  top: 100%;
+  bottom: 40px;
+  right: 5px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -148,5 +149,9 @@
 .alarm{
   stroke: var(--btn-bg);
   filter: drop-shadow(0 0px 4px var(--btn-bg));
+  &.deadLineFailed{
+    stroke: #f53e3e;
+    filter: drop-shadow(0 0px 4px #f53e3e);
+  }
 }
 

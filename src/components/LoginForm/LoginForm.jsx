@@ -32,9 +32,8 @@ export const LoginForm = () => {
   const initialValues = { email: '', password: '' };
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(loginUser(values));
-    console.log(Form);
-    resetForm();
+      dispatch(loginUser(values));
+      resetForm();
   };
 
   const hidePassword = () => {
