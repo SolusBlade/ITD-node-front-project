@@ -31,13 +31,14 @@
   line-height: 1.5;
 
   color: var(--primary-text-color);
-  background-color: var(--primary-background);
+  background-color: var(--card-bg);
 
   &:hover{
-    background-color: var(--btn-bg);
-    color: var(--btn-modal-bg);
+    background-color: var(--btn-hover-secondary);
+    // color: var(--btn-modal-bg);
   }
-
+// --btn-hover-secondary: #262626;
+    // --btn-active-secondary
   &:active{
     background-color: var(--btn-active-secondary)
   }

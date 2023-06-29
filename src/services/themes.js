@@ -28,8 +28,8 @@ export let themes = {
         sidebarTextColorMain: "#FFF",
         btnHoverMain:"#a8cf96",
         btnActiveMain: "#8bbf73",
-        btnHoverSecondary: "#d9d9d9",
-        btnActiveSecondary: "#b3b3b3",
+        btnHoverSecondary: "#595959",
+        btnActiveSecondary: "#333333",
         sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)",
         priorityWithoutPriority: "rgba(255, 255, 255, 0.3)",
         scrollHandler: "rgba(255, 255, 255, 0.10)",
@@ -145,10 +145,4 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--priority-without-priority', themes[theme].priorityWithoutPriority);
     root.style.setProperty('--scroll-handler', themes[theme].scrollHandler);
     root.style.setProperty('--scroll-track', themes[theme].scrollTrack);
-    // --scroll-handler: rgba(255, 255, 255, 0.10);
-    // --scroll-track: #161616;
-    // --sidebar-board-item-hover: #404040;
-    // --btn-hover-secondary: #d9d9d9;
-    // --btn-active-secondary: #b3b3b3;
-    // setSelectedTheme(theme);
 }
