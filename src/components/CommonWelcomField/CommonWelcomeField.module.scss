@@ -1,5 +1,6 @@
 @import "../../sass/utils/mixin";
 @import "../../sass/utils/variables";
+@import "../../assets/fonts/poppinsFontStyle.css";
 
 .backfield {
     background-image: linear-gradient(
@@ -45,6 +46,9 @@
     max-width: 473px;
   }
   p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3em;
     text-align: center;
     margin-bottom: 48px;
     color: var(--header-background);
@@ -58,15 +62,31 @@
   gap: 14px;
   margin-bottom: 24px;
  p {
+  font-weight: 600;
+    font-size: 28px;
+    line-height: 2.3em;
   margin-bottom: 0;
+  @include tablet {
+    font-size: 40px;
+    line-height: 1.5em;
+  }
  }
 }
 
-.info {
-
+.icon {
+  width: 40px;
+  height: 40px;
+  @include tablet {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 .registationbutton {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5em;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -87,6 +107,10 @@
 }
 
 .loginbutton {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5em;
   display: block;
   margin-left: auto;
   margin-right: auto;

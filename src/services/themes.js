@@ -30,7 +30,8 @@ export let themes = {
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#d9d9d9",
         btnActiveSecondary: "#b3b3b3",
-        sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)"
+        sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)",
+        priorityWithoutPriority: "rgba(255, 255, 255, 0.3)"
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -63,6 +64,7 @@ export let themes = {
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#404040",
         btnActiveSecondary: "#737373",
+        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -95,6 +97,7 @@ export let themes = {
         btnActiveMain: "#4044a5",
         btnHoverSecondary: "#6c6fc6",
         btnActiveSecondary: "#4044a5",
+        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
     }
 }
 // --btn-hover-main: #a8cf96;
@@ -133,6 +136,7 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--btn-active-main', themes[theme].btnActiveMain);
     root.style.setProperty('--btn-hover-secondary', themes[theme].btnHoverSecondary);
     root.style.setProperty('--btn-active-secondary', themes[theme].btnActiveSecondary);
+    root.style.setProperty('--priority-without-priority', themes[theme].priorityWithoutPriority);
 
     // --sidebar-board-item-hover: #404040;
     // --btn-hover-secondary: #d9d9d9;

@@ -30,7 +30,7 @@ import yacht from '../../../static/images/bgIcons/yacht.png';
 import youngMonth from '../../../static/images/bgIcons/youngMonth.png';
 import { createNewBoard } from 'redux/board/boardOperations';
 import { selectUserTheme } from 'redux/auth/authSelectors';
-
+import defaultBgWhite from '../../../static/images/bgIcons/defaultBgWhite.png';
 const initialsValue = {
   title: '',
 };
@@ -276,43 +276,32 @@ const NewBoard = ({ closeModal }) => {
                   name="background"
                   label={
                     {
-                      defaultBg: <BgIcon name={defaultBg} alt={defaultBg} />,
-                      flowers: <BgIcon name={flowers} alt={flowers} />,
-                      leaves: <BgIcon name={leaves} alt={leaves} />,
+                      defaultBg:
+                        theme === 'dark' ? (
+                          <BgIcon name={defaultBg} alt={defaultBg} />
+                        ) : (
+                          <BgIcon name={defaultBgWhite} alt="icon" />
+                        ),
+                      flowers: <BgIcon name={flowers} alt="icon" />,
+                      leaves: <BgIcon name={leaves} alt="icon" />,
                       mountainsAndBalloon: (
-                        <BgIcon
-                          name={mountainsAndBalloon}
-                          alt={mountainsAndBalloon}
-                        />
+                        <BgIcon name={mountainsAndBalloon} alt="icon" />
                       ),
-                      nature: <BgIcon name={nature} alt={nature} />,
-                      oceanAndYacht: (
-                        <BgIcon name={oceanAndYacht} alt={oceanAndYacht} />
-                      ),
-                      orangePlanet: (
-                        <BgIcon name={orangePlanet} alt={orangePlanet} />
-                      ),
-                      planets: <BgIcon name={planets} alt={planets} />,
+                      nature: <BgIcon name={nature} alt="icon" />,
+                      oceanAndYacht: <BgIcon name={oceanAndYacht} alt="icon" />,
+                      orangePlanet: <BgIcon name={orangePlanet} alt="icon" />,
+                      planets: <BgIcon name={planets} alt="icon" />,
 
-                      rocksAndOcean: (
-                        <BgIcon name={rocksAndOcean} alt={rocksAndOcean} />
-                      ),
-                      sakura: <BgIcon name={sakura} alt={sakura} />,
-                      sky: <BgIcon name={sky} alt={sky} />,
-                      skyBalloons: (
-                        <BgIcon name={skyBalloons} alt={skyBalloons} />
-                      ),
-                      starsAndShine: (
-                        <BgIcon name={starsAndShine} alt={starsAndShine} />
-                      ),
+                      rocksAndOcean: <BgIcon name={rocksAndOcean} alt="icon" />,
+                      sakura: <BgIcon name={sakura} alt="icon" />,
+                      sky: <BgIcon name={sky} alt="icon" />,
+                      skyBalloons: <BgIcon name={skyBalloons} alt="icon" />,
+                      starsAndShine: <BgIcon name={starsAndShine} alt="icon" />,
                       trailerInTheCanyon: (
-                        <BgIcon
-                          name={trailerInTheCanyon}
-                          alt={trailerInTheCanyon}
-                        />
+                        <BgIcon name={trailerInTheCanyon} alt="icon" />
                       ),
-                      yacht: <BgIcon name={yacht} alt={yacht} />,
-                      youngMonth: <BgIcon name={youngMonth} alt={youngMonth} />,
+                      yacht: <BgIcon name={yacht} alt="icon" />,
+                      youngMonth: <BgIcon name={youngMonth} alt="icon" />,
                     }[item]
                   }
                   variant={bg === item ? 'solid' : 'plain'}
