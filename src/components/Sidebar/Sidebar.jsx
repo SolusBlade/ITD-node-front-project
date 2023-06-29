@@ -118,7 +118,7 @@ export const Sidebar = () => {
                     name={el.icon}
                     width={18}
                     height={18}
-                    className={st.boardIcon}
+                    className={st.boardNameIcon}
                   />
                   <p>{el.title}</p>
                 </div>

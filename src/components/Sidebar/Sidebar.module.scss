@@ -62,6 +62,7 @@
   width: 40px;
   height: 36px;
   border-radius: 6px;
+  border: none;
   background-color: var(--sidebar-button-create-bg);
   stroke: var(--sidebar-button-icon-plus);
 
@@ -107,7 +108,8 @@
   }
 }
 
-.boardItem p {
+.boardItem p,
+.boardItem svg {
   color: var(--sidebar-text-color-secondary);
 }
 
@@ -124,8 +126,10 @@
   padding-right: 14px;
 }
 
-.boardItemActive p {
+.boardItemActive p,
+.boardItemActive svg {
   color: var(--sidebar-text-color-main);
+  stroke: var(--sidebar-text-color-main);
 }
 
 .boardName {
@@ -202,7 +206,7 @@
   background-color: transparent;
 }
 
-.icons{
-  stroke: #FFF;
+.icons {
+  stroke: #fff;
   display: flex;
 }
