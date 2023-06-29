@@ -87,14 +87,14 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
             }}
           >
             {[
-              'colors',
-              'hexagon',
               'project',
-              'container',
-              'lightnight',
+              'star',
               'loading',
               'puzzle',
-              'star',
+              'container',
+              'lightnight',
+              'colors',
+              'hexagon',
             ].map(item => (
               <Box
                 key={item}
@@ -112,6 +112,17 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                   name="icons"
                   label={
                     {
+                      project: (
+                        <Icon
+                          name={theme === 'dark' ? 'project' : 'project-white'}
+                          width={18}
+                          height={18}
+                          secondaryClassName={clsx(
+                            s.svgIcon,
+                            icon === 'project' && s.activeSvgIcon
+                          )}
+                        />
+                      ),
                       colors: (
                         <Icon
                           name={theme === 'dark' ? 'colors' : 'colors-white'}
@@ -131,17 +142,6 @@ const EditBoard = ({ closeModal, boardToEdit }) => {
                           secondaryClassName={clsx(
                             s.svgIcon,
                             icon === 'hexagon' && s.activeSvgIcon
-                          )}
-                        />
-                      ),
-                      project: (
-                        <Icon
-                          name={theme === 'dark' ? 'project' : 'project-white'}
-                          width={18}
-                          height={18}
-                          secondaryClassName={clsx(
-                            s.svgIcon,
-                            icon === 'project' && s.activeSvgIcon
                           )}
                         />
                       ),

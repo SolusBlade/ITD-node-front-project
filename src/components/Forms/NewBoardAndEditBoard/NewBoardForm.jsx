@@ -78,14 +78,14 @@ const NewBoard = ({ closeModal }) => {
             }}
           >
             {[
-              'colors',
-              'hexagon',
               'project',
-              'container',
-              'lightnight',
+              'star',
               'loading',
               'puzzle',
-              'star',
+              'container',
+              'lightnight',
+              'colors',
+              'hexagon',
             ].map(item => (
               <Box
                 key={item}
