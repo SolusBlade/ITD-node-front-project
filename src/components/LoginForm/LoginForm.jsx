@@ -1,20 +1,21 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { NavLink } from 'react-router-dom';
-// eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { loginUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
 import s from '../RegisterForm/Form.module.scss';
 import ss from '../CommonWelcomField/CommonWelcomeField.module.scss';
 import sprite from '../../assets/icons/icons.svg';
+import { selectError } from 'redux/auth/authSelectors';
+import { Notify } from 'notiflix';
 
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  // eslint-disable-next-line
+  const isAuthError = useSelector(selectError)
+
   const [passwordShown, setPasswordShown] = useState(false);
-  // const message = useSelector(selectAuthError);
 
   const schema = yup.object().shape({
     email: yup
@@ -22,19 +23,47 @@ export const LoginForm = () => {
       .email('Email must be a valid email')
       .min(3, 'Email must be at least 3 characters')
       .max(64, 'Email must be less than or equal to 64 characters')
+      .matches(/^[^\u0400-\u04FF]+$/, 'Email cannot contain Cyrillic characters')
       .required('Email is a required field'),
     password: yup
       .string()
       .min(8, 'Password must be at least 8 characters')
       .max(64, 'Password must be less than or equal to 64 characters')
+      .matches(/^[^\u0400-\u04FF]+$/, 'Password cannot contain Cyrillic characters')
       .required('Password is a required field'),
   });
 
-  const initialValues = { email: '', password: '' };
+  const items = localStorage.getItem('logValues');
 
-  const handleSubmit = (values, { resetForm }) => {
-      dispatch(loginUser(values));
-      resetForm();
+  let data = { email: '', password: '' };
+  if (items) {
+    data = JSON.parse(items);
+  }
+  const initialValues = {
+    email: data.email,
+    password: data.password,
+  };
+
+  useEffect(() => {
+    let error = "";
+    if (isAuthError === "Request failed with status code 401") error = "Email or password is wrong";
+    if (error === "") return
+    Notify.failure(
+        error,
+        {
+          timeout: 2000,
+        },
+      );
+  }, [isAuthError])
+
+  const handleSubmit = async values => {
+    console.log(values);
+    localStorage.setItem('logValues', JSON.stringify(values));
+    await dispatch(loginUser(values));
+    localStorage.setItem(
+        'logValues',
+        JSON.stringify({ email: '', password: '' })
+      );
   };
 
   const hidePassword = () => {
@@ -70,7 +99,7 @@ export const LoginForm = () => {
                 <Field
                   className={s.inputfield}
                   id="email"
-                  type="email"
+                  type="text"
                   name="email"
                   placeholder="Enter your email"
                   autoComplete="off"
@@ -113,6 +142,5 @@ export const LoginForm = () => {
         </Formik>
       </div>
     </div>
-    </WelcomeConainer>
   );
 };

@@ -1,21 +1,26 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 // eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { registerUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
 import s from './Form.module.scss';
 import ss from '../CommonWelcomField/CommonWelcomeField.module.scss'
 import sprite from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
-import WelcomeConainer from 'components/WelcomeConainer/WelcomeConainer';
+import { Notify } from 'notiflix';
+import { selectError } from 'redux/auth/authSelectors';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
+  const isAuthError = useSelector(selectError)
+
   // eslint-disable-next-line
   const [existError, setExistError] = useState(false);
-  const items = localStorage.getItem('values');
+
+  const items = localStorage.getItem('regValues');
+
   let data = { name: '', email: '', password: '' };
   if (items) {
     data = JSON.parse(items);
@@ -26,17 +31,25 @@ export const RegisterForm = () => {
     password: data.password,
   };
 
+  useEffect(() => {
+    let error = "";
+    if (isAuthError === "Request failed with status code 409") error = "User with this email already exists";
+    if (error === "") return
+    Notify.failure(
+        error,
+        {
+          timeout: 2000,
+        },
+      );
+  }, [isAuthError])
+
   const handleSubmit = async values => {
-    try {
-      localStorage.setItem('values', JSON.stringify(values));
+      localStorage.setItem('regValues', JSON.stringify(values));
       await dispatch(registerUser(values));
       localStorage.setItem(
-        'values',
+        'regValues',
         JSON.stringify({ name: '', email: '', password: '' })
       );
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   // usercc@mail.com
@@ -46,17 +59,20 @@ export const RegisterForm = () => {
       .string()
       .min(2, 'Username must be at least 2 characters')
       .max(32, 'Username must be less than or equal to 32 characters')
+      .matches(/^[^\u0400-\u04FF]+$/, 'Username cannot contain Cyrillic characters')
       .required('Username is a required field'),
     email: yup
       .string()
       .email('Email must be a valid email')
       .min(3, 'Email must be at least 3 characters')
       .max(64, 'Email must be less than or equal to 64 characters')
+      .matches(/^[^\u0400-\u04FF]+$/, 'Email cannot contain Cyrillic characters')
       .required('Email is a required field'),
     password: yup
       .string()
       .min(8, 'Password must be at least 8 characters')
       .max(64, 'Password must be less than or equal to 64 characters')
+      .matches(/^[^\u0400-\u04FF]+$/, 'Password cannot contain Cyrillic characters')
       .required('Password is a required field'),
   });
 
@@ -154,6 +170,5 @@ export const RegisterForm = () => {
         </Formik>
       </div>
     </div>
-    </WelcomeConainer>
   );
 };
