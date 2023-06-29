@@ -27,7 +27,7 @@ export const RegisterForm = () => {
     name: yup
       .string()
       .min(2, 'Username must be at least 2 characters')
-      .max(64, 'Username must be less than or equal to 64 characters')
+      .max(32, 'Username must be less than or equal to 32 characters')
       .required('Username is a required field'),
     email: yup
       .string()
