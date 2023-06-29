@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { updateTaskById } from 'redux/board/boardOperations';
 
 const schema = yup.object().shape({
-  title: yup.string().min(3).required('Title is a required field'),
+  title: yup.string().required('Title is a required field'),
   text: yup.string(),
   priority: yup.string(),
   deadline: yup.date().required('Deadline is a required field'),

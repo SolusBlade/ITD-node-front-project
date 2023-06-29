@@ -1,6 +1,15 @@
-.icon {
+.iconBg {
   width: 32px;
   height: 32px;
-  border: 1px solid #1f1f1f;
-  background-color: #1f1f1f;
+  background-color: #1F1F1F;
+  border-radius: 8px;
+  &.violet{
+    background-color: #ECEDFD;
+  }
+}
+.icon{
+  fill: #FFF;
+  &.violet{
+    fill: #5255BC;
+  }
 }

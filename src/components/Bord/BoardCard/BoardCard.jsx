@@ -19,6 +19,7 @@ import Modal from 'components/Modal/Modal';
 import EditCard from 'components/Forms/AddAndEditCard/EditCard/EditCard';
 import Icon from 'components/Icon/Icon';
 import { trimTitleString } from 'services/trimStr';
+import clsx from 'clsx';
 
 const BoardCard = ({ column }) => {
   const [redirectData, setRedirectData] = useState(null);
@@ -29,13 +30,19 @@ const BoardCard = ({ column }) => {
   const allBoards = useSelector(selectBoards);
   const filter = useSelector(selectFilter);
 
-  const isToday = (date) => {
+  const checkDate = (date) => {
     const currentDateTime = new Date();
     const deadlineDateTime = new Date(date);
     deadlineDateTime.setHours(0, 0, 0, 0);
     const currentDate = new Date(currentDateTime.getFullYear(), currentDateTime.getMonth(), currentDateTime.getDate());
-    return currentDate.getTime() === deadlineDateTime.getTime();
-  }
+
+    return {
+      isToday: currentDate.getTime() === deadlineDateTime.getTime(),
+      isPast: currentDate > deadlineDateTime
+    };
+  };
+
+
   
   const filteredCards = filter => {
     const result = allCards
@@ -135,12 +142,12 @@ const BoardCard = ({ column }) => {
 
               <div className={s.iconToDo}>
                 {
-                  isToday(card.deadline) && (
+                  (checkDate(card.deadline).isToday || checkDate(card.deadline).isPast) && (
                     <Icon
                     name="icon-alarm"
                     width={16}
                     height={16}
-                    secondaryClassName={s.alarm}
+                    secondaryClassName={clsx(s.alarm, checkDate(card.deadline).isPast && s.deadLineFailed)}
                   />
                     )
                 }
@@ -183,7 +190,7 @@ const BoardCard = ({ column }) => {
                           })
                         }
                       >
-                        <p>{column.title}</p>
+                        <p>{trimTitleString(column.title, 20)}</p>
                         <Icon
                           name="icon-arrow-redirect"
                           width={16}

@@ -3,7 +3,7 @@
 @import "../../assets/fonts/poppinsFontStyle.css";
 
 .backfield {
-    background-image: linear-gradient(
+  background-image: linear-gradient(
     rgba(196, 196, 196, 1),
     rgba(190, 219, 176, 1)
   );
@@ -12,7 +12,9 @@
   align-items: center;
   justify-content: center;   
   height: 100vh;
+
   @include tablet {
+
   }
 
   @include desktop {
@@ -31,7 +33,7 @@
   
   @include tablet {
     width: 162px;
-  height: 162px;
+    height: 162px;
   }
 
   }
@@ -76,6 +78,9 @@
 .icon {
   width: 40px;
   height: 40px;
+  fill: #FFFFFF;
+  background-color: #161616;
+  border-radius: 8px;
   @include tablet {
     width: 48px;
     height: 48px;
