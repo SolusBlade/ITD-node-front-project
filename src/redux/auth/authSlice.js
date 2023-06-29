@@ -76,7 +76,7 @@ const authSlice = createSlice({
       })
       .addMatcher(
         action =>
-          action.type.startsWith('auth') && action.type.endsWith('/pending'),
+          action.type.startsWith('auth') && !action.type.startsWith('auth/switchTheme') && action.type.endsWith('/pending'),
         state => {
           state.isLoading = true;
           state.error = null;

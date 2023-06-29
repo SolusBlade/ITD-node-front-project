@@ -31,7 +31,9 @@ export let themes = {
         btnHoverSecondary: "#d9d9d9",
         btnActiveSecondary: "#b3b3b3",
         sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)",
-        priorityWithoutPriority: "rgba(255, 255, 255, 0.3)"
+        priorityWithoutPriority: "rgba(255, 255, 255, 0.3)",
+        scrollHandler: "rgba(255, 255, 255, 0.10)",
+        scrollTrack: "#161616",
     },
     light: {
         primaryBackground: '#FFFFFF',
@@ -64,7 +66,9 @@ export let themes = {
         btnActiveMain: "#8bbf73",
         btnHoverSecondary: "#404040",
         btnActiveSecondary: "#737373",
-        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
+        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)",
+        scrollHandler: "rgba(22, 22, 22, 0.30)",
+        scrollTrack: "rgba(22, 22, 22, 0.20)",
     },
     violet: {
         primaryBackground: '#5255BC',
@@ -97,7 +101,9 @@ export let themes = {
         btnActiveMain: "#4044a5",
         btnHoverSecondary: "#6c6fc6",
         btnActiveSecondary: "#4044a5",
-        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
+        priorityWithoutPriority: "rgba(22, 22, 22, 0.30)",
+        scrollHandler: "#B8BCFD",
+        scrollTrack: "#FFFFFF",
     }
 }
 // --btn-hover-main: #a8cf96;
@@ -137,7 +143,10 @@ export const selectHandler = (theme) => {
     root.style.setProperty('--btn-hover-secondary', themes[theme].btnHoverSecondary);
     root.style.setProperty('--btn-active-secondary', themes[theme].btnActiveSecondary);
     root.style.setProperty('--priority-without-priority', themes[theme].priorityWithoutPriority);
-
+    root.style.setProperty('--scroll-handler', themes[theme].scrollHandler);
+    root.style.setProperty('--scroll-track', themes[theme].scrollTrack);
+    // --scroll-handler: rgba(255, 255, 255, 0.10);
+    // --scroll-track: #161616;
     // --sidebar-board-item-hover: #404040;
     // --btn-hover-secondary: #d9d9d9;
     // --btn-active-secondary: #b3b3b3;
