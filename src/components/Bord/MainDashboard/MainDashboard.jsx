@@ -21,7 +21,7 @@ const MainDashboard = () => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-  useScrollBar(columnWrapper, columns?.length >= 2)
+  useScrollBar(columnWrapper, columns?.length >= 1)
 
   return (
     <>

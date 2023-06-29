@@ -39,7 +39,10 @@
 .containerMainDashboard {
   height: calc(100% - 47px);
   @media screen and (max-width: 1279px) {
-      height: calc(100% - 53px);
+      height: calc(100% - 80px);
+  }
+  @media screen and (max-width: 767px) {
+      height: calc(100% - 80px);
   }
 }
 .boardLoader {
