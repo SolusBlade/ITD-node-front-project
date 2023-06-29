@@ -35,6 +35,15 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+export const checkEmailExists = async email => {
+  try {
+    const response = await axios.get(`/api/check-email/${email}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to check email existence');
+  }
+};
+
 export const loginUser = createAsyncThunk(
   'auth/login',
   async (newUser, thunkApi) => {

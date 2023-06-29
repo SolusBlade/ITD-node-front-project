@@ -1,26 +1,44 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 // eslint-disable-next-line
 import { useDispatch, useSelector } from 'react-redux';
-// eslint-disable-next-line
-import { useState, useNavigate } from 'react';
+import { useState } from 'react';
 import { registerUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
-// eslint-disable-next-line
-import { memo } from 'react';
 import s from './Form.module.scss';
+import ss from '../CommonWelcomField/CommonWelcomeField.module.scss'
 import sprite from '../../assets/icons/icons.svg';
 import { NavLink } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
-  const initialValues = { name: '', email: '', password: '' };
-
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(registerUser(values));       
-    resetForm();
+  // eslint-disable-next-line
+  const [existError, setExistError] = useState(false);
+  const items = localStorage.getItem('values');
+  let data = { name: '', email: '', password: '' };
+  if (items) {
+    data = JSON.parse(items);
+  }
+  const initialValues = {
+    name: data.name,
+    email: data.email,
+    password: data.password,
   };
- 
+
+  const handleSubmit = async values => {
+    try {
+      localStorage.setItem('values', JSON.stringify(values));
+      await dispatch(registerUser(values));
+      localStorage.setItem(
+        'values',
+        JSON.stringify({ name: '', email: '', password: '' })
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // usercc@mail.com
 
   const schema = yup.object().shape({
     name: yup
@@ -54,78 +72,87 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div className={s.formwrapper}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <div className={s.registerloginwrapper}>
-            <NavLink
-              to="/register"
-              className={`${s.commoncaption} ${s.accent}`}
-            >
-              Registration
-            </NavLink>
-            <NavLink to="/login" className={s.commoncaption}>
-              Log In
-            </NavLink>
-          </div>
+    <div className={ss.backfield}>
+      <div className={s.formwrapper}>
+        {existError && <div>Email is already exist</div>}
 
-          <div className={s.fieldswrapper}>
-            <label htmlFor="name" className={s.namefield}>
-              <Field
-                className={s.inputfield}
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                autoComplete="off"
-              />
-              <ErrorMessage
-                className={s.errorMessage}
-                component="span"
-                name="name"
-              />
-            </label>
-            <label htmlFor="email" className={s.loginfield}>
-              <Field
-                className={s.inputfield}
-                type="text"
-                name="email"
-                placeholder="Enter your email"
-                autoComplete="off"
-              />
-              <ErrorMessage
-                className={s.errorMessage}
-                component="span"
-                name="email"
-              />
-            </label>
-            <label htmlFor="password" className={s.passwordfield}>
-              <Field
-                className={s.inputfield}
-                type={passwordShown ? "text" : "password"}
-                name="password"
-                placeholder="Create a password"
-                autoComplete="off"
-              />              
-                <svg onClick={()=>hidePassword()} className={s.eye}>
-                  <use href={sprite + '#icon-eye'}></use>
-                </svg>
-              <ErrorMessage
-                className={s.errorMessage}
-                component="span"
-                name="password"
-              />
-            </label>
-            <button type="submit" className={s.submitbutton}>
-              {' '}
-              Register Now
-            </button>
-          </div>
-        </Form>
-      </Formik>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <div className={s.registerloginwrapper}>
+              <NavLink
+                to="/register"
+                className={`${s.commoncaption} ${s.accent}`}
+              >
+                Registration
+              </NavLink>
+              <NavLink to="/login" className={s.commoncaption}>
+                Log In
+              </NavLink>
+            </div>
+
+            <div className={s.fieldswrapper}>
+              <label htmlFor="name" className={s.namefield}>
+                <Field
+                  className={s.inputfield}
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  autoComplete="off"
+                />
+                <ErrorMessage
+                  className={s.errorMessage}
+                  component="span"
+                  name="name"
+                />
+              </label>
+              <label htmlFor="email" className={s.loginfield}>
+                <Field
+                  className={s.inputfield}
+                  type="text"
+                  name="email"
+                  placeholder="Enter your email"
+                  autoComplete="off"
+                />
+                <ErrorMessage
+                  className={s.errorMessage}
+                  component="span"
+                  name="email"
+                />
+              </label>
+              <label htmlFor="password" className={s.passwordfield}>
+                <Field
+                  className={s.inputfield}
+                  type={passwordShown ? 'text' : 'password'}
+                  name="password"
+                  placeholder="Create a password"
+                  autoComplete="off"
+                />
+                {passwordShown ? (
+                  <svg onClick={() => hidePassword()} className={s.eye}>
+                    <use href={sprite + '#icon-eye-blocked'}></use>
+                  </svg>
+                ) : (
+                  <svg onClick={() => hidePassword()} className={s.eye}>
+                    <use href={sprite + '#icon-eye'}></use>
+                  </svg>
+                )}
+                <ErrorMessage
+                  className={s.errorMessage}
+                  component="span"
+                  name="password"
+                />
+              </label>
+              <button type="submit" className={s.submitbutton}>
+                Register Now
+              </button>
+            </div>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };
