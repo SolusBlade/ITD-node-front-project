@@ -102,6 +102,11 @@
   align-items: center;
   justify-content: space-between;
 
+  &:hover {
+    cursor: pointer;
+    background-color: var(--sidebar-board-item-hover);
+  }
+
   @media screen and (min-width: 768px) {
     padding-left: 24px;
     padding-right: 24px;
@@ -111,11 +116,7 @@
 .boardItem p,
 .boardItem svg {
   color: var(--sidebar-text-color-secondary);
-}
-
-.boardItem:hover {
-  cursor: pointer;
-  background-color: var(--sidebar-board-item-hover);
+  stroke-opacity: 0.5;
 }
 
 .boardItemActive {
@@ -129,7 +130,8 @@
 .boardItemActive p,
 .boardItemActive svg {
   color: var(--sidebar-text-color-main);
-  stroke: var(--sidebar-text-color-main);
+  // stroke: var(--sidebar-text-color-main);
+  stroke-opacity: 1;
 }
 
 .boardName {

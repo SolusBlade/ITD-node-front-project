@@ -107,6 +107,7 @@ export const Sidebar = () => {
           {boards?.map(el => {
             const currentClass =
               el._id === activeItemId ? st.boardItemActive : st.boardItem;
+            const iconName = theme === 'dark' ? el.icon : `${el.icon}-white`;
             return (
               <li
                 key={el._id}
@@ -115,7 +116,7 @@ export const Sidebar = () => {
               >
                 <div className={st.boardName}>
                   <Icon
-                    name={el.icon}
+                    name={iconName}
                     width={18}
                     height={18}
                     className={st.boardNameIcon}
