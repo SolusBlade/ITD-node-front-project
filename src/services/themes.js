@@ -28,8 +28,8 @@ export let themes = {
         sidebarTextColorMain: "#FFF",
         btnHoverMain:"#a8cf96",
         btnActiveMain: "#8bbf73",
-        btnHoverSecondary: "#d9d9d9",
-        btnActiveSecondary: "#b3b3b3",
+        btnHoverSecondary: "#595959",
+        btnActiveSecondary: "#333333",
         sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)",
         priorityWithoutPriority: "rgba(255, 255, 255, 0.3)"
     },
@@ -62,8 +62,8 @@ export let themes = {
         sidebarTextColorSecondary: "rgba(22, 22, 22, 0.50)",
         btnHoverMain: "#a8cf96",
         btnActiveMain: "#8bbf73",
-        btnHoverSecondary: "#404040",
-        btnActiveSecondary: "#737373",
+        btnHoverSecondary: "#bfbfbf",
+        btnActiveSecondary: "#d9d9d9",
         priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
     },
     violet: {
@@ -95,8 +95,8 @@ export let themes = {
         sidebarTextColorSecondary: "rgba(255, 255, 255, 0.50)",
         btnHoverMain: "#6c6fc6",
         btnActiveMain: "#4044a5",
-        btnHoverSecondary: "#6c6fc6",
-        btnActiveSecondary: "#4044a5",
+        btnHoverSecondary: "#a3a5db",
+        btnActiveSecondary: "#6c6fc6",
         priorityWithoutPriority: "rgba(22, 22, 22, 0.30)"
     }
 }
