@@ -181,6 +181,7 @@
   font-size: 12px;
   font-weight: 500;
   color: var(--sidebar-text-color-main);
+  stroke: var(--sidebar-text-color-main);
   border: none;
   background-color: transparent;
 }
@@ -193,10 +194,14 @@
   font-weight: 400;
   line-height: 1.33;
   letter-spacing: -0.24px;
-}
 
-.helpText > span {
-  color: rgba(190, 219, 176, 1);
+  & > span {
+    color: var(--select-list-border);
+  }
+
+  &.violet > span {
+    color: var(--primary-background);
+  }
 }
 
 .btnLogout {
@@ -207,8 +212,12 @@
   font-size: 16px;
   font-weight: 500;
   color: var(--sidebar-text-color-main);
+  stroke: var(--select-list-border);
   border: none;
   background-color: transparent;
+  &.violet {
+    stroke: var(--btn-text-color);
+  }
 }
 
 .icons {

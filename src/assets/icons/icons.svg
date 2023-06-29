@@ -230,24 +230,24 @@
     </symbol>
 <symbol
       id="icon-help-circle" viewBox="0 0 32 32">
-      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round"
+      <path fill="none"  stroke-linejoin="round"
         stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88"
         d="M16 29.333c7.364 0 13.333-5.97 13.333-13.333s-5.97-13.333-13.333-13.333c-7.364 0-13.333 5.97-13.333 13.333s5.97 13.333 13.333 13.333z"></path>
-      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round"
+      <path fill="none"  stroke-linejoin="round"
         stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88"
         d="M12.12 12c0.313-0.891 0.932-1.643 1.747-2.121s1.772-0.654 2.703-0.494c0.931 0.16 1.776 0.644 2.384 1.366s0.941 1.637 0.94 2.582c0 2.667-4 4-4 4"></path>
-      <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round"
+      <path fill="none"  stroke-linejoin="round"
         stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.88" d="M16 22.666h0.020"></path>
     </symbol>
 <symbol
       id="icon-iconlogout" viewBox="0 0 32 32">
-      <path fill="none" stroke="#bedbb0" style="stroke: var(--color2, #bedbb0)"
+      <path fill="none" 
         stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5"
         d="M11.867 10.080c0.413-4.8 2.88-6.76 8.28-6.76h0.173c5.96 0 8.347 2.387 8.347 8.347v8.693c0 5.96-2.387 8.347-8.347 8.347h-0.173c-5.36 0-7.827-1.933-8.267-6.653"></path>
-      <path fill="none" stroke="#bedbb0" style="stroke: var(--color2, #bedbb0)"
+      <path fill="none" 
         stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5"
         d="M2.667 16h17.173"></path>
-      <path fill="none" stroke="#bedbb0" style="stroke: var(--color2, #bedbb0)"
+      <path fill="none" 
         stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5"
         d="M16.867 11.533l4.467 4.467-4.467 4.467"></path>
     </symbol> // <symbol
