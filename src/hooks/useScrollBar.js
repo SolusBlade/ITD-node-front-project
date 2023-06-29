@@ -1,15 +1,15 @@
 import { OverlayScrollbars } from "overlayscrollbars";
 import { useEffect } from "react";
 
-const config = {
+const configT = {
 
 }
 
-export const useScrollBar = (root, hasScroll) => {
+export const useScrollBar = (root, hasScroll, config) => {
     useEffect(() => {
         let scrollBars;
         if (root?.current && hasScroll) {
-           scrollBars = OverlayScrollbars(root?.current, config)
+           scrollBars = OverlayScrollbars(root?.current, (config && config)|| configT)
         }
 
         return () => {
@@ -18,5 +18,5 @@ export const useScrollBar = (root, hasScroll) => {
                 scrollBars = null;
             }
         }
-    }, [root, hasScroll])
+    }, [root, hasScroll, config])
 }

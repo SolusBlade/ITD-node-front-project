@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 // import { Button } from '@mui/material';
@@ -21,6 +21,7 @@ import { selectBoards, selectCurrentBoardId } from 'redux/board/boardSelectors';
 import { selectName, selectUserTheme } from 'redux/auth/authSelectors';
 import clsx from 'clsx';
 import ButtonDelete from 'components/Modal/ButtonDelete';
+import { useScrollBar } from 'hooks/useScrollBar';
 
 export const Sidebar = () => {
   const boards = useSelector(selectBoards);
@@ -35,6 +36,7 @@ export const Sidebar = () => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [activeItemId, setActiveItemId] = useState(null);
   const [boardToEdit, setBoardToEdit] = useState(null);
+  const boardWrapper = useRef(null);
 
   useEffect(() => {
     isLoggedIn && dispatch(getAllBoards());
@@ -83,6 +85,9 @@ export const Sidebar = () => {
   const handleLogout = () => {
     dispatch(logOutUser());
   };
+
+  useScrollBar(boardWrapper, true, {scrollbars : {autoHide: "l"}});
+
   return (
     <nav>
       <section className={st.sectionTop}>
@@ -106,6 +111,7 @@ export const Sidebar = () => {
         </div>
       </section>
       <section className={st.sectionBoards}>
+        <div ref={boardWrapper} className='boardScroll'>
         <ul className={st.boardsList}>
           {boards?.map(el => {
             const currentClass =
@@ -166,7 +172,8 @@ export const Sidebar = () => {
               </li>
             );
           })}
-        </ul>
+          </ul>
+        </div>
       </section>
       <section className={st.sectionHelp}>
         <div className={st.container}>

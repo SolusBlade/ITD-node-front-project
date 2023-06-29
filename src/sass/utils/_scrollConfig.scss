@@ -1,7 +1,8 @@
 .columnScroll {
     overflow: unset;
+    position: static;
   .os-scrollbar-horizontal{
-    bottom: -50px;
+    bottom: 0;
   }
   .os-scrollbar-track {
     height: 12px;
@@ -23,5 +24,24 @@
     .os-scrollbar-track {
         height: 100%;
         background: var(--scroll-track) ;
+    }
+}
+
+.boardScroll{
+    overflow: unset;
+    .os-scrollbar-vertical{
+        right: -4px;
+    }
+    .os-scrollbar-track {
+        width: 4px;
+        height: 100%;
+        background: var(--scroll-track) ;
+    }
+    .os-scrollbar-handle {
+      width: 4px;
+      background: var(--scroll-handler);
+      &:hover{
+          background: var(--btn-bg);
+      }
     }
 }
