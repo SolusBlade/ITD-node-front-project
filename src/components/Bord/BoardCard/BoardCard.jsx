@@ -40,6 +40,7 @@ const BoardCard = ({ column }) => {
     const currentDateTime = new Date();
     const deadlineDateTime = new Date(date);
     deadlineDateTime.setHours(0, 0, 0, 0);
+
     const currentDate = new Date(
       currentDateTime.getFullYear(),
       currentDateTime.getMonth(),
@@ -111,37 +112,60 @@ const BoardCard = ({ column }) => {
   const hendleDeleteClick = id => {
     dispatch(deleteTaskById(id));
   };
+  const trimText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      if (text.includes(' ')) {
+        const words = text.split(' ');
+        let firstLine = '';
+        let secondLine = '';
+
+        for (let i = 0; i < words.length; i++) {
+          if ((firstLine + words[i]).length <= maxLength) {
+            firstLine += words[i] + ' ';
+          } else {
+            secondLine += words[i] + ' ';
+          }
+        }
+
+        return firstLine.trim() + '\n' + secondLine.trim();
+      } else {
+        return text.slice(0, maxLength - 3) + '...';
+      }
+    }
+
+    return text;
+  };
 
   useScrollBar(cardWrapper, true);
-
+  
   return (
     <>
       <div ref={cardWrapper} className="cardScroll">
-        <ul className={s.cardList}>
-          {filteredCards(filter).map(card => (
-            <li className={s.cardToDo} key={card._id}>
-              <div
-                style={{
-                  backgroundColor: findPriorityColor(card.priority),
-                }}
-                className={s.beforeColor}
-              ></div>{' '}
-              <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
-              <p className={s.textCard}>{card.text}</p>
-              <div className={s.line}></div>
-              <div className={s.bottomMenuCard}>
-                <div className={s.textBottomMenuCard}>
-                  <div>
-                    <h3 className={s.titleBottomMenuCard}>Priority</h3>
-                    <p className={s.discriptionBottomMenuCard}>
-                      <span
-                        style={{
-                          backgroundColor: findPriorityColor(card.priority),
-                        }}
-                        className={s.priorityColor}
-                      ></span>{' '}
-                      {getFormattedValue(card.priority)}
-                    </p>
+      <ul className={s.cardList}>
+        {filteredCards(filter).map(card => (
+          <li className={s.cardToDo} key={card._id}>
+            <div
+              style={{
+                backgroundColor: findPriorityColor(card.priority),
+              }}
+              className={s.beforeColor}
+            ></div>{' '}
+            <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
+            <p className={s.textCard}>{trimText(card.text, 95)}</p>
+            <div className={s.line}></div>
+            <div className={s.bottomMenuCard}>
+              <div className={s.textBottomMenuCard}>
+                <div>
+                  <h3 className={s.titleBottomMenuCard}>Priority</h3>
+                  <p className={s.discriptionBottomMenuCard}>
+                    <span
+                      style={{
+                        backgroundColor: findPriorityColor(card.priority),
+                      }}
+                      className={s.priorityColor}
+                    ></span>{' '}
+                    {getFormattedValue(card.priority)}
+                  </p>
                   </div>
                   <div>
                     <h3 className={s.titleBottomMenuCard}>Deadline</h3>

@@ -38,8 +38,8 @@ const AddCard = ({boardId, columnId, closeModal}) => {
       onSubmit={handleSubmit}
     >
       <Form autoComplete="off">
-        <InputField name="title" placeholder="Title"/>
-        <Field name="text">
+        <InputField name="title" placeholder="Title" secendaryClassName={s.secClassName}/>
+        <Field name="text" className={s.description}>
           {({ field }) => (
             <textarea
               {...field}
@@ -48,11 +48,11 @@ const AddCard = ({boardId, columnId, closeModal}) => {
             />
           )}
         </Field>
-        <p className={s.titleP}>Label color</p>
+        <p className={s.titleLabel}>Label color</p>
         <Field name="priority">
           {({ field }) => <PrioritySelector field={field} /> }
         </Field>
-        <p className={s.titleP}>Deadline</p>
+        <p className={s.titleDeadline}>Deadline</p>
         <Field name="deadline">
           {({ field }) => (
             <div className={s.datePickerContainer}>
