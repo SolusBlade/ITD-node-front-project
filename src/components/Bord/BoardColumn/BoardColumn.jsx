@@ -15,18 +15,18 @@ const BoardColumn = () => {
   const columns = useSelector(selectCurrentBoardColumns);
   const dispatch = useDispatch()
   const [editColumnModal, setEditColumnModal] = useState(null);
-
+  
   const handleCloseEditColumnModal = () => setEditColumnModal(null);
   const handleOpenEditColumnModal = (column) => setEditColumnModal(column);
-
+  
   const hendleDeleteClick = ({ _id: idColumn, boardId: idBoard }, e) => {
     dispatch(deleteColumnById({idColumn, idBoard}))
   }
-
+  
   return (
     <>
        <ul className={s.columnList}>
-      {columns?.map(column => (
+        {columns?.map(column => (
         <li key={column._id} className={s.columnItem}>
           <div className={s.titleToDo}>
             <h2 className={s.titleCard}>{trimTitleString(column.title, 20)}</h2>
@@ -47,7 +47,7 @@ const BoardColumn = () => {
               />
             </div>
             </div>
-            <div>
+          <div>
               <BoardCard column={column}/>
               <BtnAddCard column={column}/>
             </div>

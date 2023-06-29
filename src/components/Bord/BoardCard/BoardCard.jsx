@@ -20,6 +20,7 @@ import EditCard from 'components/Forms/AddAndEditCard/EditCard/EditCard';
 import Icon from 'components/Icon/Icon';
 import { trimTitleString } from 'services/trimStr';
 import clsx from 'clsx';
+import { useScrollBar } from 'hooks/useScrollBar';
 
 const BoardCard = ({ column }) => {
   const [redirectData, setRedirectData] = useState(null);
@@ -29,6 +30,8 @@ const BoardCard = ({ column }) => {
   const allCards = useSelector(selectTasks);
   const allBoards = useSelector(selectBoards);
   const filter = useSelector(selectFilter);
+  const cardWrapper = useRef(null);
+
 
   const checkDate = (date) => {
     const currentDateTime = new Date();
@@ -104,108 +107,112 @@ const BoardCard = ({ column }) => {
     dispatch(deleteTaskById(id));
   };
 
+  useScrollBar(cardWrapper, true)
+
   return (
     <>
-      <ul className={s.cardList}>
-        {filteredCards(filter).map(card => (
-          <li className={s.cardToDo} key={card._id}>
-            <div
-              style={{
-                backgroundColor: findPriorityColor(card.priority),
-              }}
-              className={s.beforeColor}
-            ></div>{' '}
-            <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
-            <p className={s.textCard}>{card.text}</p>
-            <div className={s.line}></div>
-            <div className={s.bottomMenuCard}>
-              <div className={s.textBottomMenuCard}>
-                <div>
-                  <h3 className={s.titleBottomMenuCard}>Priority</h3>
-                  <p className={s.discriptionBottomMenuCard}>
-                    <span
-                      style={{
-                        backgroundColor: findPriorityColor(card.priority),
-                      }}
-                      className={s.priorityColor}
-                    ></span>{' '}
-                    {getFormattedValue(card.priority)}
-                  </p>
+      <div ref={cardWrapper} className='cardScroll'>
+        <ul className={s.cardList}>
+          {filteredCards(filter).map(card => (
+            <li className={s.cardToDo} key={card._id}>
+              <div
+                style={{
+                  backgroundColor: findPriorityColor(card.priority),
+                }}
+                className={s.beforeColor}
+              ></div>{' '}
+              <h2 className={s.titleCard}>{trimTitleString(card.title, 25)}</h2>
+              <p className={s.textCard}>{card.text}</p>
+              <div className={s.line}></div>
+              <div className={s.bottomMenuCard}>
+                <div className={s.textBottomMenuCard}>
+                  <div>
+                    <h3 className={s.titleBottomMenuCard}>Priority</h3>
+                    <p className={s.discriptionBottomMenuCard}>
+                      <span
+                        style={{
+                          backgroundColor: findPriorityColor(card.priority),
+                        }}
+                        className={s.priorityColor}
+                      ></span>{' '}
+                      {getFormattedValue(card.priority)}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className={s.titleBottomMenuCard}>Deadline</h3>
+                    <p className={s.discriptionBottomMenuCard}>
+                      {formatDate(card.deadline)}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className={s.titleBottomMenuCard}>Deadline</h3>
-                  <p className={s.discriptionBottomMenuCard}>
-                    {formatDate(card.deadline)}
-                  </p>
-                </div>
-              </div>
 
-              <div className={s.iconToDo}>
-                {
-                  (checkDate(card.deadline).isToday || checkDate(card.deadline).isPast) && (
-                    <Icon
-                    name="icon-alarm"
+                <div className={s.iconToDo}>
+                  {
+                    (checkDate(card.deadline).isToday || checkDate(card.deadline).isPast) && (
+                      <Icon
+                      name="icon-alarm"
+                      width={16}
+                      height={16}
+                      secondaryClassName={clsx(s.alarm, checkDate(card.deadline).isPast && s.deadLineFailed)}
+                    />
+                      )
+                  }
+                  <IconBtn
+                    name="icon-arrow"
                     width={16}
                     height={16}
-                    secondaryClassName={clsx(s.alarm, checkDate(card.deadline).isPast && s.deadLineFailed)}
+                    onClick={() =>
+                      hendleRedirectOpen({
+                        columnId: card.columnId,
+                        boardId: card.boardId,
+                        cardId: card._id,
+                      })
+                    }
                   />
-                    )
-                }
-                <IconBtn
-                  name="icon-arrow"
-                  width={16}
-                  height={16}
-                  onClick={() =>
-                    hendleRedirectOpen({
-                      columnId: card.columnId,
-                      boardId: card.boardId,
-                      cardId: card._id,
-                    })
-                  }
-                />
-                <IconBtn
-                  name="icon-pencil"
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconPencil}
-                  onClick={() => handleOpenEditCardModal(card)}
-                />
-                <IconBtn
-                  name="icon-trash"
-                  width={16}
-                  height={16}
-                  secondaryClassName={s.iconTrash}
-                  onClick={() => hendleDeleteClick(card._id)}
-                />
-                {redirectData && currentCard === card._id && (
-                  <ul className={s.redirectList} ref={wrapperRef}>
-                    {redirectData.map(column => (
-                      <li
-                        key={column._id}
-                        className={s.redirectItem}
-                        onClick={() =>
-                          hendleRedirectClick({
-                            idTask: card._id,
-                            idColumn: column._id,
-                          })
-                        }
-                      >
-                        <p>{trimTitleString(column.title, 20)}</p>
-                        <Icon
-                          name="icon-arrow-redirect"
-                          width={16}
-                          height={16}
-                          secondaryClassName={s.iconArrow}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  <IconBtn
+                    name="icon-pencil"
+                    width={16}
+                    height={16}
+                    secondaryClassName={s.iconPencil}
+                    onClick={() => handleOpenEditCardModal(card)}
+                  />
+                  <IconBtn
+                    name="icon-trash"
+                    width={16}
+                    height={16}
+                    secondaryClassName={s.iconTrash}
+                    onClick={() => hendleDeleteClick(card._id)}
+                  />
+                      {redirectData && currentCard === card._id && (
+                      <ul className={s.redirectList} ref={wrapperRef}>
+                        {redirectData.map(column => (
+                          <li
+                            key={column._id}
+                            className={s.redirectItem}
+                            onClick={() =>
+                              hendleRedirectClick({
+                                idTask: card._id,
+                                idColumn: column._id,
+                              })
+                            }
+                          >
+                            <p>{trimTitleString(column.title, 20)}</p>
+                            <Icon
+                              name="icon-arrow-redirect"
+                              width={16}
+                              height={16}
+                              secondaryClassName={s.iconArrow}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                  )}
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
       {editCardModal && (
         <Modal title="Edit card" closeModal={handleCloseEditCardModal}>
           <EditCard

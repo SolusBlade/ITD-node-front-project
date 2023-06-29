@@ -1,0 +1,27 @@
+.columnScroll {
+    overflow: unset;
+  .os-scrollbar-horizontal{
+    bottom: -50px;
+  }
+  .os-scrollbar-track {
+    height: 12px;
+    background: var(--scroll-track) ;
+  }
+  .os-scrollbar-handle {
+    background: var(--scroll-handler);
+    &:hover{
+        background: var(--btn-bg);
+    }
+  }
+}
+
+.cardScroll{
+    overflow: unset;
+    .os-scrollbar-vertical{
+        right: -15px;
+    }
+    .os-scrollbar-track {
+        height: 100%;
+        background: var(--scroll-track) ;
+    }
+}
