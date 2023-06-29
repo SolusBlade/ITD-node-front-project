@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import {
   selectBoards,
+  selectCurrentBoardId,
   selectFilter,
   selectTasks,
 } from 'redux/board/boardSelectors';
@@ -24,12 +25,18 @@ import ButtonDelete from 'components/Modal/ButtonDelete';
 import { useScrollBar } from 'hooks/useScrollBar';
 
 const BoardCard = ({ column }) => {
+  const allBoards = useSelector(selectBoards);
   const [redirectData, setRedirectData] = useState(null);
   const [currentCard, setCurrentCard] = useState(null);
+  const currentBoardId = useSelector(selectCurrentBoardId)
+
+  const allColumns = allBoards.filter(
+      ({ _id }) => _id === currentBoardId
+  )[0].columns || [];
+  
   const dispatch = useDispatch();
   const wrapperRef = useRef(null);
   const allCards = useSelector(selectTasks);
-  const allBoards = useSelector(selectBoards);
   const filter = useSelector(selectFilter);
   const [deleteModal, setDeleteModal] = useState(false);
   const cardWrapper = useRef(null);
@@ -63,12 +70,9 @@ const BoardCard = ({ column }) => {
   };
 
   const hendleRedirectOpen = ({ columnId, boardId, cardId }) => {
-    const allCurrentBoardColumns = allBoards.filter(
-      ({ _id }) => _id === boardId
-    )[0].columns;
     setCurrentCard(cardId);
     setRedirectData(
-      allCurrentBoardColumns.filter(({ _id }) => _id !== columnId)
+      allColumns.filter(({ _id }) => _id !== columnId)
     );
   };
 
@@ -187,7 +191,9 @@ const BoardCard = ({ column }) => {
                       )}
                     />
                   )}
-                  <IconBtn
+                {
+                  allColumns?.length > 1 && (
+                    <IconBtn
                     name="icon-arrow"
                     width={16}
                     height={16}
@@ -199,6 +205,8 @@ const BoardCard = ({ column }) => {
                       })
                     }
                   />
+                  )
+                }
                   <IconBtn
                     name="icon-pencil"
                     width={16}
