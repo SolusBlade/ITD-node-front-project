@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { loginUser } from '../../redux/auth/authOperations';
 import * as yup from 'yup';
 import s from '../RegisterForm/Form.module.scss';
-import sprite from '../../assets/icons/icons.svg'
-import WelcomeConainer from 'components/WelcomeConainer/WelcomeConainer';
-// import s2 from '../../shared/components/InputField/InputField.module.scss'
+import ss from '../CommonWelcomField/CommonWelcomeField.module.scss';
+import sprite from '../../assets/icons/icons.svg';
+
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -49,52 +49,69 @@ export const LoginForm = () => {
   // };
 
   return (
-    <WelcomeConainer>
+    <div className={ss.backfield}>
       <div className={s.formwrapper}>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <div className={s.registerloginwrapper}>
-            <NavLink to="/register" className={s.commoncaption}>Registration</NavLink>
-            <NavLink to="/login" className={`${s.commoncaption} ${s.accent}`}>
-              Log In
-            </NavLink>
-          </div>
-          <div className={s.fieldswrapper}>
-            <label htmlFor="email" className={s.loginfield}>
-              <Field
-                className={s.inputfield}
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                autoComplete="off"
-              />
-              <ErrorMessage className={s.errorMessage} component="span" name="email" />
-            </label>
-            <label htmlFor="password" className={s.passwordfield}>
-              <Field
-                className={s.inputfield}
-                id="password"
-                type={passwordShown ? "text" : "password"}
-                name="password"
-                placeholder="Confirm a password"
-                autoComplete="off"
-              />
-              <svg onClick={()=>hidePassword()} className={s.eye}>
-                  <use href={sprite + '#icon-eye'}></use>
-                </svg>
-              <ErrorMessage className={s.errorMessage} component="span" name="password" />
-            </label>
-            <button type="submit" className={s.submitbutton}>
-              Log In Now
-            </button>
-          </div>
-        </Form>
-      </Formik>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={schema}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <div className={s.registerloginwrapper}>
+              <NavLink to="/register" className={s.commoncaption}>
+                Registration
+              </NavLink>
+              <NavLink to="/login" className={`${s.commoncaption} ${s.accent}`}>
+                Log In
+              </NavLink>
+            </div>
+            <div className={s.fieldswrapper}>
+              <label htmlFor="email" className={s.loginfield}>
+                <Field
+                  className={s.inputfield}
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  autoComplete="off"
+                />
+                <ErrorMessage
+                  className={s.errorMessage}
+                  component="span"
+                  name="email"
+                />
+              </label>
+              <label htmlFor="password" className={s.passwordfield}>
+                <Field
+                  className={s.inputfield}
+                  id="password"
+                  type={passwordShown ? 'text' : 'password'}
+                  name="password"
+                  placeholder="Confirm a password"
+                  autoComplete="off"
+                />
+                {passwordShown ? (
+                  <svg onClick={() => hidePassword()} className={s.eye}>
+                    <use href={sprite + '#icon-eye-blocked'}></use>
+                  </svg>
+                ) : (
+                  <svg onClick={() => hidePassword()} className={s.eye}>
+                    <use href={sprite + '#icon-eye'}></use>
+                  </svg>
+                )}
+                <ErrorMessage
+                  className={s.errorMessage}
+                  component="span"
+                  name="password"
+                />
+              </label>
+              <button type="submit" className={s.submitbutton}>
+                Log In Now
+              </button>
+            </div>
+          </Form>
+        </Formik>
+      </div>
     </div>
     </WelcomeConainer>
   );
