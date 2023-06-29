@@ -125,10 +125,20 @@
 
 .boardItemActive {
   composes: boardItem;
-  // opacity: 0.4000000059604645;
   background-color: var(--sidebar-board-active-bg);
-  border-right: 4px solid var(--select-list-border);
   padding-right: 14px;
+  position: relative;
+  &::after{
+    content: "";
+    height: calc(100% - 2px);
+    top: 1px;
+    right: 0;
+    position: absolute;
+    width: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: var(--btn-bg);
+  }
 }
 
 .boardItemActive p,

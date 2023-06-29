@@ -114,13 +114,11 @@ export const Sidebar = () => {
         <div ref={boardWrapper} className='boardScroll'>
         <ul className={st.boardsList}>
           {boards?.map(el => {
-            const currentClass =
-              el._id === activeItemId ? st.boardItemActive : st.boardItem;
             const iconName = theme !== 'light' ? el.icon : `${el.icon}-white`;
             return (
               <li
                 key={el._id}
-                className={currentClass}
+                className={clsx(st.boardItem, el._id === activeItemId && st.boardItemActive)}
                 onClick={() => handleChangeActive(el._id, el.title)}
               >
                 <div className={st.boardName}>
