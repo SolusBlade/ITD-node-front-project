@@ -2,7 +2,6 @@ import IconBtn from 'components/IconBtn/IconBtn';
 import s from './BoardCard.module.scss';
 import {
   deleteTaskById,
-  updateTaskById,
   updateTaskColumnById,
 } from 'redux/board/boardOperations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -104,15 +103,6 @@ const BoardCard = ({ column }) => {
 
   const handleCloseEditCardModal = () => setEditCardModal(null);
   const handleOpenEditCardModal = card => setEditCardModal({ ...card });
-
-  const handleCardUpdate = async updatedCard => {
-    try {
-      await dispatch(updateTaskById({ id: updatedCard.id, data: updatedCard }));
-      handleCloseEditCardModal();
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const hendleDeleteClick = id => {
     dispatch(deleteTaskById(id));
@@ -256,7 +246,6 @@ const BoardCard = ({ column }) => {
           <EditCard
             closeModal={handleCloseEditCardModal}
             card={editCardModal}
-            onUpdate={handleCardUpdate}
           />
         </Modal>
       )}

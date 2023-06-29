@@ -17,7 +17,7 @@ const schema = yup.object().shape({
 });
 
 
-const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
+const EditCard = ({ boardId, columnId, closeModal, card }) => {
   const dispatch = useDispatch();
 
   const initialsValue = {
@@ -28,9 +28,8 @@ const EditCard = ({ boardId, columnId, closeModal, card, onUpdate }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
+    console.log(card);
     dispatch(updateTaskById({ idTask: card._id, data: {...values, boardId, columnId} }))
-    const updatedCard = { ...card, ...values };
-    onUpdate(updatedCard);
     resetForm();
     closeModal();
   };

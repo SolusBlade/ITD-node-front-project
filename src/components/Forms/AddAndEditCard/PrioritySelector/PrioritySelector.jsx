@@ -21,14 +21,14 @@ const PrioritySelector = ({ field, filter }) => {
   return (
     <div className={clsx(s.prioritySelector, filter && s.prioritySelectorFilter)}>
       {priorityOptions.map((option) => (
-        <div key={option.value} className={s.priorityOptionWrapper}>
+        <div key={option.value} className={s.priorityOptionWrapper} onClick={() => handleOptionClick(option)}>
           <div
             className={clsx(
               s.priorityOption,
               field.value === option.value && s.selected
             )}
             style={{ backgroundColor: option.color }}
-            onClick={() => handleOptionClick(option)}
+            
           >
             {selectedOption === option.value && (
               <div className={s.colorIndicator} />

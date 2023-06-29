@@ -78,7 +78,6 @@ export const Sidebar = () => {
   };
 
   const handleDeleteBoard = id => {
-    console.log(id);
     dispatch(deleteBoardById(id));
     dispatch(getBoardById(null));
   };
