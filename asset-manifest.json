@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.02455078.css",
-    "main.js": "/ITD-node-front-project/static/js/main.de6f8836.js",
-    "static/css/869.31784415.chunk.css": "/ITD-node-front-project/static/css/869.31784415.chunk.css",
-    "static/js/869.1aa5b679.chunk.js": "/ITD-node-front-project/static/js/869.1aa5b679.chunk.js",
+    "main.css": "/ITD-node-front-project/static/css/main.2c61eff6.css",
+    "main.js": "/ITD-node-front-project/static/js/main.d3ffd03f.js",
+    "static/css/869.fb658170.chunk.css": "/ITD-node-front-project/static/css/869.fb658170.chunk.css",
+    "static/js/869.d1cd15d8.chunk.js": "/ITD-node-front-project/static/js/869.d1cd15d8.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
     "static/media/sakura-desktop.jpg": "/ITD-node-front-project/static/media/sakura-desktop.031259485a07cb8462d9.jpg",
     "static/media/sakura-tablet.jpg": "/ITD-node-front-project/static/media/sakura-tablet.3cdc5d7d57c001ef6787.jpg",
@@ -69,14 +69,14 @@
     "static/media/sky.png": "/ITD-node-front-project/static/media/sky.f43ec3d1551635112d93.png",
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.02455078.css.map": "/ITD-node-front-project/static/css/main.02455078.css.map",
-    "main.de6f8836.js.map": "/ITD-node-front-project/static/js/main.de6f8836.js.map",
-    "869.31784415.chunk.css.map": "/ITD-node-front-project/static/css/869.31784415.chunk.css.map",
-    "869.1aa5b679.chunk.js.map": "/ITD-node-front-project/static/js/869.1aa5b679.chunk.js.map",
+    "main.2c61eff6.css.map": "/ITD-node-front-project/static/css/main.2c61eff6.css.map",
+    "main.d3ffd03f.js.map": "/ITD-node-front-project/static/js/main.d3ffd03f.js.map",
+    "869.fb658170.chunk.css.map": "/ITD-node-front-project/static/css/869.fb658170.chunk.css.map",
+    "869.d1cd15d8.chunk.js.map": "/ITD-node-front-project/static/js/869.d1cd15d8.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.02455078.css",
-    "static/js/main.de6f8836.js"
+    "static/css/main.2c61eff6.css",
+    "static/js/main.d3ffd03f.js"
   ]
 }
