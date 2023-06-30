@@ -40,9 +40,9 @@ export const loginUser = createAsyncThunk(
   async (newUser, thunkApi) => {
     const { email, password } = newUser;
     try {
-      const { accessToken: userToken } = await loginApi({ email, password });
+      const { accessToken: userToken, refreshToken } = await loginApi({ email, password });
       token.set(userToken);
-      return userToken;
+      return {userToken, refreshToken};
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

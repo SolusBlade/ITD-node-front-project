@@ -30,7 +30,6 @@ import PrioritySelector from '../AddAndEditCard/PrioritySelector/PrioritySelecto
 import s from '../NewBoardAndEditBoard/NewBoard.module.scss';
 import { useSelector } from 'react-redux';
 
-// import { selectUserTheme } from 'redux/auth/authSelectors';
 import { useDispatch } from 'react-redux';
 import { changeFilter, updateBoardById } from 'redux/board/boardOperations';
 import { selectUserTheme } from 'redux/auth/authSelectors';

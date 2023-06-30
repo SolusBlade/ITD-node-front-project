@@ -28,7 +28,6 @@ const EditCard = ({ boardId, columnId, closeModal, card }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(card);
     dispatch(updateTaskById({ idTask: card._id, data: {...values, boardId, columnId} }))
     resetForm();
     closeModal();

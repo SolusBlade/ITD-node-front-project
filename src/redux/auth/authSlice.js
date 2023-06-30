@@ -20,6 +20,7 @@ const fulfilledOperation = state => {
 const initialState = {
   user: { name: null, email: null, theme: null },
   token: null,
+  refreshToken: null,
   avatar: null,
   isLoggedIn: false,
   isLoading: false,
@@ -43,7 +44,8 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         fulfilledOperation(state);
-        state.token = payload;
+        state.token = payload.userToken;
+        state.refreshToken = payload.userToken;
         state.isLoading = false;
       })
       .addCase(getCurrentUserInfo.fulfilled, (state, { payload }) => {

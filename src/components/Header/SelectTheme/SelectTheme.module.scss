@@ -1,7 +1,6 @@
 
 .container{
     position: relative;
-    // z-index: 1;
 }
 
 .select{
@@ -29,7 +28,6 @@
     line-height: 21px;
 
     color: var(--select-header);
-    /* identical to box height */
     
     letter-spacing: -0.02em;
 }
@@ -71,7 +69,6 @@
     background-color: var(--select-list-bg);
 
     border-radius: 8px;
-    // transform: translateY(-20px);
 
     &.active{
         
@@ -81,27 +78,18 @@
         
         border: 1px solid var(--select-list-border);
         z-index: 1;
-        // transform: translateY(0px);
     }
 
     
 }
 
 .listItem{
-    // position: absolute;
     padding-left: 18px;
     user-select: none;
 
     &:hover{
         background-color: var(--secondary-background);
     }
-
-    // &.active{
-    //     padding-left: 18px;
-
-    //     // color: blueviolet;
-    //     // position: static;
-    // }
 
     &:not(:last-child){
         margin-bottom: 4px;

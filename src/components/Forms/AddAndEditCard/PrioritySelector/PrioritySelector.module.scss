@@ -12,10 +12,6 @@
   position: relative;
 }
 
-// .selected {
-//   border: 1px solid #333;
-// }
-
 .green {
   background-color: var(--priority-low);
 }
@@ -76,50 +72,3 @@
 .red .colorIndicator {
   background-color: var(--select-header);
 }
-
-// .prioritySelector {
-//   display: flex;
-// }
-
-// .priorityOption {
-//   width: 14px;
-//   height: 14px;
-//   border-radius: 50%;
-//   border: none;
-//   margin-right: 10px;
-//   cursor: pointer;
-// }
-
-// .selected {
-//   border: 1px solid #333;
-// }
-
-// .green {
-//   background-color: var(--priority-low);
-// }
-
-// .yellow {
-//   background-color: var(--priority-medium);
-// }
-
-// .orange {
-//   background-color: var(--priority-high);
-// }
-
-// .red {
-//   background-color: var(--select-header);
-// }
-// .priorityOptionWrapper {
-//   display: flex;
-// }
-// .prioritySelectorFilter {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 10px;
-// }
-// .optionText {
-//   color: var(--primary-text-color);
-//   font-size: 12px;
-//   font-family: Poppins;
-//   letter-spacing: -0.24px;
-// }

@@ -45,7 +45,6 @@
     line-height: 1;
     margin: 0;
     margin-top: 14px;
-    // margin-bottom: 11px;
     display: flex;
     justify-content: center;
     gap: 11px;
@@ -53,11 +52,6 @@
   .react-datepicker__day-name{
       margin: 0;
       width: auto;
-      // display: flex;
-      // align-items: center;
-      // justify-content: center;
-      // width: 21px;
-      // height: 21px;
       line-height: 1;
       color: var(--primary-text-color);
       font-size: 14px;
@@ -132,7 +126,6 @@
   }
 
   .react-datepicker__month {
-    // padding: 14px;
     margin: 0;
     background-color: $white;
     border-bottom-left-radius: 8px;
@@ -194,13 +187,6 @@
 .calendarWrap {
   position: relative;
   width: 217px;
-
-  @media screen and (min-width: 768px) {
-    // bottom: 8px;
-  }
-  @media screen and (max-width: 767px) {
-    // bottom: 18px;
-  }
 }
 
 .icon-calendar{

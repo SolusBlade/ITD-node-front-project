@@ -23,7 +23,6 @@ const NeedHelp = ({ closeModal }) => {
       email: values.email,
       comment: values.comment,
     };
-    console.log(obj);
     closeModal();
     resetForm();
   };

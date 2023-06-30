@@ -32,7 +32,6 @@ export const Header = () => {
 
   useEffect(() => {
     if (selectedTheme) {
-      // console.log('useEffect if', selectedTheme)
       selectHandler(selectedTheme);
       dispatch(switchTheme(selectedTheme));
     }
@@ -42,7 +41,6 @@ export const Header = () => {
   const modalHandler = () => setIsModalOpen(!isModalOpen);
 
   return (
-    // <Container>
     <header className={css.header}>
       <div className={css.menu} onClick={() => dispatch(toggleSidebar(true))}>
         <svg className={css.icon}>
@@ -72,6 +70,5 @@ export const Header = () => {
         </Modal>
       )}
     </header>
-    // </Container>
   );
 };
