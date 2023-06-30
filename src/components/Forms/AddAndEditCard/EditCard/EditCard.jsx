@@ -73,7 +73,7 @@ const EditCard = ({ boardId, columnId, closeModal, card }) => {
             </div>
           )}
         </Field>
-        <ErrorMessage name="deadline" component="span" className={s.errorMessage} />
+        {/* <ErrorMessage name="deadline" component="span" className={s.errorMessage} /> */}
         <ButtonModalWithIcon text="Edit" />
       </Form>
     </Formik>
