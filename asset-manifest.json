@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ITD-node-front-project/static/css/main.1fb49684.css",
+    "main.css": "/ITD-node-front-project/static/css/main.98ec65c6.css",
     "main.js": "/ITD-node-front-project/static/js/main.cf74d442.js",
     "static/css/869.f8937439.chunk.css": "/ITD-node-front-project/static/css/869.f8937439.chunk.css",
     "static/js/869.a5c5a180.chunk.js": "/ITD-node-front-project/static/js/869.a5c5a180.chunk.js",
@@ -69,14 +69,14 @@
     "static/media/sky.png": "/ITD-node-front-project/static/media/sky.f43ec3d1551635112d93.png",
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
-    "main.1fb49684.css.map": "/ITD-node-front-project/static/css/main.1fb49684.css.map",
+    "main.98ec65c6.css.map": "/ITD-node-front-project/static/css/main.98ec65c6.css.map",
     "main.cf74d442.js.map": "/ITD-node-front-project/static/js/main.cf74d442.js.map",
     "869.f8937439.chunk.css.map": "/ITD-node-front-project/static/css/869.f8937439.chunk.css.map",
     "869.a5c5a180.chunk.js.map": "/ITD-node-front-project/static/js/869.a5c5a180.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fb49684.css",
+    "static/css/main.98ec65c6.css",
     "static/js/main.cf74d442.js"
   ]
 }
