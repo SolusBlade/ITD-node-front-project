@@ -121,11 +121,11 @@ export const LoginForm = () => {
                 />
                 {passwordShown ? (
                   <svg onClick={() => hidePassword()} className={s.eye}>
-                    <use href={sprite + '#icon-eye-blocked'}></use>
+                    <use href={sprite + '#icon-eye'}></use>
                   </svg>
                 ) : (
                   <svg onClick={() => hidePassword()} className={s.eye}>
-                    <use href={sprite + '#icon-eye'}></use>
+                    <use href={sprite + '#icon-eye-blocked'}></use>
                   </svg>
                 )}
                 <ErrorMessage
