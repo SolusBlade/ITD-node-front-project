@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ITD-node-front-project/static/css/main.6249670e.css",
-    "main.js": "/ITD-node-front-project/static/js/main.e286c8a7.js",
+    "main.js": "/ITD-node-front-project/static/js/main.d5c27c22.js",
     "static/css/869.e8e086dd.chunk.css": "/ITD-node-front-project/static/css/869.e8e086dd.chunk.css",
     "static/js/869.a5c5a180.chunk.js": "/ITD-node-front-project/static/js/869.a5c5a180.chunk.js",
     "static/js/678.c220e3d0.chunk.js": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js",
@@ -70,13 +70,13 @@
     "static/media/planets.png": "/ITD-node-front-project/static/media/planets.7bc433690406cbbbc5e3.png",
     "index.html": "/ITD-node-front-project/index.html",
     "main.6249670e.css.map": "/ITD-node-front-project/static/css/main.6249670e.css.map",
-    "main.e286c8a7.js.map": "/ITD-node-front-project/static/js/main.e286c8a7.js.map",
+    "main.d5c27c22.js.map": "/ITD-node-front-project/static/js/main.d5c27c22.js.map",
     "869.e8e086dd.chunk.css.map": "/ITD-node-front-project/static/css/869.e8e086dd.chunk.css.map",
     "869.a5c5a180.chunk.js.map": "/ITD-node-front-project/static/js/869.a5c5a180.chunk.js.map",
     "678.c220e3d0.chunk.js.map": "/ITD-node-front-project/static/js/678.c220e3d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6249670e.css",
-    "static/js/main.e286c8a7.js"
+    "static/js/main.d5c27c22.js"
   ]
 }
