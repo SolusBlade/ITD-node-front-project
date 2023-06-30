@@ -73,8 +73,8 @@ const AddCard = ({boardId, columnId, closeModal}) => {
             </div>
           )}
         </Field>
-        <ErrorMessage name="title" component="span" className={s.errorMessageTitle} />
-        <ErrorMessage name="deadline" component="span" className={s.errorMessage} />
+        {/* <ErrorMessage name="title" component="span" className={s.errorMessageTitle} /> */}
+        {/* <ErrorMessage name="deadline" component="span" className={s.errorMessage} /> */}
         <ButtonModalWithIcon text="Add" />
       </Form>
     </Formik>

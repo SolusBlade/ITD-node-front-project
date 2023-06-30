@@ -13,11 +13,18 @@
   display: flex;
   flex-direction: column;
 
-  width: 334px;
+
   height: 154px;
   flex-shrink: 0;
   border-radius: 8px;
   background-color: var(--card-bg);
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 334px;
+  }
 }
 
 .titleCard {
