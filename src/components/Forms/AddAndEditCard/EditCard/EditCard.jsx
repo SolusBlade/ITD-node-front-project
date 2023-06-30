@@ -1,5 +1,5 @@
 import DateComp from 'components/DateComp/DateComp';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import InputField from 'shared/components/InputField/InputField';
 import * as yup from 'yup';
 import s from '../AddCard/AddCard.module.scss';
@@ -73,7 +73,6 @@ const EditCard = ({ boardId, columnId, closeModal, card }) => {
             </div>
           )}
         </Field>
-        {/* <ErrorMessage name="deadline" component="span" className={s.errorMessage} /> */}
         <ButtonModalWithIcon text="Edit" />
       </Form>
     </Formik>

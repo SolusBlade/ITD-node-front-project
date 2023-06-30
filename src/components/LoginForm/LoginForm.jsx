@@ -57,7 +57,6 @@ export const LoginForm = () => {
   }, [isAuthError])
 
   const handleSubmit = async values => {
-    console.log(values);
     localStorage.setItem('logValues', JSON.stringify(values));
     await dispatch(loginUser(values));
     localStorage.setItem(

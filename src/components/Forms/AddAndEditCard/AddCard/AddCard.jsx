@@ -1,5 +1,5 @@
 import DateComp from 'components/DateComp/DateComp';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import InputField from 'shared/components/InputField/InputField';
 import * as yup from 'yup';
 import s from './AddCard.module.scss';
@@ -8,7 +8,6 @@ import ButtonModalWithIcon from 'components/Modal/ButtonModalWithIcon';
 import { useDispatch } from 'react-redux';
 import { createNewTask } from 'redux/board/boardOperations';
 import { getFormattedValue } from 'services/priorityChange';
-// import { getFormattedValue } from 'services/priorityChange';
 
 const schema = yup.object().shape({
   title: yup.string().required('Title is a required field'),
@@ -73,8 +72,6 @@ const AddCard = ({boardId, columnId, closeModal}) => {
             </div>
           )}
         </Field>
-        {/* <ErrorMessage name="title" component="span" className={s.errorMessageTitle} /> */}
-        {/* <ErrorMessage name="deadline" component="span" className={s.errorMessage} /> */}
         <ButtonModalWithIcon text="Add" />
       </Form>
     </Formik>
