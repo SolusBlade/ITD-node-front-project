@@ -226,6 +226,7 @@
   stroke: var(--select-list-border);
   border: none;
   background-color: transparent;
+  font-family: inherit;
   &.violet {
     stroke: var(--btn-text-color);
   }

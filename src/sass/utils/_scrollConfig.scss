@@ -2,7 +2,13 @@
     overflow: unset;
     position: static;
   .os-scrollbar-horizontal{
-    bottom: 0;
+    bottom: -30px;
+    @media screen and (min-width: 768px) {
+      bottom: -15px;
+    }
+    @media screen and (min-width: 1280px) {
+      bottom: 0px;
+    }
   }
   .os-scrollbar-track {
     height: 12px;
